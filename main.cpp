@@ -51,38 +51,48 @@ void loadJogadores(vector<Jogadores> &jogadoresVector) {
          << endl;
     return;
   }
-
-  // vector<string>::iterator it;
-  // for (it = lines.begin(); it != lines.end(); it++) {
-  //   cout << *it << endl;
-  // }
-
+  
   in.close();
+
+  vector<string>::iterator it_v;
+  for (it_v = lines.begin(); it_v != lines.end(); it_v++) {
+    cout << *it_v;
+  }
+  
+  vector<Jogadores>::iterator it_J;
+  for (it_J = jogadoresVector.begin(); it_J != jogadoresVector.end(); it_J++) {
+    cout << (*it_J).Apelido;
+  }
+  
 }
 
 int main() {
 
-  vector<Jogadores> jogadoresVector;
-  // loadJogadores(jogadoresVector);
+  //vector<Jogadores> jogadoresVector;
+  //loadJogadores(jogadoresVector);
+  // vector<Jogadores>::iterator it;
+  // for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
+  //   cout << (*it).Apelido << ' ' << (*it).Nome << endl;
+  // }
 
+  /*
   string str1, str2;
 
-  Jogadores jogador(str1, str2);
+  Jogadores jogador1(str1, str2);
 
-  jogadoresVector.push_back(jogador);
+  jogadoresVector.push_back(jogador1);
 
   Jogadores jogador2(str1, str2);
 
   jogadoresVector.push_back(jogador2);
 
-  /*
-  vector<Jogadores>::iterator it;
-  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
-    cout << (*it).Apelido << ' ' << (*it).Nome << endl;
-  }
-  */
+  Jogadores jogador3(str1, str2);
 
-  jogador.removeJogador(jogadoresVector);
+  jogadoresVector.push_back(jogador3);
+
+  //jogador2.removeJogador(jogadoresVector);
+
+  */
 
   /*
   int i = 1;
@@ -118,5 +128,6 @@ int main() {
     i++;
   }
   */
+
   // showJogadores();
 }

@@ -66,14 +66,18 @@ Jogadores::Jogadores(string Apelido, string Nome) {
   this->winsLig4 = 0;
   this->lossesLig4 = 0;
 
-  ofstream in("Jogadores.txt", ios::app);
-  in << '\n'
-     << this->Apelido << ", " << this->Nome << ", " << this->winsReversi << ", "
-     << this->lossesReversi << ", " << this->winsLig4 << ", "
-     << this->lossesLig4 << ';';
+  ofstream out("Jogadores.txt", fstream::app);
+
+  out << '\n'
+      << this->Apelido << ", " << this->Nome << ", " << this->winsReversi
+      << ", " << this->lossesReversi << ", " << this->winsLig4 << ", "
+      << this->lossesLig4 << ';';
+
+  out.close();
 }
 
 void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector) {
+
   vector<Jogadores>::iterator it;
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
     if ((*it).Apelido == this->Apelido) {
@@ -82,12 +86,16 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector) {
   }
 
   ofstream out("Jogadores.txt", fstream::out);
+  out << "";
+  out.close();
+
+  out.open("Jogadores.txt", ios::app);
+
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
     if (out.is_open()) {
-      cout << "foi" << endl;
       out << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).winsReversi
           << ", " << (*it).lossesReversi << ", " << (*it).winsLig4 << ", "
-          << (*it).lossesLig4 << ';';
+          << (*it).lossesLig4 << ';' << '\n';
     } else {
       cout << "O arquivo "
               "Jogadores.txt"
@@ -96,4 +104,6 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector) {
       return;
     }
   }
+
+  out.close();
 }
