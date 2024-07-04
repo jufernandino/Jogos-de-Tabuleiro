@@ -62,14 +62,18 @@ void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
 int main() {
 
+  vector<Jogadores> jogadoresVector;
+  // loadJogadores(jogadoresVector);
+
   string str1, str2;
 
   Jogadores jogador(str1, str2);
 
-  cout << jogador.Apelido << ' ' << jogador.Nome << endl;
+  jogadoresVector.push_back(jogador);
 
-  // vector<Jogadores> jogadoresVector;
-  // loadJogadores(jogadoresVector);
+  Jogadores jogador2(str1, str2);
+
+  jogadoresVector.push_back(jogador2);
 
   /*
   vector<Jogadores>::iterator it;
@@ -77,6 +81,8 @@ int main() {
     cout << (*it).Apelido << ' ' << (*it).Nome << endl;
   }
   */
+
+  jogador.removeJogador(jogadoresVector);
 
   /*
   int i = 1;
@@ -94,7 +100,7 @@ int main() {
 
         Jogadores jogador(str1, str2);
 
-        Jogadores.push_back(jogador);
+        jogadoresVector.push_back(jogador);
 
         cout << jogador.Apelido << ' ' << jogador.Nome << endl;
 

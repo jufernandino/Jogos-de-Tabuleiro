@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -19,6 +20,8 @@ class Jogadores{
     int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquiv
 
     Jogadores(string Apelido, string Nome); //de fato faz o cadastro
+
+    void removeJogador(vector<Jogadores> &jogadoresVector);
 };
 
 #endif

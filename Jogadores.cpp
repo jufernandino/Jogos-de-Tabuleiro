@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -60,4 +61,39 @@ Jogadores::Jogadores(string Apelido, string Nome) {
 
   this->Apelido = Apelido;
   this->Nome = Nome;
+  this->winsReversi = 0;
+  this->lossesReversi = 0;
+  this->winsLig4 = 0;
+  this->lossesLig4 = 0;
+
+  ofstream in("Jogadores.txt", ios::app);
+  in << '\n'
+     << this->Apelido << ", " << this->Nome << ", " << this->winsReversi << ", "
+     << this->lossesReversi << ", " << this->winsLig4 << ", "
+     << this->lossesLig4 << ';';
+}
+
+void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector) {
+  vector<Jogadores>::iterator it;
+  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
+    if ((*it).Apelido == this->Apelido) {
+      jogadoresVector.erase(it);
+    }
+  }
+
+  ofstream out("Jogadores.txt", fstream::out);
+  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
+    if (out.is_open()) {
+      cout << "foi" << endl;
+      out << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).winsReversi
+          << ", " << (*it).lossesReversi << ", " << (*it).winsLig4 << ", "
+          << (*it).lossesLig4 << ';';
+    } else {
+      cout << "O arquivo "
+              "Jogadores.txt"
+              " não pôde ser aberto."
+           << endl;
+      return;
+    }
+  }
 }
