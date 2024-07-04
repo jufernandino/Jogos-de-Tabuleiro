@@ -9,21 +9,16 @@ using namespace std;
 
 class Jogadores{
     public:
-    int id;
-    static int automatic;
     string Apelido;
     string Nome;
+    int winsReversi;
+    int lossesReversi;
+    int winsLig4;
+    int lossesLig4;
 
-    int Jogadores::pesquisaJogador(string Apelido);
+    int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquiv
 
-    Jogadores::Jogadores(string Apelido, string Nome); //construtor, faz o cadastro
-
-    Jogadores::signInjogador(string Apelido);
-
-    Jogadores::removeJogador(string Apelido,);
-
-    void Jogadores::listarJogadores()/
-
-}
+    Jogadores(string Apelido, string Nome); //de fato faz o cadastro
+};
 
 #endif
