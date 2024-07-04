@@ -22,7 +22,7 @@ class Jogadores{
 
     Jogadores::removeJogador(string Apelido,);
 
-    void Jogadores::listarJogadores()/
+    void Jogadores::listarJogadores();
 
 }
 
