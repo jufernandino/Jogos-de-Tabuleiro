@@ -12,16 +12,26 @@ class Jogadores{
     public:
     string Apelido;
     string Nome;
-    int winsReversi;
-    int lossesReversi;
-    int winsLig4;
-    int lossesLig4;
+    int reversisWins;
+    int reversisDefeats;
+    int lig4sWins;
+    int lig4sDefeats;
+    bool victory;
 
-    int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquiv
+    int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquivo
 
-    Jogadores(string Apelido, string Nome); //de fato faz o cadastro
+    Jogadores(); //construtor default
+
+    Jogadores(string Apelido); //de fato faz o cadastro
+
+    void signIn(string Apelido, vector<Jogadores> &jogadoresVector);
+
+    void reescreveArquivo(vector<Jogadores> &jogadoresVector);
 
     void removeJogador(vector<Jogadores> &jogadoresVector);
+
+    void atualizaEstatisticas(int gameMode, vector<Jogadores> &jogadoresVector);
+
 };
 
 #endif

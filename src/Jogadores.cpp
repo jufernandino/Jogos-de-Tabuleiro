@@ -37,8 +37,19 @@ int Jogadores::pesquisaJogador(string Apelido) {
   return 0;
 }
 
-Jogadores::Jogadores(string Apelido, string Nome) {
+Jogadores::Jogadores() {
+  this->Apelido = "";
+  this->Nome = "";
+  this->reversisWins = 0;
+  this->reversisDefeats = 0;
+  this->lig4sWins = 0;
+  this->lig4sDefeats = 0;
+  this->victory = false;
+}
 
+Jogadores::Jogadores(string Apelido) {
+
+  string Nome;
   cout << "Digite seu nome completo:" << endl;
   while (getline(cin, Nome)) {
     if (Nome != "") {
@@ -61,17 +72,69 @@ Jogadores::Jogadores(string Apelido, string Nome) {
 
   this->Apelido = Apelido;
   this->Nome = Nome;
-  this->winsReversi = 0;
-  this->lossesReversi = 0;
-  this->winsLig4 = 0;
-  this->lossesLig4 = 0;
+  this->reversisWins = 0;
+  this->reversisDefeats = 0;
+  this->lig4sWins = 0;
+  this->lig4sDefeats = 0;
+  this->victory = false;
 
   ofstream out("Jogadores.txt", fstream::app);
 
-  out << '\n'
-      << this->Apelido << ", " << this->Nome << ", " << this->winsReversi
-      << ", " << this->lossesReversi << ", " << this->winsLig4 << ", "
-      << this->lossesLig4 << ';';
+  if (out.is_open()) {
+    out << '\n'
+        << this->Apelido << ", " << this->Nome << ", " << this->reversisWins
+        << ", " << this->reversisDefeats << ", " << this->lig4sWins << ", "
+        << this->lig4sDefeats;
+  } else {
+    cout << "O arquivo "
+            "Jogadores.txt"
+            " não pôde ser aberto."
+         << endl;
+    return;
+  }
+
+  out.close();
+
+  cout << "Novo jogador criado com sucesso." << endl;
+}
+
+void Jogadores::signIn(string Apelido, vector<Jogadores> &jogadoresVector) {
+
+  vector<Jogadores>::iterator it;
+  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
+    if ((*it).Apelido == Apelido) {
+      this->Apelido = (*it).Apelido;
+      this->Nome = (*it).Nome;
+      this->reversisWins = (*it).reversisWins;
+      this->reversisDefeats = (*it).reversisDefeats;
+      this->lig4sWins = (*it).lig4sWins;
+      this->lig4sDefeats = (*it).lig4sDefeats;
+    }
+  }
+  return;
+}
+
+void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
+  ofstream out("Jogadores.txt", fstream::out);
+  out << "";
+  out.close();
+
+  out.open("Jogadores.txt", ios::app);
+
+  vector<Jogadores>::iterator it;
+  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
+    if (out.is_open()) {
+      out << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).reversisWins
+          << ", " << (*it).reversisDefeats << ", " << (*it).lig4sWins << ", "
+          << (*it).lig4sDefeats << '\n';
+    } else {
+      cout << "O arquivo "
+              "Jogadores.txt"
+              " não pôde ser aberto."
+           << endl;
+      return;
+    }
+  }
 
   out.close();
 }
@@ -84,26 +147,34 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector) {
       jogadoresVector.erase(it);
     }
   }
+  this->reescreveArquivo(jogadoresVector);
+}
 
-  ofstream out("Jogadores.txt", fstream::out);
-  out << "";
-  out.close();
+void Jogadores::atualizaEstatisticas(int gameMode,
+                                     vector<Jogadores> &jogadoresVector) {
 
-  out.open("Jogadores.txt", ios::app);
-
+  vector<Jogadores>::iterator it;
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
-    if (out.is_open()) {
-      out << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).winsReversi
-          << ", " << (*it).lossesReversi << ", " << (*it).winsLig4 << ", "
-          << (*it).lossesLig4 << ';' << '\n';
-    } else {
-      cout << "O arquivo "
-              "Jogadores.txt"
-              " não pôde ser aberto."
-           << endl;
-      return;
+    if ((*it).Apelido == Apelido) {
+      if (gameMode == 1) {
+        if ((*it).victory) {
+          (*it).reversisWins++;
+          break;
+        } else {
+          (*it).reversisDefeats++;
+          break;
+        }
+      }
+      if (gameMode == 2) {
+        if ((*it).victory) {
+          (*it).lig4sWins++;
+          break;
+        } else {
+          (*it).lig4sDefeats++;
+          break;
+        }
+      }
     }
   }
-
-  out.close();
+  this->reescreveArquivo(jogadoresVector);
 }
