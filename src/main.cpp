@@ -129,36 +129,6 @@ int main() {
 
   loadJogadores(jogadoresVector);
 
-  /*
-  string str;
-
-  Jogadores jogador1(str);
-
-  jogadoresVector.push_back(jogador1);
-
-  Jogadores jogador2(str);
-
-  jogadoresVector.push_back(jogador2);
-
-  Jogadores jogador3(str);
-
-  jogadoresVector.push_back(jogador3);
-
-  jogador2.removeJogador(jogadoresVector);
-
-  // show Jogadores();
-  */
-
-  /*
-  vector<Jogadores>::iterator it;
-
-  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
-    cout << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).reversisWins
-         << ", " << (*it).reversisDefeats << ", " << (*it).lig4sWins << ", "
-         << (*it).lig4sDefeats << endl;
-  }
-  */
-
   Jogadores Jogador1, Jogador2;
 
   while (1) {
@@ -233,17 +203,6 @@ int main() {
     }
   }
 
-  /*
-  cout << Jogador1.Apelido << ", " << Jogador1.Nome << ", "
-       << Jogador1.reversisWins << ", " << Jogador1.reversisDefeats << ", "
-       << Jogador1.lig4sWins << ", " << Jogador1.lig4sDefeats << endl;
-
-  cout << Jogador2.Apelido << ", " << Jogador2.Nome << ", "
-       << Jogador2.reversisWins << ", " << Jogador2.reversisDefeats << ", "
-       << Jogador2.lig4sWins << ", " << Jogador2.lig4sDefeats << endl;
-  */
-
-  /*
   int gameMode = 0;
   cout << "Que jogo gostariam de jogar?, Reversi (1) ou Lig4 (2)?" << endl;
   cin >> gameMode;
@@ -256,14 +215,7 @@ int main() {
     cout << "Lig4 foi escolhido." << endl;
     break;
   }
-  */
-  
-  /*
-  int gameMode = 1;
-  Jogador1.victory = true;
-  Jogador1.atualizaEstatisticas(gameMode, jogadoresVector);
-  */
-  
+
   /*
   if(gameMode == 1) {
     cout << "Reversi foi escolhido." << endl;
@@ -272,5 +224,8 @@ int main() {
     cout << "Lig4 foi escolhido." << endl;
   }
   */
+
+  // falta a validação de quando um jogador ganha
+
   return 0;
 }
