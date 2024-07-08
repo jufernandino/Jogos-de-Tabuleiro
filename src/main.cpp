@@ -33,7 +33,7 @@ void showJogadores() {
   in.close();
 }
 
-void loadJogadores(vector<Jogadores> &jogadoresVector) {
+void loadJogadores (vector<Jogadores> &jogadoresVector) {
 
   ifstream in("Jogadores.txt", fstream::in);
 
@@ -43,7 +43,7 @@ void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
       Jogadores jogador;
       string aux = "";
-      int i = 0;
+      long unsigned int i = 0;
 
       for (; i < line.size(); i++) {
         if (line[i] != ',') {
@@ -125,105 +125,105 @@ void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
 int main() {
 
-  vector<Jogadores> jogadoresVector;
+    vector<Jogadores> jogadoresVector;
 
-  loadJogadores(jogadoresVector);
+    loadJogadores(jogadoresVector);
 
-  Jogadores Jogador1, Jogador2;
+    Jogadores Jogador1, Jogador2;
 
-  while (1) {
-    cout << "primeiro while" << endl;
-    cout << "Você deseja "
-            "sign in (1)"
-            " ou "
-            "sing up (2)"
-            "?"
-         << endl;
-    int x;
-    cin >> x;
+    while (1) {
+      cout << "primeiro while" << endl;
+      cout << "Você deseja "
+              "sign in (1)"
+              " ou "
+              "sing up (2)"
+              "?"
+           << endl;
+      int x;
+      cin >> x;
 
-    if (x == 1) {
-      Jogadores jogador;
-      string str;
-      cout << "Insira seu nickname:" << endl;
-      cin >> str;
-      if (jogador.pesquisaJogador(str)) {
-        jogador.signIn(str, jogadoresVector);
+      if (x == 1) {
+        Jogadores jogador;
+        string str;
+        cout << "Insira seu nickname:" << endl;
+        cin >> str;
+        if (jogador.pesquisaJogador(str)) {
+          jogador.signIn(str, jogadoresVector);
+          Jogador1 = jogador;
+          break;
+        } else {
+          cout << "Esse jogador não existe. Tente novamente." << endl;
+        }
+      }
+
+      if (x == 2) {
+        string str;
+        Jogadores jogador(str);
+        jogadoresVector.push_back(jogador);
         Jogador1 = jogador;
         break;
-      } else {
-        cout << "Esse jogador não existe. Tente novamente." << endl;
       }
     }
 
-    if (x == 2) {
-      string str;
-      Jogadores jogador(str);
-      jogadoresVector.push_back(jogador);
-      Jogador1 = jogador;
-      break;
-    }
-  }
+    while (1) {
+      cout << "segundo while" << endl;
+      cout << "Você deseja "
+              "sign in (1)"
+              " ou "
+              "sing up (2)"
+              "?"
+           << endl;
+      int x;
+      cin >> x;
 
-  while (1) {
-    cout << "segundo while" << endl;
-    cout << "Você deseja "
-            "sign in (1)"
-            " ou "
-            "sing up (2)"
-            "?"
-         << endl;
-    int x;
-    cin >> x;
-
-    if (x == 1) {
-      Jogadores jogador;
-      string str;
-      cout << "Insira seu nickname:" << endl;
-      cin >> str;
-      if (str == Jogador1.Apelido) {
-        cout << "Esse jogador já foi escolhido. Tente novamente." << endl;
-        continue;
+      if (x == 1) {
+        Jogadores jogador;
+        string str;
+        cout << "Insira seu nickname:" << endl;
+        cin >> str;
+        if (str == Jogador1.Apelido) {
+          cout << "Esse jogador já foi escolhido. Tente novamente." << endl;
+          continue;
+        }
+        if (jogador.pesquisaJogador(str) && str != Jogador1.Apelido) {
+          jogador.signIn(str, jogadoresVector);
+          Jogador2 = jogador;
+          break;
+        } else {
+          cout << "Esse jogador não existe. Tente novamente." << endl;
+        }
       }
-      if (jogador.pesquisaJogador(str) && str != Jogador1.Apelido) {
-        jogador.signIn(str, jogadoresVector);
+
+      if (x == 2) {
+        string str;
+        Jogadores jogador(str);
+        jogadoresVector.push_back(jogador);
         Jogador2 = jogador;
         break;
-      } else {
-        cout << "Esse jogador não existe. Tente novamente." << endl;
       }
     }
 
-    if (x == 2) {
-      string str;
-      Jogadores jogador(str);
-      jogadoresVector.push_back(jogador);
-      Jogador2 = jogador;
+    int gameMode = 0;
+    cout << "Que jogo gostariam de jogar?, Reversi (1) ou Lig4 (2)?" << endl;
+    cin >> gameMode;
+
+    switch (gameMode) {
+    case 1:
+      cout << "Reversi foi escolhido." << endl;
+      break;
+    case 2:
+      cout << "Lig4 foi escolhido." << endl;
       break;
     }
-  }
 
-  int gameMode = 0;
-  cout << "Que jogo gostariam de jogar?, Reversi (1) ou Lig4 (2)?" << endl;
-  cin >> gameMode;
-
-  switch (gameMode) {
-  case 1:
-    cout << "Reversi foi escolhido." << endl;
-    break;
-  case 2:
-    cout << "Lig4 foi escolhido." << endl;
-    break;
-  }
-
-  /*
-  if(gameMode == 1) {
-    cout << "Reversi foi escolhido." << endl;
-  }
-  if(gameMode == 2){
-    cout << "Lig4 foi escolhido." << endl;
-  }
-  */
+    /*
+    if(gameMode == 1) {
+      cout << "Reversi foi escolhido." << endl;
+    }
+    if(gameMode == 2){
+      cout << "Lig4 foi escolhido." << endl;
+    }
+    */
 
   // falta a validação de quando um jogador ganha
 
