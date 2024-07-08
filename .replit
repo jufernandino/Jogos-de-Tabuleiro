@@ -1,0 +1,5 @@
+language = "cpp"
+run = "make && ./projeto"
+[[ports]]
+localPort = 5900
+externalPort = 5900

@@ -3,19 +3,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstdlib>
 
 using namespace std;
-
-void clear_screen() {
-  #ifdef __linux__
-    system("clear");
-  #elif __windows__
-    system("cls");
-  #else
-
-  #endif
-}
 
 void to_lower(string &s) {
   int len = s.size();
@@ -44,7 +33,7 @@ void showJogadores() {
   in.close();
 }
 
-void loadJogadores (vector<Jogadores> &jogadoresVector) {
+void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
   ifstream in("Jogadores.txt", fstream::in);
 
@@ -54,7 +43,7 @@ void loadJogadores (vector<Jogadores> &jogadoresVector) {
 
       Jogadores jogador;
       string aux = "";
-      long unsigned int i = 0;
+      int i = 0;
 
       for (; i < line.size(); i++) {
         if (line[i] != ',') {
@@ -136,20 +125,19 @@ void loadJogadores (vector<Jogadores> &jogadoresVector) {
 
 int main() {
 
-    vector <Jogadores> jogadoresVector;
+  cout << "Teste" << endl;
+
+  /*
+
+    vector<Jogadores> jogadoresVector;
 
     loadJogadores(jogadoresVector);
 
     Jogadores Jogador1, Jogador2;
 
     while (1) {
-      cout << "Olá! Vamos jogar? =) \n\nDê enter para continuar." << endl;
-      getchar();
-
-      clear_screen();
-      
-      cout << "PRIMEIRO JOGADOR" << endl;
-      cout << "\nVocê deseja "
+      cout << "primeiro while" << endl;
+      cout << "Você deseja "
               "sign in (1)"
               " ou "
               "sing up (2)"
@@ -161,7 +149,7 @@ int main() {
       if (x == 1) {
         Jogadores jogador;
         string str;
-        cout << "\nInsira seu nickname:" << endl;
+        cout << "Insira seu nickname:" << endl;
         cin >> str;
         if (jogador.pesquisaJogador(str)) {
           jogador.signIn(str, jogadoresVector);
@@ -181,11 +169,9 @@ int main() {
       }
     }
 
-  clear_screen();
-
     while (1) {
-      cout << "SEGUNDO JOGADOR" << endl;
-      cout << "\nVocê deseja "
+      cout << "segundo while" << endl;
+      cout << "Você deseja "
               "sign in (1)"
               " ou "
               "sing up (2)"
@@ -197,7 +183,7 @@ int main() {
       if (x == 1) {
         Jogadores jogador;
         string str;
-        cout << "\nInsira seu nickname:" << endl;
+        cout << "Insira seu nickname:" << endl;
         cin >> str;
         if (str == Jogador1.Apelido) {
           cout << "Esse jogador já foi escolhido. Tente novamente." << endl;
@@ -221,38 +207,29 @@ int main() {
       }
     }
 
-  clear_screen();
-  
     int gameMode = 0;
-    cout << "Qual jogo gostariam de jogar? \n\nReversi (1) \nLig4 (2)" << endl;
+    cout << "Que jogo gostariam de jogar?, Reversi (1) ou Lig4 (2)?" << endl;
     cin >> gameMode;
 
-    /* switch (gameMode) {
+    switch (gameMode) {
     case 1:
       cout << "Reversi foi escolhido." << endl;
       break;
     case 2:
       cout << "Lig4 foi escolhido." << endl;
       break;
-    } */
+    }
 
-  
-    if (gameMode == 1)
+    /*
+    if(gameMode == 1) {
       cout << "Reversi foi escolhido." << endl;
-
-    if (gameMode == 2 )
+    }
+    if(gameMode == 2){
       cout << "Lig4 foi escolhido." << endl;
-
-    if (gameMode != 1 || gameMode != 2) {
-      cout << "Opção inválida. Tente novamente." << endl;
-      
-      cin >> gameMode;
-
-      //terminar
-
+    }
+    */
 
   // falta a validação de quando um jogador ganha
 
   return 0;
-}
 }
