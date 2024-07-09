@@ -242,10 +242,13 @@ int main() {
 
     if (gameMode == 2 )
       cout << "Lig4 foi escolhido." << endl;
+    
+    if (gameMode == 3)
+      cout << "TicTacToe foi escolhido." << endl;
 
-    if (gameMode != 1 || gameMode != 2) {
+    if (gameMode != 1 || gameMode != 2 || gameMode != 3) {
       cout << "Opção inválida. Tente novamente." << endl;
-      
+    
       cin >> gameMode;
 
       //terminar
