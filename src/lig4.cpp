@@ -4,6 +4,7 @@
 #include <string>
 
 lig4::lig4() {
-  this->rows = 0;
-  this->columns = 0;
+  //não achei variação no tabuleiro do lig4, é sempre 6x7, então decidimos deixar fixo
+  this->rows = 6;
+  this->columns = 7;
 }
