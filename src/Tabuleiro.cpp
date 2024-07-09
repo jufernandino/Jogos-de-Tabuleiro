@@ -1,44 +1,52 @@
-#include <iostream>
 #include "Tabuleiro.hpp"
+#include <iomanip>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 Tabuleiro::Tabuleiro() {
-    this->_colunas = 4;
-    this->_linhas = 4;
+  this->rows = 0;
+  this->columns = 0;
 }
 
-void Tabuleiro::ImprimeTabuleiro() {
-    
-    std::cout<<"   ";
-    for(int topo=0; topo < _colunas ; topo++){
-        std::cout<<"====";
+void Tabuleiro::criaTabuleiro(int x, int y) {
+  this->rows = x;
+  this->columns = y;
+  p = new char *[rows];
+  for (int i = 0; i < rows; i++) {
+    // cout << "-------";
+    cout << '\n';
+    p[i] = new char[columns];
+    for (int j = 0; j < columns; j++) {
+      p[i][j] = ' ';
+      cout << '|' << p[i][j];
     }
-    
-    std::cout<<std::endl;
+    cout << '|';
+    cout << '\n';
+  }
+  // cout << "-------";
+  cout << '\n';
+}
 
-    for(int tamanho=0 ; tamanho<_colunas ; tamanho++){
-        
-        std::cout << " " << tamanho <<" ";
-        for(int numlinha=0; numlinha < _linhas ; numlinha++)
-            std::cout<< " X " << "|";
-        
-        
-        std::cout<<std::endl;
-        std::cout<<"   ";
-        
-        
-        if(tamanho!=_linhas-1){
-            for(int numcolunas=0 ; numcolunas<_colunas;numcolunas++)
-                std::cout<<"---+";
-        
-            std::cout<<std::endl;
-        }
+void Tabuleiro::atualizaTabuleiro(int x, int y, char z) {
+  for (int i = 0; i < rows; i++) {
+    // cout << "-------";
+    cout << '\n';
+    for (int j = 0; j < columns; j++) {
+      p[x][y] = z;
+      cout << '|' << p[i][j];
     }
-    
-    for(int base=0; base < _colunas ; base++)
-        std::cout<<"====";
-        
-    std::cout<<std::endl<<"  ";
-    
-    for(int numbase=0; numbase < _colunas ; numbase++)
-        std::cout << "  " << numbase <<" ";
+    cout << '|';
+    cout << '\n';
+  }
+  // cout << "-------";
+  cout << '\n';
+}
+
+void Tabuleiro::liberaMemoria() {
+  for (int i = 0; i < rows; i++) {
+    delete[] p[i];
+  }
+  delete[] p;
 }

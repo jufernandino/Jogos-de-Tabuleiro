@@ -1,14 +1,23 @@
-#ifndef TABULEIRO_H
-#define TABULEIRO_H
+#ifndef Tabuleiro_H
+#define Tabuleiro_H
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 class Tabuleiro{
-    protected:
-        int _colunas;
-        int _linhas;
+  public: 
+  char** p;
+  int rows;
+  int columns;
 
-    public:
-        Tabuleiro(); //Construtor
-        void ImprimeTabuleiro();
+  Tabuleiro();
+
+  void criaTabuleiro(int x, int y);
+  
+  void atualizaTabuleiro(int x, int y, char z);
+
+  void liberaMemoria();
 };
 
 #endif
