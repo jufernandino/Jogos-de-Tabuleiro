@@ -142,6 +142,7 @@ int main() {
 
     Jogadores Jogador1, Jogador2;
 
+    char d;
     while (1) {
       cout << "Olá! Vamos jogar? =) \n\nDê enter para continuar." << endl;
       getchar();
@@ -168,7 +169,11 @@ int main() {
           Jogador1 = jogador;
           break;
         } else {
-          cout << "Esse jogador não existe. Tente novamente." << endl;
+          cout << "Esse jogador não existe. Tente novamente. Caso queira voltar para o menu, tecle 0." << endl; //validação do arquivo não está dando certo
+          cin >> d;
+          if(d == 0){
+            continue;
+          }
         }
       }
 
