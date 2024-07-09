@@ -13,9 +13,9 @@ class Tabuleiro{
 
   Tabuleiro();
 
-  void criaTabuleiro(int x, int y);
+  void criaTabuleiro();
   
-  void atualizaTabuleiro(int x, int y, char z);
+  void imprimeTabuleiro();
 
   void liberaMemoria();
 };

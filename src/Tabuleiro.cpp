@@ -10,12 +10,9 @@ Tabuleiro::Tabuleiro() {
   this->columns = 0;
 }
 
-void Tabuleiro::criaTabuleiro(int x, int y) {
-  this->rows = x;
-  this->columns = y;
+void Tabuleiro::criaTabuleiro() {
   p = new char *[rows];
   for (int i = 0; i < rows; i++) {
-    // cout << "-------";
     cout << '\n';
     p[i] = new char[columns];
     for (int j = 0; j < columns; j++) {
@@ -25,22 +22,18 @@ void Tabuleiro::criaTabuleiro(int x, int y) {
     cout << '|';
     cout << '\n';
   }
-  // cout << "-------";
   cout << '\n';
 }
 
-void Tabuleiro::atualizaTabuleiro(int x, int y, char z) {
+void Tabuleiro::imprimeTabuleiro() {
   for (int i = 0; i < rows; i++) {
-    // cout << "-------";
     cout << '\n';
     for (int j = 0; j < columns; j++) {
-      p[x][y] = z;
       cout << '|' << p[i][j];
     }
     cout << '|';
     cout << '\n';
   }
-  // cout << "-------";
   cout << '\n';
 }
 
