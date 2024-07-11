@@ -144,7 +144,7 @@ int main() {
 
     char d;
     while (1) {
-      cout << "Olá! Vamos jogar? =) \n\nDê enter para continuar." << endl;
+      cout << "\nOlá! Vamos jogar? =) \n\nDê enter para continuar." << endl;
       getchar();
 
       clear_screen();
@@ -158,6 +158,7 @@ int main() {
            << endl;
       int x;
       cin >> x;
+      cin.ignore();
 
       if (x == 1) {
         Jogadores jogador;
@@ -173,6 +174,7 @@ int main() {
           cin >> d;
           if(d == 0){
             continue;
+            clear_screen();
           }
         }
       }
@@ -229,38 +231,22 @@ int main() {
   clear_screen();
   
     int gameMode = 0;
-    cout << "Qual jogo gostariam de jogar? \n\nReversi (1) \nLig4 (2)" << endl;
+    cout << "Qual jogo gostariam de jogar? \n\nReversi (1) \nLig4 (2) \nTicTacToe (3)" << endl;
     cin >> gameMode;
 
-    /* switch (gameMode) {
-    case 1:
-      cout << "Reversi foi escolhido." << endl;
-      break;
-    case 2:
-      cout << "Lig4 foi escolhido." << endl;
-      break;
-    } */
+  if (gameMode == 1) {
+    cout << "\nReversi foi escolhido." << endl;
+  } else if (gameMode == 2) {
+    cout << "\nLig4 foi escolhido." << endl;
+  } else if (gameMode == 3) {
+    cout << "\nTicTacToe foi escolhido." << endl;
+  } else {
+    cout << "\nOpção inválida. Tente novamente." << endl;
+  }
 
-  
-    if (gameMode == 1)
-      cout << "Reversi foi escolhido." << endl;
-
-    if (gameMode == 2 )
-      cout << "Lig4 foi escolhido." << endl;
-    
-    if (gameMode == 3)
-      cout << "TicTacToe foi escolhido." << endl;
-
-    if (gameMode != 1 || gameMode != 2 || gameMode != 3) {
-      cout << "Opção inválida. Tente novamente." << endl;
-    
-      cin >> gameMode;
-
-      //terminar
-
+  cout << "\nUhuuuullllll\nTudo funcionando certinho <3" << endl;
 
   // falta a validação de quando um jogador ganha
 
   return 0;
-}
 }
