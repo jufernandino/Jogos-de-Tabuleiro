@@ -17,6 +17,10 @@ void clear_screen() {
   #endif
 }
 
+/* bool verificaEntradaMenu (int digito) {
+  return (isdigit(digito)); 
+} */
+
 void to_lower(string &s) {
   int len = s.size();
   for (int i = 0; i < len; i++) {
@@ -141,15 +145,41 @@ int main() {
     loadJogadores(jogadoresVector);
 
     Jogadores Jogador1, Jogador2;
+    
+  bool opcaoVoltar = false;
 
-    char d;
+    do {
+      char opcaoMenu = '0';
+      cout << "MENU PRINCIPAL \nOlá! Vamos jogar? :) \n\nJogar (1) \nConsultar estatísticas dos jogadores (2)" << endl;
+
+      cin >> opcaoMenu;
+
+      if (opcaoMenu == '1') {
+        break;
+        } else if (opcaoMenu == '2') {
+          clear_screen();
+          cout << "CONSULTAR ESTATÍSTICAS\n" << endl;
+          showJogadores();
+          cout << "\nPara voltar ao menu principal, tecle ENTER." << endl;
+        cin.ignore();
+        cin.get();
+        opcaoVoltar = true;
+        clear_screen();
+        } else {
+          cout << "\nOpção inválida. \nTecle ENTER para voltar ao menu principal." << endl;
+          cin.ignore();
+          cin.get();
+          opcaoVoltar = true;
+          clear_screen();
+      } 
+    } while (opcaoVoltar);
+
+    clear_screen();
+  
+    cout << "JOGAR" << endl;
+  
     while (1) {
-      cout << "\nOlá! Vamos jogar? =) \n\nDê enter para continuar." << endl;
-      getchar();
-
-      clear_screen();
-      
-      cout << "PRIMEIRO JOGADOR" << endl;
+      cout << "\nPRIMEIRO JOGADOR" << endl;
       cout << "\nVocê deseja "
               "sign in (1)"
               " ou "
@@ -158,7 +188,6 @@ int main() {
            << endl;
       int x;
       cin >> x;
-      cin.ignore();
 
       if (x == 1) {
         Jogadores jogador;
@@ -170,14 +199,10 @@ int main() {
           Jogador1 = jogador;
           break;
         } else {
-          cout << "Esse jogador não existe. Tente novamente. Caso queira voltar para o menu, tecle 0." << endl; //validação do arquivo não está dando certo
-          cin >> d;
-          if(d == 0){
+          cout << "\nEsse jogador não existe. Tente novamente." << endl;
             continue;
-            clear_screen();
           }
         }
-      }
 
       if (x == 2) {
         string str;
@@ -207,7 +232,7 @@ int main() {
         cout << "\nInsira seu nickname:" << endl;
         cin >> str;
         if (str == Jogador1.Apelido) {
-          cout << "Esse jogador já foi escolhido. Tente novamente." << endl;
+          cout << "\nEsse jogador já foi escolhido. Tente novamente.\n" << endl;
           continue;
         }
         if (jogador.pesquisaJogador(str) && str != Jogador1.Apelido) {
@@ -215,7 +240,7 @@ int main() {
           Jogador2 = jogador;
           break;
         } else {
-          cout << "Esse jogador não existe. Tente novamente." << endl;
+          cout << "\nEsse jogador não existe. Tente novamente.\n" << endl;
         }
       }
 
@@ -227,24 +252,31 @@ int main() {
         break;
       }
     }
-
-  clear_screen();
   
-    int gameMode = 0;
-    cout << "Qual jogo gostariam de jogar? \n\nReversi (1) \nLig4 (2) \nTicTacToe (3)" << endl;
+  int gameMode = 0;
+  
+  do {
+    cout << "ESCOLHER JOGO" << endl;
+    cout << "\nQual jogo gostariam de jogar? \n\nReversi (1) \nLig4 (2) \nTicTacToe (3)" << endl;
     cin >> gameMode;
-
-  if (gameMode == 1) {
-    cout << "\nReversi foi escolhido." << endl;
-  } else if (gameMode == 2) {
-    cout << "\nLig4 foi escolhido." << endl;
-  } else if (gameMode == 3) {
-    cout << "\nTicTacToe foi escolhido." << endl;
-  } else {
-    cout << "\nOpção inválida. Tente novamente." << endl;
+    
+    switch (gameMode) {
+    case 1:
+      cout << "\nReversi foi escolhido." << endl;
+  	 break;
+    case 2:
+      cout << "\nLig4 foi escolhido." << endl;
+      break;
+    case 3:
+      cout << "\nTicTacToe foi escolhido." << endl;
+      break;
+    default:
+      gameMode = 0;
+      cout << "\nOpção inválida. Tente novamente. \n" << endl;
   }
+  } while (gameMode == 0);
 
-  cout << "\nUhuuuullllll\nTudo funcionando certinho <3" << endl;
+  //cout << "\nFim do programa." << endl;
 
   // falta a validação de quando um jogador ganha
 
