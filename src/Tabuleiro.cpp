@@ -12,6 +12,8 @@ Tabuleiro::Tabuleiro() {
 
 void Tabuleiro::criaTabuleiro() {
   p = new char *[rows];
+  cout << "0  1  2" << endl;
+  cout << "-------";
   for (int i = 0; i < rows; i++) {
     cout << '\n';
     p[i] = new char[columns];
@@ -19,20 +21,24 @@ void Tabuleiro::criaTabuleiro() {
       p[i][j] = ' ';
       cout << '|' << p[i][j];
     }
-    cout << '|';
+    cout << '|' << ' ' << i;
     cout << '\n';
+    cout << "-------";
   }
   cout << '\n';
 }
 
 void Tabuleiro::imprimeTabuleiro() {
+  cout << "0  1  2" << endl;
+  cout << "-------";
   for (int i = 0; i < rows; i++) {
     cout << '\n';
     for (int j = 0; j < columns; j++) {
       cout << '|' << p[i][j];
     }
-    cout << '|';
+    cout << '|' << ' ' << i;
     cout << '\n';
+    cout << "-------";
   }
   cout << '\n';
 }
