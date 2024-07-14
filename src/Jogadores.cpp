@@ -40,10 +40,12 @@ int Jogadores::pesquisaJogador(string Apelido) {
 Jogadores::Jogadores() {
   this->Apelido = "";
   this->Nome = "";
-  this->reversisWins = 0;
-  this->reversisDefeats = 0;
-  this->lig4sWins = 0;
-  this->lig4sDefeats = 0;
+  this->reversiWins = 0;
+  this->reversiDefeats = 0;
+  this->lig4Wins = 0;
+  this->lig4Defeats = 0;
+  this->tictactoeWins = 0;
+  this->tictactoeDefeats = 0;
   this->victory = false;
 }
 
@@ -72,19 +74,22 @@ Jogadores::Jogadores(string Apelido) {
 
   this->Apelido = Apelido;
   this->Nome = Nome;
-  this->reversisWins = 0;
-  this->reversisDefeats = 0;
-  this->lig4sWins = 0;
-  this->lig4sDefeats = 0;
+  this->reversiWins = 0;
+  this->reversiDefeats = 0;
+  this->lig4Wins = 0;
+  this->lig4Defeats = 0;
+  this->tictactoeWins = 0;
+  this->tictactoeDefeats = 0;
   this->victory = false;
 
   ofstream out("Jogadores.txt", fstream::app);
 
   if (out.is_open()) {
     out << '\n'
-        << this->Apelido << ", " << this->Nome << ", " << this->reversisWins
-        << ", " << this->reversisDefeats << ", " << this->lig4sWins << ", "
-        << this->lig4sDefeats;
+        << this->Apelido << ", " << this->Nome << ", " << this->reversiWins
+        << ", " << this->reversiDefeats << ", " << this->lig4Wins << ", "
+        << this->lig4Defeats << ", " << this->tictactoeWins << ", "
+        << this->tictactoeDefeats;
   } else {
     cout << "O arquivo "
             "Jogadores.txt"
@@ -105,10 +110,12 @@ void Jogadores::signIn(string Apelido, vector<Jogadores> &jogadoresVector) {
     if ((*it).Apelido == Apelido) {
       this->Apelido = (*it).Apelido;
       this->Nome = (*it).Nome;
-      this->reversisWins = (*it).reversisWins;
-      this->reversisDefeats = (*it).reversisDefeats;
-      this->lig4sWins = (*it).lig4sWins;
-      this->lig4sDefeats = (*it).lig4sDefeats;
+      this->reversiWins = (*it).reversiWins;
+      this->reversiDefeats = (*it).reversiDefeats;
+      this->lig4Wins = (*it).lig4Wins;
+      this->lig4Defeats = (*it).lig4Defeats;
+      this->tictactoeWins = (*it).tictactoeWins;
+      this->tictactoeDefeats = (*it).tictactoeDefeats;
     }
   }
   return;
@@ -124,9 +131,10 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
   vector<Jogadores>::iterator it;
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
     if (out.is_open()) {
-      out << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).reversisWins
-          << ", " << (*it).reversisDefeats << ", " << (*it).lig4sWins << ", "
-          << (*it).lig4sDefeats << '\n';
+      out << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).reversiWins
+          << ", " << (*it).reversiDefeats << ", " << (*it).lig4Wins << ", "
+          << (*it).lig4Defeats << ", " << (*it).tictactoeWins << ", "
+          << (*it).tictactoeDefeats << '\n';
     } else {
       cout << "O arquivo "
               "Jogadores.txt"
@@ -155,22 +163,31 @@ void Jogadores::atualizaEstatisticas(int gameMode,
 
   vector<Jogadores>::iterator it;
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
-    if ((*it).Apelido == Apelido) {
+    if ((*it).Apelido == this->Apelido) {
       if (gameMode == 1) {
-        if ((*it).victory) {
-          (*it).reversisWins++;
+        if (this->victory) {
+          (*it).reversiWins++;
           break;
         } else {
-          (*it).reversisDefeats++;
+          (*it).reversiDefeats++;
           break;
         }
       }
       if (gameMode == 2) {
-        if ((*it).victory) {
-          (*it).lig4sWins++;
+        if (this->victory) {
+          (*it).lig4Wins++;
           break;
         } else {
-          (*it).lig4sDefeats++;
+          (*it).lig4Defeats++;
+          break;
+        }
+      }
+      if (gameMode == 3) {
+        if (this->victory) {
+          (*it).tictactoeWins++;
+          break;
+        } else {
+          (*it).tictactoeDefeats++;
           break;
         }
       }

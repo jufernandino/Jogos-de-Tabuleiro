@@ -1,3 +1,4 @@
+
 #ifndef Jogadores_H
 #define Jogadores_H
 #include <string>
@@ -12,10 +13,12 @@ class Jogadores{
     public:
     string Apelido;
     string Nome;
-    int reversisWins;
-    int reversisDefeats;
-    int lig4sWins;
-    int lig4sDefeats;
+    int reversiWins;
+    int reversiDefeats;
+    int lig4Wins;
+    int lig4Defeats;
+    int tictactoeWins;
+    int tictactoeDefeats;
     bool victory;
 
     int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquivo
