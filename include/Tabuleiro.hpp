@@ -13,9 +13,9 @@ class Tabuleiro{
 
   Tabuleiro();
 
-  void validaJogada(int x, int y, char z);
-
   void liberaMemoria();
+
+  virtual void validaJogada(int x, int y, char z);
 
   virtual void criaTabuleiro() = 0;
 
