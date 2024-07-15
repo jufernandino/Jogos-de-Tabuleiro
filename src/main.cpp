@@ -242,6 +242,7 @@ int main() {
     int x, y;
     TicTacToe t;
     t.criaTabuleiro();
+    t.imprimeTabuleiro();
     int jogadorAtual = 0;
     while (1) {
       cin >> x;
