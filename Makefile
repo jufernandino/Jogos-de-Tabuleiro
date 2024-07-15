@@ -9,6 +9,7 @@ SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
+
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJ_FILES)
@@ -19,4 +20,15 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 clean:
 	rm -f $(OBJ_DIR)/*.o $(EXECUTABLE)
+
+
+
+
+
+
+
+
+
+
+
 
