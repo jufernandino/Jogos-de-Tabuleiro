@@ -11,9 +11,11 @@ class TicTacToe : public Tabuleiro{
 
   TicTacToe();
 
-  void validaJogada(int x, int y, char z);
+  virtual void criaTabuleiro() override;
 
-  int confereGanhador();
+  virtual void imprimeTabuleiro() override;
+
+  virtual int confereGanhador() override;
 };
 
 #endif

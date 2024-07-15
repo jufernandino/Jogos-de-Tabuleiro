@@ -8,10 +8,37 @@ TicTacToe::TicTacToe() {
   this->columns = 3;
 }
 
-void TicTacToe::validaJogada(int x, int y, char z) {
-  if (x < 3 && y < 3 && p[x][y] == ' ') {
-    p[x][y] = z;
+void TicTacToe::criaTabuleiro() {
+  p = new char *[rows];
+  cout << "0  1  2" << endl;
+  cout << "-------";
+  for (int i = 0; i < rows; i++) {
+    cout << '\n';
+    p[i] = new char[columns];
+    for (int j = 0; j < columns; j++) {
+      p[i][j] = ' ';
+      cout << '|' << p[i][j];
+    }
+    cout << '|' << ' ' << i;
+    cout << '\n';
+    cout << "-------";
   }
+  cout << '\n';
+}
+
+void TicTacToe::imprimeTabuleiro() {
+  cout << "0  1  2" << endl;
+  cout << "-------";
+  for (int i = 0; i < rows; i++) {
+    cout << '\n';
+    for (int j = 0; j < columns; j++) {
+      cout << '|' << p[i][j];
+    }
+    cout << '|' << ' ' << i;
+    cout << '\n';
+    cout << "-------";
+  }
+  cout << '\n';
 }
 
 int TicTacToe::confereGanhador() {

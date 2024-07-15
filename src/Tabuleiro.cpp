@@ -10,37 +10,10 @@ Tabuleiro::Tabuleiro() {
   this->columns = 0;
 }
 
-void Tabuleiro::criaTabuleiro() {
-  p = new char *[rows];
-  cout << "0  1  2" << endl;
-  cout << "-------";
-  for (int i = 0; i < rows; i++) {
-    cout << '\n';
-    p[i] = new char[columns];
-    for (int j = 0; j < columns; j++) {
-      p[i][j] = ' ';
-      cout << '|' << p[i][j];
-    }
-    cout << '|' << ' ' << i;
-    cout << '\n';
-    cout << "-------";
+void Tabuleiro::validaJogada(int x, int y, char z) {
+  if (x < this->rows && y < this->columns && p[x][y] == ' ') {
+    p[x][y] = z;
   }
-  cout << '\n';
-}
-
-void Tabuleiro::imprimeTabuleiro() {
-  cout << "0  1  2" << endl;
-  cout << "-------";
-  for (int i = 0; i < rows; i++) {
-    cout << '\n';
-    for (int j = 0; j < columns; j++) {
-      cout << '|' << p[i][j];
-    }
-    cout << '|' << ' ' << i;
-    cout << '\n';
-    cout << "-------";
-  }
-  cout << '\n';
 }
 
 void Tabuleiro::liberaMemoria() {
