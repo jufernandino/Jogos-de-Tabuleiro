@@ -8,6 +8,26 @@ TicTacToe::TicTacToe() {
   this->columns = 3;
 }
 
+void TicTacToe::imprimeTabuleiro() {
+  string aux = "-";
+  for (int k = 0; k < this->columns; k++) {
+    cout << k << "  ";
+    aux += "--";
+  }
+  cout << '\n';
+  cout << aux;
+  for (int i = 0; i < rows; i++) {
+    cout << '\n';
+    for (int j = 0; j < columns; j++) {
+      cout << '|' << p[i][j];
+    }
+    cout << '|' << ' ' << i;
+    cout << '\n';
+    cout << aux;
+  }
+  cout << '\n';
+}
+
 int TicTacToe::confereGanhador() {
   for (int i = 0; i < rows; i++) {
     // valida as linhas horizontais:

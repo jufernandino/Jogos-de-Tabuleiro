@@ -20,26 +20,6 @@ void Tabuleiro::criaTabuleiro() {
   }
 }
 
-void Tabuleiro::imprimeTabuleiro() {
-  string aux = "-";
-  for (int k = 0; k < this->columns; k++) {
-    cout << k << "  ";
-    aux += "--";
-  }
-  cout << '\n';
-  cout << aux;
-  for (int i = 0; i < rows; i++) {
-    cout << '\n';
-    for (int j = 0; j < columns; j++) {
-      cout << '|' << p[i][j];
-    }
-    cout << '|' << ' ' << i;
-    cout << '\n';
-    cout << aux;
-  }
-  cout << '\n';
-}
-
 void Tabuleiro::liberaMemoria() {
   for (int i = 0; i < rows; i++) {
     delete[] p[i];
