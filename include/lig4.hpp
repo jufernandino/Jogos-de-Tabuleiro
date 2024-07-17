@@ -11,6 +11,8 @@ class lig4 : public Tabuleiro{
 
   lig4();
 
+  //virtual int confereGanhador() override;
+
 };
 
 #endif

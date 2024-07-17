@@ -281,6 +281,45 @@ int main() {
   }
   if (gameMode == 2) {
     cout << "Lig4 foi escolhido." << endl;
+    /*int x, y;
+    lig4 l;
+    l.criaTabuleiro();
+    l.imprimeTabuleiro();
+    int jogadorAtual = 0;
+    while (1) {
+      cin >> x >> y;
+
+     if (jogadorAtual % 2 == 0) {
+        z = 'X';
+      }
+      if (jogadorAtual % 2 != 0) {
+        z = 'O';
+      }
+
+      l.validaJogada(x, y, z);
+      l.imprimeTabuleiro();
+      int resultado = l.confereGanhador();
+      if (resultado == 1) {
+        cout << Jogador1.Apelido << " ganhou!" << endl;
+        Jogador1.victory = true;
+        Jogador1.atualizaEstatisticas(gameMode, jogadoresVector);
+        Jogador2.atualizaEstatisticas(gameMode, jogadoresVector);
+        break;
+      }
+      if (resultado == 2) {
+        cout << Jogador2.Apelido << " ganhou!" << endl;
+        Jogador2.victory = true;
+        Jogador1.atualizaEstatisticas(gameMode, jogadoresVector);
+        Jogador2.atualizaEstatisticas(gameMode, jogadoresVector);
+        break;
+      }
+      if (resultado == 3) {
+        cout << "Não há vencedores!" << endl;
+        break;
+      }
+      jogadorAtual++;
+    }
+    l.liberaMemoria();*/
   }
   if (gameMode == 3) {
     cout << "Tic Tac Toe foi escolhido." << endl;
