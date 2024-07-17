@@ -19,6 +19,8 @@ class Tabuleiro{
 
   virtual void validaJogada(int x, int y, char z);
 
+  virtual void imprimeTabuleiro() = 0;
+
   virtual int confereGanhador() = 0;
 
 };
