@@ -2,7 +2,6 @@
 #include "Tabuleiro.hpp"
 #include "TicTacToe.hpp"
 #include "lig4.hpp"
-//#include "Reversi.hpp"
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -169,28 +168,25 @@ int main() {
     if (opcaoMenu == '1') {
       break;
     } else if (opcaoMenu == '2') {
-      // clear_screen();
+
       cout << "CONSULTAR ESTATÍSTICAS\n" << endl;
       showJogadores();
       cout << "\nPara voltar ao menu principal, tecle ENTER." << endl;
       cin.ignore();
       cin.get();
       opcaoVoltar = true;
-      // clear_screen();
+
     } else {
       cout << "\nOpção inválida. \nTecle ENTER para voltar ao menu principal."
            << endl;
       cin.ignore();
       cin.get();
       opcaoVoltar = true;
-      // clear_screen();
     }
   } while (opcaoVoltar);
 
-  // clear_screen();
+  cout << "\nJOGAR" << endl;
 
-  cout << "JOGAR" << endl;
-  
   while (1) {
     cout << "Você deseja "
             "sign in (1)"
@@ -262,33 +258,77 @@ int main() {
   }
 
   int gameMode = 0;
-  cout << "Que jogo gostariam de jogar?, Reversi (1), Lig4 (2), Tic Tac Toe (3) ou Campo Minado (4)?"
+
+  cout << "\nQue jogo gostariam de jogar?, Reversi (1), Lig4 (2), TicTacToe "
+          "(3) ou Campo Minado (4)?\n"
        << endl;
+
   cin >> gameMode;
 
   if (gameMode == 1) {
-    cout << "Reversi foi escolhido." << endl;
-    /* Reversi r;
-    r.criaTabuleiro(); 
-    r.inicializaTabuleiro(); //encaixar a imprimeTabuleiro dentro p/ ser usada pela 1ª vez
-    while (1) { //jogadas
-      r.defineJogada();
-      r.validaJogada(); //encaixar a defineJogada aqui dentro
-      r.imprimeTabuleiro();
-      r.confereGanhador();
-    }
-    r.liberaMemoria(); */
+    cout << "\nReversi foi escolhido." << endl;
   }
+
   if (gameMode == 2) {
-    cout << "Lig4 foi escolhido." << endl;
+    cout << "\nLig4 foi escolhido." << endl;
+
+    int x, y;
+    lig4 l;
+
+    l.criaTabuleiro();
+    l.imprimeTabuleiro();
+
+    int jogadorAtual = 0;
+
+    while (1) {
+      cin >> x;
+      cin >> y;
+
+      char z = ' ';
+      if (jogadorAtual % 2 == 0) {
+        z = 'X';
+      }
+      if (jogadorAtual % 2 != 0) {
+        z = 'O';
+      }
+
+      l.validaJogada(x, y, z);
+      l.imprimeTabuleiro();
+      int resultado = l.confereGanhador();
+      if (resultado == 1) {
+        cout << Jogador1.Apelido << " ganhou!" << endl;
+        Jogador1.victory = true;
+        Jogador1.atualizaEstatisticas(gameMode, jogadoresVector);
+        Jogador2.atualizaEstatisticas(gameMode, jogadoresVector);
+        break;
+      }
+      if (resultado == 2) {
+        cout << Jogador2.Apelido << " ganhou!" << endl;
+        Jogador2.victory = true;
+        Jogador1.atualizaEstatisticas(gameMode, jogadoresVector);
+        Jogador2.atualizaEstatisticas(gameMode, jogadoresVector);
+        break;
+      }
+      if (resultado == 3) {
+        cout << "Não há vencedores!" << endl;
+        break;
+      }
+      jogadorAtual++;
+    }
+    l.liberaMemoria();
   }
+
   if (gameMode == 3) {
-    cout << "Tic Tac Toe foi escolhido." << endl;
+    cout << "\nTicTacToe foi escolhido." << endl;
+
     int x, y;
     TicTacToe t;
+
     t.criaTabuleiro();
     t.imprimeTabuleiro();
+
     int jogadorAtual = 0;
+
     while (1) {
       cin >> x;
       cin >> y;
@@ -303,6 +343,7 @@ int main() {
 
       t.validaJogada(x, y, z);
       t.imprimeTabuleiro();
+
       if (t.confereGanhador() == 1) {
         cout << Jogador1.Apelido << " ganhou!" << endl;
         Jogador1.victory = true;
@@ -327,7 +368,7 @@ int main() {
   }
 
   if (gameMode == 4) {
-    cout << "Campo Minado foi escolhido." << endl;
+    cout << "\nCampo Minado foi escolhido." << endl;
   }
 
   return 0;

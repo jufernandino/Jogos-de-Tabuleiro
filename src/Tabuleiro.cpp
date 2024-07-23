@@ -30,5 +30,7 @@ void Tabuleiro::liberaMemoria() {
 void Tabuleiro::validaJogada(int x, int y, char z) {
   if (x < this->rows && y < this->columns && p[x][y] == ' ') {
     p[x][y] = z;
+  } else {
+    cout << "\nEssa jogada é invalida! Passa a vez!\n" << endl;
   }
 }
