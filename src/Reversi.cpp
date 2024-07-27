@@ -35,7 +35,7 @@ bool Reversi::verificarFimDeJogo() {
 }
 
 int Reversi::confereGanhador() {
-
+  //mesclar com a mostrarResultado
 }
 
 void Reversi::colocarPeca(int linha, int coluna) {
