@@ -36,6 +36,38 @@ void showJogadores() {
   in.close();
 }
 
+void showRegras(const int &gameMode) {
+  ifstream arquivo("Regras.txt");
+  
+  if (!arquivo.is_open()) {
+    cout << "Erro ao tentar abrir o arquivo!" << endl;
+    return;
+  }
+
+  string linha, regras;
+  bool continuar = false;
+  string aux = "(" + to_string(gameMode) + ")";
+
+  while (getline(arquivo, linha)) {
+    if (linha == aux) {
+      continuar = true;
+      continue;
+  }
+    
+    if (continuar && !linha.empty()) {
+      regras += linha + "\n";
+    } else {
+      break;
+    }
+  }
+
+  arquivo.close();
+
+  if (!regras.empty()) {
+    cout << "\n" << regras << endl;
+}
+}
+
 void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
   ifstream in("Jogadores.txt", fstream::in);
@@ -159,7 +191,7 @@ int main() {
 
   do {
     char opcaoMenu = '0';
-    cout << "MENU PRINCIPAL \nOlá! Vamos jogar? :) \n\nJogar (1) \nConsultar "
+    cout << "MENU PRINCIPAL \nOlá! Vamos jogar? \n\nJogar (1) \nConsultar "
             "estatísticas dos jogadores (2)"
          << endl;
 
@@ -185,7 +217,7 @@ int main() {
     }
   } while (opcaoVoltar);
 
-  cout << "\nJOGAR" << endl;
+  //cout << "\nJOGAR" << endl;
 
   while (1) {
     cout << "Você deseja "
@@ -258,15 +290,38 @@ int main() {
   }
 
   int gameMode = 0;
+  
+  //int lerRegras = 0;
 
-  cout << "\nQue jogo gostariam de jogar?, Reversi (1), Lig4 (2), TicTacToe "
-          "(3) ou Campo Minado (4)?\n"
+  do {
+
+  cout << "\nQual jogo gostariam de jogar? \nReversi (1) \nLig4 (2) \nTicTacToe (3) \nCampo Minado (4)"
        << endl;
 
   cin >> gameMode;
 
+  bool opcaoSair = false;
+
   if (gameMode == 1) {
     cout << "\nReversi foi escolhido." << endl;
+    
+/* do {
+        cout << "\nLer regras do jogo (1) \nJogar (2)" << endl;
+          
+        cin >> lerRegras;
+
+        if (lerRegras == 1) {
+          showRegras(gameMode);
+          opcaoSair = true;
+          
+        } else if (lerRegras == 2) {
+          cout << "\nVamos começar." << endl;
+          break;
+        }
+      } while (!(opcaoSair));
+
+    cout << "teste 1" << endl;
+  } */
   }
 
   if (gameMode == 2) {
@@ -370,6 +425,8 @@ int main() {
   if (gameMode == 4) {
     cout << "\nCampo Minado foi escolhido." << endl;
   }
-
+    
+  } while (gameMode == 0);
+  
   return 0;
 }

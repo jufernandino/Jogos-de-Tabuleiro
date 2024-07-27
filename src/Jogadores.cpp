@@ -195,3 +195,11 @@ void Jogadores::atualizaEstatisticas(int gameMode,
   }
   this->reescreveArquivo(jogadoresVector);
 }
+
+void showEstatisticas (string &gameName) {
+  //lógica pra cada jogo
+}
+
+void showRanking(string gameName) {
+  //lógica do ranking para cada jogo
+}
