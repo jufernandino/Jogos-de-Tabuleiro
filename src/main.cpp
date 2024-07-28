@@ -2,6 +2,8 @@
 #include "Tabuleiro.hpp"
 #include "TicTacToe.hpp"
 #include "lig4.hpp"
+#include "Reversi.hpp"
+#include "CampoMinado.hpp"
 #include <ctype.h>
 #include <iostream>
 #include <string>
@@ -263,7 +265,6 @@ int main() {
             "estatísticas dos jogadores (2)"
          << endl;
 
-    char opcaoMenu = '0';
     cin >> opcaoMenu;
 
     while (1) {
@@ -305,32 +306,48 @@ int main() {
           "(3) ou Campo Minado (4)?\n"
        << endl;
 
-  // int lerRegras = 0;
-  // bool opacaoSair = false;
+  int lerRegras = 0;
+  bool opcaoContinuar = true;
 
   int gameMode;
   antiUsuario(gameMode);
 
   if (gameMode == 1) {
     cout << "\nReversi foi escolhido." << endl;
-    //   do {
-    //     cout << "\nLer regras do jogo (1) \nJogar (2)" << endl;
+    
+    do {
+      cout << "\nLer regras do jogo (1) \nJogar (2)" << endl;
 
-    //     cin >> lerRegras;
+      cin >> lerRegras;
 
-    //     if (lerRegras == 1) {
-    //       showRegras(gameMode);
-    //       opcaoSair = true;
+      if (lerRegras == 2) {
+        opcaoContinuar = false;
+        break;
+      } else if (lerRegras == 1) {
+        opcaoContinuar = false;
+        showRegras(gameMode);
+        break;
+      }
+    } while (opcaoContinuar);
 
-    //     } else if (lerRegras == 2) {
-    //       cout << "\nVamos começar." << endl;
-    //       break;
-    //     }
-    //   } while (!(opcaoSair));
+/*
+    Reversi r;
 
-    //   cout << "teste 1" << endl;
-    // }
+    r.criaTabuleiro();
+    r.imprimeTabuleiro();
+    r.inicializarJogo();
+    while (1) {
+      r.fazerMovimento(0, 0);
+      r.verificarMovimentoValido(0, 0);
+      r.colocarPeca(0, 0); //inverterPeca e imprimeTabuleiro serão chamadas dentro delas
+      r.mudarJogador();
+      r.verificarFimDeJogo();
+      r.confereGanhador(); //contarPecas chamada dentro dela
+      break;
+    } 
+*/
   }
+    
 
   if (gameMode == 2) {
     cout << "\nLig4 foi escolhido." << endl;

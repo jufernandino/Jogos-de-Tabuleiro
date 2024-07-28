@@ -10,6 +10,7 @@ class Reversi : public Tabuleiro {
   public: 
     Reversi(); //construtor
 
+
     void inicializarJogo(); //específica do Reversi, configura o tabuleiro e as posições iniciais das peças
 
     virtual void imprimeTabuleiro() override;
@@ -24,12 +25,13 @@ class Reversi : public Tabuleiro {
 
     virtual int confereGanhador() override;
 
+    void colocarPeca(int linha, int coluna);
+
   private:
     Tabuleiro tabuleiro;
         
     char jogadorAtual; // variável para armazenar qual a peça do jogador atual (ou X ou O)
 
-    void colocarPeca(int linha, int coluna);
     
     void inverterPecas(int linha, int coluna);
     

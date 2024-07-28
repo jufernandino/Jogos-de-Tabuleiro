@@ -18,6 +18,7 @@ void Reversi::imprimeTabuleiro() {
 
 }
 
+
 void Reversi::fazerMovimento(int linha, int coluna) {
 
 }
@@ -31,7 +32,7 @@ void Reversi::mudarJogador() {
 }
 
 bool Reversi::verificarFimDeJogo() {
-
+  return true;
 }
 
 int Reversi::confereGanhador() {
