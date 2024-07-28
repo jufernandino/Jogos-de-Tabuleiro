@@ -13,15 +13,15 @@ class Tabuleiro{
 
   Tabuleiro();
 
-  void criaTabuleiro();
+  void criaTabuleiro(); //aloca uma matriz dinamicamente que servirá como tabuleiro
 
-  void liberaMemoria();
+  void imprimeTabuleiro(); //imrpime o tabuleiro com -s e |s
 
-  virtual void validaJogada(int x, int y, char z);
+  virtual void validaJogada(int x, int y, char z); //confere se os valores inseridos são menores que as dimensôes do tabuleiro e efetua a jogada
 
-  virtual void imprimeTabuleiro() = 0;
+  void liberaMemoria(); //libera a memória alocada anteriomente em criaTabuleiro()
 
-  virtual int confereGanhador() = 0;
+  virtual int confereGanhador() = 0; //confere se alguém venceu
 
 };
 

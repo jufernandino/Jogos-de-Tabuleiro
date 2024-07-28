@@ -8,26 +8,19 @@ lig4::lig4() {
   this->columns = 7;
 }
 
-void lig4::imprimeTabuleiro() {
-  cout << '\n';
-  string aux = "-";
-  cout << "  ";
-  for (int k = 0; k < this->columns; k++) {
-    cout << k << "   ";
-    aux += "----";
-  }
-  cout << '\n';
-  cout << aux;
-  for (int i = 0; i < rows; i++) {
-    cout << '\n';
-    for (int j = 0; j < columns; j++) {
-      cout << '|' << ' ' << p[i][j] << ' ';
+void lig4::validaJogada(int x, int y, char z) {
+  if (y < this->columns) {
+    for (int i = 5; i >= 0; i--) {
+      if (p[i][y] == ' ') {
+        p[i][y] = z;
+        break;
+      } else {
+        continue;
+      }
     }
-    cout << '|' << ' ' << i;
-    cout << '\n';
-    cout << aux;
+  } else {
+    cout << "\nEssa jogada é invalida! Passa a vez!\n" << endl;
   }
-  cout << '\n';
 }
 
 int lig4::confereGanhador() {
@@ -108,6 +101,6 @@ int lig4::confereGanhador() {
   if (empate) {
     return 3;
   }
-  
+
   return 0;
 }

@@ -195,3 +195,7 @@ void Jogadores::atualizaEstatisticas(int gameMode,
   }
   this->reescreveArquivo(jogadoresVector);
 }
+
+void Jogadores::showRanking(string gameName) {
+  //lógica do ranking para cada jogo
+}
