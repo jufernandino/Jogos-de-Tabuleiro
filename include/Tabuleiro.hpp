@@ -15,7 +15,7 @@ class Tabuleiro{
 
   void criaTabuleiro(); //aloca uma matriz dinamicamente que servirá como tabuleiro
 
-  void imprimeTabuleiro(); //imrpime o tabuleiro com -s e |s
+  virtual void imprimeTabuleiro(); //imrpime o tabuleiro com -s e |s
 
   virtual void validaJogada(int x, int y, char z); //confere se os valores inseridos são menores que as dimensôes do tabuleiro e efetua a jogada
 

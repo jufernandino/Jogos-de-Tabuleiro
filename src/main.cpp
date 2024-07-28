@@ -81,18 +81,28 @@ void showRegras(const int &gameMode) {
       continuar = true;
       continue;
   }
-    
-    if (continuar && !linha.empty()) {
-      regras += linha + "\n";
-    } else {
-      break;
+    if (linha.find('(') != string::npos && linha.find(')') != string::npos) {
+        if (continuar) {
+            break;
+        }
     }
-  }
+
+    if (continuar) {
+        regras += linha + "\n";
+    }
+    }
 
   arquivo.close();
 
   if (!regras.empty()) {
-    cout << "\n" << regras << endl;
+    cout << "\n-------- \nREGRAS DO JOGO\n-------- \n" << regras << endl;
+    
+    cout << "Vamos começar? Tecle ENTER para iniciar o jogo." << endl;
+
+    cin.ignore();
+    cin.get();
+
+    cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
 }
 }
 
@@ -106,7 +116,7 @@ void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
       Jogadores jogador;
       string aux = "";
-      int i = 0;
+      long unsigned int i = 0;
 
       for (; i < line.size(); i++) {
         if (line[i] != ',') {
@@ -261,7 +271,7 @@ int main() {
 
   do {
     char opcaoMenu = '0';
-    cout << "MENU PRINCIPAL \nOlá! Vamos jogar? :) \n\nJogar (1) \nConsultar "
+    cout << "\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Vamos jogar? \n\nJogar (1) \nConsultar "
             "estatísticas dos jogadores (2)"
          << endl;
 
@@ -280,7 +290,7 @@ int main() {
       break;
     } else if (opcaoMenu == '2') {
 
-      cout << "CONSULTAR ESTATÍSTICAS\n" << endl;
+      cout << "\n--------\nCONSULTAR ESTATÍSTICAS\n-------- \n\n" << endl;
       showEstatisticas();
       cout << "\nPara voltar ao menu principal, tecle ENTER." << endl;
       cin.ignore();
@@ -296,13 +306,13 @@ int main() {
     }
   } while (opcaoVoltar);
 
-  //cout << "\nJOGAR" << endl;
+  cout << "\n--------\nJOGADORES\n--------\n" << endl;
 
   Jogadores Jogador1, Jogador2;
   cadastrarJogadores(Jogador1, jogadoresVector);
   cadastrarJogadores(Jogador2, jogadoresVector);
 
-  cout << "\nQue jogo gostariam de jogar?, Reversi (1), Lig4 (2), TicTacToe "
+  cout << "\nQual jogo gostariam de jogar?, Reversi (1), Lig4 (2), TicTacToe "
           "(3) ou Campo Minado (4)?\n"
        << endl;
 
@@ -316,12 +326,13 @@ int main() {
     cout << "\nReversi foi escolhido." << endl;
     
     do {
-      cout << "\nLer regras do jogo (1) \nJogar (2)" << endl;
+      cout << "Ler regras do jogo (1) \nJogar (2)" << endl;
 
       cin >> lerRegras;
 
       if (lerRegras == 2) {
         opcaoContinuar = false;
+        cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
         break;
       } else if (lerRegras == 1) {
         opcaoContinuar = false;
@@ -330,27 +341,52 @@ int main() {
       }
     } while (opcaoContinuar);
 
-/*
     Reversi r;
 
     r.criaTabuleiro();
+    r.inicializarJogo(3, 3);
+    r.inicializarJogo(4, 4);
+    r.inicializarJogo(3, 4);
+    r.inicializarJogo(4, 3);
     r.imprimeTabuleiro();
-    r.inicializarJogo();
-    while (1) {
-      r.fazerMovimento(0, 0);
-      r.verificarMovimentoValido(0, 0);
-      r.colocarPeca(0, 0); //inverterPeca e imprimeTabuleiro serão chamadas dentro delas
-      r.mudarJogador();
-      r.verificarFimDeJogo();
-      r.confereGanhador(); //contarPecas chamada dentro dela
-      break;
-    } 
-*/
+
+  do {
+    int jogadorAtual = 0;
+    int x, y;
+    char z = ' ';
+    z = (jogadorAtual % 2 == 0) ? 'X' : '0';
+
+    antiUsuario(x);
+    antiUsuario(y);
+    
+    r.validaJogada(x, y, z);
+    r.imprimeTabuleiro();
+    //confereGanhador
+    //atualizaEstatisticas
+    //showRanking
+  } while (r.verificarFimDeJogo()); //do-while provisório, só para o programa rodar pelo menos 1 vez
+  //acrescentar a liberaMemoria
   }
     
 
   if (gameMode == 2) {
     cout << "\nLig4 foi escolhido." << endl;
+
+    do {
+      cout << "Ler regras do jogo (1) \nJogar (2)" << endl;
+
+      cin >> lerRegras;
+
+      if (lerRegras == 2) {
+        opcaoContinuar = false;
+        cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
+        break;
+      } else if (lerRegras == 1) {
+        opcaoContinuar = false;
+        showRegras(gameMode);
+        break;
+      }
+    } while (opcaoContinuar);
 
     int x = 0, y = 0;
     string aux;
@@ -403,6 +439,22 @@ int main() {
   if (gameMode == 3) {
     cout << "\nTicTacToe foi escolhido.\n" << endl;
 
+    do {
+      cout << "Ler regras do jogo (1) \nJogar (2)" << endl;
+
+      cin >> lerRegras;
+
+      if (lerRegras == 2) {
+        opcaoContinuar = false;
+        cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
+        break;
+      } else if (lerRegras == 1) {
+        opcaoContinuar = false;
+        showRegras(gameMode);
+        break;
+      }
+    } while (opcaoContinuar);
+
     int x = 0, y = 0;
     TicTacToe t;
 
@@ -453,6 +505,22 @@ int main() {
 
   if (gameMode == 4) {
     cout << "\nCampo Minado foi escolhido.\n" << endl;
+
+    do {
+      cout << "Ler regras do jogo (1) \nJogar (2)" << endl;
+
+      cin >> lerRegras;
+
+      if (lerRegras == 2) {
+        opcaoContinuar = false;
+        cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
+        break;
+      } else if (lerRegras == 1) {
+        opcaoContinuar = false;
+        showRegras(gameMode);
+        break;
+      }
+    } while (opcaoContinuar);
   }
 
   return 0;

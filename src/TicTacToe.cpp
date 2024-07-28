@@ -4,8 +4,8 @@
 #include <string>
 
 TicTacToe::TicTacToe() {
-  this->rows = 3;
-  this->columns = 3;
+  this -> rows = 3;
+  this -> columns = 3;
 }
 
 int TicTacToe::confereGanhador() {

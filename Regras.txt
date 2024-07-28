@@ -1,22 +1,19 @@
 (1)
-1 - Regra
-2 - Regra
-3 - Regra
+1 - Regra do Reversi
+2 - Regra do Reversi
+3 - Regra do Reversi
 
 (2)
-Regras do Lig4 aqui
-1 - Regra
-2 - Regra
-3 - Regra
+1 - Regra do Lig4
+2 - Regra do Lig4
+3 - Regra do Lig4
 
 (3)
-Regras do TicTacToe aqui
-1 - Regra
-2 - Regra
-3 - Regra
+1 - Regra do TicTacToe
+2 - Regra do TicTacToe
+3 - Regra do TicTacToe
 
 (4)
-Regras do Campo Minado aqui
-1 - Regra
-2 - Regra
-3 - Regra
+1 - Regra do Campo Minado
+2 - Regra do Campo Minado
+3 - Regra do Campo Minado
