@@ -306,25 +306,12 @@ int main() {
        << endl;
 
   // int lerRegras = 0;
+  // bool opacaoSair = false;
 
-  char gameMode;
-  cin >> gameMode;
+  int gameMode;
+  antiUsuario(gameMode);
 
-  bool opcaoSair = false;
-
-  bool opcaoSair = false;
-
-  while (1) {
-    if (gameMode != '1' && gameMode != '2' && gameMode != '3' &&
-        gameMode != '4') {
-      cout << "Opção inválida! Tente novamente." << endl;
-      cin >> gameMode;
-    } else {
-      break;
-    }
-  }
-
-  if (gameMode == '1') {
+  if (gameMode == 1) {
     cout << "\nReversi foi escolhido." << endl;
     //   do {
     //     cout << "\nLer regras do jogo (1) \nJogar (2)" << endl;
@@ -345,7 +332,7 @@ int main() {
     // }
   }
 
-  if (gameMode == '2') {
+  if (gameMode == 2) {
     cout << "\nLig4 foi escolhido." << endl;
 
     int x = 0, y = 0;
@@ -396,7 +383,7 @@ int main() {
     l.liberaMemoria();
   }
 
-  if (gameMode == '3') {
+  if (gameMode == 3) {
     cout << "\nTicTacToe foi escolhido.\n" << endl;
 
     int x = 0, y = 0;
@@ -447,10 +434,9 @@ int main() {
     t.liberaMemoria();
   }
 
-  if (gameMode == '4') {
+  if (gameMode == 4) {
     cout << "\nCampo Minado foi escolhido.\n" << endl;
   }
 
-  
   return 0;
 }
