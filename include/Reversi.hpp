@@ -1,8 +1,6 @@
 #ifndef Reversi_H
 #define Reversi_H
 #include "Tabuleiro.hpp"
-#include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -10,17 +8,32 @@ using namespace std;
 
 class Reversi : public Tabuleiro {
   public: 
-    Reversi();
+    Reversi(); //construtor
 
-    void inicializaTabuleiro(); //específica do Reversi
+    void inicializarJogo(); //específica do Reversi, configura o tabuleiro e as posições iniciais das peças
 
-    virtual imprimeTabuleiro() override; //não sei se ela já imprime com as mudanças de cada jogada, conferir
+    virtual void imprimeTabuleiro() override;
 
-    void defineJogada(); //lê entrada do usuário e guarda pra depois, não sei se vamos usar, conferir
+    void fazerMovimento(int linha, int coluna);
+    
+    void verificarMovimentoValido(int linha, int coluna);
+    
+    void mudarJogador();
 
-    virtual void validaJogada() override; //puxa do Tabuleiro.hpp + acrescenta especificidades do jogo, conferir
+    bool verificarFimDeJogo(); //chamada todas as vezes que um movimento é feito
 
-    virtual int confereGanhador() override; //mesma coisa
+    virtual int confereGanhador() override;
+
+  private:
+    Tabuleiro tabuleiro;
+        
+    char jogadorAtual; // variável para armazenar qual a peça do jogador atual (ou X ou O)
+
+    void colocarPeca(int linha, int coluna);
+    
+    void inverterPecas(int linha, int coluna);
+    
+    int contarPecas(char cor);
 };
 
 */

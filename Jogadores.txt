@@ -1,4 +1,4 @@
-alanzoka, Alan Ferreira, 0, 0, 0, 2, 1, 3
-sally, Marcele Louise Silva Araponga, 0, 0, 2, 0, 3, 1
+alanzoka, Alan Ferreira, 0, 0, 0, 3, 2, 3
+sally, Marcele Louise Silva Araponga, 0, 0, 3, 0, 3, 2
 maethe, Maethe, 3, 1, 1, 3, 3, 2
 calango, Thiago Elias, 0, 4, 4, 0, 4, 3

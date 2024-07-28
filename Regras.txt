@@ -1,0 +1,22 @@
+(1)
+1 - Regra
+2 - Regra
+3 - Regra
+
+(2)
+Regras do Lig4 aqui
+1 - Regra
+2 - Regra
+3 - Regra
+
+(3)
+Regras do TicTacToe aqui
+1 - Regra
+2 - Regra
+3 - Regra
+
+(4)
+Regras do Campo Minado aqui
+1 - Regra
+2 - Regra
+3 - Regra

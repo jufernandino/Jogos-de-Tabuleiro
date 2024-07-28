@@ -38,12 +38,6 @@ void antiUsuario(int &a) { // confere se as entradas fornecidas pelo usuário n�
     if (isdigit(aux[0])) {
       a = stoi(aux, nullptr, 10);
       break;
-      // if (a > 5 || a < 0) {
-      //   cout << "Opção inválida! Tente novamente." << endl;
-      //   continue;
-      // } else {
-      //   break;
-      // }
     }
   }
 }
@@ -68,37 +62,37 @@ void showEstatisticas() {
   in.close();
 }
 
-// void showRegras(const int &gameMode) {
-//   ifstream arquivo("Regras.txt");
+void showRegras(const int &gameMode) {
+  ifstream arquivo("Regras.txt");
+  
+  if (!arquivo.is_open()) {
+    cout << "Erro ao tentar abrir o arquivo!" << endl;
+    return;
+  }
 
-//   if (!arquivo.is_open()) {
-//     cout << "Erro ao tentar abrir o arquivo!" << endl;
-//     return;
-//   }
+  string linha, regras;
+  bool continuar = false;
+  string aux = "(" + to_string(gameMode) + ")";
 
-//   string linha, regras;
-//   bool continuar = false;
-//   string aux = "(" + to_string(gameMode) + ")";
+  while (getline(arquivo, linha)) {
+    if (linha == aux) {
+      continuar = true;
+      continue;
+  }
+    
+    if (continuar && !linha.empty()) {
+      regras += linha + "\n";
+    } else {
+      break;
+    }
+  }
 
-//   while (getline(arquivo, linha)) {
-//     if (linha == aux) {
-//       continuar = true;
-//       continue;
-//     }
+  arquivo.close();
 
-//     if (continuar && !linha.empty()) {
-//       regras += linha + "\n";
-//     } else {
-//       break;
-//     }
-//   }
-
-//   arquivo.close();
-
-//   if (!regras.empty()) {
-//     cout << "\n" << regras << endl;
-//   }
-// }
+  if (!regras.empty()) {
+    cout << "\n" << regras << endl;
+}
+}
 
 void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
@@ -264,6 +258,7 @@ int main() {
   bool opcaoVoltar = false;
 
   do {
+    char opcaoMenu = '0';
     cout << "MENU PRINCIPAL \nOlá! Vamos jogar? :) \n\nJogar (1) \nConsultar "
             "estatísticas dos jogadores (2)"
          << endl;
@@ -300,7 +295,7 @@ int main() {
     }
   } while (opcaoVoltar);
 
-  cout << "\nJOGAR" << endl;
+  //cout << "\nJOGAR" << endl;
 
   Jogadores Jogador1, Jogador2;
   cadastrarJogadores(Jogador1, jogadoresVector);
@@ -314,6 +309,10 @@ int main() {
 
   char gameMode;
   cin >> gameMode;
+
+  bool opcaoSair = false;
+
+  bool opcaoSair = false;
 
   while (1) {
     if (gameMode != '1' && gameMode != '2' && gameMode != '3' &&
@@ -452,5 +451,6 @@ int main() {
     cout << "\nCampo Minado foi escolhido.\n" << endl;
   }
 
+  
   return 0;
 }
