@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//construtor
 Tabuleiro::Tabuleiro() {
   this->rows = 0;
   this->columns = 0;
