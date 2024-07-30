@@ -26,34 +26,37 @@ void Reversi::inicializarJogo(int linha, int coluna) {
       }
     }
   }
+  jogadorAtual = 'X';
 }
 
 void Reversi::validaJogada(int x, int y, char z) {
-  int linha = x;
-  int coluna = y;
+  char jogadorDaVez = z;
   
   bool posicaoVazia = false;
-  bool encontrouAdversario = false;
-  bool posicaoOcupadaJogadorAtual = false;
   
-  if (x < this -> rows && y < this -> columns && p[x][y] == ' ') { //~ confere se a posição tá vazia, usando a lógica da Marcele
+  if (x < 0 || x >= this -> rows || y < 0 || y >= this -> columns || p[x][y] != ' ') { //confere se a posição tá dentro do escopo do tabuleiro e tá vazia
+    cout << "Essa posição não está vazia. Tente novamente" << endl;
     posicaoVazia = true;
+    return;
   }
 
-  char corAdversario = (jogadorAtual == 'X') ? 'O' : 'X';
+  //char corAdversario = ((jogadorDaVez == 'X') ? 'O' : 'X');
+  char corAdversario = ((jogadorDaVez == 'X') ? 'X' : '0');
 
   const int direcoes[8][2] = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
   for (auto &direcao : direcoes) {
     int dLinha = direcao[0];
     int dColuna = direcao[1];
-    int linhaAtual = linha + dLinha; //atualiza as coordenadas com base na direção testada
-    int colunaAtual = coluna + dColuna;
+    int linhaAtual = x + dLinha; //atualiza as coordenadas com base na direção testada
+    int colunaAtual = y + dColuna;
+    bool encontrouAdversario = false;
 
-    while (linhaAtual >= 0 && linhaAtual < 8 && colunaAtual >= 0 && colunaAtual < 8) {
+  bool posicaoOcupadaJogadorAtual = false;
+    while (linhaAtual >= 0 && linhaAtual < this -> rows && colunaAtual >= 0 && colunaAtual < this -> columns) {
       if (p[linhaAtual][colunaAtual] == corAdversario) {
         encontrouAdversario = true;
-      } else if (p[linhaAtual][colunaAtual] == jogadorAtual && encontrouAdversario) {
+      } else if (p[linhaAtual][colunaAtual] == jogadorDaVez && encontrouAdversario) {
         posicaoOcupadaJogadorAtual = true; //se, na posição, encontrar uma peça do mesmo jogador e houver pelo menos uma peça adversária entre as duas peças, a jogada é válida
       } else {
         break;
@@ -61,16 +64,22 @@ void Reversi::validaJogada(int x, int y, char z) {
       linhaAtual += dLinha;
       colunaAtual += dColuna;
     }
-
-  if ((posicaoVazia) ||(posicaoOcupadaJogadorAtual)) {
-    p[x][y] = z;
-    //~ encaixar inverterPecas aqui
+  if (posicaoOcupadaJogadorAtual) {
+    break;
   }
-}
+    
+  if ((posicaoVazia) && (posicaoOcupadaJogadorAtual)) {
+    p[x][y] = jogadorDaVez;
+    //encaixar inverterPecas aqui
+  } else {
+    cout << "Jogada inválida. Tente novamente." << endl;
+    break;
+  }
+}  
 }
 
 bool Reversi::verificarFimDeJogo() {
-  return false;
+  return true;
 }
 
 
@@ -84,4 +93,16 @@ bool Reversi::verificarFimDeJogo() {
 
 //void Reversi::inverterPecas(int linha, int coluna) { }
 
-//int Reversi::contarPecas(char cor) { }
+/* int Reversi::contarPecas(int x, int y) { 
+int contadorX = 0;
+int contadorY = 0;
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (p[x][y] == 'X') {
+                contadorX++;
+            } else if (p[x][y] == 'O') {
+            contadorY++;
+            }
+        }
+    }
+} */

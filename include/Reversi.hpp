@@ -13,7 +13,7 @@ class Reversi : public Tabuleiro {
 
     void inicializarJogo(int linha, int coluna); //específica do Reversi, configura o tabuleiro e as posições iniciais das peças
 
-    virtual void validaJogada(int x, int y, char z) override;
+    virtual void validaJogada(int x, int y, char z) override; //sobrecarga
 
     bool verificarFimDeJogo(); //chamada todas as vezes que um movimento é feito
 /*

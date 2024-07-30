@@ -352,9 +352,17 @@ int main() {
 
   do {
     int jogadorAtual = 0;
-    int x, y;
     char z = ' ';
-    z = (jogadorAtual % 2 == 0) ? 'X' : '0';
+    if (jogadorAtual % 2 == 0) {
+      z = 'X';
+      //cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << endl;
+    }
+    if (jogadorAtual % 2 != 0) {
+      z = 'O';
+      //cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << endl;
+    }
+    
+    int x, y;
 
     antiUsuario(x);
     antiUsuario(y);
@@ -402,9 +410,11 @@ int main() {
       char z = ' ';
       if (jogadorAtual % 2 == 0) {
         z = 'X';
+        //cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << " é o " << z << endl;
       }
       if (jogadorAtual % 2 != 0) {
         z = 'O';
+        //cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << " é o " << z << endl;;
       }
 
       antiUsuario(y);
