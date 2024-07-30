@@ -221,9 +221,9 @@ void cadastrarJogadores(Jogadores &Jogador,
                         vector<Jogadores> &jogadoresVector) {
   while (1) {
     cout << "Você deseja "
-            "sign in (1)"
+            "entrar em uma conta (1)"
             " ou "
-            "sing up (2)"
+            "criar uma conta (2)"
             "?"
          << endl;
     int options;
@@ -322,6 +322,7 @@ int main() {
   int gameMode;
   antiUsuario(gameMode);
 
+  //jogo Reversi
   if (gameMode == 1) {
     cout << "\nReversi foi escolhido." << endl;
     
@@ -341,13 +342,11 @@ int main() {
       }
     } while (opcaoContinuar);
 
+
     Reversi r;
 
     r.criaTabuleiro();
-    r.inicializarJogo(3, 3);
-    r.inicializarJogo(4, 4);
-    r.inicializarJogo(3, 4);
-    r.inicializarJogo(4, 3);
+    r.inicializarJogo();
     r.imprimeTabuleiro();
 
   do {
@@ -355,11 +354,11 @@ int main() {
     char z = ' ';
     if (jogadorAtual % 2 == 0) {
       z = 'X';
-      //cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << endl;
+      cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << endl;
     }
     if (jogadorAtual % 2 != 0) {
       z = 'O';
-      //cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << endl;
+      cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << endl;
     }
     
     int x, y;
@@ -372,11 +371,10 @@ int main() {
     //confereGanhador
     //atualizaEstatisticas
     //showRanking
-  } while (r.verificarFimDeJogo()); //do-while provisório, só para o programa rodar pelo menos 1 vez
-  //acrescentar a liberaMemoria
+  } while (r.verificarFimDeJogo()); //do-while provisório
   }
     
-
+  //jogo lig4
   if (gameMode == 2) {
     cout << "\nLig4 foi escolhido." << endl;
 
@@ -410,11 +408,11 @@ int main() {
       char z = ' ';
       if (jogadorAtual % 2 == 0) {
         z = 'X';
-        //cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << " é o " << z << endl;
+        cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << " é o " << z << endl;
       }
       if (jogadorAtual % 2 != 0) {
         z = 'O';
-        //cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << " é o " << z << endl;;
+        cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << " é o " << z << endl;;
       }
 
       antiUsuario(y);
@@ -423,22 +421,22 @@ int main() {
 
       l.imprimeTabuleiro();
 
-      if (l.confereGanhador()) {
+      if (l.confereGanhador() == 1) {
         cout << Jogador1.Apelido << " ganhou!" << endl;
         Jogador1.victory = true;
         Jogador1.atualizaEstatisticas(gameMode, jogadoresVector);
         Jogador2.atualizaEstatisticas(gameMode, jogadoresVector);
         break;
       }
-      if (l.confereGanhador()) {
+      if (l.confereGanhador() == 2) {
         cout << Jogador2.Apelido << " ganhou!" << endl;
         Jogador2.victory = true;
         Jogador1.atualizaEstatisticas(gameMode, jogadoresVector);
         Jogador2.atualizaEstatisticas(gameMode, jogadoresVector);
         break;
       }
-      if (l.confereGanhador()) {
-        cout << "Não há vencedores!" << endl;
+      if (l.confereGanhador() == 3) {
+        cout << "Empate!" << endl;
         break;
       }
       jogadorAtual++;
@@ -446,6 +444,7 @@ int main() {
     l.liberaMemoria();
   }
 
+  //jogo tictactoe
   if (gameMode == 3) {
     cout << "\nTicTacToe foi escolhido.\n" << endl;
 
@@ -513,6 +512,7 @@ int main() {
     t.liberaMemoria();
   }
 
+  //jogo campo minado
   if (gameMode == 4) {
     cout << "\nCampo Minado foi escolhido.\n" << endl;
 

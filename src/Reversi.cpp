@@ -12,36 +12,28 @@ int Reversi::confereGanhador() {
   return 0;
 }
 
-void Reversi::inicializarJogo(int linha, int coluna) {
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < columns; j++) {
-      if (linha == 3 && coluna == 3) {
-      p[linha][coluna] = 'X';
-      } else if (linha == 4 && coluna == 4) {
-        p[linha][coluna] = 'X';
-      } else if (linha == 3 && coluna == 4) {
-        p[linha][coluna] = 'O';
-      } else if (linha == 4 && coluna == 3) {
-        p[linha][coluna] = 'O';
-      }
-    }
-  }
+//void Reversi::inicializarJogo(int linha, int coluna) {
+void Reversi::inicializarJogo() {
+    p[3][3] = 'X';
+    p[4][4] = 'X';
+    p[3][4] = 'O';
+    p[4][3] = 'O';
+
   jogadorAtual = 'X';
 }
 
-void Reversi::validaJogada(int x, int y, char z) {
-  char jogadorDaVez = z;
+void Reversi::validaJogada(int x, int y, char jogadorDaVez) {
   
   bool posicaoVazia = false;
   
   if (x < 0 || x >= this -> rows || y < 0 || y >= this -> columns || p[x][y] != ' ') { //confere se a posição tá dentro do escopo do tabuleiro e tá vazia
     cout << "Essa posição não está vazia. Tente novamente" << endl;
     posicaoVazia = true;
-    return;
+    return; //retorna direto para a main
   }
 
-  //char corAdversario = ((jogadorDaVez == 'X') ? 'O' : 'X');
-  char corAdversario = ((jogadorDaVez == 'X') ? 'X' : '0');
+  char corAdversario = ((jogadorDaVez == 'X') ? 'O' : 'X');
+  //char corAdversario = ((jogadorDaVez == 'X') ? 'X' : '0');
 
   const int direcoes[8][2] = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
@@ -67,6 +59,14 @@ void Reversi::validaJogada(int x, int y, char z) {
   if (posicaoOcupadaJogadorAtual) {
     break;
   }
+
+    //se há pelo menos um 0 entre dois X, a jogada é válida
+    //conferir se posição está vazia
+    //primeiro achar se há uma peça BRANCA adjacente a peça do jogador atual PRETA, guardar essa info
+    //se tiver, jogada é válida, peça PRETA pode ser colocada ao lado da BRANCA
+    //checar se a entrada do jogador bate com a entrada disponível
+    //se escolher a disponível, coloca a peça PRETA e inverte as BRANCAS entre as peças PRETAS
+    //se não houver jogadas disponíveis, passa a vez
     
   if ((posicaoVazia) && (posicaoOcupadaJogadorAtual)) {
     p[x][y] = jogadorDaVez;
