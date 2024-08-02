@@ -80,7 +80,7 @@ bool Reversi::ehJogadaValida(int x, int y, char jogadorDaVez) {
 
 //função para mostrar ao jogador da vez quais possíveis casas ele pode escolher
 void Reversi::mostrarLocaisJogada(char jogadorDaVez) {
-  cout << "Coordenadas para jogadas possíveis:";
+  cout << "Coordenadas para jogadas possíveis: ";
   for (int i = 0; i < 8; ++i) {
     for (int j = 0; j < 8; ++j) {
       if (p[i][j] == ' ' && ehJogadaValida(i, j, jogadorDaVez)) {

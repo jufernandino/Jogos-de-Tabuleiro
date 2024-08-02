@@ -397,7 +397,8 @@ int main() {
 
     //atualizaEstatisticas
     //showRanking
-
+  }
+  
   //jogo lig4
   if (gameMode == 2) {
     cout << "\nLig4 foi escolhido." << endl;
@@ -432,11 +433,11 @@ int main() {
       char z = ' ';
       if (jogadorAtual % 2 == 0) {
         z = 'X';
-        cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << " é o " << z << endl;
+        cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << endl;
       }
       if (jogadorAtual % 2 != 0) {
         z = 'O';
-        cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << " é o " << z << endl;;
+        cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << endl;
       }
 
       antiUsuario(y);
@@ -501,9 +502,11 @@ int main() {
       char z = ' ';
       if (jogadorAtual % 2 == 0) {
         z = 'X';
+        cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << endl;
       }
       if (jogadorAtual % 2 != 0) {
         z = 'O';
+        cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << endl;
       }
 
       antiUsuario(x);
@@ -558,5 +561,4 @@ int main() {
   }
 
   return 0;
-}
 }
