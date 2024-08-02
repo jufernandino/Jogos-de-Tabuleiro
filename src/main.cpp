@@ -66,7 +66,7 @@ void showEstatisticas() {
 
 void showRegras(const int &gameMode) {
   ifstream arquivo("Regras.txt");
-  
+
   if (!arquivo.is_open()) {
     cout << "Erro ao tentar abrir o arquivo!" << endl;
     return;
@@ -96,7 +96,7 @@ void showRegras(const int &gameMode) {
 
   if (!regras.empty()) {
     cout << "\n-------- \nREGRAS DO JOGO\n-------- \n" << regras << endl;
-    
+
     cout << "Vamos começar? Tecle ENTER para iniciar o jogo." << endl;
 
     cin.ignore();
@@ -224,8 +224,8 @@ void cadastrarJogadores(Jogadores &Jogador,
             "entrar em uma conta (1)"
             " ou "
             "criar uma conta (2)"
-            "?"
-         << endl;
+            "?";
+    cout << endl;
     int options;
 
     while (1) {
@@ -240,14 +240,15 @@ void cadastrarJogadores(Jogadores &Jogador,
     if (options == 1) {
       Jogadores aux;
       string str;
-      cout << "Insira seu nickname:" << endl;
+      cout << "\nInsira seu nickname: ";
       cin >> str;
+      cout << endl;
       if (aux.pesquisaJogador(str)) {
         aux.signIn(str, jogadoresVector);
         Jogador = aux;
         break;
       } else {
-        cout << "Esse jogador não existe. Tente novamente." << endl;
+        cout << "\nEsse jogador não existe. Tente novamente.\n" << endl;
       }
     }
 
@@ -269,17 +270,18 @@ int main() {
 
   bool opcaoVoltar = false;
 
+  cout << "Teste" << endl;
+
   do {
     char opcaoMenu = '0';
-    cout << "\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Vamos jogar? \n\nJogar (1) \nConsultar "
-            "estatísticas dos jogadores (2)"
+    cout << "\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Vamos jogar? \n\nJogar (1) \nConsultar estatísticas dos jogadores (2)"
          << endl;
 
     cin >> opcaoMenu;
 
     while (1) {
       if (opcaoMenu != '1' && opcaoMenu != '2') {
-        cout << "Opção inválida! Tente novamente." << endl;
+        cout << "\nOpção inválida! Tente novamente.\n" << endl;
         cin >> opcaoMenu;
       } else {
         break;
@@ -290,7 +292,7 @@ int main() {
       break;
     } else if (opcaoMenu == '2') {
 
-      cout << "\n--------\nCONSULTAR ESTATÍSTICAS\n-------- \n\n" << endl;
+      cout << "\n--------\nCONSULTAR ESTATÍSTICAS\n-------- \n" << endl;
       showEstatisticas();
       cout << "\nPara voltar ao menu principal, tecle ENTER." << endl;
       cin.ignore();
@@ -312,8 +314,7 @@ int main() {
   cadastrarJogadores(Jogador1, jogadoresVector);
   cadastrarJogadores(Jogador2, jogadoresVector);
 
-  cout << "\nQual jogo gostariam de jogar?, Reversi (1), Lig4 (2), TicTacToe "
-          "(3) ou Campo Minado (4)?\n"
+  cout << "Qual jogo gostariam de jogar? \n\nReversi (1) \nLig4 (2) \nTicTacToe (3) \nCampo Minado (4)?\n"
        << endl;
 
   int lerRegras = 0;
@@ -325,7 +326,7 @@ int main() {
   //jogo Reversi
   if (gameMode == 1) {
     cout << "\nReversi foi escolhido." << endl;
-    
+
     do {
       cout << "Ler regras do jogo (1) \nJogar (2)" << endl;
 
@@ -349,8 +350,9 @@ int main() {
     r.inicializarJogo();
     r.imprimeTabuleiro();
 
+  int jogadorAtual = 0;
+
   do {
-    int jogadorAtual = 0;
     char z = ' ';
     if (jogadorAtual % 2 == 0) {
       z = 'X';
@@ -360,20 +362,42 @@ int main() {
       z = 'O';
       cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << endl;
     }
-    
+
+    r.mostrarLocaisJogada(z); //mostra locais possíveis de jogada
+    //r.mostrarLocaisJogada(jogadorDaVez);
+
     int x, y;
 
     antiUsuario(x);
     antiUsuario(y);
-    
-    r.validaJogada(x, y, z);
-    r.imprimeTabuleiro();
-    //confereGanhador
+
+    if (r.ehJogadaValida(x, y, z)) // Se a jogada for possivel
+      {
+        r.validaJogada(x, y, z); // Validar a jogada
+        r.imprimeTabuleiro();               // Imprimir o tabuleiro
+        jogadorAtual++;                     // Mudar o jogador atual
+      }
+      else
+      {
+        cout << "Jogada inválida, tente novamente." << endl;
+        continue; // Volta ao início do loop para o mesmo jogador tentar novamente
+      }
+
+    } while (!r.verificarFimDeJogo()); //verifica se o jogo acabou
+
+    r.confereGanhador();
+
+    if(r.confereGanhador() == 1) {
+      cout << Jogador1.Apelido << " ganhou!" << endl;
+    } else if (r.confereGanhador() == 2) {
+      cout << Jogador2.Apelido << " ganhou!" << endl;
+    } else if (r.confereGanhador() == 3) {
+        cout << "Empatou!" << endl;
+    }
+
     //atualizaEstatisticas
     //showRanking
-  } while (r.verificarFimDeJogo()); //do-while provisório
-  }
-    
+
   //jogo lig4
   if (gameMode == 2) {
     cout << "\nLig4 foi escolhido." << endl;
@@ -534,4 +558,5 @@ int main() {
   }
 
   return 0;
+}
 }
