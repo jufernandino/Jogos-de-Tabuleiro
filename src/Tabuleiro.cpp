@@ -11,11 +11,13 @@ Tabuleiro::Tabuleiro() {
   this->columns = 0;
 }
 
-void Tabuleiro::criaTabuleiro() {
+void Tabuleiro::criaTabuleiro()
+{
   p = new char *[rows];
   for (int i = 0; i < rows; i++) {
     p[i] = new char[columns];
-    for (int j = 0; j < columns; j++) {
+    for (int j = 0; j < columns; j++)
+    {
       p[i][j] = ' ';
     }
   }
@@ -43,8 +45,10 @@ void Tabuleiro::imprimeTabuleiro() {
   cout << '\n';
 }
 
-void Tabuleiro::liberaMemoria() {
-  for (int i = 0; i < rows; i++) {
+void Tabuleiro::liberaMemoria()
+{
+  for (int i = 0; i < rows; i++)
+  {
     delete[] p[i];
   }
   delete[] p;

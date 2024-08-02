@@ -5,9 +5,10 @@
 
 using namespace std;
 
-class Tabuleiro{
-  public: 
-  char** p;
+class Tabuleiro
+{
+public:
+  char **p;
   int rows;
   int columns;
 
