@@ -4,14 +4,8 @@
 #include <string>
 
 TicTacToe::TicTacToe() {
-  this->rows = 3;
-  this->columns = 3;
-}
-
-void TicTacToe::validaJogada(int x, int y, char z) {
-  if (x < 3 && y < 3 && p[x][y] == ' ') {
-    p[x][y] = z;
-  }
+  this -> rows = 3;
+  this -> columns = 3;
 }
 
 int TicTacToe::confereGanhador() {
@@ -44,7 +38,7 @@ int TicTacToe::confereGanhador() {
       return 2;
     }
   }
-  if (p[0][2] == p[1][1] && p[0][2] == p[2][2] && p[2][0] != ' ') {
+  if (p[0][2] == p[1][1] && p[0][2] == p[2][0] && p[2][0] != ' ') {
     if (p[0][2] == 'X') { // caso o Jogador1 vença
       return 1;
     }
@@ -53,16 +47,22 @@ int TicTacToe::confereGanhador() {
     }
   }
   // caso ninguém vença
-  int i, j, a = 0;
-  for (i = 0; i < rows; i++) {
-    for (j = 0; j < columns; j++) {
+  bool empate = true;
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < columns; j++) {
       if (p[i][j] == ' ') {
-        a = 1;
+        empate = false;
+        break;
       }
     }
+    if (!empate) {
+      break;
+    }
   }
-  if (!a) {
+
+  if (empate) {
     return 3;
   }
+
   return 0;
 }

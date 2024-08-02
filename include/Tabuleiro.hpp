@@ -14,14 +14,16 @@ public:
 
   Tabuleiro();
 
-  void criaTabuleiro();
+  void criaTabuleiro(); //aloca uma matriz dinamicamente que servirá como tabuleiro
 
-  void imprimeTabuleiro();
+  virtual void imprimeTabuleiro(); //imrpime o tabuleiro com -s e |s
 
-  void liberaMemoria();
+  virtual void validaJogada(int x, int y, char z); //confere se os valores inseridos são menores que as dimensôes do tabuleiro e efetua a jogada
 
-  char getPosicao(int linha, int coluna);            // Retorna qual a peça na posição especificada
-  void setPosicao(int linha, int coluna, char peca); // Define uma peça para a posição especificada
+  void liberaMemoria(); //libera a memória alocada anteriomente em criaTabuleiro()
+
+  virtual int confereGanhador() = 0; //confere se alguém venceu
+
 };
 
 #endif

@@ -1,0 +1,19 @@
+(1)
+1 - Regra do Reversi
+2 - Regra do Reversi
+3 - Regra do Reversi
+
+(2)
+1 - Regra do Lig4
+2 - Regra do Lig4
+3 - Regra do Lig4
+
+(3)
+1 - Regra do TicTacToe
+2 - Regra do TicTacToe
+3 - Regra do TicTacToe
+
+(4)
+1 - Regra do Campo Minado
+2 - Regra do Campo Minado
+3 - Regra do Campo Minado

@@ -1,4 +1,3 @@
-
 #ifndef Jogadores_H
 #define Jogadores_H
 #include <string>
@@ -34,6 +33,8 @@ class Jogadores{
     void removeJogador(vector<Jogadores> &jogadoresVector);
 
     void atualizaEstatisticas(int gameMode, vector<Jogadores> &jogadoresVector);
+
+    void showRanking(string gameName);
 
 };
 
