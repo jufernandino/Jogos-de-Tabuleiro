@@ -214,7 +214,7 @@ int main() {
   //jogo tictactoe
   opcaoVoltar = false;
   
-  while (!(opcaoVoltar)) {
+  //while (!(opcaoVoltar)) {
     if (gameMode == 3) {
       cout << "\nTicTacToe foi escolhido." << endl;
 
@@ -269,6 +269,8 @@ int main() {
     }
 
     t.liberaMemoria();
+
+      /*
     
     cout << "\nFIM DE JOGO! \n\nVisualizar ranking (1) \nJogar novamente (2) \nEncerrar o programa (3)" << endl;
 
@@ -285,9 +287,9 @@ int main() {
     } else {
       cout << "ERRO: opção inválida!" << endl;
       //terminar aqui
-    }
+    } */
   }
-  }
+  //}
 
   //jogo campo minado
   if (gameMode == 4) {
