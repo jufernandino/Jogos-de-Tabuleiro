@@ -95,7 +95,7 @@ void Reversi::mostrarLocaisJogada(char jogadorDaVez) {
 //se a jogada é valida (ehJogadaValida = verdadeiro), valida a jogada, coloca a peça no local e inverte as outras
 void Reversi::validaJogada(int x, int y, char jogadorDaVez) {
   if (!ehJogadaValida(x, y, jogadorDaVez)) {
-    cout << "Jogada inválida. Tente novamente." << endl;
+    cout << "ERRO: jogada inválida" << endl;
     return;
   }
 
@@ -147,51 +147,3 @@ bool Reversi::verificarFimDeJogo() {
   }
   return true;
 }
-
-
-/*
-
-void Reversi::validaJogada(int x, int y, char jogadorDaVez) {
-  bool encontrouPecaX = false;
-  bool encontrouPecaO = false;
-  bool encontrouVazia = false;
-
-  if (jogadorDaVez == 'X') {
-    for (int i = 0; i < rows; i++) {
-      for(int j = 0 ; j < columns ; j++){
-        // valida as posicoes
-        if(p[i][j] = 'X') {
-          encontrouPecaX = true;
-        }
-
-        if(p[i][j] = 'O') {
-          encontrouPecaO = true;
-        }
-
-        if(p[i][j] = ' ') {
-          encontrouVazia = true;
-        }
-
-      }
-    }
-  }
-
-  p[x][y] = jogadorDaVez;
-
-  if(jogadorDaVez == 'O') {
-  }
-
-
-primeiro achar se há uma peça BRANCA adjacente a peça do jogador atual PRETA, guardar essa info
-
-  se há pelo menos um 0 entre dois X, a jogada é válida
-
-se tiver, jogada é válida, peça PRETA pode ser colocada ao lado da BRANCA
-
-checar se a entrada do jogador bate com a entrada disponível
-
-se escolher a disponível, coloca a peça PRETA e inverte as BRANCAS entre as peças PRETAS
-
-se não houver jogadas disponíveis, passa a vez 
-
-*/

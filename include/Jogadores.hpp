@@ -34,7 +34,7 @@ class Jogadores{
 
     void atualizaEstatisticas(int gameMode, vector<Jogadores> &jogadoresVector);
 
-    void showRanking(string gameName);
+    void showRanking(const int &gameMode, vector<Jogadores> &jogadoresVector);
 
 };
 

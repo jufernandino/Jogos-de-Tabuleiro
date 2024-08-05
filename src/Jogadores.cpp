@@ -65,7 +65,7 @@ Jogadores::Jogadores(string Apelido) {
     cin >> Apelido;
     if (this->pesquisaJogador(Apelido)) {
       cout << "ERRO: jogador repetido" << endl;
-      cout << "Por favor, tente novamente:" << endl;
+      cout << "Por favor, tente novamente: " << endl;
       continue;
     } else {
       break;
@@ -81,7 +81,7 @@ Jogadores::Jogadores(string Apelido) {
   this->tictactoeWins = 0;
   this->tictactoeDefeats = 0;
   this->victory = false;
-
+  
   ofstream out("Jogadores.txt", fstream::app);
 
   if (out.is_open()) {
@@ -91,16 +91,13 @@ Jogadores::Jogadores(string Apelido) {
         << this->lig4Defeats << ", " << this->tictactoeWins << ", "
         << this->tictactoeDefeats;
   } else {
-    cout << "O arquivo "
-            "Jogadores.txt"
-            " não pôde ser aberto."
-         << endl;
+    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
     return;
   }
 
   out.close();
 
-  cout << "Novo jogador criado com sucesso." << endl;
+  cout << "Jogador " << Apelido << " cadastrado com sucesso" << endl;
 }
 
 void Jogadores::signIn(string Apelido, vector<Jogadores> &jogadoresVector) {
@@ -136,10 +133,7 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
           << (*it).lig4Defeats << ", " << (*it).tictactoeWins << ", "
           << (*it).tictactoeDefeats << '\n';
     } else {
-      cout << "O arquivo "
-              "Jogadores.txt"
-              " não pôde ser aberto."
-           << endl;
+      cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
       return;
     }
   }
@@ -196,6 +190,23 @@ void Jogadores::atualizaEstatisticas(int gameMode,
   this->reescreveArquivo(jogadoresVector);
 }
 
-void Jogadores::showRanking(string gameName) {
-  //lógica do ranking para cada jogo
+void Jogadores::showRanking(const int &gameMode, vector<Jogadores> &jogadoresVector) {
+  for (const auto &jogador : jogadoresVector) {
+    switch(gameMode) {
+      case 1:
+        cout << "Reversi: " << jogador.reversiWins << " vitorias, " << jogador.reversiDefeats << " derrotas" << endl;
+      break;
+
+      case 2:
+        cout << "Liga 4: " << jogador.lig4Wins << " vitorias, " << jogador.lig4Defeats << " derrotas" << endl;
+      break;
+
+      case 3:
+        cout << "Tic Tac Toe: " << jogador.tictactoeWins << " vitorias, " << jogador.tictactoeDefeats << " derrotas" << endl;
+      break;
+
+      default:
+        cout << "Erro irmao" << endl;
+    }
+  }
 }

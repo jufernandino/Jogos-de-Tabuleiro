@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -59,5 +60,59 @@ void Tabuleiro::validaJogada(int x, int y, char z) {
     p[x][y] = z;
   } else {
     cout << "\nEssa jogada é invalida! Passa a vez!\n" << endl;
+  }
+}
+
+void Tabuleiro::menuJogo(const int &gameMode) {
+  cout << "Jogar (1) \nLer regras do jogo (2)" << endl;
+
+  int lerRegras;
+  cin >> lerRegras;
+
+  if (lerRegras == 1) {
+    cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
+    return;
+  } 
+  else if (lerRegras == 2) {
+
+    ifstream arquivo("Regras.txt");
+
+    if (!arquivo.is_open()) {
+      cout << "ERRO: não foi possível abrir o arquivo Regras.txt" << endl;
+      return;
+    }
+
+    string linha, regras;
+    bool continuar = false;
+    string aux = "(" + to_string(gameMode) + ")";
+
+    while (getline(arquivo, linha)) {
+      if (linha == aux) {
+        continuar = true;
+        continue;
+    }
+        if (linha.find('(') != string::npos && linha.find(')') != string::npos) {
+          if (continuar) {
+            break;
+          }
+        }
+
+        if (continuar) {
+          regras += linha + "\n";
+        }
+      }
+
+    arquivo.close();
+
+    if (!regras.empty()) {
+      cout << "\n-------- \nREGRAS DO JOGO\n-------- \n" << regras << endl;
+
+      cout << "Vamos começar? Tecle ENTER para iniciar o jogo." << endl;
+
+      cin.ignore();
+      cin.get();
+
+      cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
+    }
   }
 }

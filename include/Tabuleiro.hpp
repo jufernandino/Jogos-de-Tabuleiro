@@ -24,6 +24,8 @@ public:
 
   virtual int confereGanhador() = 0; //confere se alguém venceu
 
+  void menuJogo(const int &gameMode);
+
 };
 
 #endif
