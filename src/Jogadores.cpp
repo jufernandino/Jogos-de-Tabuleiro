@@ -1,6 +1,7 @@
 #include "Jogadores.hpp"
 #include <iomanip>
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 
@@ -191,22 +192,63 @@ void Jogadores::atualizaEstatisticas(int gameMode,
 }
 
 void Jogadores::showRanking(const int &gameMode, vector<Jogadores> &jogadoresVector) {
-  for (const auto &jogador : jogadoresVector) {
-    switch(gameMode) {
+  
+  auto ordenacaoDecrescente = [gameMode](const Jogadores &x, const Jogadores &y) {
+  
+    switch (gameMode) {
       case 1:
-        cout << "Reversi: " << jogador.reversiWins << " vitorias, " << jogador.reversiDefeats << " derrotas" << endl;
+        return (x.reversiWins > y.reversiWins);
+        break;
+      case 2:
+        return (x.lig4Wins > y.lig4Wins);
+        break;
+      case 3:
+        return (x.tictactoeWins > y.tictactoeWins);
+        break;
+      default:
+        return false;
+    }
+  };
+  
+      sort(jogadoresVector.begin(), jogadoresVector.end(), ordenacaoDecrescente);
+
+    cout << "\n--------\nRANKING DO JOGO\n--------\n" << endl;
+  
+    for (const auto &jogador : jogadoresVector) {
+      
+    switch(gameMode) {    
+      case 1:
+        cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.tictactoeWins << " vitória(s)" << endl;
       break;
 
       case 2:
-        cout << "Liga 4: " << jogador.lig4Wins << " vitorias, " << jogador.lig4Defeats << " derrotas" << endl;
+        cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.tictactoeWins << " vitória(s)" << endl;
       break;
 
       case 3:
-        cout << "Tic Tac Toe: " << jogador.tictactoeWins << " vitorias, " << jogador.tictactoeDefeats << " derrotas" << endl;
+        cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.tictactoeWins << " vitória(s)" << endl;
       break;
 
       default:
-        cout << "Erro irmao" << endl;
+        cout << "ERRO: opção inválida" << endl;
     }
   }
+  cout << "\n" << endl;
+}
+
+bool Jogadores::ordenacaoAlfabetica(const Jogadores &x, const Jogadores &y) {
+  return (x.Nome < y.Nome);
+}
+
+void Jogadores::showEstatisticas(vector<Jogadores> &jogadoresVector) {
+  
+  sort(jogadoresVector.begin(), jogadoresVector.end(), ordenacaoAlfabetica);
+  
+  for (const auto &jogador : jogadoresVector) {
+    cout << jogador.Apelido << " " << jogador.Nome << endl;
+    cout << "REVERSI - V: " << jogador.reversiWins << " D: " << jogador.reversiDefeats << endl;
+    cout << "LIG 4 - V: " << jogador.lig4Wins << " D: " << jogador.lig4Defeats << endl;
+    cout << "TIC TAC TOE - V: " << jogador.tictactoeWins << " D: " << jogador.tictactoeDefeats << endl;
+    cout << "\n" << endl;
+    }
 }

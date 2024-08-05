@@ -63,7 +63,7 @@ void Tabuleiro::validaJogada(int x, int y, char z) {
   }
 }
 
-void Tabuleiro::menuJogo(const int &gameMode) {
+void Tabuleiro::showRegras(const int &gameMode) {
   cout << "Jogar (1) \nLer regras do jogo (2)" << endl;
 
   int lerRegras;
@@ -72,8 +72,7 @@ void Tabuleiro::menuJogo(const int &gameMode) {
   if (lerRegras == 1) {
     cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
     return;
-  } 
-  else if (lerRegras == 2) {
+  } else if (lerRegras == 2) {
 
     ifstream arquivo("Regras.txt");
 

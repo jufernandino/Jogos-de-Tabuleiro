@@ -36,6 +36,10 @@ class Jogadores{
 
     void showRanking(const int &gameMode, vector<Jogadores> &jogadoresVector);
 
+    static bool ordenacaoAlfabetica(const Jogadores &x, const Jogadores &y);
+
+    void showEstatisticas(vector<Jogadores> &jogadoresVector);
+
 };
 
 #endif

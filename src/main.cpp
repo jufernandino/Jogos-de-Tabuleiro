@@ -19,7 +19,7 @@ using namespace std;
 // }
 
 void antiUsuario(int &a);
-void showEstatisticas();
+//void showEstatisticas();
 void loadJogadores(vector<Jogadores> &jogadoresVector);
 void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 void showRanking (const int &gameMode, vector<Jogadores> &jogadoresVector);
@@ -30,6 +30,13 @@ int main() {
 
   loadJogadores(jogadoresVector);
 
+  Jogadores Jogador1, Jogador2;
+
+  //ponteiros auxiliares
+  Jogadores *pJogador1 = &Jogador1;
+  Jogadores *pJogador2 = &Jogador2;
+  
+  
   bool opcaoVoltar = false;
 
   do {
@@ -41,7 +48,7 @@ int main() {
 
     while (1) {
       if (opcaoMenu != '1' && opcaoMenu != '2') {
-        cout << "\nOpção inválida! Tente novamente.\n" << endl;
+        cout << "\nERRO: opção inválida! Tente novamente.\n" << endl;
         cin >> opcaoMenu;
       } else {
         break;
@@ -53,15 +60,15 @@ int main() {
     } else if (opcaoMenu == '2') {
 
       cout << "\n--------\nCONSULTAR ESTATÍSTICAS\n-------- \n" << endl;
-      showEstatisticas();
-      cout << "\nPara voltar ao menu principal, tecle ENTER." << endl;
+      pJogador1 -> showEstatisticas(jogadoresVector);
+      
+      cout << "Para voltar ao menu principal, tecle ENTER." << endl;
       cin.ignore();
       cin.get();
       opcaoVoltar = true;
 
     } else {
-      cout << "\nOpção inválida. \nTecle ENTER para voltar ao menu principal."
-           << endl;
+      cout << "\nERRO: opção inválida! Tecle ENTER para voltar ao menu principal." << endl;
       cin.ignore();
       cin.get();
       opcaoVoltar = true;
@@ -69,8 +76,7 @@ int main() {
   } while (opcaoVoltar);
 
   cout << "\n--------\nJOGADORES\n--------\n" << endl;
-
-  Jogadores Jogador1, Jogador2;
+  
   cadastrarJogadores(Jogador1, jogadoresVector);
   cadastrarJogadores(Jogador2, jogadoresVector);
 
@@ -85,7 +91,7 @@ int main() {
 
     Reversi r;
 
-    r.menuJogo(gameMode);
+    r.showRegras(gameMode);
     r.criaTabuleiro();
     r.inicializarJogo();
     r.imprimeTabuleiro();
@@ -96,11 +102,11 @@ int main() {
     char z = ' ';
     if (jogadorAtual % 2 == 0) {
       z = 'X';
-      cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << endl;
+      cout << "\nTurno de jogador " << Jogador1.Apelido << ":\n" << endl;
     }
     if (jogadorAtual % 2 != 0) {
       z = 'O';
-      cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << endl;
+      cout << "\nTurno de jogador " << Jogador2.Apelido << ":\n" << endl;
     }
 
     r.mostrarLocaisJogada(z);
@@ -158,7 +164,7 @@ int main() {
     string aux;
     lig4 l;
 
-    l.menuJogo(gameMode);
+    l.showRegras(gameMode);
     l.criaTabuleiro();
     l.imprimeTabuleiro();
 
@@ -169,11 +175,11 @@ int main() {
       char z = ' ';
       if (jogadorAtual % 2 == 0) {
         z = 'X';
-        cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << endl;
+        cout << "\nTurno de jogador " << Jogador1.Apelido << ":\n" << endl;
       }
       if (jogadorAtual % 2 != 0) {
         z = 'O';
-        cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << endl;
+        cout << "\nTurno de jogador " << Jogador2.Apelido << ":\n" << endl;
       }
 
       antiUsuario(y);
@@ -206,16 +212,17 @@ int main() {
   }
 
   //jogo tictactoe
-  if (gameMode == 3) {
-    cout << "\nTicTacToe foi escolhido.\n" << endl;
+  opcaoVoltar = false;
+  
+  while (!(opcaoVoltar)) {
+    if (gameMode == 3) {
+      cout << "\nTicTacToe foi escolhido." << endl;
 
     int x = 0, y = 0;
     TicTacToe t;
 
-    //fazer o if
-    //Jogador1.showRanking(gameMode, jogadoresVector);
 
-    t.menuJogo(gameMode);
+    t.showRegras(gameMode);
     t.criaTabuleiro();
     t.imprimeTabuleiro();
 
@@ -226,11 +233,11 @@ int main() {
       char z = ' ';
       if (jogadorAtual % 2 == 0) {
         z = 'X';
-        cout << "\nA vez agora é de " << Jogador1.Apelido << ":\n" << Jogador1.Apelido << endl;
+        cout << "\nTurno de jogador " << Jogador1.Apelido << ":\n" << endl;
       }
       if (jogadorAtual % 2 != 0) {
         z = 'O';
-        cout << "\nA vez agora é de " << Jogador2.Apelido << ":\n" << Jogador2.Apelido << endl;
+        cout << "\nTurno de jogador " << Jogador2.Apelido << ":\n" << endl;
       }
 
       antiUsuario(x);
@@ -261,17 +268,32 @@ int main() {
       jogadorAtual++;
     }
 
-    //fazer o if
-    //Jogador1.showRanking(gameMode, jogadoresVector);
-    
     t.liberaMemoria();
+    
+    cout << "\nFIM DE JOGO! \n\nVisualizar ranking (1) \nJogar novamente (2) \nEncerrar o programa (3)" << endl;
+
+    char opcaoMenu;
+      
+    cin >> opcaoMenu;
+
+    if (opcaoMenu == '1') {
+      pJogador1 -> showRanking(gameMode, jogadoresVector);
+    } else if (opcaoMenu == '2') {
+      opcaoVoltar = false;
+    } else if (opcaoMenu == '3') {
+      opcaoVoltar = true;
+    } else {
+      cout << "ERRO: opção inválida!" << endl;
+      //terminar aqui
+    }
+  }
   }
 
   //jogo campo minado
   if (gameMode == 4) {
     cout << "\nCampo Minado foi escolhido.\n" << endl;
 
-  //menuJogo(gameMode);
+  //showRegras(gameMode);
   }
 
   return 0;
@@ -300,23 +322,6 @@ void antiUsuario(int &a) { // confere se as entradas fornecidas pelo usuário n�
       break;
     }
   }
-}
-
-void showEstatisticas() {
-
-  ifstream in("Jogadores.txt", fstream::in);
-
-  if (in.is_open()) {
-    string line;
-    while (getline(in, line)) {
-      cout << line << endl;
-    }
-  } else {
-    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
-    return;
-  }
-
-  in.close();
 }
 
 void loadJogadores(vector<Jogadores> &jogadoresVector) {
