@@ -41,6 +41,8 @@ class Jogadores{
 
     void showEstatisticas(vector<Jogadores> &jogadoresVector);
 
+    void loadJogadores(vector<Jogadores> &jogadoresVector);
+
 };
 
 #endif

@@ -20,16 +20,14 @@ using namespace std;
 
 void antiUsuario(int &a);
 //void showEstatisticas();
-void loadJogadores(vector<Jogadores> &jogadoresVector);
+//void loadJogadores(vector<Jogadores> &jogadoresVector);
 //void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
-void showRanking (const int &gameMode, vector<Jogadores> &jogadoresVector);
+//void showRanking (const int &gameMode, vector<Jogadores> &jogadoresVector);
 
 int main() {
 
   vector<Jogadores> jogadoresVector;
-
-  loadJogadores(jogadoresVector);
 
   Jogadores Jogador1, Jogador2;
 
@@ -37,27 +35,61 @@ int main() {
   Jogadores *pJogador1 = &Jogador1;
   Jogadores *pJogador2 = &Jogador2;
   
+  pJogador1 -> loadJogadores(jogadoresVector);
   
   bool opcaoVoltar = false;
 
-  /*entrada que o professor pediu, ainda não testei, mas imagino que seja algo do tipo
-
+  /*
+  
+  //menu principal
   string entrada;
 
-  while (getline(cin, entrada)) { // enquanto houver fluxo de entrada
-      stringstream ss(entrada); // extração sequencial dos dados da string, "entrada" agora está dentro de ss
+  while (getline(cin, entrada)) {
+      stringstream ss(entrada);
 
       string comando;
-      ss >> comando; // extrai o primeiro dado, comando
+      ss >> comando;
 
       if (comando == "CJ") {
-          string apelido, nome;
-          ss >> apelido;
-          getline(ss, nome);
-          if (!apelido.empty() && !nome.empty()) {
-              Jogadores Jogador;
-              cadastrarJogadores(Jogador, jogadoresVector, apelido, nome);
+        string apelido, nome;
+        ss >> apelido >> nome;
+    
+        pJogador1 -> cadastrarJogadores(Jogador1, jogadoresVector);
+        pJogador2 -> cadastrarJogadores(Jogador2, jogadoresVector);
           
+      } else if (comando == "RJ") {
+        string apelido;
+        ss >> apelido;
+        
+        pJogador1 -> removeJogador(jogadoresVector);
+      
+      } else if (comando == "LJ") {
+        pJogador1 -> showEstatisticas(jogadoresVector);
+        
+      } else if (comando == "EP") {
+        char jogoEscolhido;
+        string apelidoJogador1, apelidoJogador2;
+        
+        ss >> jogoEscolhido >> apelidoJogador1 >> apelidoJogador2;
+
+        if(jogoEscolhido = 'R') {
+        //while para permitir jogar novamente
+        //executar o Reversi
+        } else if (jogoEscolhido = 'L') {
+        //while para permitir jogar novamente
+        //executar o Lig4
+        } else if (jogoEscolhido = 'T') {
+        //while para permitir jogar novamente
+        //executar o TicTacToe
+        } else if (jogoEscolhido = 'C') {
+        //while para permitir jogar novamente
+        //executar o CampoMinado
+        }
+        
+      } else if (comando == "FS") {
+        return 0;
+      }
+  }
 
 FIM
 */
@@ -357,6 +389,7 @@ void antiUsuario(int &a) { // confere se as entradas fornecidas pelo usuário n�
   }
 }
 
+/*
 void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
   ifstream in("Jogadores.txt", fstream::in);
@@ -464,6 +497,7 @@ void loadJogadores(vector<Jogadores> &jogadoresVector) {
 
   in.close();
 }
+*/
 
 
 void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector){

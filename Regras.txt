@@ -5,13 +5,13 @@
 
 (2)
 O objetivo do jogo é alinhar (ligar) quatro peças na horizontal, vertical ou diagonal.
-Cada um dos dois jogadores, de modo alternado, escolhe uma coluna. A peça do jogador é posicionada na primeira casa vazia dessa coluna escolhida e assim sucessivamente até que algum jogador consiga alinhar suas peças.
-Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com um empate.
+Cada um dos dois jogadores, de modo alternado, escolhe uma coluna. A peça do jogador da vez é posicionada na primeira casa vazia dessa coluna escolhida e assim sucessivamente até que algum jogador consiga alinhar suas peças.
+- Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com um empate.
 
 (3)
-1 - Regra do TicTacToe
-2 - Regra do TicTacToe
-3 - Regra do TicTacToe
+O objetivo do jogo é alinhar três peças na horizontal, vertical ou diagonal.
+Cada um dos dois jogadores, de modo alternado, escolhe uma casa (linha e coluna). A peça do jogador da vez é posicionada nessa casa, caso ela esteja vazia.
+Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com velha (empate).
 
 (4)
 1 - Regra do Campo Minado
