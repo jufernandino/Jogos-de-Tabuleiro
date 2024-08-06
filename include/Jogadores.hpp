@@ -24,7 +24,8 @@ class Jogadores{
 
     Jogadores(); //construtor default
 
-    Jogadores(string Apelido); //de fato faz o cadastro
+    //Jogadores(string Apelido); //de fato faz o cadastro
+    Jogadores(string Apelido, string Nome);
 
     void signIn(string Apelido, vector<Jogadores> &jogadoresVector);
 

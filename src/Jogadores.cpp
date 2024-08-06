@@ -50,7 +50,7 @@ Jogadores::Jogadores() {
   this->victory = false;
 }
 
-Jogadores::Jogadores(string Apelido) {
+/*Jogadores::Jogadores(string Apelido) {
 
   string Nome;
   cout << "Digite seu nome completo:" << endl;
@@ -99,7 +99,32 @@ Jogadores::Jogadores(string Apelido) {
   out.close();
 
   cout << "Jogador " << Apelido << " cadastrado com sucesso" << endl;
+}*/
+
+Jogadores::Jogadores(string apelido, string nome) {
+  this->Apelido = apelido;
+  this->Nome = nome;
+  this->reversiWins = 0;
+  this->reversiDefeats = 0;
+  this->lig4Wins = 0;
+  this->lig4Defeats = 0;
+  this->tictactoeWins = 0;
+  this->tictactoeDefeats = 0;
+  this->victory = false;
+
+  ofstream out("Jogadores.txt", fstream::app);
+  if (out.is_open()) {
+      out << '\n' << this->Apelido << ", " << this->Nome << ", " 
+          << this->reversiWins << ", " << this->reversiDefeats 
+          << ", " << this->lig4Wins << ", " << this->lig4Defeats 
+          << ", " << this->tictactoeWins << ", " << this->tictactoeDefeats;
+      out.close();
+  } else {
+      cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
+  }
 }
+
+
 
 void Jogadores::signIn(string Apelido, vector<Jogadores> &jogadoresVector) {
 

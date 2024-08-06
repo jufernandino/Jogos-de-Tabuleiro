@@ -21,6 +21,7 @@ using namespace std;
 void antiUsuario(int &a);
 //void showEstatisticas();
 void loadJogadores(vector<Jogadores> &jogadoresVector);
+//void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 void showRanking (const int &gameMode, vector<Jogadores> &jogadoresVector);
 
@@ -39,6 +40,29 @@ int main() {
   
   bool opcaoVoltar = false;
 
+  /*entrada que o professor pediu, ainda não testei, mas imagino que seja algo do tipo
+
+  string entrada;
+
+  while (getline(cin, entrada)) { // enquanto houver fluxo de entrada
+      stringstream ss(entrada); // extração sequencial dos dados da string, "entrada" agora está dentro de ss
+
+      string comando;
+      ss >> comando; // extrai o primeiro dado, comando
+
+      if (comando == "CJ") {
+          string apelido, nome;
+          ss >> apelido;
+          getline(ss, nome);
+          if (!apelido.empty() && !nome.empty()) {
+              Jogadores Jogador;
+              cadastrarJogadores(Jogador, jogadoresVector, apelido, nome);
+          
+
+FIM
+*/
+
+  
   do {
     char opcaoMenu = '0';
     cout << "\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Vamos jogar? \n\nJogar (1) \nConsultar estatísticas dos jogadores (2)"
@@ -76,9 +100,16 @@ int main() {
   } while (opcaoVoltar);
 
   cout << "\n--------\nJOGADORES\n--------\n" << endl;
-  
-  cadastrarJogadores(Jogador1, jogadoresVector);
-  cadastrarJogadores(Jogador2, jogadoresVector);
+
+  cout << "Para cadastrar jogadores, digite CJ: " << endl;
+  string comando;
+  cin >> comando;
+  if(comando == "CJ"){
+    cadastrarJogadores(Jogador1, jogadoresVector);
+  }
+
+  //cadastrarJogadores(Jogador1, jogadoresVector);
+  // cadastrarJogadores(Jogador2, jogadoresVector);
 
   cout << "Qual jogo gostariam de jogar? \n\nReversi (1) \nLig4 (2) \nTicTacToe (3) \nCampo Minado (4)?\n" << endl;
 
@@ -434,7 +465,29 @@ void loadJogadores(vector<Jogadores> &jogadoresVector) {
   in.close();
 }
 
-void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector) {
+
+void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector){
+  cout << "Digite <Apelido> <Nome>" << endl;
+  string apelido, nome;
+  cin >> apelido >> nome;
+  cout << endl;
+
+  Jogadores aux;
+
+  if (aux.pesquisaJogador(apelido)) { // se jogador já existir
+      cout << "ERRO: jogador repetido" << endl;
+      return;
+  } else {
+      // Se o jogador não existir, cria um novo 
+      Jogadores novoJogador(apelido, nome);
+      if (novoJogador.Apelido != "") { 
+          jogadoresVector.push_back(novoJogador);
+          Jogador = novoJogador;
+          cout << "Jogador " << apelido << " cadastrado com sucesso" << endl;
+      }
+  }
+}
+/*void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector) {
   while (1) {
     cout << "Você deseja "
             "entrar em uma conta (1)"
@@ -476,4 +529,4 @@ void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector) 
       break;
     }
   }
-}
+}*/

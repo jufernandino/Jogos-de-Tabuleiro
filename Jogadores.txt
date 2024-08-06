@@ -9,3 +9,5 @@ ASDASD, KSKASLS, 0, 0, 0, 0, 0, 1
 1, sarau, 0, 0, 0, 0, 0, 0
 Miguel, Miguel Alejandro, 0, 0, 0, 0, 0, 0
 Micael, Micael Bordero, 0, 0, 0, 0, 0, 0
+Isa98, Isadora, 0, 0, 0, 0, 0, 0
+Bode, Isadora, 0, 0, 0, 0, 0, 0
