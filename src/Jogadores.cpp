@@ -50,57 +50,6 @@ Jogadores::Jogadores() {
   this->victory = false;
 }
 
-/*Jogadores::Jogadores(string Apelido) {
-
-  string Nome;
-  cout << "Digite seu nome completo:" << endl;
-  while (getline(cin, Nome)) {
-    if (Nome != "") {
-      break;
-    }
-  }
-
-  cout << "Digite seu nickname de preferência:" << endl;
-
-  while (1) {
-    cin >> Apelido;
-    if (this->pesquisaJogador(Apelido)) {
-      cout << "ERRO: jogador repetido" << endl;
-      cout << "Por favor, tente novamente: " << endl;
-      continue;
-    } else {
-      break;
-    }
-  }
-
-  this->Apelido = Apelido;
-  this->Nome = Nome;
-  this->reversiWins = 0;
-  this->reversiDefeats = 0;
-  this->lig4Wins = 0;
-  this->lig4Defeats = 0;
-  this->tictactoeWins = 0;
-  this->tictactoeDefeats = 0;
-  this->victory = false;
-  
-  ofstream out("Jogadores.txt", fstream::app);
-
-  if (out.is_open()) {
-    out << '\n'
-        << this->Apelido << ", " << this->Nome << ", " << this->reversiWins
-        << ", " << this->reversiDefeats << ", " << this->lig4Wins << ", "
-        << this->lig4Defeats << ", " << this->tictactoeWins << ", "
-        << this->tictactoeDefeats;
-  } else {
-    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
-    return;
-  }
-
-  out.close();
-
-  cout << "Jogador " << Apelido << " cadastrado com sucesso" << endl;
-}*/
-
 Jogadores::Jogadores(string apelido, string nome) {
   this->Apelido = apelido;
   this->Nome = nome;
@@ -186,14 +135,6 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelid
   } else {
       cout << "ERRO: jogador inexistente" << endl;
   }
-  /*vector<Jogadores>::iterator it;
-  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
-    if ((*it).Apelido == this->Apelido) {
-      jogadoresVector.erase(it);
-    }
-  }
-  this->reescreveArquivo(jogadoresVector);
-  cout << "Jogador " << Apelido << " removido com sucesso" << endl;*/
   
 }
 
