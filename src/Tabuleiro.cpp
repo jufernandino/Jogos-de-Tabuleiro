@@ -6,7 +6,6 @@
 
 using namespace std;
 
-//construtor
 Tabuleiro::Tabuleiro() {
   this->rows = 0;
   this->columns = 0;
@@ -63,16 +62,17 @@ void Tabuleiro::validaJogada(int x, int y, char z) {
   }
 }
 
-void Tabuleiro::showRegras(const int &gameMode) {
-  cout << "Jogar (1) \nLer regras do jogo (2)" << endl;
+void Tabuleiro::showRegras(const char &jogoEscolhido) {
+  cout << "\nJ - JOGAR\n"
+       << "LR - Ler regras do jogo\n" << endl;
 
-  int lerRegras;
+  string lerRegras;
   cin >> lerRegras;
 
-  if (lerRegras == 1) {
+  if (lerRegras == "J") {
     cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
     return;
-  } else if (lerRegras == 2) {
+  } else if (lerRegras == "LR") {
 
     ifstream arquivo("Regras.txt");
 
@@ -82,8 +82,11 @@ void Tabuleiro::showRegras(const int &gameMode) {
     }
 
     string linha, regras;
+    
     bool continuar = false;
-    string aux = "(" + to_string(gameMode) + ")";
+    
+    string escolha(1, jogoEscolhido); //conversão string para char
+    string aux = "(" + escolha + ")";
 
     while (getline(arquivo, linha)) {
       if (linha == aux) {
@@ -106,12 +109,12 @@ void Tabuleiro::showRegras(const int &gameMode) {
     if (!regras.empty()) {
       cout << "\n-------- \nREGRAS DO JOGO\n-------- \n" << regras << endl;
 
-      cout << "Vamos começar? Tecle ENTER para iniciar o jogo." << endl;
+      cout << "Vamos começar? Tecle ENTER para iniciar o jogo" << endl;
 
       cin.ignore();
       cin.get();
 
-      cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
+      cout << "\n--------\nJOGAR PARTIDA\n--------" << endl;
     }
   }
 }

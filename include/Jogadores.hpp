@@ -27,21 +27,25 @@ class Jogadores{
     //Jogadores(string Apelido); //de fato faz o cadastro
     Jogadores(string Apelido, string Nome);
 
-    void signIn(string Apelido, vector<Jogadores> &jogadoresVector);
+    bool logar(string Apelido, vector<Jogadores> &jogadoresVector);
 
     void reescreveArquivo(vector<Jogadores> &jogadoresVector);
 
-    void removeJogador(vector<Jogadores> &jogadoresVector);
+    void removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
 
-    void atualizaEstatisticas(int gameMode, vector<Jogadores> &jogadoresVector);
+    void atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
-    void showRanking(const int &gameMode, vector<Jogadores> &jogadoresVector);
+    void showRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
-    static bool ordenacaoAlfabetica(const Jogadores &x, const Jogadores &y);
+    static bool ordenacaoDecrescente(const Jogadores &x, const Jogadores &y, const char &ordenacao);
 
-    void showEstatisticas(vector<Jogadores> &jogadoresVector);
+    void showEstatisticas(vector<Jogadores> &jogadoresVector, const char &ordenacao, char &ordem);
 
     void loadJogadores(vector<Jogadores> &jogadoresVector);
+
+    void definirJogador();
+
+    void cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 
 };
 

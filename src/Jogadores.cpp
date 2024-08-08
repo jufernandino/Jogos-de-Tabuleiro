@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int Jogadores::pesquisaJogador(string Apelido) {
+int Jogadores::pesquisaJogador(string apelido) {
 
   ifstream in("Jogadores.txt", fstream::in);
 
@@ -15,14 +15,14 @@ int Jogadores::pesquisaJogador(string Apelido) {
     string line;
     while (getline(in, line)) {
       string aux = "";
-      for (int i = 0; i < line.size(); i++) {
+      for (long unsigned int i = 0; i < line.size(); i++) {
         if (line[i] != ',') {
           aux = aux + line[i];
         } else {
           break;
         }
       }
-      if (aux == Apelido) {
+      if (aux == apelido) {
         return 1;
       }
     }
@@ -125,7 +125,7 @@ Jogadores::Jogadores(string apelido, string nome) {
 }
 
 
-void Jogadores::signIn(string Apelido, vector<Jogadores> &jogadoresVector) {
+bool Jogadores::logar(string Apelido, vector<Jogadores> &jogadoresVector) {
 
   vector<Jogadores>::iterator it;
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
@@ -138,9 +138,10 @@ void Jogadores::signIn(string Apelido, vector<Jogadores> &jogadoresVector) {
       this->lig4Defeats = (*it).lig4Defeats;
       this->tictactoeWins = (*it).tictactoeWins;
       this->tictactoeDefeats = (*it).tictactoeDefeats;
+      return true;
     }
   }
-  return;
+  return false;
 }
 
 void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
@@ -166,24 +167,43 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
   out.close();
 }
 
-void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector) {
+void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido) {
 
   vector<Jogadores>::iterator it;
+  bool jogadorEncontrado = false;
+
+  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); ++it) {
+      if (it->Apelido == Apelido) {
+          jogadoresVector.erase(it);
+          jogadorEncontrado = true;
+          break;
+      }
+  }
+
+  if (jogadorEncontrado) {
+      this->reescreveArquivo(jogadoresVector);
+      cout << "Jogador " << Apelido << " removido com sucesso" << endl;
+  } else {
+      cout << "ERRO: jogador inexistente" << endl;
+  }
+  /*vector<Jogadores>::iterator it;
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
     if ((*it).Apelido == this->Apelido) {
       jogadoresVector.erase(it);
     }
   }
   this->reescreveArquivo(jogadoresVector);
+  cout << "Jogador " << Apelido << " removido com sucesso" << endl;*/
+  
 }
 
-void Jogadores::atualizaEstatisticas(int gameMode,
+void Jogadores::atualizaEstatisticas(char jogoEscolhido,
                                      vector<Jogadores> &jogadoresVector) {
 
   vector<Jogadores>::iterator it;
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
     if ((*it).Apelido == this->Apelido) {
-      if (gameMode == 1) {
+      if (jogoEscolhido == 'R') {
         if (this->victory) {
           (*it).reversiWins++;
           break;
@@ -192,7 +212,7 @@ void Jogadores::atualizaEstatisticas(int gameMode,
           break;
         }
       }
-      if (gameMode == 2) {
+      if (jogoEscolhido == 'L') {
         if (this->victory) {
           (*it).lig4Wins++;
           break;
@@ -201,7 +221,7 @@ void Jogadores::atualizaEstatisticas(int gameMode,
           break;
         }
       }
-      if (gameMode == 3) {
+      if (jogoEscolhido == 'T') {
         if (this->victory) {
           (*it).tictactoeWins++;
           break;
@@ -209,26 +229,27 @@ void Jogadores::atualizaEstatisticas(int gameMode,
           (*it).tictactoeDefeats++;
           break;
         }
-      }
+      } //falta os outros dois jogos
     }
   }
   this->reescreveArquivo(jogadoresVector);
 }
 
-void Jogadores::showRanking(const int &gameMode, vector<Jogadores> &jogadoresVector) {
+void Jogadores::showRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector) {
   
-  auto ordenacaoDecrescente = [gameMode](const Jogadores &x, const Jogadores &y) {
+  auto ordenacaoDecrescente = [jogoEscolhido](const Jogadores &x, const Jogadores &y) {
   
-    switch (gameMode) {
-      case 1:
+    switch (jogoEscolhido) {
+      case 'R':
         return (x.reversiWins > y.reversiWins);
         break;
-      case 2:
+      case 'L':
         return (x.lig4Wins > y.lig4Wins);
         break;
-      case 3:
+      case 'T':
         return (x.tictactoeWins > y.tictactoeWins);
         break;
+      //falta o Campo Minado
       default:
         return false;
     }
@@ -240,18 +261,20 @@ void Jogadores::showRanking(const int &gameMode, vector<Jogadores> &jogadoresVec
   
     for (const auto &jogador : jogadoresVector) {
       
-    switch(gameMode) {    
-      case 1:
+    switch(jogoEscolhido) {    
+      case 'R':
+        cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.reversiWins << " vitória(s)" << endl;
+      break;
+
+      case 'L':
+        cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.lig4Wins << " vitória(s)" << endl;
+      break;
+
+      case 'T':
         cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.tictactoeWins << " vitória(s)" << endl;
       break;
 
-      case 2:
-        cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.tictactoeWins << " vitória(s)" << endl;
-      break;
-
-      case 3:
-        cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.tictactoeWins << " vitória(s)" << endl;
-      break;
+      //falta o campo minado
 
       default:
         cout << "ERRO: opção inválida" << endl;
@@ -260,13 +283,25 @@ void Jogadores::showRanking(const int &gameMode, vector<Jogadores> &jogadoresVec
   cout << "\n" << endl;
 }
 
-bool Jogadores::ordenacaoAlfabetica(const Jogadores &x, const Jogadores &y) {
-  return (x.Nome < y.Nome);
+bool Jogadores::ordenacaoDecrescente(const Jogadores &x, const Jogadores &y, const char &ordenacao) {
+  if (ordenacao == 'A') { //ordenação por apelido
+    return (x.Apelido < y.Apelido);
+  } else if (ordenacao == 'N') { //ordenação por nome
+    return (x.Nome < y.Nome);
+  }
+  return false; //exceção aqui?
 }
 
-void Jogadores::showEstatisticas(vector<Jogadores> &jogadoresVector) {
+void Jogadores::showEstatisticas(vector<Jogadores> &jogadoresVector, const char &ordenacao, char &ordem) {
   
-  sort(jogadoresVector.begin(), jogadoresVector.end(), ordenacaoAlfabetica);
+  sort(jogadoresVector.begin(), jogadoresVector.end(), [ordenacao, ordem](const Jogadores &x, const Jogadores &y) {
+      if (ordem == 'A') {
+          return x.Apelido < y.Apelido;
+      } else if (ordem == 'N') {
+          return x.Nome < y.Nome;
+      }
+      return false; 
+  });
   
   for (const auto &jogador : jogadoresVector) {
     cout << jogador.Apelido << " " << jogador.Nome << endl;
@@ -383,3 +418,28 @@ void Jogadores::loadJogadores(vector<Jogadores> &jogadoresVector) {
 
     in.close();
 }
+
+void Jogadores::cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector) {
+  cout << "Digite apelido e nome desejados: " << endl;
+  
+  string apelido, nome;
+    
+  cin >> apelido >> nome;
+  
+  cout << endl;
+
+    Jogadores aux;
+
+    if (aux.pesquisaJogador(apelido)) { // se jogador já existir
+        cout << "ERRO: jogador repetido" << endl;
+        return;
+    } else {
+        // Se o jogador não existir, cria um novo 
+        Jogadores novoJogador(apelido, nome);
+        if (novoJogador.Apelido != "") { 
+            jogadoresVector.push_back(novoJogador);
+            Jogador = novoJogador;
+            cout << "Jogador " << apelido << " cadastrado com sucesso" << endl;
+        }
+    }
+  }
