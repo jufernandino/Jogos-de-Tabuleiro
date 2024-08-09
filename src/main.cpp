@@ -4,7 +4,7 @@
 #include "lig4.hpp"
 #include "Reversi.hpp"
 #include "CampoMinado.hpp"
-#include <ctype.h>
+#include <cctype>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -78,6 +78,7 @@ int main() {
       ss >> ordenacao;
 
     //pode ser uma exceção
+    //isblank para detectar se o char é \t ou ' '
     if (ordenacao == '\0') {
         cout << "\nERRO: comando inválido"<< endl;
         continue;

@@ -15,11 +15,15 @@ class Jogadores{
     string Nome;
     int reversiWins;
     int reversiDefeats;
+    int reversiEmpates;
     int lig4Wins;
     int lig4Defeats;
+    int lig4Empates;
     int tictactoeWins;
     int tictactoeDefeats;
+    int tictactoeEmpates;
     bool victory;
+    bool empate;
 
     int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquivo
 
