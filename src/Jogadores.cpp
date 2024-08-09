@@ -135,7 +135,6 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelid
   } else {
       cout << "ERRO: jogador inexistente" << endl;
   }
-  
 }
 
 void Jogadores::atualizaEstatisticas(char jogoEscolhido,
@@ -176,10 +175,10 @@ void Jogadores::atualizaEstatisticas(char jogoEscolhido,
   this->reescreveArquivo(jogadoresVector);
 }
 
-void Jogadores::showRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector) {
-  
-  auto ordenacaoDecrescente = [jogoEscolhido](const Jogadores &x, const Jogadores &y) {
-  
+void Jogadores::mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector) {
+
+  auto ordenacaoVitorias = [jogoEscolhido](const Jogadores &x, const Jogadores &y) {
+
     switch (jogoEscolhido) {
       case 'R':
         return (x.reversiWins > y.reversiWins);
@@ -195,13 +194,13 @@ void Jogadores::showRanking(const char &jogoEscolhido, vector<Jogadores> &jogado
         return false;
     }
   };
-  
-      sort(jogadoresVector.begin(), jogadoresVector.end(), ordenacaoDecrescente);
+
+      sort(jogadoresVector.begin(), jogadoresVector.end(), ordenacaoVitorias);
 
     cout << "\n--------\nRANKING DO JOGO\n--------\n" << endl;
-  
+
     for (const auto &jogador : jogadoresVector) {
-      
+
     switch(jogoEscolhido) {    
       case 'R':
         cout << jogador.Apelido << ", " << jogador.Nome << ", " << jogador.reversiWins << " vitória(s)" << endl;
@@ -224,36 +223,24 @@ void Jogadores::showRanking(const char &jogoEscolhido, vector<Jogadores> &jogado
   cout << "\n" << endl;
 }
 
-bool Jogadores::ordenacaoDecrescente(const Jogadores &x, const Jogadores &y, const char &ordenacao) {
-  if (ordenacao == 'A') { //ordenação por apelido
-    return (x.Apelido < y.Apelido);
-  } else if (ordenacao == 'N') { //ordenação por nome
-    return (x.Nome < y.Nome);
-  }
-  return false; //exceção aqui?
-}
-
-void Jogadores::showEstatisticas(vector<Jogadores> &jogadoresVector, const char &ordenacao, char &ordem) {
+void Jogadores::mostrarEstatisticas(vector<Jogadores> &jogadoresVector, const char &ordenacao) {
   
-  sort(jogadoresVector.begin(), jogadoresVector.end(), [ordenacao, ordem](const Jogadores &x, const Jogadores &y) {
-      if (ordem == 'A') {
-          return x.Apelido < y.Apelido;
-      } else if (ordem == 'N') {
-          return x.Nome < y.Nome;
-      }
-      return false; 
-  });
+  if (ordenacao == 'A') { //ordenação por apelido
+    ordenacaoApelido(jogadoresVector);
+  } else if (ordenacao == 'N') { //ordenação por nome
+    ordenacaoNome(jogadoresVector);
+  }
   
   for (const auto &jogador : jogadoresVector) {
+    cout << "\n";
     cout << jogador.Apelido << " " << jogador.Nome << endl;
     cout << "REVERSI - V: " << jogador.reversiWins << " D: " << jogador.reversiDefeats << endl;
     cout << "LIG 4 - V: " << jogador.lig4Wins << " D: " << jogador.lig4Defeats << endl;
     cout << "TIC TAC TOE - V: " << jogador.tictactoeWins << " D: " << jogador.tictactoeDefeats << endl;
-    cout << "\n" << endl;
     }
 }
 
-void Jogadores::loadJogadores(vector<Jogadores> &jogadoresVector) {
+void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
   ifstream in("Jogadores.txt", fstream::in);
 
     if (in.is_open()) {
@@ -360,14 +347,7 @@ void Jogadores::loadJogadores(vector<Jogadores> &jogadoresVector) {
     in.close();
 }
 
-void Jogadores::cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogadoresVector) {
-  cout << "Digite apelido e nome desejados: " << endl;
-  
-  string apelido, nome;
-    
-  cin >> apelido >> nome;
-  
-  cout << endl;
+void Jogadores::cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector) {
 
     Jogadores aux;
 
@@ -375,12 +355,41 @@ void Jogadores::cadastrarJogadores(Jogadores &Jogador, vector<Jogadores> &jogado
         cout << "ERRO: jogador repetido" << endl;
         return;
     } else {
-        // Se o jogador não existir, cria um novo 
         Jogadores novoJogador(apelido, nome);
         if (novoJogador.Apelido != "") { 
             jogadoresVector.push_back(novoJogador);
             Jogador = novoJogador;
-            cout << "Jogador " << apelido << " cadastrado com sucesso" << endl;
+            cout << "\nJogador " << apelido << " cadastrado com sucesso" << endl;
         }
     }
   }
+
+//selection sort
+void Jogadores::ordenacaoApelido(vector<Jogadores> &jogadoresVector) {
+
+int tamanho = jogadoresVector.size();
+for (int i = 0; i < tamanho - 1; ++i) {
+    int menorElemento = i;
+    for (int j = i + 1; j < tamanho; ++j) {
+        if (jogadoresVector[j].Apelido < jogadoresVector[menorElemento].Apelido) {
+          
+            menorElemento = j;
+        }
+    }
+    swap(jogadoresVector[i], jogadoresVector[menorElemento]);
+}
+} 
+
+void Jogadores::ordenacaoNome(vector<Jogadores> &jogadoresVector) {
+
+int tamanho = jogadoresVector.size();
+for (int i = 0; i < tamanho - 1; ++i) {
+    int menorElemento = i;
+    for (int j = i + 1; j < tamanho; ++j) {
+        if (jogadoresVector[j].Nome < jogadoresVector[menorElemento].Nome) {
+            menorElemento = j;
+        }
+    }
+    swap(jogadoresVector[i], jogadoresVector[menorElemento]);
+}
+}

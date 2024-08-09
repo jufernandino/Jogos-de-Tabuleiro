@@ -113,8 +113,6 @@ void Reversi::inverterPecas(int x, int y, char jogadorDaVez) {
     int linhaAtual = x + MoveLinha;
     int colunaAtual = y + MoveColuna;
 
-    //bool encontrouAdversario = false;
-
     //salva as posições que vão ser invertidas
     vector<pair<int, int>> pecasParaInverter;
 

@@ -1,23 +1,5 @@
 alanzoka, Alan Ferreira, 0, 0, 1, 13, 2, 4
-sally, Marcele Louise Silva Araponga, 0, 0, 13, 1, 4, 4
-maethe, Maethe, 3, 1, 1, 3, 3, 2
-calango, Thiago Elias, 0, 4, 4, 0, 4, 3
-babi, Barbara, 0, 0, 0, 0, 3, 1
-sarau, Sarah, 0, 0, 0, 1, 1, 0
-Kakau, Kaua S., 0, 0, 1, 0, 1, 0
-ASDASD, KSKASLS, 0, 0, 0, 0, 0, 1
-1, sarau, 0, 0, 0, 0, 0, 0
-Miguel, Miguel Alejandro, 0, 0, 0, 0, 0, 0
-Micael, Micael Bordero, 0, 0, 0, 0, 0, 0
-Bode, Isadora, 0, 0, 0, 0, 0, 0
-Teste, TESTE, 0, 0, 0, 0, 1, 1
-Teste2, TESTE, 0, 0, 0, 0, 0, 0
-Alf, Alfredo, 0, 0, 0, 0, 0, 0
-Isadora, Isa98, 0, 0, 0, 0, 0, 0
-IsaIsa, Isadora, 0, 0, 0, 0, 0, 0
-Isa123, Isadora, 0, 0, 0, 0, 0, 0
-Isa98, CJÇ, 0, 0, 0, 0, 0, 0
+sally, Marcele Louise Silva Araponga, 0, 0, 13, 1, 4, 5
+Babi, Barbara, 0, 0, 0, 0, 0, 0
 Ju, Julieta, 0, 0, 0, 0, 0, 0
-Isa30, Isadora, 0, 0, 0, 0, 0, 0
-Teste1, Testando, 0, 0, 0, 0, 0, 0
-Isa99, Isadora, 0, 0, 0, 0, 0, 0
+zeus, Zeus, 0, 0, 0, 0, 0, 0

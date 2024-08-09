@@ -23,7 +23,7 @@ void Tabuleiro::criaTabuleiro()
   }
 }
 
-void Tabuleiro::imprimeTabuleiro() {
+void Tabuleiro::imprimirTabuleiro() {
   cout << '\n';
   string aux = "-";
   cout << "  ";
@@ -62,9 +62,9 @@ void Tabuleiro::validaJogada(int x, int y, char z) {
   }
 }
 
-void Tabuleiro::showRegras(const char &jogoEscolhido) {
+void Tabuleiro::mostrarRegras(const char &jogoEscolhido) {
   cout << "\nJ - JOGAR\n"
-       << "LR - Ler regras do jogo\n" << endl;
+       << "L - Ler regras do jogo\n" << endl;
 
   string lerRegras;
   cin >> lerRegras;
@@ -72,7 +72,7 @@ void Tabuleiro::showRegras(const char &jogoEscolhido) {
   if (lerRegras == "J") {
     cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
     return;
-  } else if (lerRegras == "LR") {
+  } else if (lerRegras == "L") {
 
     ifstream arquivo("Regras.txt");
 
@@ -86,14 +86,14 @@ void Tabuleiro::showRegras(const char &jogoEscolhido) {
     bool continuar = false;
     
     string escolha(1, jogoEscolhido); //conversão string para char
-    string aux = "(" + escolha + ")";
+    string aux = "<" + escolha + ">";
 
     while (getline(arquivo, linha)) {
       if (linha == aux) {
         continuar = true;
         continue;
     }
-        if (linha.find('(') != string::npos && linha.find(')') != string::npos) {
+        if (linha.find('<') != string::npos && linha.find('>') != string::npos) {
           if (continuar) {
             break;
           }
@@ -107,7 +107,7 @@ void Tabuleiro::showRegras(const char &jogoEscolhido) {
     arquivo.close();
 
     if (!regras.empty()) {
-      cout << "\n-------- \nREGRAS DO JOGO\n-------- \n" << regras << endl;
+      cout << "\n-------- \nREGRAS DO JOGO\n--------\n\n" << regras << endl;
 
       cout << "Vamos começar? Tecle ENTER para iniciar o jogo" << endl;
 
