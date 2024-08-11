@@ -56,7 +56,7 @@ int main() {
         cout << "Tente novamente!" << endl;
         continue;
         }
-
+        
     pJogador1 -> cadastrarJogadores(apelido, nome, Jogador1, jogadoresVector);
     voltarMenuPrincipal();
 

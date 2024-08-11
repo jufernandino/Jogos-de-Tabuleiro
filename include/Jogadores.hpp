@@ -27,7 +27,7 @@ class Jogadores{
 
     int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquivo
 
-    Jogadores(); //construtor default
+    Jogadores();
 
     Jogadores(string Apelido, string Nome);
 
@@ -39,19 +39,17 @@ class Jogadores{
 
     void atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
-    void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector);
+    void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> jogadoresVector);
 
-    //static bool ordenacaoAlfabetica(const Jogadores &x, const Jogadores &y, const char &ordenacao);
-
-    void mostrarEstatisticas(vector<Jogadores> &jogadoresVector, const char &ordenacao);
+    void mostrarEstatisticas(vector<Jogadores> jogadoresVector, const char &ordenacao);
 
     void carregarJogadores(vector<Jogadores> &jogadoresVector);
 
     void cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 
-void ordenacaoApelido(vector<Jogadores> &jogadoresVector);
+    void ordenacaoApelido(vector<Jogadores> &jogadoresVector);
 
-void ordenacaoNome(vector<Jogadores> &jogadoresVector);
+    void ordenacaoNome(vector<Jogadores> &jogadoresVector);
 
 };
 

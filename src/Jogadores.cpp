@@ -185,9 +185,8 @@ void Jogadores::atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &joga
     this->reescreveArquivo(jogadoresVector);
 }
 
-
 //método para mostrar o raking de cada jogo, de acordo com o número de vitórias
-void Jogadores::mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector) { 
+void Jogadores::mostrarRanking(const char &jogoEscolhido, vector<Jogadores> jogadoresVector) { 
 
   auto ordenacaoVitorias = [jogoEscolhido](const Jogadores &x, const Jogadores &y) {
 
@@ -235,14 +234,32 @@ void Jogadores::mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jog
   cout << "\n" << endl;
 }
 
-void Jogadores::mostrarEstatisticas(vector<Jogadores> &jogadoresVector, const char &ordenacao) {
+void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector, const char &ordenacao) {
   
+  int tamanho = jogadoresVector.size();
+  
+  //selection sort
   if (ordenacao == 'A') { //ordenação por apelido
-    ordenacaoApelido(jogadoresVector);
+    for (int i = 0; i < tamanho - 1; ++i) {
+        int menorElemento = i;
+        for (int j = i + 1; j < tamanho; ++j) {
+            if (jogadoresVector[j].Apelido < jogadoresVector[menorElemento].Apelido) {
+                menorElemento = j;
+            }
+        }
+        swap(jogadoresVector[i], jogadoresVector[menorElemento]);
+    }
   } else if (ordenacao == 'N') { //ordenação por nome
-    ordenacaoNome(jogadoresVector);
-  }
-  
+    for (int i = 0; i < tamanho - 1; ++i) {
+        int menorElemento = i;
+        for (int j = i + 1; j < tamanho; ++j) {
+            if (jogadoresVector[j].Nome < jogadoresVector[menorElemento].Nome) {
+                menorElemento = j;
+            }
+        }
+        swap(jogadoresVector[i], jogadoresVector[menorElemento]);
+    }
+}
   for (const auto &jogador : jogadoresVector) {
     cout << "\n";
     cout << jogador.Apelido << " " << jogador.Nome << endl;
@@ -418,33 +435,3 @@ void Jogadores::cadastrarJogadores(string apelido, string nome, Jogadores &Jogad
         }
     }
   }
-
-//selection sort
-void Jogadores::ordenacaoApelido(vector<Jogadores> &jogadoresVector) {
-
-int tamanho = jogadoresVector.size();
-for (int i = 0; i < tamanho - 1; ++i) {
-    int menorElemento = i;
-    for (int j = i + 1; j < tamanho; ++j) {
-        if (jogadoresVector[j].Apelido < jogadoresVector[menorElemento].Apelido) {
-          
-            menorElemento = j;
-        }
-    }
-    swap(jogadoresVector[i], jogadoresVector[menorElemento]);
-}
-} 
-
-void Jogadores::ordenacaoNome(vector<Jogadores> &jogadoresVector) {
-
-int tamanho = jogadoresVector.size();
-for (int i = 0; i < tamanho - 1; ++i) {
-    int menorElemento = i;
-    for (int j = i + 1; j < tamanho; ++j) {
-        if (jogadoresVector[j].Nome < jogadoresVector[menorElemento].Nome) {
-            menorElemento = j;
-        }
-    }
-    swap(jogadoresVector[i], jogadoresVector[menorElemento]);
-}
-};
