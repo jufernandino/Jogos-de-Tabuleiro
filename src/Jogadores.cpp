@@ -395,18 +395,10 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
             break;
           }
         }
-
         jogador.tictactoeEmpates = stoi(aux, nullptr, 10);
         aux = "";
         i += 2;
 
-        for (; i < line.size(); i++) {
-          if (line[i] != '\n') {
-            aux = aux + line[i];
-          } else {
-            break;
-          }
-        }
         jogadoresVector.push_back(jogador);
       }
     } else {
