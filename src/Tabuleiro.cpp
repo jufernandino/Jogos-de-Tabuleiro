@@ -69,10 +69,10 @@ void Tabuleiro::mostrarRegras(const char &jogoEscolhido) {
   string lerRegras;
   cin >> lerRegras;
 
-  if (lerRegras == "J") {
+  if (lerRegras == "J" || lerRegras == "j") {
     cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
     return;
-  } else if (lerRegras == "L") {
+  } else if (lerRegras == "L" || lerRegras == "l") {
 
     ifstream arquivo("Regras.txt");
 

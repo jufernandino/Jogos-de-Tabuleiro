@@ -27,9 +27,7 @@ int Jogadores::pesquisaJogador(string apelido) {
       }
     }
   } else {
-    cout << "O arquivo "
-            "Jogadores.txt"
-            " não pôde ser aberto."
+    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt"
          << endl;
     return 0;
   }
@@ -239,7 +237,7 @@ void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector, const cha
   int tamanho = jogadoresVector.size();
   
   //selection sort
-  if (ordenacao == 'A') { //ordenação por apelido
+  if (ordenacao == 'A' || ordenacao == 'a') { //ordenação por apelido
     for (int i = 0; i < tamanho - 1; ++i) {
         int menorElemento = i;
         for (int j = i + 1; j < tamanho; ++j) {
@@ -249,7 +247,7 @@ void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector, const cha
         }
         swap(jogadoresVector[i], jogadoresVector[menorElemento]);
     }
-  } else if (ordenacao == 'N') { //ordenação por nome
+  } else if (ordenacao == 'N' || ordenacao == 'n') { //ordenação por nome
     for (int i = 0; i < tamanho - 1; ++i) {
         int menorElemento = i;
         for (int j = i + 1; j < tamanho; ++j) {

@@ -1,25 +1,23 @@
 <R>
-1 - Regra do Reversi
-2 - Regra do Reversi
-3 - Regra do Reversi
+O objetivo do jogo é preencher o tabuleiro com o maior número de peças de possíveis.
+
+Cada jogador tem uma cor (ou símbolo). Alternadamente, cada um escolhe uma casa do tabuleiro para colocar sua peça. A peça deve ser posicionada de maneira que, ao colocá-la, exista pelo menos uma peça do adversário na vizinhança e uma peça do jogador atual adjacente à ela. Caso a jogada seja possível, as peças do adversário que estão entre as duas peças do jogador atual serão transformadas em peças do jogador atual.
+
+Se a jogada não for válida, o jogador atual passa a vez. O jogo termina quando o tabuleiro está completamente preenchido ou nenhum jogador pode fazer uma jogada válida. Conta-se as peças e ganha o jogador que possuir mais peças no tabuleiro. Caso os dois jogadores terminem com o mesmo número de peças, a partida termina em empate.
 
 <L>
 O objetivo do jogo é alinhar (ligar) quatro peças na horizontal, vertical ou diagonal.
 
-Cada um dos dois jogadores, de modo alternado, escolhe uma coluna. 
-
-A peça do jogador da vez é posicionada na primeira casa vazia dessa coluna escolhida e assim sucessivamente até que algum jogador consiga alinhar suas peças.
+Cada um dos dois jogadores, de modo alternado, escolhe uma coluna. A peça do jogador da vez é posicionada na primeira casa vazia dessa coluna escolhida e assim sucessivamente até que algum jogador consiga alinhar suas peças.
 
 Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com um empate.
 
 <T>
 O objetivo do jogo é alinhar três peças na horizontal, vertical ou diagonal. 
 
-Cada um dos dois jogadores, de modo alternado, escolhe uma casa (linha e coluna). 
+Cada um dos dois jogadores, de modo alternado, escolhe uma casa (linha e coluna). A peça do jogador da vez é posicionada nessa casa, caso ela esteja vazia.
 
-A peça do jogador da vez é posicionada nessa casa, caso ela esteja vazia.
-
-Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com velha (empate).
+Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina em empate.
 
 <C>
 1 - Regra do Campo Minado

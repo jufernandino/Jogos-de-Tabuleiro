@@ -46,13 +46,15 @@ int main() {
     string comando;
     ss >> comando;
 
-    if (comando == "CJ") {
+    
+
+    if (comando == "CJ" || comando == "cj") {
       string apelido, nome;
       ss >> apelido >> nome;
 
     //pode ser uma exceção
     if (apelido.empty() || nome.empty()) {
-        cout << "\nERRO: comando inválido"<< endl;
+        cout << "\nERRO: dados incorretos"<< endl; //comando inválido
         cout << "Tente novamente!" << endl;
         continue;
         }
@@ -60,7 +62,7 @@ int main() {
     pJogador1 -> cadastrarJogadores(apelido, nome, Jogador1, jogadoresVector);
     voltarMenuPrincipal();
 
-    } else if (comando == "RJ") {
+    } else if (comando == "RJ" || comando == "rj") {
       string apelido;
       ss >> apelido;
 
@@ -73,7 +75,7 @@ int main() {
       pJogador1 -> removeJogador(jogadoresVector, apelido);
     voltarMenuPrincipal();
         
-    } else if (comando == "LJ") {
+    } else if (comando == "LJ" || comando == "lj") {
       char ordenacao = '\0'; //char nulo
       ss >> ordenacao;
 
@@ -87,11 +89,13 @@ int main() {
       pJogador1 -> mostrarEstatisticas(jogadoresVector, ordenacao);
     voltarMenuPrincipal();
         
-    } else if (comando == "EP") {
+    } else if (comando == "EP" || comando == "ep") {
         char jogoEscolhido;
         string apelidoJogador1, apelidoJogador2;
 
         ss >> jogoEscolhido >> apelidoJogador1 >> apelidoJogador2;
+
+        jogoEscolhido = toupper(jogoEscolhido); //conversão para maiúscula
 
         bool encontrouJogador1 = Jogador1.logar(apelidoJogador1, jogadoresVector);
         bool encontrouJogador2 = Jogador2.logar(apelidoJogador2, jogadoresVector);
@@ -246,14 +250,14 @@ int main() {
 
             menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
         }
-    } else if (comando == "FS") {
+    } else if (comando == "FS" || comando == "fs") {
       continuarJogando = false;
     }
   }
   return 0;
 }
 
-//transformar em exceção
+//transformar em exceção, coordenadas de entradas precisam ser lidas em linha única e não cada uma de uma vez separadas
 void antiUsuario(int &a) { // confere se as entradas fornecidas pelo usuário não quebram o código
   string aux = "";
 
@@ -262,12 +266,12 @@ void antiUsuario(int &a) { // confere se as entradas fornecidas pelo usuário n�
     while ((getchar()) != '\n')
 
     if (aux.length() != 1) {
-      cout << "ERRO: coordenadas inválidas" << endl;
+      cout << "ERRO: formato incorreto" << endl;
       continue;
     }
 
     if (!isdigit(aux[0])) {
-      cout << "ERRO: coordenadas inválidas" << endl;
+      cout << "ERRO: formato incorreto" << endl;
       continue;
     }
 
@@ -287,18 +291,18 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
 
     cin >> opcaoMenu;
 
-    if (opcaoMenu == "VR") {
+    if (opcaoMenu == "VR" || opcaoMenu == "vr") {
       pJogador1 -> mostrarRanking(jogoEscolhido, jogadoresVector);
 
       cout << "\nJN - Jogar novamente \nFS - Encerrar programa" << endl;
       cin >> opcaoMenu;
 
-      if (opcaoMenu == "JN") {
+      if (opcaoMenu == "JN" || opcaoMenu == "jn") {
         return;
-      } else if (opcaoMenu == "FS") {
+      } else if (opcaoMenu == "FS" || opcaoMenu == "fs") {
         exit(0);
       }
-    } else if (opcaoMenu == "JN") {
+    } else if (opcaoMenu == "JN" || opcaoMenu == "jn") {
       return;
     }
   }
@@ -309,9 +313,9 @@ void voltarMenuPrincipal() {
     char resposta;
     cin >> resposta;
     
-    if (resposta == 'S') {
+    if (resposta == 'S' || resposta == 's') {
         return;
-    } else if (resposta == 'N') {
+    } else if (resposta == 'N' || resposta == 'n') {
         exit(0);
     }
 }
