@@ -23,3 +23,10 @@ Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar 
 1 - Regra do Campo Minado
 2 - Regra do Campo Minado
 3 - Regra do Campo Minado
+
+<M>
+O objetivo do jogo é conseguir encontrar o maior números de pares de letras idênticas 
+
+Cada um dos dois jogadores, de modo alternado, escolhe duas posições no tabuleiro (Casa1 - linha1 e coluna1, Casa2- linha2 e coluna2). Em cada casa escolhida é revelada uma letra. Caso as duas casas tenham a mesma letra, o jogador pontua e joga novamente. Caso as letras sejam diferentes, a tabuleiro esconde as letras, e é a vez do próximo jogador. 
+
+Quando todos os pares forem encontrados e o tabuleiro estiver com todas as casas à mostra, a partida termina. Quem tiver encontrado mais pares vence. Se os jogadores tiverem encontrado a mesma quantidade de pares, então empata.
