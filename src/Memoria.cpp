@@ -3,7 +3,6 @@
 #include <string>
 #include <algorithm>
 #include <time.h>
-// #include <random>
 
 using namespace std;
 
@@ -17,8 +16,7 @@ Memoria::Memoria()
 void Memoria::inicializaTabuleiroSimbolos()
 {
 
-    // Criar um tabuleiro auxiliar
-    aux = new char *[rows];
+    aux = new char *[rows]; // Criar um tabuleiro auxiliar
     for (int i = 0; i < rows; i++)
     {
         aux[i] = new char[columns];
@@ -26,19 +24,14 @@ void Memoria::inicializaTabuleiroSimbolos()
 
     // Array de string com todos os possiveis simbolos no tabuleiro duplicados (pares):
     string simbolos = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+
     // vamos iniciar o gerador de números aleatórios
     srand(time(NULL));
     // vamos embaralhar as palavras da string
     random_shuffle(simbolos.begin(), simbolos.end());
 
-    // std::random_device rd;
-    // std::mt19937 g(rd());
-    // std::shuffle(simbolos.begin(), simbolos.end(), g); // Use std::shuffle
-    // random_shuffle(simbolos.begin(), simbolos.end()); // Embaralhar os simbolos randomicamente
-
-    // Preencher o tabuleiro com os símbolos
     int k = 0;
-    for (int i = 0; i < rows; ++i)
+    for (int i = 0; i < rows; ++i) // Preencher o tabuleiro com os símbolos
     {
         for (int j = 0; j < columns; ++j)
         {
@@ -54,15 +47,14 @@ void Memoria::inicializaTabuleiroSimbolos()
 
 bool Memoria::ehJogadaValida(int x, int y, int x2, int y2, char jogadorDaVez)
 {
-    // confere se as posições estão dentro do escopo do tabuleiro e se são posições diferentes
+    // confere se as posições estão dentro do escopo do tabuleiro, se são posições diferentes e se estão disponíveis
     if (x < 0 || x >= rows || y < 0 || y >= columns ||
         x2 < 0 || x2 >= rows || y2 < 0 || y2 >= columns ||
+        (p[x][y] != ' ') || (p[x2][y2] != ' ') ||
         (x == x2 && y == y2))
     {
         return false;
     }
-    else if (p[x][y] != ' ' || p[x2][y2] != ' ') // confere se as posições estão disponíveis
-        return false;
     else
         return true;
 }
@@ -81,7 +73,7 @@ void Memoria::validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)
 
 bool Memoria::formamPares(int x, int y, int x2, int y2, char jogadorDaVez)
 {
-    // Conicional para verificar se as duas posições possuem simbolos iguais (são par um do outro)
+    // Condicional para verificar se as duas posições possuem símbolos iguais (são par um do outro)
     if (p[x][y] == p[x2][y2])
         return true;
     else
@@ -90,7 +82,6 @@ bool Memoria::formamPares(int x, int y, int x2, int y2, char jogadorDaVez)
 
 void Memoria::validaPares(int x, int y, int x2, int y2, char jogadorDaVez)
 {
-
     if (!formamPares(x, y, x2, y2, jogadorDaVez))
     { // Se o jogador não encontrou os simbolos iguais, limpa o tabuleiro e ninguem pontua
         cout << "Par não encontrado!" << endl;
