@@ -49,7 +49,7 @@ int main()
     string comando;
     ss >> comando;
 
-    if (comando == "CJ")
+    if (comando == "CJ" || comando == "cj")
     {
       string apelido, nome;
       ss >> apelido >> nome;
@@ -57,7 +57,7 @@ int main()
       // pode ser uma exceção
       if (apelido.empty() || nome.empty())
       {
-        cout << "\nERRO: comando inválido" << endl;
+        cout << "\nERRO: dados incorretos" << endl; // comando inválido
         cout << "Tente novamente!" << endl;
         continue;
       }
@@ -65,7 +65,7 @@ int main()
       pJogador1->cadastrarJogadores(apelido, nome, Jogador1, jogadoresVector);
       voltarMenuPrincipal();
     }
-    else if (comando == "RJ")
+    else if (comando == "RJ" || comando == "rj")
     {
       string apelido;
       ss >> apelido;
@@ -80,7 +80,7 @@ int main()
       pJogador1->removeJogador(jogadoresVector, apelido);
       voltarMenuPrincipal();
     }
-    else if (comando == "LJ")
+    else if (comando == "LJ" || comando == "lj")
     {
       char ordenacao = '\0'; // char nulo
       ss >> ordenacao;
@@ -96,12 +96,14 @@ int main()
       pJogador1->mostrarEstatisticas(jogadoresVector, ordenacao);
       voltarMenuPrincipal();
     }
-    else if (comando == "EP")
+    else if (comando == "EP" || comando == "ep")
     {
       char jogoEscolhido;
       string apelidoJogador1, apelidoJogador2;
 
       ss >> jogoEscolhido >> apelidoJogador1 >> apelidoJogador2;
+
+      jogoEscolhido = toupper(jogoEscolhido); // conversão para maiúscula
 
       bool encontrouJogador1 = Jogador1.logar(apelidoJogador1, jogadoresVector);
       bool encontrouJogador2 = Jogador2.logar(apelidoJogador2, jogadoresVector);
@@ -296,85 +298,90 @@ int main()
         cout << "\nCampo Minado foi escolhido." << endl;
 
         menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
-        // memoria
-      }
-      else if (jogoEscolhido == 'M')
-      {
-        cout << "\nJogo da Memória foi escolhido." << endl;
-        Memoria m;
-        m.mostrarRegras(jogoEscolhido);
-        m.criaTabuleiro();
-        m.imprimirTabuleiro();
-
-        int jogadorAtual = 0;
-        do
-        {
-          char z = (jogadorAtual % 2 == 0) ? '1' : '2';
-          cout << "\nTurno de jogador " << (jogadorAtual % 2 == 0 ? Jogador1.Apelido : Jogador2.Apelido) << ":\n"
-               << endl;
-          cout << "Escolha as coordenadas para duas posições" << endl;
-          int x, y, x2, y2;
-          antiUsuario(x);
-          antiUsuario(y);
-          antiUsuario(x2);
-          antiUsuario(y2);
-
-          if (m.ehJogadaValida(x, y, x2, y2, z))
-          {
-            // 1º) mostra os simbolos das duas posições escolhidas
-            m.validaJogada(x, y, x2, y2, z);
-            m.imprimirTabuleiro();
-            // 2º) se o jogador encontrar os pares, os pares são validados ele joga novamente
-            if (m.formamPares(x, y, x2, y2, z) == true)
-            {
-              m.validaPares(x, y, x2, y2, z);
-            } // 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é a vez do próximo jogador
-            else if (m.formamPares(x, y, x2, y2, z) == false)
-            {
-              m.validaPares(x, y, x2, y2, z);
-              m.imprimirTabuleiro();
-              jogadorAtual++;
-            }
-          }
-          else
-          {
-            cout << "ERRO: jogada inválida" << endl;
-            continue;
-          }
-
-        } while (!m.verificarFimDeJogo());
-
-        int ganhador = m.confereGanhador();
-        if (ganhador == 1)
-        {
-          cout << Jogador1.Apelido << " ganhou!" << endl;
-          Jogador1.victory = true;
-        }
-        else if (ganhador == 2)
-        {
-          cout << Jogador2.Apelido << " ganhou!" << endl;
-          Jogador2.victory = true;
-        }
-        else if (ganhador == 3)
-        {
-          cout << "Empate!" << endl;
-        }
-
-        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-        Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-        m.liberaMemoria();
-        menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
       }
     }
-    else if (comando == "FS")
+    else if (comando == "FS" || comando == "fs")
     {
-      continuarJogando = false;
+      menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
+      // memoria
+    }
+    else if (jogoEscolhido == 'M')
+    {
+      cout << "\nJogo da Memória foi escolhido." << endl;
+      Memoria m;
+      m.mostrarRegras(jogoEscolhido);
+      m.criaTabuleiro();
+      m.imprimirTabuleiro();
+
+      int jogadorAtual = 0;
+      do
+      {
+        char z = (jogadorAtual % 2 == 0) ? '1' : '2';
+        cout << "\nTurno de jogador " << (jogadorAtual % 2 == 0 ? Jogador1.Apelido : Jogador2.Apelido) << ":\n"
+             << endl;
+        cout << "Escolha as coordenadas para duas posições" << endl;
+        int x, y, x2, y2;
+        antiUsuario(x);
+        antiUsuario(y);
+        antiUsuario(x2);
+        antiUsuario(y2);
+
+        if (m.ehJogadaValida(x, y, x2, y2, z))
+        {
+          // 1º) mostra os simbolos das duas posições escolhidas
+          m.validaJogada(x, y, x2, y2, z);
+          m.imprimirTabuleiro();
+          // 2º) se o jogador encontrar os pares, os pares são validados ele joga novamente
+          if (m.formamPares(x, y, x2, y2, z) == true)
+          {
+            m.validaPares(x, y, x2, y2, z);
+          } // 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é a vez do próximo jogador
+          else if (m.formamPares(x, y, x2, y2, z) == false)
+          {
+            m.validaPares(x, y, x2, y2, z);
+            m.imprimirTabuleiro();
+            jogadorAtual++;
+          }
+        }
+        else
+        {
+          cout << "ERRO: jogada inválida" << endl;
+          continue;
+        }
+
+      } while (!m.verificarFimDeJogo());
+
+      int ganhador = m.confereGanhador();
+      if (ganhador == 1)
+      {
+        cout << Jogador1.Apelido << " ganhou!" << endl;
+        Jogador1.victory = true;
+      }
+      else if (ganhador == 2)
+      {
+        cout << Jogador2.Apelido << " ganhou!" << endl;
+        Jogador2.victory = true;
+      }
+      else if (ganhador == 3)
+      {
+        cout << "Empate!" << endl;
+      }
+
+      Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+      Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+      m.liberaMemoria();
+      menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
     }
   }
-  return 0;
+  else if (comando == "FS" || comando == "fs")
+  {
+    continuarJogando = false;
+  }
+}
+return 0;
 }
 
-// transformar em exceção
+// transformar em exceção, coordenadas de entradas precisam ser lidas em linha única e não cada uma de uma vez separadas
 void antiUsuario(int &a)
 { // confere se as entradas fornecidas pelo usuário não quebram o código
   string aux = "";
@@ -386,13 +393,13 @@ void antiUsuario(int &a)
 
       if (aux.length() != 1)
       {
-        cout << "ERRO: coordenadas inválidas" << endl;
+        cout << "ERRO: formato incorreto" << endl;
         continue;
       }
 
     if (!isdigit(aux[0]))
     {
-      cout << "ERRO: coordenadas inválidas" << endl;
+      cout << "ERRO: formato incorreto" << endl;
       continue;
     }
 
@@ -415,23 +422,23 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
 
     cin >> opcaoMenu;
 
-    if (opcaoMenu == "VR")
+    if (opcaoMenu == "VR" || opcaoMenu == "vr")
     {
       pJogador1->mostrarRanking(jogoEscolhido, jogadoresVector);
 
       cout << "\nJN - Jogar novamente \nFS - Encerrar programa" << endl;
       cin >> opcaoMenu;
 
-      if (opcaoMenu == "JN")
+      if (opcaoMenu == "JN" || opcaoMenu == "jn")
       {
         return;
       }
-      else if (opcaoMenu == "FS")
+      else if (opcaoMenu == "FS" || opcaoMenu == "fs")
       {
         exit(0);
       }
     }
-    else if (opcaoMenu == "JN")
+    else if (opcaoMenu == "JN" || opcaoMenu == "jn")
     {
       return;
     }
@@ -444,11 +451,11 @@ void voltarMenuPrincipal()
   char resposta;
   cin >> resposta;
 
-  if (resposta == 'S')
+  if (resposta == 'S' || resposta == 's')
   {
     return;
   }
-  else if (resposta == 'N')
+  else if (resposta == 'N' || resposta == 'n')
   {
     exit(0);
   }
