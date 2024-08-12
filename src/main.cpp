@@ -299,86 +299,81 @@ int main()
 
         menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
       }
+      // Jogo da Memoria
+      else if (jogoEscolhido == 'M')
+      {
+        cout << "\nJogo da Memória foi escolhido." << endl;
+        Memoria m;
+        m.mostrarRegras(jogoEscolhido);
+        m.criaTabuleiro();
+        m.imprimirTabuleiro();
+
+        int jogadorAtual = 0;
+        do
+        {
+          char z = (jogadorAtual % 2 == 0) ? '1' : '2';
+          cout << "\nTurno de jogador " << (jogadorAtual % 2 == 0 ? Jogador1.Apelido : Jogador2.Apelido) << ":\n"
+               << endl;
+          cout << "Escolha as coordenadas para duas posições" << endl;
+          int x, y, x2, y2;
+          antiUsuario(x);
+          antiUsuario(y);
+          antiUsuario(x2);
+          antiUsuario(y2);
+
+          if (m.ehJogadaValida(x, y, x2, y2, z))
+          {
+            // 1º) mostra os simbolos das duas posições escolhidas
+            m.validaJogada(x, y, x2, y2, z);
+            m.imprimirTabuleiro();
+            // 2º) se o jogador encontrar os pares, os pares são validados ele joga novamente
+            if (m.formamPares(x, y, x2, y2, z) == true)
+            {
+              m.validaPares(x, y, x2, y2, z);
+            } // 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é a vez do próximo jogador
+            else if (m.formamPares(x, y, x2, y2, z) == false)
+            {
+              m.validaPares(x, y, x2, y2, z);
+              m.imprimirTabuleiro();
+              jogadorAtual++;
+            }
+          }
+          else
+          {
+            cout << "ERRO: jogada inválida" << endl;
+            continue;
+          }
+
+        } while (!m.verificarFimDeJogo());
+
+        int ganhador = m.confereGanhador();
+        if (ganhador == 1)
+        {
+          cout << Jogador1.Apelido << " ganhou!" << endl;
+          Jogador1.victory = true;
+        }
+        else if (ganhador == 2)
+        {
+          cout << Jogador2.Apelido << " ganhou!" << endl;
+          Jogador2.victory = true;
+        }
+        else if (ganhador == 3)
+        {
+          cout << "Empate!" << endl;
+        }
+
+        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+        Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+        m.liberaMemoria();
+        menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
+      }
     }
     else if (comando == "FS" || comando == "fs")
     {
-      menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
-      // memoria
-    }
-    else if (jogoEscolhido == 'M')
-    {
-      cout << "\nJogo da Memória foi escolhido." << endl;
-      Memoria m;
-      m.mostrarRegras(jogoEscolhido);
-      m.criaTabuleiro();
-      m.imprimirTabuleiro();
-
-      int jogadorAtual = 0;
-      do
-      {
-        char z = (jogadorAtual % 2 == 0) ? '1' : '2';
-        cout << "\nTurno de jogador " << (jogadorAtual % 2 == 0 ? Jogador1.Apelido : Jogador2.Apelido) << ":\n"
-             << endl;
-        cout << "Escolha as coordenadas para duas posições" << endl;
-        int x, y, x2, y2;
-        antiUsuario(x);
-        antiUsuario(y);
-        antiUsuario(x2);
-        antiUsuario(y2);
-
-        if (m.ehJogadaValida(x, y, x2, y2, z))
-        {
-          // 1º) mostra os simbolos das duas posições escolhidas
-          m.validaJogada(x, y, x2, y2, z);
-          m.imprimirTabuleiro();
-          // 2º) se o jogador encontrar os pares, os pares são validados ele joga novamente
-          if (m.formamPares(x, y, x2, y2, z) == true)
-          {
-            m.validaPares(x, y, x2, y2, z);
-          } // 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é a vez do próximo jogador
-          else if (m.formamPares(x, y, x2, y2, z) == false)
-          {
-            m.validaPares(x, y, x2, y2, z);
-            m.imprimirTabuleiro();
-            jogadorAtual++;
-          }
-        }
-        else
-        {
-          cout << "ERRO: jogada inválida" << endl;
-          continue;
-        }
-
-      } while (!m.verificarFimDeJogo());
-
-      int ganhador = m.confereGanhador();
-      if (ganhador == 1)
-      {
-        cout << Jogador1.Apelido << " ganhou!" << endl;
-        Jogador1.victory = true;
-      }
-      else if (ganhador == 2)
-      {
-        cout << Jogador2.Apelido << " ganhou!" << endl;
-        Jogador2.victory = true;
-      }
-      else if (ganhador == 3)
-      {
-        cout << "Empate!" << endl;
-      }
-
-      Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-      Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-      m.liberaMemoria();
-      menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
+      continuarJogando = false;
     }
   }
-  else if (comando == "FS" || comando == "fs")
-  {
-    continuarJogando = false;
-  }
-}
-return 0;
+  return 0;
 }
 
 // transformar em exceção, coordenadas de entradas precisam ser lidas em linha única e não cada uma de uma vez separadas
