@@ -1,5 +1,6 @@
 #ifndef Jogadores_H
 #define Jogadores_H
+
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -14,27 +15,41 @@ class Jogadores{
     string Nome;
     int reversiWins;
     int reversiDefeats;
+    int reversiEmpates;
     int lig4Wins;
     int lig4Defeats;
+    int lig4Empates;
     int tictactoeWins;
     int tictactoeDefeats;
+    int tictactoeEmpates;
     bool victory;
+    bool empate;
 
     int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquivo
 
-    Jogadores(); //construtor default
+    Jogadores();
 
-    Jogadores(string Apelido); //de fato faz o cadastro
+    Jogadores(string Apelido, string Nome);
 
-    void signIn(string Apelido, vector<Jogadores> &jogadoresVector);
+    bool logar(string Apelido, vector<Jogadores> &jogadoresVector);
 
     void reescreveArquivo(vector<Jogadores> &jogadoresVector);
 
-    void removeJogador(vector<Jogadores> &jogadoresVector);
+    void removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
 
-    void atualizaEstatisticas(int gameMode, vector<Jogadores> &jogadoresVector);
+    void atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
-    void showRanking(string gameName);
+    void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> jogadoresVector);
+
+    void mostrarEstatisticas(vector<Jogadores> jogadoresVector, const char &ordenacao);
+
+    void carregarJogadores(vector<Jogadores> &jogadoresVector);
+
+    void cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
+
+    void ordenacaoApelido(vector<Jogadores> &jogadoresVector);
+
+    void ordenacaoNome(vector<Jogadores> &jogadoresVector);
 
 };
 

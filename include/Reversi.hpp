@@ -15,8 +15,9 @@ public:
 
   virtual void validaJogada(int x, int y, char z) override; // sobrecarga
   bool ehJogadaValida(int x, int y, char jogadorDaVez);
-  void mostrarLocaisJogada(char jogador); // mostrar locais de possíveis jogadas
-  bool verificarFimDeJogo();              // chamada todas as vezes que um movimento é feito
+  bool existeMovimentoPossivel(char jogadorDaVez); // verifica se existem movimento a serem feitos no turno do jogador
+  void mostrarLocaisJogada(char jogador);          // mostrar locais de possíveis jogadas
+  bool verificarFimDeJogo();                       // chamada todas as vezes que um movimento é feito
 
 private:
   char jogadorAtual; // variável para armazenar qual a peça do jogador atual (ou X ou O)

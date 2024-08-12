@@ -2,10 +2,10 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
-//construtor
 Tabuleiro::Tabuleiro() {
   this->rows = 0;
   this->columns = 0;
@@ -23,7 +23,7 @@ void Tabuleiro::criaTabuleiro()
   }
 }
 
-void Tabuleiro::imprimeTabuleiro() {
+void Tabuleiro::imprimirTabuleiro() {
   cout << '\n';
   string aux = "-";
   cout << "  ";
@@ -59,5 +59,62 @@ void Tabuleiro::validaJogada(int x, int y, char z) {
     p[x][y] = z;
   } else {
     cout << "\nEssa jogada é invalida! Passa a vez!\n" << endl;
+  }
+}
+
+void Tabuleiro::mostrarRegras(const char &jogoEscolhido) {
+  cout << "\nJ - JOGAR\n"
+       << "L - Ler regras do jogo\n" << endl;
+
+  string lerRegras;
+  cin >> lerRegras;
+
+  if (lerRegras == "J" || lerRegras == "j") {
+    cout << "\n--------\nJOGAR PARTIDA\n--------\n" << endl;
+    return;
+  } else if (lerRegras == "L" || lerRegras == "l") {
+
+    ifstream arquivo("Regras.txt");
+
+    if (!arquivo.is_open()) {
+      cout << "ERRO: não foi possível abrir o arquivo Regras.txt" << endl;
+      return;
+    }
+
+    string linha, regras;
+    
+    bool continuar = false;
+    
+    string escolha(1, jogoEscolhido); //conversão string para char
+    string aux = "<" + escolha + ">";
+
+    while (getline(arquivo, linha)) {
+      if (linha == aux) {
+        continuar = true;
+        continue;
+    }
+        if (linha.find('<') != string::npos && linha.find('>') != string::npos) {
+          if (continuar) {
+            break;
+          }
+        }
+
+        if (continuar) {
+          regras += linha + "\n";
+        }
+      }
+
+    arquivo.close();
+
+    if (!regras.empty()) {
+      cout << "\n-------- \nREGRAS DO JOGO\n--------\n\n" << regras << endl;
+
+      cout << "Vamos começar? Tecle ENTER para iniciar o jogo" << endl;
+
+      cin.ignore();
+      cin.get();
+
+      cout << "\n--------\nJOGAR PARTIDA\n--------" << endl;
+    }
   }
 }
