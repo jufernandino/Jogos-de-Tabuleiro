@@ -71,8 +71,8 @@ Jogadores::Jogadores(string apelido, string nome) {
   if (out.is_open()) {
       out << '\n' << this->Apelido << ", " << this->Nome << ", " 
           << this->reversiWins << ", " << this->reversiDefeats 
-          << ", " << this -> reversiEmpates << ", " << this->lig4Wins << ", " << this->lig4Defeats 
-          << ", " << this -> lig4Empates << ", " << this->tictactoeWins << ", " << this->tictactoeDefeats << ", " << this -> tictactoeEmpates;
+          << ", " << this->reversiEmpates << ", " << this->lig4Wins << ", " << this->lig4Defeats 
+          << ", " << this->lig4Empates << ", " << this->tictactoeWins << ", " << this->tictactoeDefeats << ", " << this->tictactoeEmpates;
       out.close();
   } else {
       cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
@@ -329,7 +329,7 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
             break;
           }
         }
-        /* jogador.reversiEmpates = stoi(aux, nullptr, 10);
+        jogador.reversiEmpates = stoi(aux, nullptr, 10);
         aux = "";
         i += 2;
 
@@ -339,7 +339,7 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
           } else {
             break;
           }
-        } */
+        }
         jogador.lig4Wins = stoi(aux, nullptr, 10);
         aux = "";
         i += 2;
@@ -362,7 +362,7 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
             break;
           }
         }
-        /* jogador.lig4Empates = stoi(aux, nullptr, 10);
+        jogador.lig4Empates = stoi(aux, nullptr, 10);
         aux = "";
         i += 2;
 
@@ -372,13 +372,13 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
           } else {
             break;
           }
-        } */
+        }
         jogador.tictactoeWins = stoi(aux, nullptr, 10);
         aux = "";
         i += 2;
 
         for (; i < line.size(); i++) {
-          if (line[i] != '\n') {
+          if (line[i] != ',') {
             aux = aux + line[i];
           } else {
             break;
@@ -395,18 +395,18 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
             break;
           }
         }
-        /*
+
         jogador.tictactoeEmpates = stoi(aux, nullptr, 10);
         aux = "";
         i += 2;
 
         for (; i < line.size(); i++) {
-          if (line[i] != ',') {
+          if (line[i] != '\n') {
             aux = aux + line[i];
           } else {
             break;
           }
-        } */
+        }
         jogadoresVector.push_back(jogador);
       }
     } else {
