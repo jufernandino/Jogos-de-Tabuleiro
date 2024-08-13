@@ -41,7 +41,7 @@ class Jogadores{
 
     void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> jogadoresVector);
 
-    void mostrarEstatisticas(vector<Jogadores> jogadoresVector, const char &ordenacao);
+    void mostrarEstatisticas(vector<Jogadores> jogadoresVector, const string &ordenacao);
 
     void carregarJogadores(vector<Jogadores> &jogadoresVector);
 
