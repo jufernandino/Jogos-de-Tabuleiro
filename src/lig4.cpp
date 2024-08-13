@@ -11,8 +11,8 @@ lig4::lig4() {
 void lig4::validaJogada(int x, int y, char z) {
   if (y < this->columns) {
     for (int i = 5; i >= 0; i--) {
-      if (p[i][y] == ' ') {
-        p[i][y] = z;
+      if (matrix[i][y] == ' ') {
+          matrix[i][y] = z;
         break;
       } else {
         continue;
@@ -27,12 +27,12 @@ int lig4::confereGanhador() {
   // Verifica linhas horizontais
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < columns - 3; j++) {
-      if (p[i][j] == p[i][j + 1] && p[i][j] == p[i][j + 2] &&
-          p[i][j] == p[i][j + 3] && p[i][j] != ' ') {
-        if (p[i][j] == 'X') { // caso o Jogador1 vença
+      if (matrix[i][j] == matrix[i][j + 1] && matrix[i][j] == matrix[i][j + 2] &&
+        matrix[i][j] == matrix[i][j + 3] && matrix[i][j] != ' ') {
+        if (matrix[i][j] == 'X') { // caso o Jogador1 vença
           return 1;
         }
-        if (p[i][j] == 'O') { // caso o Jogador2 vença
+        if (matrix[i][j] == 'O') { // caso o Jogador2 vença
           return 2;
         }
       }
@@ -42,12 +42,12 @@ int lig4::confereGanhador() {
   // Verifica linhas verticais
   for (int i = 0; i < rows - 3; i++) {
     for (int j = 0; j < columns; j++) {
-      if (p[i][j] == p[i + 1][j] && p[i][j] == p[i + 2][j] &&
-          p[i][j] == p[i + 3][j] && p[i][j] != ' ') {
-        if (p[i][j] == 'X') { // caso o Jogador1 vença
+      if (matrix[i][j] == matrix[i + 1][j] && matrix[i][j] == matrix[i + 2][j] &&
+        matrix[i][j] == matrix[i + 3][j] && matrix[i][j] != ' ') {
+        if (matrix[i][j] == 'X') { // caso o Jogador1 vença
           return 1;
         }
-        if (p[i][j] == 'O') { // caso o Jogador2 vença
+        if (matrix[i][j] == 'O') { // caso o Jogador2 vença
           return 2;
         }
       }
@@ -57,12 +57,12 @@ int lig4::confereGanhador() {
   // Verifica diagonais descendentes (\)
   for (int i = 0; i < rows - 3; i++) {
     for (int j = 0; j < columns - 3; j++) {
-      if (p[i][j] == p[i + 1][j + 1] && p[i][j] == p[i + 2][j + 2] &&
-          p[i][j] == p[i + 3][j + 3] && p[i][j] != ' ') {
-        if (p[i][j] == 'X') { // caso o Jogador1 vença
+      if (matrix[i][j] == matrix[i + 1][j + 1] && matrix[i][j] == matrix[i + 2][j + 2] &&
+        matrix[i][j] == matrix[i + 3][j + 3] && matrix[i][j] != ' ') {
+        if (matrix[i][j] == 'X') { // caso o Jogador1 vença
           return 1;
         }
-        if (p[i][j] == 'O') { // caso o Jogador2 vença
+        if (matrix[i][j] == 'O') { // caso o Jogador2 vença
           return 2;
         }
       }
@@ -72,12 +72,12 @@ int lig4::confereGanhador() {
   // Verifica diagonais ascendentes (/)
   for (int i = 3; i < rows; i++) {
     for (int j = 0; j < columns - 3; j++) {
-      if (p[i][j] == p[i - 1][j + 1] && p[i][j] == p[i - 2][j + 2] &&
-          p[i][j] == p[i - 3][j + 3] && p[i][j] != ' ') {
-        if (p[i][j] == 'X') { // caso o Jogador1 vença
+      if (matrix[i][j] == matrix[i - 1][j + 1] && matrix[i][j] == matrix[i - 2][j + 2] &&
+        matrix[i][j] == matrix[i - 3][j + 3] && matrix[i][j] != ' ') {
+        if (matrix[i][j] == 'X') { // caso o Jogador1 vença
           return 1;
         }
-        if (p[i][j] == 'O') { // caso o Jogador2 vença
+        if (matrix[i][j] == 'O') { // caso o Jogador2 vença
           return 2;
         }
       }
@@ -88,7 +88,7 @@ int lig4::confereGanhador() {
   bool empate = true;
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < columns; j++) {
-      if (p[i][j] == ' ') {
+      if (matrix[i][j] == ' ') {
         empate = false;
         break;
       }

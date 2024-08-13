@@ -1,12 +1,9 @@
 alanzoka, Alan Ferreira, 0, 0, 0, 0, 0, 0, 0, 0, 0
-sally, Marcele Louise Silva Araponga, 0, 0, 0, 0, 0, 0, 0, 0, 0
-Babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0, 0
+sally, Marcele Louise Silva Araponga, 0, 0, 0, 0, 0, 0, 2, 0, 0
+Babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 2, 0
 Ju, Julieta, 0, 1, 0, 0, 0, 0, 0, 0, 0
-zeus, Zeus, 0, 0, 0, 0, 0, 0, 0, 0, 0
-pedro, Pedro, 0, 0, 0, 0, 0, 0, 0, 0, 0
-o, Pedro, 0, 0, 0, 0, 0, 0, 0, 0, 0
 zebra, Zebra, 0, 0, 0, 0, 0, 0, 0, 0, 0
-Zebra, Zebra, 0, 0, 0, 0, 0, 0, 0, 0, 0
-Zara, Zara, 0, 0, 0, 0, 0, 0, 0, 0, 0
 zara, Zara, 0, 0, 0, 0, 0, 0, 0, 0, 0
-zAra, Zara, 0, 0, 0, 0, 0, 0, 0, 0, 0
+teste1, Teste1, 0, 0, 0, 0, 0, 0, 0, 1, 0
+teste2, Teste2, 0, 0, 0, 0, 0, 0, 2, 1, 0
+teste3, Teste3, 0, 0, 0, 0, 0, 0, 2, 0, 0

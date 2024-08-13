@@ -13,12 +13,12 @@ Tabuleiro::Tabuleiro() {
 
 void Tabuleiro::criaTabuleiro()
 {
-  p = new char *[rows];
+    matrix = new char *[rows];
   for (int i = 0; i < rows; i++) {
-    p[i] = new char[columns];
+      matrix[i] = new char[columns];
     for (int j = 0; j < columns; j++)
     {
-      p[i][j] = ' ';
+        matrix[i][j] = ' ';
     }
   }
 }
@@ -36,7 +36,7 @@ void Tabuleiro::imprimirTabuleiro() {
   for (int i = 0; i < rows; i++) {
     cout << '\n';
     for (int j = 0; j < columns; j++) {
-      cout << '|' << ' ' << p[i][j] << ' ';
+      cout << '|' << ' ' << matrix[i][j] << ' ';
     }
     cout << '|' << ' ' << i;
     cout << '\n';
@@ -49,14 +49,14 @@ void Tabuleiro::liberaMemoria()
 {
   for (int i = 0; i < rows; i++)
   {
-    delete[] p[i];
+    delete[] matrix[i];
   }
-  delete[] p;
+  delete[] matrix;
 }
 
 void Tabuleiro::validaJogada(int x, int y, char z) {
-  if (x < this->rows && y < this->columns && p[x][y] == ' ') {
-    p[x][y] = z;
+  if (x < this->rows && y < this->columns && matrix[x][y] == ' ') {
+      matrix[x][y] = z;
   } else {
     cout << "\nEssa jogada é invalida! Passa a vez!\n" << endl;
   }

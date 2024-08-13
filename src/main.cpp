@@ -296,10 +296,12 @@ int main()
       else if (jogoEscolhido == 'C')
       {
         cout << "\nCampo Minado foi escolhido." << endl;
-
+        CampoMinado c;
+        c.mostrarRegras(jogoEscolhido);
+        c.jogarCampoMinado();
         menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
       }
-      // Jogo da Memoria
+      // memoria
       else if (jogoEscolhido == 'M')
       {
         cout << "\nJogo da Memória foi escolhido." << endl;
@@ -424,12 +426,9 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
       cout << "\nJN - Jogar novamente \nFS - Encerrar programa" << endl;
       cin >> opcaoMenu;
 
-      if (opcaoMenu == "JN" || opcaoMenu == "jn")
-      {
+      if (opcaoMenu == "JN" || opcaoMenu == "jn") {
         return;
-      }
-      else if (opcaoMenu == "FS" || opcaoMenu == "fs")
-      {
+      } else if (opcaoMenu == "FS" || opcaoMenu == "fs") {
         exit(0);
       }
     }

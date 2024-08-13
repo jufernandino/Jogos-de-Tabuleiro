@@ -8,7 +8,7 @@ using namespace std;
 
 class Tabuleiro {
 public:
-  char **p;
+  char **matrix;
   int rows;
   int columns;
 

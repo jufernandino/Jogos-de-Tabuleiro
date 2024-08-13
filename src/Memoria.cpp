@@ -50,7 +50,7 @@ bool Memoria::ehJogadaValida(int x, int y, int x2, int y2, char jogadorDaVez)
     // confere se as posições estão dentro do escopo do tabuleiro, se são posições diferentes e se estão disponíveis
     if (x < 0 || x >= rows || y < 0 || y >= columns ||
         x2 < 0 || x2 >= rows || y2 < 0 || y2 >= columns ||
-        (p[x][y] != ' ') || (p[x2][y2] != ' ') ||
+        (matrix[x][y] != ' ') || (matrix[x2][y2] != ' ') ||
         (x == x2 && y == y2))
     {
         return false;
@@ -67,14 +67,14 @@ void Memoria::validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)
         return;
     }
     // Atribui ao tabuleiro real os simbolos que estão na posição (x,y) e (x1,y1) do tabuleiro auxiliar
-    p[x][y] = aux[x][y];
-    p[x2][y2] = aux[x2][y2];
+        matrix[x][y] = aux[x][y];
+        matrix[x2][y2] = aux[x2][y2];
 }
 
 bool Memoria::formamPares(int x, int y, int x2, int y2, char jogadorDaVez)
 {
     // Condicional para verificar se as duas posições possuem símbolos iguais (são par um do outro)
-    if (p[x][y] == p[x2][y2])
+    if (matrix[x][y] == matrix[x2][y2])
         return true;
     else
         return false;
@@ -85,12 +85,12 @@ void Memoria::validaPares(int x, int y, int x2, int y2, char jogadorDaVez)
     if (!formamPares(x, y, x2, y2, jogadorDaVez))
     { // Se o jogador não encontrou os simbolos iguais, limpa o tabuleiro e ninguem pontua
         cout << "Par não encontrado!" << endl;
-        p[x][y] = ' ';
-        p[x2][y2] = ' ';
+        matrix[x][y] = ' ';
+        matrix[x2][y2] = ' ';
         return;
     }
     // Se encontrou, os simbolos se mantêm no tabuleiro real e o jogador da vez pontua
-    cout << "Par " << p[x][y] << "-" << p[x2][y2] << " encontrado!" << endl;
+    cout << "Par " << matrix[x][y] << "-" << matrix[x2][y2] << " encontrado!" << endl;
     if (jogadorDaVez == '1')
         pontosJogador1++;
     else if (jogadorDaVez == '2')
@@ -123,7 +123,7 @@ bool Memoria::verificarFimDeJogo()
     {
         for (int j = 0; j < columns; ++j)
         {
-            if (p[i][j] == ' ')
+            if (matrix[i][j] == ' ')
             {
                 return false;
             }
