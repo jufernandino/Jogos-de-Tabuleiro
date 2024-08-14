@@ -10,6 +10,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <limits>
+
 
 using namespace std;
 
@@ -119,6 +121,9 @@ int main() {
 
       pJogador1->cadastrarJogadores(apelido, nome, Jogador1, jogadoresVector);
       voltarMenuPrincipal();
+      continue; //coloquei continue nos comandos
+    
+
 
     } else if (comando == "RJ" || comando == "rj") {
       string apelido;
@@ -163,6 +168,7 @@ int main() {
 
       
       voltarMenuPrincipal();
+      continue;
 
 
       
@@ -642,6 +648,7 @@ void voltarMenuPrincipal() {
   }
 
   if (resposta == 'S') {
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //coloquei isso para limpar o buffer
     return;
   } else if (resposta == 'N') {
     exit(0);
