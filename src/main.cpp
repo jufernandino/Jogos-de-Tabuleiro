@@ -1,10 +1,10 @@
 #include "Jogadores.hpp"
 #include "Tabuleiro.hpp"
-// #include "TicTacToe.hpp"
-// #include "lig4.hpp"
-// #include "Reversi.hpp"
-// #include "CampoMinado.hpp"
-// #include "Memoria.hpp"
+#include "TicTacToe.hpp"
+#include "lig4.hpp"
+#include "Reversi.hpp"
+#include "CampoMinado.hpp"
+#include "Memoria.hpp"
 #include <cctype>
 #include <iostream>
 #include <sstream>
@@ -85,12 +85,12 @@ int main() {
       // while (1) {
       try {
         ss >> apelido >> nome;
-
-        for (int i = 0; i < apelido.length(); i++) {
+        
+        /*for (int i = 0; i < apelido.length(); i++) {
           if (isdigit(apelido[i])) {
             throw badInputs(apelido);
           }
-        }
+        }*/
 
         for (int i = 0; i < nome.length(); i++) {
           if (isdigit(nome[i])) {
@@ -125,13 +125,13 @@ int main() {
 
       // while (1) {
       try {
-        // cin >> apelido;
+        ss >> apelido;
 
-        for (int i = 0; i < apelido.length(); i++) {
+        /*for (int i = 0; i < apelido.length(); i++) {
           if (isdigit(apelido[i])) {
             throw badInputs(apelido);
           }
-        }
+        }*/
 
         for (int i = 0; i < apelido.length(); i++) {
           if (isblank(apelido[i])) {
@@ -144,10 +144,15 @@ int main() {
           //} else {
           // break;
         }
+
+        pJogador1->removeJogador(jogadoresVector, apelido);
+        
       } catch (badInputs &e) {
         cout << e.what() << endl;
+        return 1;
       } catch (exception &e) {
         cout << e.what() << endl;
+        return 1;
       }
       //}
 
@@ -156,8 +161,11 @@ int main() {
       //   continue;
       // }
 
-      pJogador1->removeJogador(jogadoresVector, apelido);
+      
       voltarMenuPrincipal();
+
+
+      
     } else if (comando == "LJ" || comando == "lj") {
       string ordenacao = "\0"; // string nula
 

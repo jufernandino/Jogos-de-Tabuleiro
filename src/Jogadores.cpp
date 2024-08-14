@@ -7,34 +7,6 @@
 
 using namespace std;
 
-int Jogadores::pesquisaJogador(string apelido) {
-
-  ifstream in("Jogadores.txt", fstream::in);
-
-  if (in.is_open()) {
-    string line;
-    while (getline(in, line)) {
-      string aux = "";
-      for (long unsigned int i = 0; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      if (aux == apelido) {
-        return 1;
-      }
-    }
-  } else {
-    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
-    return 0;
-  }
-
-  in.close();
-  return 0;
-}
-
 Jogadores::Jogadores() {
   this->Apelido = "";
   this->Nome = "";
@@ -78,6 +50,34 @@ Jogadores::Jogadores(string apelido, string nome) {
   } else {
     cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
   }
+}
+
+int Jogadores::pesquisaJogador(string apelido) {
+
+  ifstream in("Jogadores.txt", fstream::in);
+
+  if (in.is_open()) {
+    string line;
+    while (getline(in, line)) {
+      string aux = "";
+      for (long unsigned int i = 0; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      if (aux == apelido) {
+        return 1;
+      }
+    }
+  } else {
+    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
+    return 0;
+  }
+
+  in.close();
+  return 0;
 }
 
 bool Jogadores::logar(string Apelido, vector<Jogadores> &jogadoresVector) {
@@ -124,6 +124,146 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
   }
 
   out.close();
+}
+
+void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
+  ifstream in("Jogadores.txt", fstream::in);
+
+  if (in.is_open()) {
+    string line;
+    while (getline(in, line)) {
+
+      Jogadores jogador;
+      string aux = "";
+      long unsigned int i = 0;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.Apelido = aux;
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.Nome = aux;
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.reversiWins = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.reversiDefeats = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.reversiEmpates = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.lig4Wins = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.lig4Defeats = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.lig4Empates = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.tictactoeWins = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != ',') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.tictactoeDefeats = stoi(aux, nullptr, 10);
+      aux = "";
+      i += 2;
+
+      for (; i < line.size(); i++) {
+        if (line[i] != '\n') {
+          aux = aux + line[i];
+        } else {
+          break;
+        }
+      }
+      jogador.tictactoeEmpates = stoi(aux, nullptr, 10);
+
+      jogadoresVector.push_back(jogador);
+    }
+  } else {
+    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
+    return;
+  }
+
+  in.close();
 }
 
 void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector,
@@ -281,145 +421,6 @@ void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector,
   }
 }
 
-void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
-  ifstream in("Jogadores.txt", fstream::in);
-
-  if (in.is_open()) {
-    string line;
-    while (getline(in, line)) {
-
-      Jogadores jogador;
-      string aux = "";
-      long unsigned int i = 0;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.Apelido = aux;
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.Nome = aux;
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.reversiWins = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.reversiDefeats = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.reversiEmpates = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.lig4Wins = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.lig4Defeats = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.lig4Empates = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.tictactoeWins = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.tictactoeDefeats = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != '\n') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.tictactoeEmpates = stoi(aux, nullptr, 10);
-
-      jogadoresVector.push_back(jogador);
-    }
-  } else {
-    cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
-    return;
-  }
-
-  in.close();
-}
 
 void Jogadores::cadastrarJogadores(string apelido, string nome,
                                    Jogadores &Jogador,
