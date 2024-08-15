@@ -60,16 +60,20 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
 - **Finalizar Sistema**: `FS`
   
 ### Durante os Jogos
-- **Jogada no Reversi**: `<Linha> <Coluna>`
+- **Jogada no Reversi**: `<Linha>` `<Coluna>`
+  - Exemplo: `<0>` `<2>` 
   - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida`
 
 - **Jogada no Lig 4**: `<Coluna>`
+  - Exemplo: `<1>` 
   - Erros: `ERRO: formato incorreto`, `Essa jogada é inválida! Passa a vez!`
 
-- **Jogada no TicTacToe**: `<Linha> <Coluna>`
+- **Jogada no TicTacToe**: `<Linha>` `<Coluna>`
+  - Exemplo: `<0>` `<2>` 
   - Erros: `ERRO: formato incorreto`, `Essa jogada é inválida! Passa a vez!`
     
-- **Jogada no Jogo da Memória**: `<Linha> <Coluna>` `<Linha> <Coluna>`
+- **Jogada no Jogo da Memória**: `<Linha1>` `<Coluna1>` `<Linha2>` `<Coluna2>`
+  - Exemplo: `<0>` `<1>` `<0>` `<2>` 
   - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida`
 
 ## Aprendizados com o projeto
