@@ -9,14 +9,17 @@ class CampoMinado : public Tabuleiro
 public:
   CampoMinado();
 
-  void jogarCampoMinado();
-
-  bool validaJogada(int x, int y);
+  void iniciaTabuleiro();
+  int minasAdj(int linha, int coluna);
+  void revelaCelula(int linha, int coluna);
+  bool validaJogada(int linha, int coluna);
+  bool escolheuBomba(int linha, int coluna);
   int confereGanhador() override;
-  bool verificaFimDeJogo();
+  void jogarCampoMinado();
 
 private:
   int bombas;
+  int posicao_minas[2][bombas];
 
 };
 
