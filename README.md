@@ -54,7 +54,8 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
   - MEMORIA - V: <#vitorias> D: <#derrotas>  
 
 ### Execução de Partidas
-- **Executar Partida**: `EP <Jogo: (R|L|T|M)> <Apelido Jogador 1> <Apelido Jogador 2>`  
+- **Executar Partida**: `EP <Jogo: (R|L|T|M)> <Apelido Jogador 1> <Apelido Jogador 2>`
+   - Exemplo: `EP R Ju Babi` (executa o jogo Reversi com jogadora Ju e jogadora Babi)
    - Erros: `ERRO: dados incorretos` , `ERRO: jogador inexistente`
 
 - **Finalizar Sistema**: `FS`
