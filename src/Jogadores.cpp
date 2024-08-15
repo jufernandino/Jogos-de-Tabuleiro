@@ -103,27 +103,24 @@ bool Jogadores::logar(string Apelido, vector<Jogadores> &jogadoresVector) {
 }
 
 void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
-  ofstream out("Jogadores.txt", fstream::out);
-  out << "";
-  out.close();
+  ofstream out("Jogadores.txt", ios::out | ios::trunc);  // Abre o arquivo apaga o conteúdo anterior
 
-  out.open("Jogadores.txt", ios::app);
-
-  vector<Jogadores>::iterator it;
-  for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
-    if (out.is_open()) {
-      out << (*it).Apelido << ", " << (*it).Nome << ", " << (*it).reversiWins
-          << ", " << (*it).reversiDefeats << ", " << (*it).reversiEmpates
-          << ", " << (*it).lig4Wins << ", " << (*it).lig4Defeats << ", "
-          << (*it).lig4Empates << ", " << (*it).tictactoeWins << ", "
-          << (*it).tictactoeDefeats << ", " << (*it).tictactoeEmpates << '\n';
-    } else {
+  if (!out.is_open()) {
       cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
       return;
-    }
   }
 
-  out.close();
+  // Reescreve o arquivo com o conteúdo atualizado do vetor
+  for (const auto& jogador : jogadoresVector) {
+      out << jogador.Apelido << ", " << jogador.Nome << ", " 
+          << jogador.reversiWins << ", " << jogador.reversiDefeats << ", " 
+          << jogador.reversiEmpates << ", " << jogador.lig4Wins << ", " 
+          << jogador.lig4Defeats << ", " << jogador.lig4Empates << ", " 
+          << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", " 
+          << jogador.tictactoeEmpates << '\n';
+  }
+
+  out.close();  
 }
 
 void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
@@ -266,25 +263,44 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
   in.close();
 }
 
-void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector,
-                              string &Apelido) {
+void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido) {
 
   vector<Jogadores>::iterator it;
   bool jogadorEncontrado = false;
 
+  // Procura pelo jogador no vetor
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); ++it) {
-    if (it->Apelido == Apelido) {
-      jogadoresVector.erase(it);
-      jogadorEncontrado = true;
-      break;
-    }
+      if (it->Apelido == Apelido) {
+          jogadoresVector.erase(it);  // Remove o jogador do vetor
+          jogadorEncontrado = true;
+          break;
+      }
   }
 
+  // Se o jogador foi encontrado e removido do vetor, reescreva o arquivo
   if (jogadorEncontrado) {
-    this->reescreveArquivo(jogadoresVector);
-    cout << "Jogador " << Apelido << " removido com sucesso" << endl;
+      ofstream outFile("Jogadores.txt", ios::out | ios::trunc);  // Abre o arquivo e exclui o conteúdo anterior
+
+      if (!outFile.is_open()) {
+          cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
+          return;
+      }
+
+      // Reescreve o arquivo com o conteúdo atualizado do vetor
+      for (const auto& jogador : jogadoresVector) {
+          outFile << jogador.Apelido << ", " << jogador.Nome << ", " 
+                  << jogador.reversiWins << ", " << jogador.reversiDefeats << ", " 
+                  << jogador.reversiEmpates << ", " << jogador.lig4Wins << ", " 
+                  << jogador.lig4Defeats << ", " << jogador.lig4Empates << ", " 
+                  << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", " 
+                  << jogador.tictactoeEmpates << '\n';
+      }
+
+      outFile.close(); 
+
+      cout << "Jogador " << Apelido << " removido com sucesso" << endl;
   } else {
-    cout << "ERRO: jogador inexistente" << endl;
+      cout << "ERRO: jogador inexistente" << endl;
   }
 }
 
