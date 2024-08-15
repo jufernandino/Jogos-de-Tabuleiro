@@ -109,8 +109,10 @@ int main() {
         }
       } catch (badInputs &e) {
         cout << e.what() << endl;
+        continue;
       } catch (exception &e) {
         cout << e.what() << endl;
+        continue;
       }
       //}
       // if (apelido.empty() || nome.empty()) {
