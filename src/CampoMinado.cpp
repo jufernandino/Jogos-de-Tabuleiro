@@ -1,3 +1,4 @@
+/*
 #include "CampoMinado.hpp"
 #include <iostream>
 #include <cstdlib>
@@ -131,3 +132,4 @@ void CampoMinado::jogarCampoMinado()
 
   } while(1);
 }
+*/

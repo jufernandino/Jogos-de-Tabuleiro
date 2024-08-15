@@ -1,3 +1,4 @@
+/*
 #ifndef CAMPOMINADO_H
 #define CAMPOMINADO_H
 #include "Tabuleiro.hpp"
@@ -24,3 +25,4 @@ private:
 };
 
 #endif
+*/

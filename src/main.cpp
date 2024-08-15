@@ -68,7 +68,7 @@ int main() {
       if (comando.length() != 2) {
         throw badInputs(comando);
       } else if (isdigit(comando[0]) || isdigit(comando[1])) {
-        throw no(comando);
+        //throw no(comando);
         //} else {
         // cout << "entrei no else" << endl;
         // break;
@@ -572,7 +572,7 @@ void menuFimDeJogo(const char &jogoEscolhido,
     cout << "\nFIM DE JOGO! \n\nVR - Visualizar ranking\nJN - Jogar novamente"
          << endl;
 
-    cin >> opcaoMenu;
+    //cin >> opcaoMenu;
     aux = "";
 
     try {
@@ -600,11 +600,11 @@ void menuFimDeJogo(const char &jogoEscolhido,
       cout << e.what() << endl;
     }
 
-    if (opcaoMenu == "VR" || /*opcaoMenu == "vr"*/) {
+    if (opcaoMenu == "VR" /*|| opcaoMenu == "vr"*/) {
       pJogador1->mostrarRanking(jogoEscolhido, jogadoresVector);
 
       cout << "\nJN - Jogar novamente \nFS - Encerrar programa" << endl;
-      cin >> opcaoMenu;
+      //cin >> opcaoMenu;
 
       if (opcaoMenu == "JN" /*|| opcaoMenu == "jn"*/) {
         return;
