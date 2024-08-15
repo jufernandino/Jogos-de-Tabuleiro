@@ -1,6 +1,5 @@
-/*
-#ifndef CAMPOMINADO_H
-#define CAMPOMINADO_H
+#ifndef CampoMinado_H
+#define CampoMinado_H
 #include "Tabuleiro.hpp"
 
 using namespace std;
@@ -13,16 +12,15 @@ public:
   void iniciaTabuleiro();
   int minasAdj(int linha, int coluna);
   void revelaCelula(int linha, int coluna);
-  bool validaJogada(int linha, int coluna);
+  bool validaJogadaCampoMinado(int linha, int coluna);
   bool escolheuBomba(int linha, int coluna);
   int confereGanhador() override;
-  void jogarCampoMinado();
+  int jogarCampoMinado();
 
 private:
   int bombas;
-  int posicao_minas[2][bombas];
+  int posicao_minas[2][10];
 
 };
 
 #endif
-*/

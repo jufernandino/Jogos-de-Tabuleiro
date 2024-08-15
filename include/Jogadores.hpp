@@ -22,6 +22,8 @@ class Jogadores{
     int tictactoeWins;
     int tictactoeDefeats;
     int tictactoeEmpates;
+    int campoMinadoWins;
+    int campoMinadoDefeats;
     bool victory;
     bool empate;
 

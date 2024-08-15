@@ -59,7 +59,6 @@ int main() {
     char jogoEscolhido;
     string comando;
 
-    ////while (1) {
     try {
       comando = "";
       ss >> comando;
@@ -79,22 +78,14 @@ int main() {
     } catch (exception &e) {
       cout << e.what() << endl;
     }
-    //}
 
     if (comando == "CJ" || comando == "cj") {
-
       string apelido, nome;
-      // while (1) {
+      
       try {
         ss >> apelido >> nome;
         
-        /*for (int i = 0; i < apelido.length(); i++) {
-          if (isdigit(apelido[i])) {
-            throw badInputs(apelido);
-          }
-        }*/
-
-        for (int i = 0; i < nome.length(); i++) {
+        for (long unsigned int i = 0; i < nome.length(); i++) {
           if (isdigit(nome[i])) {
             throw badInputs(nome);
           }
@@ -104,8 +95,6 @@ int main() {
           throw badInputs(apelido);
         } else if (nome.empty()) {
           throw badInputs(nome);
-          //} else {
-          // break;
         }
       } catch (badInputs &e) {
         cout << e.what() << endl;
@@ -114,7 +103,7 @@ int main() {
         cout << e.what() << endl;
         continue;
       }
-      //}
+      
       // if (apelido.empty() || nome.empty()) {
       //   cout << "\nERRO: dados incorretos" << endl; // comando inválido
       //   cout << "Tente novamente!" << endl;
@@ -124,13 +113,10 @@ int main() {
       pJogador1->cadastrarJogadores(apelido, nome, Jogador1, jogadoresVector);
       voltarMenuPrincipal();
       continue; //coloquei continue nos comandos
-    
-
 
     } else if (comando == "RJ" || comando == "rj") {
       string apelido;
 
-      // while (1) {
       try {
         ss >> apelido;
 
@@ -140,7 +126,7 @@ int main() {
           }
         }*/
 
-        for (int i = 0; i < apelido.length(); i++) {
+        for (long unsigned int i = 0; i < apelido.length(); i++) {
           if (isblank(apelido[i])) {
             throw badInputs(apelido);
           }
@@ -161,18 +147,14 @@ int main() {
         cout << e.what() << endl;
         return 1;
       }
-      //}
 
       // if (apelido.empty()) {
       //   cout << "\nERRO: comando inválido" << endl;
       //   continue;
       // }
 
-      
       voltarMenuPrincipal();
       continue;
-
-
       
     } else if (comando == "LJ" || comando == "lj") {
       string ordenacao = "\0"; // string nula
@@ -184,7 +166,6 @@ int main() {
       //   continue;
       // }
 
-      // while (1) {
       try {
         ss >> ordenacao;
         if (ordenacao == "\0") {
@@ -203,81 +184,75 @@ int main() {
       } catch (exception &e) {
         cout << e.what() << endl;
       }
-      //}
 
       pJogador1->mostrarEstatisticas(jogadoresVector, ordenacao);
       voltarMenuPrincipal();
+      
     } else if (comando == "EP" || comando == "ep") {
       string aux;
       string apelidoJogador1, apelidoJogador2;
 
-      // while (1) {
-      try {
-        ss >> jogoEscolhido >> apelidoJogador1 >> apelidoJogador2;
+      try{
+        ss >> jogoEscolhido >> apelidoJogador1;
 
         aux = toupper(jogoEscolhido);
 
-        for (int i = 0; i < aux.length(); i++) {
+        for (long unsigned int i = 0; i < aux.length(); i++) {
           if (isdigit(aux[i]) || isblank(aux[i])) {
             throw badInputs(aux);
           }
         }
 
-        for (int i = 0; i < apelidoJogador1.length(); i++) {
+        for (long unsigned int i = 0; i < apelidoJogador1.length(); i++) {
           if (isdigit(apelidoJogador1[i]) || isblank(apelidoJogador1[i])) {
             throw badInputs(apelidoJogador1);
           }
         }
 
-        for (int i = 0; i < apelidoJogador2.length(); i++) {
-          if (isdigit(apelidoJogador2[i]) || isblank(apelidoJogador2[i])) {
-            throw badInputs(apelidoJogador2);
-          }
-        }
-
-        if (aux.length() != 1) {
-          throw badInputs(aux);
-        } else {
-          jogoEscolhido = aux[0];
-        }
-
         if (apelidoJogador1.empty()) {
           throw badInputs(apelidoJogador1);
-        } else if (apelidoJogador2.empty()) {
-          throw badInputs(apelidoJogador2);
-          //} else {
-          // break;
+        } 
+
+        bool encontrouJogador1 = Jogador1.logar(apelidoJogador1, jogadoresVector);
+
+        if (!(encontrouJogador1)) {
+          cout << "\nERRO: dados incorretos" << endl;
+          cout << "Tente novamente!" << endl;
+          continue;
         }
 
+        if(jogoEscolhido != 'C' || jogoEscolhido != 'c'){
+          ss >> apelidoJogador2;
+
+          for (long unsigned int i = 0; i < apelidoJogador2.length(); i++) {
+            if (isdigit(apelidoJogador2[i]) || isblank(apelidoJogador2[i])) {
+              throw badInputs(apelidoJogador2);
+            }
+          }
+
+          if (aux.length() != 1) {
+            throw badInputs(aux);
+          } else {
+            jogoEscolhido = aux[0];
+          }
+
+          if (apelidoJogador2.empty()) {
+            throw badInputs(apelidoJogador2);
+          } 
+
+          bool encontrouJogador2 = Jogador2.logar(apelidoJogador2, jogadoresVector);
+
+          if (!(encontrouJogador2)) {
+            cout << "\nERRO: dados incorretos" << endl;
+            cout << "Tente novamente!" << endl;
+            continue;
+          }
+        }
       } catch (badInputs &e) {
-        cout << e.what() << endl;
-      } catch (exception &e) {
-        cout << e.what() << endl;
-      }
-      //}
-
-      // pode ser uma exceção
-      // if (apelidoJogador1.empty() || apelidoJogador2.empty()) {
-      //   cout << "\nERRO: comando inválido" << endl;
-      //   cout << "Tente novamente!" << endl;
-      //   continue;
-      // }
-
-      // jogoEscolhido = toupper(jogoEscolhido); // conversão para maiúscula
-
-      bool encontrouJogador1 = Jogador1.logar(apelidoJogador1, jogadoresVector);
-      bool encontrouJogador2 = Jogador2.logar(apelidoJogador2, jogadoresVector);
-
-      // pode ser uma exceção
-      if (!(encontrouJogador1 && encontrouJogador2)) {
-        cout << "\nERRO: dados incorretos" << endl;
-        cout << "Tente novamente!" << endl;
-        continue;
-      }
-    }
-    //  }
-    //  return 0;
-    //}
+          cout << e.what() << endl;
+        }
+    } 
+  
 
     // reversi
     if (jogoEscolhido == 'R') {
@@ -320,15 +295,22 @@ int main() {
       if (ganhador == 1) {
         cout << Jogador1.Apelido << " ganhou!" << endl;
         Jogador1.victory = true;
+        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+        
       } else if (ganhador == 2) {
         cout << Jogador2.Apelido << " ganhou!" << endl;
         Jogador2.victory = true;
+        Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+        
       } else if (ganhador == 3) {
         cout << "Empate!" << endl;
+        Jogador1.empate = true;
+        Jogador2.empate = true;
+
+        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+        Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
       }
 
-      Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-      Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
       r.liberaMemoria();
       menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
 
@@ -369,6 +351,12 @@ int main() {
           break;
         } else if (ganhador == 3) {
           cout << "Empate!" << endl;
+
+          Jogador1.empate = true;
+          Jogador2.empate = true;
+          
+          Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+          Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
           break;
         }
         jogadorAtual++;
@@ -415,6 +403,11 @@ int main() {
           break;
         } else if (ganhador == 3) {
           cout << "Não há vencedores! Deu velha!" << endl;
+          Jogador1.empate = true;
+          Jogador2.empate = true;
+
+          Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+          Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
           break;
         }
         jogadorAtual++;
@@ -423,90 +416,101 @@ int main() {
       t.liberaMemoria();
       menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
 
-      // campo minado
+      //campo minado
     } else if (jogoEscolhido == 'C') {
       cout << "\nCampo Minado foi escolhido." << endl;
 
+      CampoMinado c;
       
+      if(c.jogarCampoMinado() == 1){
+        Jogador1.victory = true;
+        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+      }
+
+      c.liberaMemoria();
       menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
     }
+      
     // Jogo da Memoria
-    else if (jogoEscolhido == 'M') {
+     else if (jogoEscolhido == 'M')
+    {
       cout << "\nJogo da Memória foi escolhido." << endl;
-      //     Memoria m;
-      //     m.mostrarRegras(jogoEscolhido);
-      //     m.criaTabuleiro();
-      //     m.imprimirTabuleiro();
+      Memoria m;
+      m.mostrarRegras(jogoEscolhido);
+      m.criaTabuleiro();
+      m.imprimirTabuleiro();
 
-      //     int jogadorAtual = 0;
-      //     do
-      //     {
-      //       char z = (jogadorAtual % 2 == 0) ? '1' : '2';
-      //       cout << "\nTurno de jogador " << (jogadorAtual % 2 == 0 ?
-      //       Jogador1.Apelido : Jogador2.Apelido) << ":\n"
-      //            << endl;
-      //       cout << "Escolha as coordenadas para duas posições" << endl;
-      //       int x, y, x2, y2;
-      //       antiUsuario(x);
-      //       antiUsuario(y);
-      //       antiUsuario(x2);
-      //       antiUsuario(y2);
+      int jogadorAtual = 0;
+      do
+      {
+        char z = (jogadorAtual % 2 == 0) ? '1' : '2';
+        cout << "\nTurno de jogador " << (jogadorAtual % 2 == 0 ? Jogador1.Apelido : Jogador2.Apelido) << ":\n"
+             << endl;
+        cout << "Escolha as coordenadas para duas posições" << endl;
+        int x, y, x2, y2;
+        antiUsuario(x);
+        antiUsuario(y);
+        antiUsuario(x2);
+        antiUsuario(y2);
 
-      //       if (m.ehJogadaValida(x, y, x2, y2, z))
-      //       {
-      //         // 1º) mostra os simbolos das duas posições escolhidas
-      //         m.validaJogada(x, y, x2, y2, z);
-      //         m.imprimirTabuleiro();
-      //         // 2º) se o jogador encontrar os pares, os pares são validados
-      //         ele joga novamente if (m.formamPares(x, y, x2, y2, z) == true)
-      //         {
-      //           m.validaPares(x, y, x2, y2, z);
-      //         } // 3º) se o jogador não encontrar os pares, limpa o tabuleiro
-      //         e é a vez do próximo jogador else if (m.formamPares(x, y, x2,
-      //         y2, z) == false)
-      //         {
-      //           m.validaPares(x, y, x2, y2, z);
-      //           m.imprimirTabuleiro();
-      //           jogadorAtual++;
-      //         }
-      //       }
-      //       else
-      //       {
-      //         cout << "ERRO: jogada inválida" << endl;
-      //         continue;
-      //       }
+        if (m.ehJogadaValida(x, y, x2, y2, z))
+        {
+          // 1º) mostra os simbolos das duas posições escolhidas
+          m.validaJogada(x, y, x2, y2, z);
+          m.imprimirTabuleiro();
+          // 2º) se o jogador encontrar os pares, os pares são validados ele joga novamente
+          if (m.formamPares(x, y, x2, y2, z) == true)
+          {
+            m.validaPares(x, y, x2, y2, z);
+          } // 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é a vez do próximo jogador
+          else if (m.formamPares(x, y, x2, y2, z) == false)
+          {
+            m.validaPares(x, y, x2, y2, z);
+            m.imprimirTabuleiro();
+            jogadorAtual++;
+          }
+        }
+        else
+        {
+          cout << "ERRO: jogada inválida" << endl;
+          continue;
+        }
 
-      //     } while (!m.verificarFimDeJogo());
+      } while (!m.verificarFimDeJogo());
 
-      //     int ganhador = m.confereGanhador();
-      //     if (ganhador == 1)
-      //     {
-      //       cout << Jogador1.Apelido << " ganhou!" << endl;
-      //       Jogador1.victory = true;
-      //     }
-      //     else if (ganhador == 2)
-      //     {
-      //       cout << Jogador2.Apelido << " ganhou!" << endl;
-      //       Jogador2.victory = true;
-      //     }
-      //     else if (ganhador == 3)
-      //     {
-      //       cout << "Empate!" << endl;
-      //     }
+      int ganhador = m.confereGanhador();
+      if (ganhador == 1)
+      {
+        cout << Jogador1.Apelido << " ganhou!" << endl;
+        Jogador1.victory = true;
+        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+      }
+      else if (ganhador == 2)
+      {
+        cout << Jogador2.Apelido << " ganhou!" << endl;
+        Jogador2.victory = true;
+        Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+      }
+      else if (ganhador == 3)
+      {
+        cout << "Empate!" << endl;
+        Jogador1.empate = true;
+        Jogador2.empate = true;
 
-      //     Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-      //     Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-      //     m.liberaMemoria();
-      //     menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
-      //   }
-      // }
-      // else if (comando == "FS" || comando == "fs")
-      // {
-      //   continuarJogando = false;
-      // }
+        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+        Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+      }
+
+      m.liberaMemoria();
+      menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
     }
-    return 0;
+    else if (comando == "FS" || comando == "fs")
+    {
+      continuarJogando = false;
+    }
   }
+  
+  return 0;
 }
 
 // transformar em exceção, coordenadas de entradas precisam ser lidas em linha
@@ -541,57 +545,57 @@ void menuFimDeJogo(const char &jogoEscolhido,
                    vector<Jogadores> &jogadoresVector, Jogadores *pJogador1) {
 
   string opcaoMenu;
-  string aux = "";
-
-  try {
-    cin >> aux;
-
-    for (int i = 0; i < aux.length(); i++) {
-      if (isdigit(aux[i]) || isblank(aux[i])) {
-        throw badInputs(aux);
-      }
-    }
-
-    if (aux.empty()) {
-      throw badInputs(aux);
-    } else if (aux.length() != 1) {
-      throw badInputs(aux);
-    } else {
-      for (int i = 0; i < aux.length(); i++) {
-        opcaoMenu[i] = toupper(aux[i]);
-      }
-    }
-
-  } catch (badInputs &e) {
-    cout << e.what() << endl;
-  } catch (exception &e) {
-    cout << e.what() << endl;
-  }
+  string aux;
 
   while (1) {
-    cout << "\nFIM DE JOGO! \n\nVR - Visualizar ranking\nJN - Jogar novamente"
-         << endl;
-
-    //cin >> opcaoMenu;
-    aux = "";
+    cout << "\nFIM DE JOGO! \n\nVR - Visualizar ranking\nJN - Jogar novamente" << endl;
 
     try {
-      cin >> opcaoMenu;
+      cin >> aux;
 
-      for (int i = 0; i < aux.length(); i++) {
-        if (isdigit(aux[i]) || isblank(aux[i])) {
-          throw badInputs(aux);
-        }
+      if (aux.length() != 2 || !isalpha(aux[0]) || !isalpha(aux[1])) {
+        throw badInputs(aux);
       }
 
-      if (aux.empty()) {
-        throw badInputs(aux);
-      } else if (aux.length() != 1) {
-        throw badInputs(aux);
-      } else {
-        for (int i = 0; i < aux.length(); i++) {
-          opcaoMenu[i] = toupper(aux[i]);
+      opcaoMenu = toupper(aux[0]);
+
+      if (opcaoMenu == "V") {
+        if (aux[1] != 'R') {
+          throw badInputs(aux);
         }
+        pJogador1->mostrarRanking(jogoEscolhido, jogadoresVector);
+
+        cout << "\nJN - Jogar novamente \nFS - Encerrar programa" << endl;
+        cin >> aux;
+
+        if (aux.length() != 2 || !isalpha(aux[0]) || !isalpha(aux[1])) {
+          throw badInputs(aux);
+        }
+
+        opcaoMenu = toupper(aux[0]);
+
+        if (opcaoMenu == "J") {
+          if (aux[1] != 'N') {
+            throw badInputs(aux);
+          }
+          return;
+        } else if (opcaoMenu == "F") {
+          if (aux[1] != 'S') {
+            throw badInputs(aux);
+          }
+          exit(0);
+        } else {
+          throw badInputs(aux);
+        }
+
+      } else if (opcaoMenu == "J") {
+        if (aux[1] != 'N') {
+          throw badInputs(aux);
+        }
+        return;
+        
+      } else {
+        throw badInputs(aux);
       }
 
     } catch (badInputs &e) {
@@ -599,23 +603,9 @@ void menuFimDeJogo(const char &jogoEscolhido,
     } catch (exception &e) {
       cout << e.what() << endl;
     }
-
-    if (opcaoMenu == "VR" /*|| opcaoMenu == "vr"*/) {
-      pJogador1->mostrarRanking(jogoEscolhido, jogadoresVector);
-
-      cout << "\nJN - Jogar novamente \nFS - Encerrar programa" << endl;
-      //cin >> opcaoMenu;
-
-      if (opcaoMenu == "JN" /*|| opcaoMenu == "jn"*/) {
-        return;
-      } else if (opcaoMenu == "FS" /*|| opcaoMenu == "fs"*/) {
-        exit(0);
-      }
-    } else if (opcaoMenu == "JN" /*|| opcaoMenu == "jn"*/) {
-      return;
-    }
   }
 }
+
 
 void voltarMenuPrincipal() {
   cout << "\nDeseja voltar ao menu principal?\nS- Sim\nN- Não, encerrar "
@@ -628,7 +618,7 @@ void voltarMenuPrincipal() {
   try {
     cin >> aux;
 
-    for (int i = 0; i < aux.length(); i++) {
+    for (long unsigned int i = 0; i < aux.length(); i++) {
       if (isdigit(aux[i]) || isblank(aux[i])) {
         throw badInputs(aux);
       }

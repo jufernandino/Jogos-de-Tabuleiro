@@ -12,15 +12,13 @@ Jogadores::Jogadores() {
   this->Nome = "";
   this->reversiWins = 0;
   this->reversiDefeats = 0;
-  this->reversiEmpates = 0;
   this->lig4Wins = 0;
   this->lig4Defeats = 0;
-  this->lig4Empates = 0;
   this->tictactoeWins = 0;
   this->tictactoeDefeats = 0;
-  this->tictactoeEmpates = 0;
+  this->campoMinadoWins = 0;
+  this->campoMinadoDefeats = 0;
   this->victory = false;
-  this->empate = false;
 }
 
 Jogadores::Jogadores(string apelido, string nome) {
@@ -28,24 +26,21 @@ Jogadores::Jogadores(string apelido, string nome) {
   this->Nome = nome;
   this->reversiWins = 0;
   this->reversiDefeats = 0;
-  this->reversiEmpates = 0;
   this->lig4Wins = 0;
   this->lig4Defeats = 0;
-  this->lig4Empates = 0;
   this->tictactoeWins = 0;
   this->tictactoeDefeats = 0;
-  this->tictactoeEmpates = 0;
+  this->campoMinadoWins = 0;
+  this->campoMinadoDefeats = 0;
   this->victory = false;
-  this->empate = false;
 
   ofstream out("Jogadores.txt", fstream::app);
   if (out.is_open()) {
     out << '\n'
         << this->Apelido << ", " << this->Nome << ", " << this->reversiWins
-        << ", " << this->reversiDefeats << ", " << this->reversiEmpates << ", "
-        << this->lig4Wins << ", " << this->lig4Defeats << ", "
-        << this->lig4Empates << ", " << this->tictactoeWins << ", "
-        << this->tictactoeDefeats << ", " << this->tictactoeEmpates;
+        << ", " << this->reversiDefeats << ", "
+        << this->lig4Wins << ", " << this->lig4Defeats << this->tictactoeWins << ", "
+        << this->tictactoeDefeats << this->campoMinadoWins << ", " << this->campoMinadoDefeats;
     out.close();
   } else {
     cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
@@ -89,13 +84,12 @@ bool Jogadores::logar(string Apelido, vector<Jogadores> &jogadoresVector) {
       this->Nome = (*it).Nome;
       this->reversiWins = (*it).reversiWins;
       this->reversiDefeats = (*it).reversiDefeats;
-      this->reversiEmpates = (*it).reversiEmpates;
       this->lig4Wins = (*it).lig4Wins;
       this->lig4Defeats = (*it).lig4Defeats;
-      this->lig4Empates = (*it).lig4Empates;
       this->tictactoeWins = (*it).tictactoeWins;
       this->tictactoeDefeats = (*it).tictactoeDefeats;
-      this->tictactoeEmpates = (*it).tictactoeEmpates;
+      this->campoMinadoWins = (*it).campoMinadoWins;
+      this->campoMinadoDefeats = (*it).campoMinadoDefeats;
       return true;
     }
   }
@@ -113,11 +107,10 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector) {
   // Reescreve o arquivo com o conteúdo atualizado do vetor
   for (const auto& jogador : jogadoresVector) {
       out << jogador.Apelido << ", " << jogador.Nome << ", " 
-          << jogador.reversiWins << ", " << jogador.reversiDefeats << ", " 
-          << jogador.reversiEmpates << ", " << jogador.lig4Wins << ", " 
-          << jogador.lig4Defeats << ", " << jogador.lig4Empates << ", " 
-          << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", " 
-          << jogador.tictactoeEmpates << '\n';
+          << jogador.reversiWins << ", " << jogador.reversiDefeats << ", " << jogador.lig4Wins << ", " 
+          << jogador.lig4Defeats << ", " 
+          << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", " << jogador.campoMinadoWins << ", " 
+          << jogador.campoMinadoDefeats << '\n';
   }
 
   out.close();  
@@ -185,17 +178,6 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
           break;
         }
       }
-      jogador.reversiEmpates = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
       jogador.lig4Wins = stoi(aux, nullptr, 10);
       aux = "";
       i += 2;
@@ -208,17 +190,6 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
         }
       }
       jogador.lig4Defeats = stoi(aux, nullptr, 10);
-      aux = "";
-      i += 2;
-
-      for (; i < line.size(); i++) {
-        if (line[i] != ',') {
-          aux = aux + line[i];
-        } else {
-          break;
-        }
-      }
-      jogador.lig4Empates = stoi(aux, nullptr, 10);
       aux = "";
       i += 2;
 
@@ -251,8 +222,6 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector) {
           break;
         }
       }
-      jogador.tictactoeEmpates = stoi(aux, nullptr, 10);
-
       jogadoresVector.push_back(jogador);
     }
   } else {
@@ -290,10 +259,9 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelid
       for (const auto& jogador : jogadoresVector) {
           outFile << jogador.Apelido << ", " << jogador.Nome << ", " 
                   << jogador.reversiWins << ", " << jogador.reversiDefeats << ", " 
-                  << jogador.reversiEmpates << ", " << jogador.lig4Wins << ", " 
-                  << jogador.lig4Defeats << ", " << jogador.lig4Empates << ", " 
-                  << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", " 
-                  << jogador.tictactoeEmpates << '\n';
+                  << jogador.lig4Defeats << ", " 
+                  << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", " << jogador.campoMinadoWins  << ", " 
+                  << jogador.campoMinadoDefeats << '\n';
       }
 
       outFile.close(); 
@@ -314,8 +282,6 @@ void Jogadores::atualizaEstatisticas(char jogoEscolhido,
           (*it).reversiWins++;
         } else if (!this->victory) {
           (*it).reversiDefeats++;
-        } else if (this->empate) {
-          (*it).reversiEmpates++;
         }
         break;
       } else if (jogoEscolhido == 'L') {
@@ -323,8 +289,6 @@ void Jogadores::atualizaEstatisticas(char jogoEscolhido,
           (*it).lig4Wins++;
         } else if (!this->victory) {
           (*it).lig4Defeats++;
-        } else if (this->empate) {
-          (*it).lig4Empates++;
         }
         break;
       } else if (jogoEscolhido == 'T') {
@@ -332,10 +296,14 @@ void Jogadores::atualizaEstatisticas(char jogoEscolhido,
           (*it).tictactoeWins++;
         } else if (!this->victory) {
           (*it).tictactoeDefeats++;
-        } else if (this->empate) {
-          (*it).tictactoeEmpates++;
         }
         break;
+      } else if (jogoEscolhido == 'C') {
+        if (this->victory){
+          (*it).campoMinadoWins++;
+        } else if (!this->victory){
+          (*it).campoMinadoDefeats++;
+        }
       }
     }
   }
@@ -351,14 +319,20 @@ void Jogadores::mostrarRanking(const char &jogoEscolhido,
     switch (jogoEscolhido) {
     case 'R':
       return (x.reversiWins > y.reversiWins);
-      break;
+    break;
+      
     case 'L':
       return (x.lig4Wins > y.lig4Wins);
-      break;
+    break;
+      
     case 'T':
       return (x.tictactoeWins > y.tictactoeWins);
-      break;
-    // falta o Campo Minado
+    break;
+      
+    case 'C':
+      return (x.campoMinadoWins > y.campoMinadoWins);
+    break;
+      
     default:
       return false;
     }
@@ -386,8 +360,11 @@ void Jogadores::mostrarRanking(const char &jogoEscolhido,
            << jogador.tictactoeWins << " vitória(s)" << endl;
       break;
 
-      // falta o campo minado
-
+    case 'C':
+      cout << jogador.Apelido << ", " << jogador.Nome << ", "
+         << jogador.campoMinadoWins << " vitória(s)" << endl;
+      break;
+      
     default:
       cout << "ERRO: opção inválida" << endl;
     }
@@ -427,13 +404,13 @@ void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector,
     cout << "\n";
     cout << jogador.Apelido << " " << jogador.Nome << endl;
     cout << "REVERSI - V: " << jogador.reversiWins
-         << " D: " << jogador.reversiDefeats << " E: " << jogador.reversiEmpates
+         << " D: " << jogador.reversiDefeats
          << endl;
-    cout << "LIG 4 - V: " << jogador.lig4Wins << " D: " << jogador.lig4Defeats
-         << " E: " << jogador.lig4Empates << endl;
+    cout << "LIG 4 - V: " << jogador.lig4Wins << " D: " << jogador.lig4Defeats << endl;
     cout << "TIC TAC TOE - V: " << jogador.tictactoeWins
-         << " D: " << jogador.tictactoeDefeats
-         << " E: " << jogador.tictactoeEmpates << endl;
+         << " D: " << jogador.tictactoeDefeats << endl;
+    cout << "CAMPO MINADO - V: " << jogador.campoMinadoWins
+         << " D: " << jogador.campoMinadoDefeats << endl;
   }
 }
 
