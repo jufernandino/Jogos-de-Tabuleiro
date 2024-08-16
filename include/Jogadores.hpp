@@ -9,8 +9,9 @@
 
 using namespace std;
 
-class Jogadores{
-    public:
+class Jogadores
+{
+public:
     string Apelido;
     string Nome;
     int reversiWins;
@@ -24,10 +25,13 @@ class Jogadores{
     int tictactoeEmpates;
     int campoMinadoWins;
     int campoMinadoDefeats;
+    int memoriaWins;
+    int memoriaDefeats;
+    int memoriaEmpates;
     bool victory;
     bool empate;
 
-    int pesquisaJogador(string Apelido); //procura o jogador pelo seu apelido no arquivo
+    int pesquisaJogador(string Apelido); // procura o jogador pelo seu apelido no arquivo
 
     Jogadores();
 
@@ -52,7 +56,6 @@ class Jogadores{
     void ordenacaoApelido(vector<Jogadores> &jogadoresVector);
 
     void ordenacaoNome(vector<Jogadores> &jogadoresVector);
-
 };
 
 #endif

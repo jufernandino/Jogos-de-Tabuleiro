@@ -48,10 +48,10 @@ int Reversi::confereGanhador()
 
 void Reversi::inicializarJogo()
 {
-    matrix[3][3] = 'X';
-    matrix[4][4] = 'X';
-    matrix[3][4] = 'O';
-    matrix[4][3] = 'O';
+  matrix[3][3] = 'X';
+  matrix[4][4] = 'X';
+  matrix[3][4] = 'O';
+  matrix[4][3] = 'O';
 
   jogadorAtual = 'X';
 }
@@ -145,7 +145,7 @@ void Reversi::validaJogada(int x, int y, char jogadorDaVez)
     return;
   }
 
-    matrix[x][y] = jogadorDaVez;
+  matrix[x][y] = jogadorDaVez;
   inverterPecas(x, y, jogadorDaVez);
 }
 
@@ -176,7 +176,7 @@ void Reversi::inverterPecas(int x, int y, char jogadorDaVez)
         // percorre todas as posições do vetor
         for (auto &peca : pecasParaInverter)
         {
-            matrix[peca.first][peca.second] = jogadorDaVez; // Altera a cor
+          matrix[peca.first][peca.second] = jogadorDaVez; // Altera a cor
         }
         break;
       }

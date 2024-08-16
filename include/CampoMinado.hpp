@@ -20,7 +20,6 @@ public:
 private:
   int bombas;
   int posicao_minas[2][10];
-
 };
 
 #endif

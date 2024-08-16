@@ -6,7 +6,8 @@
 
 using namespace std;
 
-class Tabuleiro {
+class Tabuleiro
+{
 public:
   char **matrix;
   int rows;
@@ -14,18 +15,17 @@ public:
 
   Tabuleiro();
 
-  void criaTabuleiro(); //aloca uma matriz dinamicamente que servirá como tabuleiro
+  void criaTabuleiro(); // aloca uma matriz dinamicamente que servirá como tabuleiro
 
-  virtual void imprimirTabuleiro(); //imrpime o tabuleiro com -s e |s
+  virtual void imprimirTabuleiro(); // imrpime o tabuleiro com -s e |s
 
-  virtual void validaJogada(int x, int y, char z); //confere se os valores inseridos são menores que as dimensôes do tabuleiro e efetua a jogada
+  virtual void validaJogada(int x, int y, char z); // confere se os valores inseridos são menores que as dimensôes do tabuleiro e efetua a jogada
 
-  void liberaMemoria(); //libera a memória alocada anteriomente em criaTabuleiro()
+  void liberaMemoria(); // libera a memória alocada anteriomente em criaTabuleiro()
 
-  virtual int confereGanhador() = 0; //confere se alguém venceu
+  virtual int confereGanhador() = 0; // confere se alguém venceu
 
   void mostrarRegras(const char &jogoEscolhido);
-
 };
 
 #endif

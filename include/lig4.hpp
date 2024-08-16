@@ -6,15 +6,14 @@
 
 using namespace std;
 
-class lig4 : public Tabuleiro{
-  public: 
-
+class lig4 : public Tabuleiro
+{
+public:
   lig4();
 
   virtual void validaJogada(int x, int y, char z) override;
 
   virtual int confereGanhador() override;
-
 };
 
 #endif

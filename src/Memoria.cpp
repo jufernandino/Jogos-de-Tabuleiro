@@ -67,8 +67,8 @@ void Memoria::validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)
         return;
     }
     // Atribui ao tabuleiro real os simbolos que estão na posição (x,y) e (x1,y1) do tabuleiro auxiliar
-        matrix[x][y] = aux[x][y];
-        matrix[x2][y2] = aux[x2][y2];
+    matrix[x][y] = aux[x][y];
+    matrix[x2][y2] = aux[x2][y2];
 }
 
 bool Memoria::formamPares(int x, int y, int x2, int y2, char jogadorDaVez)
