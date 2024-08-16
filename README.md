@@ -28,39 +28,80 @@ O projeto foi organizado em diferentes classes, cada uma com suas responsabilida
 1. **Jogadores:**
    -  Implementa métodos relacionados aos jogadores (cadastrar, remover, listar) com persistência de dados em arquivo
    - Além disso, mostra as estatísticas (vitórias e derrotas) e ordena jogadores pelo nome ou apelido.
+   - Métodos implementados:
+     - pesquisaJogador ( `<Apelido>`)
+     - logar ( `<Apelido>`, `vector<Jogadores> &jogadoresVector` )
+     - reescreveArquivo ( `vector<Jogadores> &jogadoresVector` )
+     - removeJogador ( `vector<Jogadores> &jogadoresVector`, `string &Apelido` )
+     - atualizaEstatisticas ( `<jogoEscolhido>`, `vector<Jogadores> &jogadoresVector` )
+     - mostrarRanking ( `char &jogoEscolhido`, `vector<Jogadores> jogadoresVector` )
+     - mostrarEstatisticas ( `vector<Jogadores> jogadoresVector`, `const string &ordenacao` )
+     - carregarJogadores ( `vector<Jogadores> &jogadoresVector` )
+     - cadastrarJogadores ( `<apelido>`, `<nome>`, `Jogadores &Jogador`, `vector<Jogadores> &jogadoresVector` )
+     - ordenacaoApelido ( `vector<Jogadores> &jogadoresVector` )
+     - ordenacaoNome ( `vector<Jogadores> &jogadoresVector` )
+   - Erros: `ERRO: não foi possível abrir o arquivo Jogadores.txt`
+     
+     
 2. **Tabuleiro:**
-   - Contém os métodos e funcionalidades básicas para todos os jogos. Essa classe gerencia o tabuleiro, além de mostrar as regras, validar jogadas e fazer a conferência do ganhador.
-   - *As classes herdeiras: CampoMinado, Lig4, Reversi, TicTacToe e Memória impelementam a lógica de cada jogo, respectivamente.*
-3. **Execução de Partidas:**
-   -  Na main existem as mecânicas para executar partidas entre jogadores, escolher o jogo, verificação de jogadas e atualização de estatísticas.
+   - Contém os métodos e funcionalidades básicas para todos os jogos (classe pai).
+   - Essa classe gerencia o tabuleiro, além de mostrar as regras, validar jogadas e fazer a conferência do ganhador.
+   - Métodos implementados:
+     - criaTabuleiro ( )
+     - void imprimirTabuleiro ( )
+     - validaJogada (int x, int y, char z) 
+     - liberaMemoria ( )
+     - confereGanhador ( ) = 0;
+     - mostrarRegras (const char &jogoEscolhido)
+   - Erros: `ERRO: não foi possível abrir o arquivo Regras.txt`
+
+     
+3. **Classes Herdeiras de Tabuleiro:**
+   - *As classes herdeiras são: CampoMinado, Lig4, Reversi, TicTacToe e Memória. Elas impelementam a lógica de cada jogo, respectivamente.*
+
+    
+4. **Execução de Partidas:**
+   -  Na `main` existem as mecânicas para executar partidas entre jogadores, escolher o jogo, verificação de jogadas e atualização de estatísticas, valendo-se dos métodos das classes.
 
 ## Inputs
 Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais mensagens de erro:
+
 ### Cadastro de Jogadores
 - **Cadastrar Jogador**: `CJ <Apelido> <Nome>`
   - (obs. Considere que `<Apelido>` é composto por uma única palavra)
-  - Exemplo: `Jogador <Apelido> cadastrado com sucesso`
+  - Sucesso: `Jogador <Apelido> cadastrado com sucesso`
   - Erros: `ERRO: dados incorretos`, `ERRO: jogador repetido`  
 
 - **Remover Jogador**: `RJ <Apelido>`
-  - Exemplo: `Jogador <Apelido> removido com sucesso`
-  - Erro: `ERRO: jogador inexistente`
+  - Sucesso: `Jogador <Apelido> removido com sucesso`
+  - Erro: `ERRO: jogador inexistente` 
 
 - **Listar Jogadores**:  `LJ A|N` `<Apelido> <Nome>`
-  - ( Lista todos os jogadores ordenados por Apelido ou Nome, seguido pelo número de vitórias e derrotas em cada jogo)
-  - REVERSI - V: <#vitorias> D: <#derrotas>
-  - LIG4 - V: <#vitorias> D: <#derrotas>
-  - TIC TAC TOE - V: <#vitorias> D: <#derrotas>
-  - MEMORIA - V: <#vitorias> D: <#derrotas>  
+  - Sucesso: lista de todos os jogadores ordenados por Apelido ou Nome, seguido pelo número de vitórias e derrotas em cada jogo
+  - *Exemplo:*
+    - `<Apelido>` `<Nome>`
+    - REVERSI - V: <#vitorias> D: <#derrotas>
+    - LIG4 - V: <#vitorias> D: <#derrotas>
+    - TIC TAC TOE - V: <#vitorias> D: <#derrotas>
+    - CAMPO MINADO - V: <#vitorias> D: <#derrotas>
+    - MEMORIA - V: <#vitorias> D: <#derrotas>  
 
 ### Execução de Partidas
-- **Executar Partida**: `EP <Jogo: (R|L|T|M)> <Apelido Jogador 1> <Apelido Jogador 2>`
-   - Exemplo: `EP R Ju Babi` (executa o jogo Reversi com jogadora Ju e jogadora Babi)
-   - Erros: `ERRO: dados incorretos` , `ERRO: jogador inexistente`
+- **Executar Partida**: `EP <Jogo: (R|L|T|C|M)> <Apelido Jogador 1> <Apelido Jogador 2>`
+   - *( R= Reversi | L=Lig4 | T=TicTacToe | C=CampoMinado | M=Memória )* 
+   - *Exemplo:* `EP R Ju Babi` (executa o jogo Reversi com jogadora Ju e jogadora Babi)
+   - Sucesso: `J - JOGAR ` `L - Ler regras do jogo`
+   - Erros: `ERRO: comando inválido`, `ERRO: dados incorretos` , `ERRO: jogador inexistente`
+     
+### Mostrar Ranking
+   - `<Apelido>` `<Nome>`
+    - `<Jogo Escolhido>` - V: <#vitorias> D: <#derrotas>
+   - Erro: `ERRO: opção inválida` 
+
 
 - **Finalizar Sistema**: `FS`
-  
-### Durante os Jogos
+
+## Inputs durante os Jogos
 - **Jogada no Reversi**: `<Linha>` `<Coluna>`
   - Exemplo: `<0>` `<2>` 
   - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida`
@@ -72,6 +113,10 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
 - **Jogada no TicTacToe**: `<Linha>` `<Coluna>`
   - Exemplo: `<0>` `<2>` 
   - Erros: `ERRO: formato incorreto`, `Essa jogada é inválida! Passa a vez!`
+  - 
+- **Jogada no Campo Minado**: `<Linha>` `<Coluna>`
+  - Exemplo: `<0>` `<2>` 
+  - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida!`
     
 - **Jogada no Jogo da Memória**: `<Linha1>` `<Coluna1>` `<Linha2>` `<Coluna2>`
   - Exemplo: `<0>` `<1>` `<0>` `<2>` 
