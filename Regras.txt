@@ -1,23 +1,26 @@
 <R>
-O objetivo do jogo é preencher o tabuleiro com o maior número de peças de possíveis.
-
-Cada jogador tem uma cor (ou símbolo). Alternadamente, cada um escolhe uma casa do tabuleiro para colocar sua peça. A peça deve ser posicionada de maneira que, ao colocá-la, exista pelo menos uma peça do adversário na vizinhança e uma peça do jogador atual adjacente à ela. Caso a jogada seja possível, as peças do adversário que estão entre as duas peças do jogador atual serão transformadas em peças do jogador atual.
-
-Se a jogada não for válida, o jogador atual passa a vez. O jogo termina quando o tabuleiro está completamente preenchido ou nenhum jogador pode fazer uma jogada válida. Conta-se as peças e ganha o jogador que possuir mais peças no tabuleiro. Caso os dois jogadores terminem com o mesmo número de peças, a partida termina em empate.
+1 - O objetivo do jogo é preencher o tabuleiro com o maior número de peças de possíveis.
+2 - Cada jogador tem uma cor ou símbolo (X ou O). 
+3 - Alternadamente, cada um escolhe uma casa do tabuleiro para colocar sua peça: uma coordenada (x,y). 
+4 - A peça deve ser posicionada de maneira que, ao colocá-la, exista pelo menos uma peça do adversário na vizinhança e uma peça do jogador atual adjacente à ela. 
+5 - Caso a jogada seja possível, as peças do adversário que estão entre as duas peças do jogador atual serão transformadas em peças do jogador atual.
+6 - Se a jogada não for válida, o jogador atual passa a vez. 
+7 - O jogo termina quando o tabuleiro está completamente preenchido ou nenhum jogador pode fazer uma jogada válida.
+8 - Conta-se as peças e ganha o jogador que possuir mais peças no tabuleiro. 
+9 - Caso os dois jogadores terminem com o mesmo número de peças, a partida termina em empate.
 
 <L>
-O objetivo do jogo é alinhar (ligar) quatro peças na horizontal, vertical ou diagonal.
-
-Cada um dos dois jogadores, de modo alternado, escolhe uma coluna. A peça do jogador da vez é posicionada na primeira casa vazia dessa coluna escolhida e assim sucessivamente até que algum jogador consiga alinhar suas peças.
-
-Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com um empate.
+1 - O objetivo do jogo é alinhar (ligar) quatro peças na horizontal, vertical ou diagonal.
+2 - Cada um dos dois jogadores, de modo alternado, escolhe uma coluna. 
+3 - A peça do jogador da vez é posicionada na primeira casa vazia dessa coluna escolhida.
+4 - As partidas se repetem assim sucessivamente até que algum jogador consiga alinhar 4 de suas peças.
+5 - Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com um empate.
 
 <T>
-O objetivo do jogo é alinhar três peças na horizontal, vertical ou diagonal. 
-
-Cada um dos dois jogadores, de modo alternado, escolhe uma casa (linha e coluna). A peça do jogador da vez é posicionada nessa casa, caso ela esteja vazia.
-
-Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina em empate.
+1 - O objetivo do jogo é alinhar três peças na horizontal, vertical ou diagonal. 
+2 - Cada um dos dois jogadores, de modo alternado, escolhe uma casa (linha e coluna). 
+3 - A peça do jogador da vez é posicionada nessa casa, caso ela esteja vazia.
+4 - Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina em empate.
 
 <C>
 1 - Regra do Campo Minado
@@ -25,8 +28,10 @@ Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar 
 3 - Regra do Campo Minado
 
 <M>
-O objetivo do jogo é conseguir encontrar o maior números de pares de letras idênticas 
-
-Cada um dos dois jogadores, de modo alternado, escolhe duas posições no tabuleiro (Casa1 - linha1 e coluna1, Casa2- linha2 e coluna2). Em cada casa escolhida é revelada uma letra. Caso as duas casas tenham a mesma letra, o jogador pontua e joga novamente. Caso as letras sejam diferentes, a tabuleiro esconde as letras, e é a vez do próximo jogador. 
-
-Quando todos os pares forem encontrados e o tabuleiro estiver com todas as casas à mostra, a partida termina. Quem tiver encontrado mais pares vence. Se os jogadores tiverem encontrado a mesma quantidade de pares, então empata.
+1 - O objetivo do jogo é conseguir encontrar o maior números de pares de simbolos/letras idênticas. 
+2 - Cada um dos dois jogadores, de modo alternado, escolhe duas posições no tabuleiro: primeira coordenada (x1,y1), segunda coordenada (x2,y2). 
+3 - Em cada casa escolhida é revelada um simbolo/letra. Caso as duas casas tenham o mesmo simbolo, o jogador pontua e joga novamente. 
+4 - Caso as letras sejam diferentes, a tabuleiro esconde as letras, e é a vez do próximo jogador. 
+5 - Quando todos os pares forem encontrados e o tabuleiro estiver com todas as casas à mostra, a partida termina. 
+6 - Quem tiver encontrado mais pares vence. 
+7 - Se os jogadores tiverem encontrado a mesma quantidade de pares, então empata.

@@ -99,15 +99,21 @@ void Tabuleiro::mostrarRegras(const char &jogoEscolhido)
       return;
     }
 
-    string linha, regras;
+    string linha;
+    string regras;
 
     bool continuar = false;
 
     string escolha(1, jogoEscolhido); // conversão string para char
     string aux = "<" + escolha + ">";
+    // cout << "Procurando por regras com tag: " << inicioRegras << endl;
 
     while (getline(arquivo, linha))
     {
+      // Remover espaços em branco antes e depois da linha
+      linha.erase(0, linha.find_first_not_of(" \t\r\n")); // Remove espaços no início
+      linha.erase(linha.find_last_not_of(" \t\r\n") + 1); // Remove espaços no final
+
       if (linha == aux)
       {
         continuar = true;
@@ -131,7 +137,7 @@ void Tabuleiro::mostrarRegras(const char &jogoEscolhido)
 
     if (!regras.empty())
     {
-      cout << "\n-------- \nREGRAS DO JOGO\n--------\n\n"
+      cout << "\n-------------- \nREGRAS DO JOGO\n--------------\n\n"
            << regras << endl;
 
       cout << "Vamos começar? Tecle ENTER para iniciar o jogo" << endl;
