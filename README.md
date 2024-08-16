@@ -88,16 +88,13 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
 
 ### Execução de Partidas
 - **Executar Partida**: `EP <Jogo: (R|L|T|C|M)> <Apelido Jogador 1> <Apelido Jogador 2>`
-   - *( R= Reversi | L=Lig4 | T=TicTacToe | C=CampoMinado | M=Memória )* 
    - *Exemplo:* `EP R Ju Babi` (executa o jogo Reversi com jogadora Ju e jogadora Babi)
-   - Sucesso: `J - JOGAR ` `L - Ler regras do jogo`
    - Erros: `ERRO: comando inválido`, `ERRO: dados incorretos` , `ERRO: jogador inexistente`
-     
-### Mostrar Ranking
-   - `<Apelido>` `<Nome>`
-    - `<Jogo Escolhido>` - V: <#vitorias> D: <#derrotas>
-   - Erro: `ERRO: opção inválida` 
-
+   - Sucesso: `J - JOGAR ` `L - Ler regras do jogo`
+      - **Jogar:** `<J>`
+      - **Regras:** `<L>`
+      - **Erros:** `ERRO: Regras não encontradas para o jogo selecionado.`
+   - OBS: *( R= Reversi | L=Lig4 | T=TicTacToe | C=CampoMinado | M=Memória )* 
 
 - **Finalizar Sistema**: `FS`
 
