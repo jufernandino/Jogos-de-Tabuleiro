@@ -1,0 +1,74 @@
+{
+  "files": {
+    "src/CampoMinado.cpp": [
+      {
+        "id": "5f76c116-5e27-4280-a799-e16f2bdb3728",
+        "line": 5,
+        "version": 15,
+        "index": 67
+      },
+      {
+        "id": "0fa9c34c-ed90-441d-9cbb-c93d1b20f4bf",
+        "line": 12,
+        "version": 15,
+        "index": 159
+      },
+      {
+        "id": "027ec4c7-e8e8-44dc-a53c-73e35c0cf83e",
+        "line": 32,
+        "version": 15,
+        "index": 574
+      },
+      {
+        "id": "5435ba22-95dc-4c10-ba16-d45f18e9e88a",
+        "line": 52,
+        "version": 15,
+        "index": 963
+      },
+      {
+        "id": "ef2c7095-bc00-4f8a-8563-5026b44c56d2",
+        "line": 79,
+        "version": 15,
+        "index": 1489
+      },
+      {
+        "id": "3b297c36-5f15-499c-9508-3a2e7e4fadd1",
+        "line": 91,
+        "version": 15,
+        "index": 1718
+      },
+      {
+        "id": "86cc327a-1ecf-4c9e-845e-8ee063983ef5",
+        "line": 101,
+        "version": 15,
+        "index": 1933
+      },
+      {
+        "id": "739c54fc-504f-419d-9be4-b83bdfca940c",
+        "line": 129,
+        "version": 15,
+        "index": 2439
+      }
+    ],
+    "src/main.cpp": [
+      {
+        "id": "d21ac3df-a667-4daa-a3fd-e3f87fa0a4d8",
+        "line": 511,
+        "version": 17,
+        "index": 12814
+      },
+      {
+        "id": "90afd7f2-9285-41d0-96a8-da36f7df3d7c",
+        "line": 512,
+        "version": 17,
+        "index": 12835
+      },
+      {
+        "id": "60c02543-d6c6-4cf3-b302-a42fc22f3533",
+        "line": 513,
+        "version": 82,
+        "index": 12856
+      }
+    ]
+  }
+}

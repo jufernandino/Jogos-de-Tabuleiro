@@ -513,9 +513,9 @@ int main()
       if (c.jogarCampoMinado() == 1)
       {
         Jogador1.victory = true;
-        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
       }
-
+      
+      Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
       c.liberaMemoria();
       menuFimDeJogo(jogoEscolhido, jogadoresVector, pJogador1);
     }
