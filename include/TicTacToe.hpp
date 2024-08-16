@@ -6,9 +6,9 @@
 
 using namespace std;
 
-class TicTacToe : public Tabuleiro{
-  public: 
-
+class TicTacToe : public Tabuleiro
+{
+public:
   TicTacToe();
 
   virtual int confereGanhador() override;

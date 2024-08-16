@@ -19,11 +19,11 @@ int Reversi::confereGanhador()
   {
     for (int j = 0; j < columns; ++j)
     {
-      if (p[i][j] == 'X')
+      if (matrix[i][j] == 'X')
       {
         contadorX++;
       }
-      else if (p[i][j] == 'O')
+      else if (matrix[i][j] == 'O')
       {
         contadorO++;
       }
@@ -48,10 +48,10 @@ int Reversi::confereGanhador()
 
 void Reversi::inicializarJogo()
 {
-  p[3][3] = 'X';
-  p[4][4] = 'X';
-  p[3][4] = 'O';
-  p[4][3] = 'O';
+  matrix[3][3] = 'X';
+  matrix[4][4] = 'X';
+  matrix[3][4] = 'O';
+  matrix[4][3] = 'O';
 
   jogadorAtual = 'X';
 }
@@ -60,7 +60,7 @@ void Reversi::inicializarJogo()
 bool Reversi::ehJogadaValida(int x, int y, char jogadorDaVez)
 {
   // confere se a posição tá dentro do escopo do tabuleiro e tá vazia
-  if (x < 0 || x >= rows || y < 0 || y >= columns || p[x][y] != ' ')
+  if (x < 0 || x >= rows || y < 0 || y >= columns || matrix[x][y] != ' ')
   {
     return false;
   }
@@ -79,11 +79,11 @@ bool Reversi::ehJogadaValida(int x, int y, char jogadorDaVez)
 
     while (linhaAtual >= 0 && linhaAtual < rows && colunaAtual >= 0 && colunaAtual < columns)
     {
-      if (p[linhaAtual][colunaAtual] == corAdversario)
+      if (matrix[linhaAtual][colunaAtual] == corAdversario)
       {
         encontrouAdversario = true;
       }
-      else if (p[linhaAtual][colunaAtual] == jogadorDaVez && encontrouAdversario == true)
+      else if (matrix[linhaAtual][colunaAtual] == jogadorDaVez && encontrouAdversario == true)
       {
         return true;
       }
@@ -105,7 +105,7 @@ bool Reversi::existeMovimentoPossivel(char jogadorDaVez)
   {
     for (int j = 0; j < 8; ++j)
     {
-      if (p[i][j] == ' ' && ehJogadaValida(i, j, jogadorDaVez))
+      if (matrix[i][j] == ' ' && ehJogadaValida(i, j, jogadorDaVez))
       {
         movimentosPossiveis++;
       }
@@ -126,7 +126,7 @@ void Reversi::mostrarLocaisJogada(char jogadorDaVez)
   {
     for (int j = 0; j < 8; ++j)
     {
-      if (p[i][j] == ' ' && ehJogadaValida(i, j, jogadorDaVez))
+      if (matrix[i][j] == ' ' && ehJogadaValida(i, j, jogadorDaVez))
       {
         // Mostra a posição possível
         cout << "(" << i << "," << j << ") ";
@@ -145,7 +145,7 @@ void Reversi::validaJogada(int x, int y, char jogadorDaVez)
     return;
   }
 
-  p[x][y] = jogadorDaVez;
+  matrix[x][y] = jogadorDaVez;
   inverterPecas(x, y, jogadorDaVez);
 }
 
@@ -166,17 +166,17 @@ void Reversi::inverterPecas(int x, int y, char jogadorDaVez)
 
     while (linhaAtual >= 0 && linhaAtual < rows && colunaAtual >= 0 && colunaAtual < columns)
     {
-      if (p[linhaAtual][colunaAtual] == corAdversario)
+      if (matrix[linhaAtual][colunaAtual] == corAdversario)
       { // se for uma peça adversária
         // Adicionar ao vetor de posições a posição atual
         pecasParaInverter.push_back({linhaAtual, colunaAtual});
       }
-      else if (p[linhaAtual][colunaAtual] == jogadorDaVez)
+      else if (matrix[linhaAtual][colunaAtual] == jogadorDaVez)
       { // Ao chegar na extremidada, em que volta a se a peça do jogador da vez
         // percorre todas as posições do vetor
         for (auto &peca : pecasParaInverter)
         {
-          p[peca.first][peca.second] = jogadorDaVez; // Altera a cor
+          matrix[peca.first][peca.second] = jogadorDaVez; // Altera a cor
         }
         break;
       }
@@ -196,7 +196,7 @@ bool Reversi::verificarFimDeJogo()
   {
     for (int j = 0; j < columns; ++j)
     {
-      if (p[i][j] == ' ' && (ehJogadaValida(i, j, 'X') || ehJogadaValida(i, j, 'O')))
+      if (matrix[i][j] == ' ' && (ehJogadaValida(i, j, 'X') || ehJogadaValida(i, j, 'O')))
       {
         return false;
       }
