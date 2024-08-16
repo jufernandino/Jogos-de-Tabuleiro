@@ -44,12 +44,11 @@ Jogadores::Jogadores(string apelido, string nome)
   if (out.is_open())
   {
     out << '\n'
-        << this->Apelido << ", " << this->Nome << ", "
-        << this->reversiWins << ", " << this->reversiDefeats << ", "
-        << this->lig4Wins << ", " << this->lig4Defeats
-        << this->tictactoeWins << ", " << this->tictactoeDefeats
-        << this->campoMinadoWins << ", " << this->campoMinadoDefeats
-        << this->memoriaWins << ", " << this->memoriaDefeats;
+      << this->Apelido << ", " << this->Nome << ", " << this->reversiWins << ", " << this->reversiDefeats << ", "
+      << this->lig4Wins << ", " << this->lig4Defeats << ", "
+      << this->tictactoeWins << ", " << this->tictactoeDefeats << ", "
+      << this->campoMinadoWins << ", " << this->campoMinadoDefeats << ", "
+      << this->memoriaWins << ", " << this->memoriaDefeats;
     out.close();
   }
   else

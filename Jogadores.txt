@@ -1,9 +1,8 @@
-alanzoka, Alan Ferreira, 0, 0, 0, 0, 1, 0, 0, 0,0, 0
-sally, Marcele Louise Silva Araponga, 0, 0, 0, 0, 0, 0, 0, 0,0, 0
-Babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0,0, 0
-Ju, Julieta, 0, 1, 0, 0, 1, 0, 0, 0,0, 0
-zebra, Zebra, 0, 0, 0, 1, 0, 0, 0, 0,0, 0
-teste1, Teste1, 0, 0, 0, 0, 0, 0, 0, 0,0, 0
-teste2, Teste2, 0, 0, 0, 0, 0, 0, 0, 0,0, 0
-Isa98, Isa, 0, 0, 0, 0, 0, 0, 0, 0,0, 0
-Leo, Leonardo, 0, 0, 0, 0, 0, 1, 0, 0,0, 0
+alanzoka, Alan Ferreira, 0, 0, 0, 0, 0, 0, 0, 0, 0
+sally, Marcele Louise Silva Araponga, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Ju, Julieta, 0, 1, 0, 0, 0, 0, 0, 0, 0
+zebra, Zebra, 0, 0, 0, 0, 0, 0, 0, 0, 0
+
+teste1, teste, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Teste2, teste, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
