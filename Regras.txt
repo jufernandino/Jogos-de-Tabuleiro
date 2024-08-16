@@ -14,12 +14,14 @@
 2 - Cada um dos dois jogadores, de modo alternado, escolhe uma coluna. 
 3 - A peça do jogador da vez é posicionada na primeira casa vazia dessa coluna escolhida.
 4 - As partidas se repetem assim sucessivamente até que algum jogador consiga alinhar 4 de suas peças.
-5 - Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com um empate.
+5 - Aquele que conseguir alinhar, vence o jogo.
+6 - Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina com um empate.
 
 <T>
 1 - O objetivo do jogo é alinhar três peças na horizontal, vertical ou diagonal. 
-2 - Cada um dos dois jogadores, de modo alternado, escolhe uma casa (linha e coluna). 
-3 - A peça do jogador da vez é posicionada nessa casa, caso ela esteja vazia.
+2 - Cada um dos dois jogadores, de modo alternado, escolhe uma casa (linha e coluna - coordenada (x,y) ). 
+3 - A peça do jogador da vez (X ou O) é posicionada nessa casa, caso ela esteja vazia.
+4 - Aquele que conseguir alinhar 3 peças, vence o jogo.
 4 - Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina em empate.
 
 <C>
