@@ -1,9 +1,10 @@
 /**
  * @file main.cpp
  * @brief Programa de gerenciamento de jogos e jogadores.
- * 
- * Este programa permite cadastrar, listar e remover jogadores, além de executar partidas
- * de diferentes jogos (Reversi, Lig4, TicTacToe, Campo Minado e Jogo da Memória).
+ *
+ * Este programa permite cadastrar, listar e remover jogadores, além de executar
+ * partidas de diferentes jogos (Reversi, Lig4, TicTacToe, Campo Minado e Jogo
+ * da Memória).
  */
 
 #include "CampoMinado.hpp"
@@ -24,27 +25,26 @@ using namespace std;
 
 /**
  * @brief Função que verifica e corrige entradas inválidas do usuário.
- * 
+ *
  * @param a Referência para o inteiro a ser preenchido com a entrada válida.
  */
 void antiUsuario(int &a);
 
-
 /**
  * @brief Exibe o menu final após o término de um jogo.
- * 
+ *
  * @param jogoEscolhido Caracter que identifica o jogo escolhido.
  * @param jogadoresVector Vetor contendo os jogadores cadastrados.
  * @param pJogador1 Ponteiro para o primeiro jogador.
  */
-void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector);
-
+void menuFimDeJogo(const char &jogoEscolhido,
+                   vector<Jogadores> &jogadoresVector);
 
 /**
- * @brief Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o programa.
+ * @brief Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o
+ * programa.
  */
 void voltarMenuPrincipal();
-
 
 /**
  * @class badInputs
@@ -54,30 +54,28 @@ class badInputs : public exception {
 public:
   string _input;
 
-
-/**
- * @brief Construtor da classe badInputs.
- * 
- * @param input String que contém a entrada inválida.
- */
+  /**
+   * @brief Construtor da classe badInputs.
+   *
+   * @param input String que contém a entrada inválida.
+   */
 
   badInputs(string input) : _input(input) {}
 
-
-/**
- * @brief Retorna uma mensagem de erro.
- * 
- * @return Mensagem de erro.
- */
+  /**
+   * @brief Retorna uma mensagem de erro.
+   *
+   * @return Mensagem de erro.
+   */
   virtual const char *what() const throw() { return "ERRO: entrada inválida"; }
 };
 
 /**
  * @brief Função principal do programa.
- * 
+ *
  * Esta função exibe o menu principal e gerencia as opções de cadastro, remoção,
  * listagem de jogadores e execução de partidas.
- * 
+ *
  * @return Retorna 0 se o programa for encerrado corretamente.
  */
 int main() {
@@ -144,15 +142,8 @@ int main() {
 
       Jogadores jogadorAuxiliar;
 
-      if (!Jogadores::pesquisaJogador(Apelido)) {
-        Jogadores::cadastrarJogadores(Apelido, Nome, jogadorAuxiliar,
-                                      jogadoresVector);
-      }
-
-      vector<Jogadores>::iterator it;
-      for (it = jogadoresVector.begin(); it != jogadoresVector.end(); it++) {
-        cout << (*it).Apelido << endl;
-      }*
+      Jogadores::cadastrarJogadores(Apelido, Nome, jogadorAuxiliar,
+                                    jogadoresVector);
     }
 
     if (Comando[0] == 'R' && Comando[1] == 'J') {
@@ -526,7 +517,8 @@ void antiUsuario(int &a) {
   }
 }
 
-void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector) {
+void menuFimDeJogo(const char &jogoEscolhido,
+                   vector<Jogadores> &jogadoresVector) {
 
   cout << "\nFIM DE JOGO! \n\nVR - Visualizar ranking\nJN - Jogar novamente"
        << endl;
