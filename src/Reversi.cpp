@@ -85,7 +85,7 @@ void Reversi::inicializarJogo()
 }
 
 /**
- * @brief Verifica se a jogada é valida de acordo com as regas do Reversi.
+ * @brief Verifica se a jogada é valida de acordo com as regras do Reversi.
  *
  * Primeiro verifica se a posição `(x, y)` está dentro das dimensões do tabuleiro, e se está vazia.
  * Confere em todas as direções possíveis (NO, N, NE, O, L, SO, S, SE) se existem peças do jogador adversário.

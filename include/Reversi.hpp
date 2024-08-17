@@ -11,7 +11,7 @@ using namespace std;
  * a lógica específica do jogo Reversi, incluindo a verificação de condição de vitoria e
  * a validação de uma jogada (funções que sobrescrevem as da classe base).
  * Além disso inclui métodos próprios como: inicialização das peças iniciais do jogo,
- * verificação se a jogada é valida de acordo com as regas do Reversi,
+ * verificação se a jogada é valida de acordo com as regras do Reversi,
  * verificação de movimentos possíveis, mostrar locais de possíveis jogadas,
  * verificação da disponibilidade de movimentos, inversão das peças
  */
@@ -56,7 +56,7 @@ public:
   void inicializarJogo();
 
   /**
-   * @brief Verifica se a jogada é valida de acordo com as regas do Reversi.
+   * @brief Verifica se a jogada é valida de acordo com as regras do Reversi.
    *
    * Esta função booleana agrupa todas as condições para determinar se uma jogada
    * é válida de acordo com as regras do Reversi.
