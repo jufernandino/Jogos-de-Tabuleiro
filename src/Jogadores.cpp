@@ -493,7 +493,7 @@ void Jogadores::mostrarRanking(const char &jogoEscolhido,
  * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
  * @param ordenacao Critério de ordenação: 'A' para apelido, 'N' para nome.
  */
-void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector,
+void Jogadores::mostrarEstatisticas(vector<Jogadores> &jogadoresVector,
                                     const string &ordenacao) {
 
   int tamanho = jogadoresVector.size();

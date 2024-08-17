@@ -173,7 +173,7 @@ int main() {
 
       try {
         getline(line, Modo, '\n');
-        cout << "Modo: " << Modo << endl;
+        // cout << "Modo: " << Modo << endl;
         if (Modo.empty()) {
           throw badInputs(Modo);
         }
@@ -595,6 +595,9 @@ void voltarMenuPrincipal() {
           return;
         } else if (resposta == 'N') {
           exit(0);
+        } else {
+          cout << "Escolha (S)im ou (N)ão!" << endl;
+          continue;
         }
       }
     } catch (badInputs &e) {
