@@ -9,7 +9,7 @@
 
 #include "CampoMinado.hpp"
 #include "Jogadores.hpp"
-//#include "Memoria.hpp"
+#include "Memoria.hpp"
 #include "Reversi.hpp"
 #include "Tabuleiro.hpp"
 #include "TicTacToe.hpp"
@@ -380,11 +380,6 @@ int main() {
             break;
           } else if (ganhador == 3) {
             cout << "Não há vencedores! Deu velha!" << endl;
-            Jogador1.empate = true;
-            Jogador2.empate = true;
-
-            Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-            Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
             break;
           }
           jogadorAtual++;
@@ -409,7 +404,6 @@ int main() {
 
       if (jogoEscolhido == 'M') {
         cout << "\nJogo da Memória foi escolhido!" << endl;
-        /*
         Memoria m;
         m.mostrarRegras(jogoEscolhido);
         m.criaTabuleiro();
@@ -471,7 +465,6 @@ int main() {
 
         m.liberaMemoria();
         menuFimDeJogo(jogoEscolhido, jogadoresVector);
-        */
       }
     }
 
