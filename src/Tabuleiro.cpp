@@ -96,7 +96,7 @@ void Tabuleiro::liberaMemoria()
  */
 void Tabuleiro::validaJogada(int x, int y, char z)
 {
-  if (x < this->rows && y < this->columns && matrix[x][y] == ' ')
+  if (x >= 0 && x < this->rows && y >= 0 && y < this->columns && matrix[x][y] == ' ')
   {
     matrix[x][y] = z;
   }
