@@ -21,7 +21,7 @@ lig4::lig4()
  * Primeiro verifica se a posição `(x, y)` está dentro das dimensões do tabuleiro.
  * Confere qual linha da coluna y está vazia para colocar a peça (loop para x ir de 5 até 0).
  * Se não houver casas vazias na coluna escolhida, informa ao jogador e ele perde a vez.
- * Caso tenha casa vazia e a jogada for válida, a célula recebe o caractere `z` representando o jogador.
+ * Caso tenha casa vazia e a jogada seja válida, a célula recebe o caractere `z` representando o jogador.
  * Caso contrário, informa que a jogada é inválida e passa a vez.
  *
  * @param x Coordenada da linha.
@@ -67,7 +67,7 @@ void lig4::validaJogada(int x, int y, char z)
  * Se não houver espaços vazios e ninguém venceu, retorna 3 indicando um empate. Se o jogo
  * ainda não terminou, retorna 0.
  *
- * @return Retorna 0 caso o ainda não tenha acabado o jogo
+ * @return Retorna 0 caso ainda não tenha acabado o jogo
  * @return Retorna 1 caso o Jogador1 vença
  * @return Retorna 2 caso o Jogador2 vença
  * @return Retorna 3 caso tenha empate

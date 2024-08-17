@@ -8,7 +8,7 @@ using namespace std;
 
 /**
  * @brief Construtor padrão da classe Tabuleiro.
- * 
+ *
  * Inicializa as variáveis `rows` e `columns` com valor 0.
  */
 Tabuleiro::Tabuleiro()
@@ -19,8 +19,8 @@ Tabuleiro::Tabuleiro()
 
 /**
  * @brief Cria o tabuleiro alocando memória dinamicamente.
- * 
- * A função aloca uma matriz de caracteres com dimensões `rows` e `columns` 
+ *
+ * A função aloca uma matriz de caracteres com dimensões `rows` e `columns`
  * e inicializa cada célula com um espaço em branco.
  */
 void Tabuleiro::criaTabuleiro()
@@ -38,8 +38,8 @@ void Tabuleiro::criaTabuleiro()
 
 /**
  * @brief Imprime o tabuleiro na tela.
- * 
- * A função exibe o tabuleiro com as células separadas por linhas e colunas, 
+ *
+ * A função exibe o tabuleiro com as células separadas por linhas e colunas,
  * numerando as colunas no topo e as linhas na lateral.
  */
 void Tabuleiro::imprimirTabuleiro()
@@ -70,8 +70,8 @@ void Tabuleiro::imprimirTabuleiro()
 
 /**
  * @brief Libera a memória alocada para o tabuleiro.
- * 
- * A função libera a memória alocada dinamicamente para a matriz `matrix`, 
+ *
+ * A função libera a memória alocada dinamicamente para a matriz `matrix`,
  * evitando vazamentos de memória.
  */
 void Tabuleiro::liberaMemoria()
@@ -85,11 +85,11 @@ void Tabuleiro::liberaMemoria()
 
 /**
  * @brief Valida e realiza uma jogada no tabuleiro.
- * 
- * Verifica se a posição `(x, y)` está dentro das dimensões do tabuleiro e se está vazia. 
- * Caso positivo, a célula recebe o caractere `z` representando o jogador. 
+ *
+ * Verifica se a posição `(x, y)` está dentro das dimensões do tabuleiro e se está vazia.
+ * Caso positivo, a célula recebe o caractere `z` representando o jogador.
  * Caso contrário, informa que a jogada é inválida.
- * 
+ *
  * @param x Coordenada da linha da jogada.
  * @param y Coordenada da coluna da jogada.
  * @param z Caractere que representa o jogador (ex: 'X' ou 'O').
@@ -109,11 +109,11 @@ void Tabuleiro::validaJogada(int x, int y, char z)
 
 /**
  * @brief Mostra as regras do jogo selecionado.
- * 
- * O usuário pode optar por ler as regras antes de iniciar o jogo. As regras são lidas 
- * de um arquivo "Regras.txt" e exibidas na tela. O arquivo deve conter tags específicas 
+ *
+ * O usuário pode optar por ler as regras antes de iniciar o jogo. As regras são lidas
+ * de um arquivo "Regras.txt" e exibidas na tela. O arquivo deve conter tags específicas
  * para identificar as regras de cada jogo, como `<R>` para Reversi.
- * 
+ *
  * @param jogoEscolhido Caracter que identifica o jogo escolhido.
  */
 void Tabuleiro::mostrarRegras(const char &jogoEscolhido)

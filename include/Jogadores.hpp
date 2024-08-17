@@ -41,7 +41,7 @@ public:
 
     static void reescreveArquivo(vector<Jogadores> &jogadoresVector);
 
-    static void  removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
+    static void removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
 
     void atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
@@ -51,7 +51,7 @@ public:
 
     static void carregarJogadores(vector<Jogadores> &jogadoresVector);
 
-    static void  cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
+    static void cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 
     void ordenacaoApelido(vector<Jogadores> &jogadoresVector);
 
