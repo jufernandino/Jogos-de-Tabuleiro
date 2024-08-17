@@ -1,5 +1,5 @@
 alanzoka, Alan Ferreira, 0, 0, 0, 0, 1, 0, 0, 0,0, 0
-sally, Marcele Louise Silva Araponga, 0, 0, 0, 0, 0, 0, 0, 2,0, 0
+sally, Marcele Louise Silva Araponga, 0, 0, 0, 0, 0, 0, 0, 0,0, 0
 Babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0,0, 0
 Ju, Julieta, 0, 1, 0, 0, 1, 0, 0, 0,0, 0
 zebra, Zebra, 0, 0, 0, 1, 0, 0, 0, 0,0, 0

@@ -1,14 +1,5 @@
 language = "cpp"
 run = "make && ./projeto"
-compile = "make"
-modules = ["cpp-clang14", "c-clang14"]
 [[ports]]
 localPort = 5900
 externalPort = 5900
-
-[deployment]
-run = ["sh", "-c", "make && ./projeto"]
-build = ["sh", "-c", "make"]
-
-[nix]
-channel = "stable-24_05"

@@ -128,7 +128,6 @@ int CampoMinado::confereGanhador()
 
 int CampoMinado::jogarCampoMinado()
 {
-  criaTabuleiro();
   iniciaTabuleiro();
   imprimirTabuleiro();
 
