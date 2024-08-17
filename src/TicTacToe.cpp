@@ -3,12 +3,28 @@
 #include <iostream>
 #include <string>
 
+/**
+ * @brief Construtor da classe TicTacToe.
+ *
+ * Inicializa o tabuleiro do jogo Tic-Tac-Toe com 3 linhas e 3 colunas.
+ */
 TicTacToe::TicTacToe()
 {
   this->rows = 3;
   this->columns = 3;
 }
 
+/**
+ * @brief Confere se há um ganhador no jogo Tic-Tac-Toe.
+ *
+ * Esta função verifica todas as condições de vitória possíveis em um jogo de Tic-Tac-Toe,
+ * incluindo linhas horizontais, verticais e diagonais. Se um jogador tiver três símbolos
+ * iguais alinhados, a função retorna 1 (vitória do Jogador 1) ou 2 (vitória do Jogador 2).
+ * Se não houver espaços vazios e ninguém venceu, retorna 3 indicando um empate. Se o jogo
+ * ainda não terminou, retorna 0.
+ *
+ * @return int Retorna 1 se o Jogador 1 vencer, 2 se o Jogador 2 vencer, 3 para empate e 0 se não houver vencedor.
+ */
 int TicTacToe::confereGanhador()
 {
   for (int i = 0; i < rows; i++)

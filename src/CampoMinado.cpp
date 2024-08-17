@@ -1,6 +1,6 @@
 #include "CampoMinado.hpp"
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
 
 CampoMinado::CampoMinado()
 {
@@ -40,7 +40,8 @@ int CampoMinado::minasAdj(int linha, int coluna)
 
       for (int iterador = 0; iterador < this->bombas; ++iterador)
       {
-        if (linha + x == posicao_minas[0][iterador] && coluna + y == posicao_minas[1][iterador])
+        if (linha + x == posicao_minas[0][iterador] &&
+            coluna + y == posicao_minas[1][iterador])
           bombas_adj++;
       }
     }
@@ -63,7 +64,8 @@ void CampoMinado::revelaCelula(int linha, int coluna)
     matrix[linha][coluna] = '0' + minas_adj;
   }
   else
-  { // se nao tem bomba adjacente, marca com espaco em branco e revela as celulas adjacentes
+  { // se nao tem bomba adjacente, marca com espaco em branco e revela as
+    // celulas adjacentes
     matrix[linha][coluna] = ' ';
 
     for (int x = -1; x <= 1; ++x)
@@ -78,7 +80,8 @@ void CampoMinado::revelaCelula(int linha, int coluna)
 
 bool CampoMinado::validaJogadaCampoMinado(int linha, int coluna)
 {
-  if (linha < 0 || linha >= rows || coluna < 0 || coluna >= columns || matrix[linha][coluna] != '+')
+  if (linha < 0 || linha >= rows || coluna < 0 || coluna >= columns ||
+      matrix[linha][coluna] != '+')
   {
     return false;
   }
@@ -108,7 +111,9 @@ int CampoMinado::confereGanhador()
     {
       for (int iterador = 0; iterador < 10; ++iterador)
       {
-        if (matrix[coordX][coordY] == '+' && !(posicao_minas[0][iterador] == coordX && posicao_minas[1][iterador] == coordY))
+        if (matrix[coordX][coordY] == '+' &&
+            !(posicao_minas[0][iterador] == coordX &&
+              posicao_minas[1][iterador] == coordY))
         {
           faltou++;
         }
@@ -128,6 +133,7 @@ int CampoMinado::confereGanhador()
 
 int CampoMinado::jogarCampoMinado()
 {
+  criaTabuleiro();
   iniciaTabuleiro();
   imprimirTabuleiro();
 

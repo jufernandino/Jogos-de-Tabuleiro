@@ -6,7 +6,11 @@
 #include <vector>
 
 using namespace std;
-
+/**
+ * @brief Construtor padrão da classe Jogadores.
+ *
+ * Inicializa os atributos de um jogador com valores padrão.
+ */
 Jogadores::Jogadores()
 {
   this->Apelido = "";
@@ -24,6 +28,15 @@ Jogadores::Jogadores()
   this->victory = false;
 }
 
+/**
+ * @brief Construtor da classe Jogadores com parâmetros.
+ *
+ * Inicializa um jogador com os valores fornecidos e salva suas informações em
+ * um arquivo.
+ *
+ * @param apelido Apelido do jogador.
+ * @param nome Nome do jogador.
+ */
 Jogadores::Jogadores(string apelido, string nome)
 {
   this->Apelido = apelido;
@@ -44,12 +57,12 @@ Jogadores::Jogadores(string apelido, string nome)
   if (out.is_open())
   {
     out << '\n'
-        << this->Apelido << ", " << this->Nome << ", "
-        << this->reversiWins << ", " << this->reversiDefeats << ", "
-        << this->lig4Wins << ", " << this->lig4Defeats
-        << this->tictactoeWins << ", " << this->tictactoeDefeats
-        << this->campoMinadoWins << ", " << this->campoMinadoDefeats
-        << this->memoriaWins << ", " << this->memoriaDefeats;
+        << this->Apelido << ", " << this->Nome << ", " << this->reversiWins
+        << ", " << this->reversiDefeats << ", " << this->lig4Wins << ", "
+        << this->lig4Defeats << ", " << this->tictactoeWins << ", "
+        << this->tictactoeDefeats << ", " << this->campoMinadoWins << ", "
+        << this->campoMinadoDefeats << ", " << this->memoriaWins << ", "
+        << this->memoriaDefeats;
     out.close();
   }
   else
@@ -58,6 +71,12 @@ Jogadores::Jogadores(string apelido, string nome)
   }
 }
 
+/**
+ * @brief Procura por um jogador no arquivo utilizando seu apelido.
+ *
+ * @param apelido Apelido do jogador a ser procurado.
+ * @return Retorna 1 se o jogador for encontrado, caso contrário, retorna 0.
+ */
 int Jogadores::pesquisaJogador(string apelido)
 {
 
@@ -96,7 +115,15 @@ int Jogadores::pesquisaJogador(string apelido)
   return 0;
 }
 
-bool Jogadores::logar(string Apelido, vector<Jogadores> &jogadoresVector)
+/**
+ * @brief Realiza o login de um jogador, carregando suas informações do vetor de
+ * jogadores.
+ *
+ * @param Apelido Apelido do jogador a ser logado.
+ * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+ * @return Retorna o jogador logado com suas informações carregadas.
+ */
+Jogadores Jogadores::logIn(string Apelido, vector<Jogadores> &jogadoresVector)
 {
 
   vector<Jogadores>::iterator it;
@@ -116,15 +143,25 @@ bool Jogadores::logar(string Apelido, vector<Jogadores> &jogadoresVector)
       this->campoMinadoDefeats = (*it).campoMinadoDefeats;
       this->memoriaWins = (*it).memoriaWins;
       this->memoriaDefeats = (*it).memoriaDefeats;
-      return true;
+      return *this;
     }
   }
-  return false;
+  return *this;
 }
 
+/**
+ * @brief Reescreve o arquivo de jogadores com as informações atualizadas.
+ *
+ * Apaga o conteúdo anterior do arquivo e grava as informações presentes no
+ * vetor de jogadores.
+ *
+ * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+ */
 void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector)
 {
-  ofstream out("Jogadores.txt", ios::out | ios::trunc); // Abre o arquivo apaga o conteúdo anterior
+  ofstream out("Jogadores.txt",
+               ios::out |
+                   ios::trunc); // Abre o arquivo apaga o conteúdo anterior
 
   if (!out.is_open())
   {
@@ -139,13 +176,23 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector)
         << jogador.reversiWins << ", " << jogador.reversiDefeats << ", "
         << jogador.lig4Wins << ", " << jogador.lig4Defeats << ", "
         << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", "
-        << jogador.campoMinadoWins << ", " << jogador.campoMinadoDefeats << ","
+        << jogador.campoMinadoWins << ", " << jogador.campoMinadoDefeats << ", "
         << jogador.memoriaWins << ", " << jogador.memoriaDefeats << '\n';
   }
 
   out.close();
 }
 
+/**
+ * @brief Carrega as informações dos jogadores a partir de um arquivo para o
+ * vetor de jogadores.
+ *
+ * Lê o arquivo de jogadores e preenche o vetor de jogadores com as informações
+ * carregadas.
+ *
+ * @param jogadoresVector Vetor que será preenchido com as informações dos
+ * jogadores.
+ */
 void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector)
 {
   ifstream in("Jogadores.txt", fstream::in);
@@ -333,7 +380,17 @@ void Jogadores::carregarJogadores(vector<Jogadores> &jogadoresVector)
   in.close();
 }
 
-void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido)
+/**
+ * @brief Remove um jogador do vetor de jogadores e atualiza o arquivo.
+ *
+ * Procura pelo jogador no vetor utilizando o apelido, remove-o e atualiza o
+ * arquivo de jogadores.
+ *
+ * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+ * @param Apelido Apelido do jogador a ser removido.
+ */
+void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector,
+                              string &Apelido)
 {
 
   vector<Jogadores>::iterator it;
@@ -353,7 +410,9 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelid
   // Se o jogador foi encontrado e removido do vetor, reescreva o arquivo
   if (jogadorEncontrado)
   {
-    ofstream outFile("Jogadores.txt", ios::out | ios::trunc); // Abre o arquivo e exclui o conteúdo anterior
+    ofstream outFile(
+        "Jogadores.txt",
+        ios::out | ios::trunc); // Abre o arquivo e exclui o conteúdo anterior
 
     if (!outFile.is_open())
     {
@@ -361,16 +420,7 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelid
       return;
     }
 
-    // Reescreve o arquivo com o conteúdo atualizado do vetor
-    for (const auto &jogador : jogadoresVector)
-    {
-      outFile << jogador.Apelido << ", " << jogador.Nome << ", "
-              << jogador.reversiWins << ", " << jogador.reversiDefeats << ", "
-              << jogador.lig4Defeats << ", "
-              << jogador.tictactoeWins << ", " << jogador.tictactoeDefeats << ", "
-              << jogador.campoMinadoWins << ", " << jogador.campoMinadoDefeats << ", "
-              << jogador.memoriaWins << ", " << jogador.memoriaDefeats << '\n';
-    }
+    Jogadores::reescreveArquivo(jogadoresVector);
 
     outFile.close();
 
@@ -378,10 +428,20 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector, string &Apelid
   }
   else
   {
+
     cout << "ERRO: jogador inexistente" << endl;
   }
 }
 
+/**
+ * @brief Atualiza as estatísticas de um jogador para um jogo específico.
+ *
+ * Com base no jogo escolhido e no resultado (vitória ou derrota), atualiza as
+ * estatísticas do jogador.
+ *
+ * @param jogoEscolhido Caracter que identifica o jogo.
+ * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+ */
 void Jogadores::atualizaEstatisticas(char jogoEscolhido,
                                      vector<Jogadores> &jogadoresVector)
 {
@@ -450,12 +510,19 @@ void Jogadores::atualizaEstatisticas(char jogoEscolhido,
       }
     }
   }
-  this->reescreveArquivo(jogadoresVector);
+  Jogadores::reescreveArquivo(jogadoresVector);
 }
 
+/**
+ * @brief Mostra o ranking dos jogadores para um jogo específico, ordenado pelo
+ * número de vitórias.
+ *
+ * @param jogoEscolhido Caracter que identifica o jogo.
+ * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+ */
 // método para mostrar o raking de cada jogo, de acordo com o número de vitórias
 void Jogadores::mostrarRanking(const char &jogoEscolhido,
-                               vector<Jogadores> jogadoresVector)
+                               vector<Jogadores> &jogadoresVector)
 {
 
   auto ordenacaoVitorias = [jogoEscolhido](const Jogadores &x,
@@ -530,7 +597,13 @@ void Jogadores::mostrarRanking(const char &jogoEscolhido,
        << endl;
 }
 
-void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector,
+/**
+ * @brief Mostra as estatísticas dos jogadores, ordenadas por apelido ou nome.
+ *
+ * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+ * @param ordenacao Critério de ordenação: 'A' para apelido, 'N' para nome.
+ */
+void Jogadores::mostrarEstatisticas(vector<Jogadores> &jogadoresVector,
                                     const string &ordenacao)
 {
 
@@ -568,18 +641,41 @@ void Jogadores::mostrarEstatisticas(vector<Jogadores> jogadoresVector,
       swap(jogadoresVector[i], jogadoresVector[menorElemento]);
     }
   }
+  else
+  {
+    cout << "ERRO: comando inválido; escolha ordenar por (A)pelido ou (N)ome!"
+         << endl;
+    return;
+  }
   for (const auto &jogador : jogadoresVector)
   {
     cout << "\n";
     cout << jogador.Apelido << " " << jogador.Nome << endl;
-    cout << "REVERSI - V: " << jogador.reversiWins << " D: " << jogador.reversiDefeats << endl;
-    cout << "LIG 4 - V: " << jogador.lig4Wins << " D: " << jogador.lig4Defeats << endl;
-    cout << "TIC TAC TOE - V: " << jogador.tictactoeWins << " D: " << jogador.tictactoeDefeats << endl;
-    cout << "CAMPO MINADO - V: " << jogador.campoMinadoWins << " D: " << jogador.campoMinadoDefeats << endl;
-    cout << "JOGO DA MEMORIA - V: " << jogador.memoriaWins << " D: " << jogador.memoriaDefeats << endl;
+    cout << "REVERSI - V: " << jogador.reversiWins
+         << " D: " << jogador.reversiDefeats << endl;
+    cout << "LIG 4 - V: " << jogador.lig4Wins << " D: " << jogador.lig4Defeats
+         << endl;
+    cout << "TIC TAC TOE - V: " << jogador.tictactoeWins
+         << " D: " << jogador.tictactoeDefeats << endl;
+    cout << "CAMPO MINADO - V: " << jogador.campoMinadoWins
+         << " D: " << jogador.campoMinadoDefeats << endl;
+    cout << "JOGO DA MEMORIA - V: " << jogador.memoriaWins
+         << " D: " << jogador.memoriaDefeats << endl;
   }
 }
 
+/**
+ * @brief Cadastra um novo jogador no sistema e o adiciona ao vetor de
+ * jogadores.
+ *
+ * Verifica se o apelido já existe e, caso contrário, adiciona o novo jogador ao
+ * vetor e ao arquivo.
+ *
+ * @param apelido Apelido do novo jogador.
+ * @param nome Nome do novo jogador.
+ * @param Jogador Referência ao objeto Jogadores a ser cadastrado.
+ * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+ */
 void Jogadores::cadastrarJogadores(string apelido, string nome,
                                    Jogadores &Jogador,
                                    vector<Jogadores> &jogadoresVector)
@@ -589,7 +685,7 @@ void Jogadores::cadastrarJogadores(string apelido, string nome,
 
   if (aux.pesquisaJogador(apelido))
   { // se jogador já existir
-    cout << "ERRO: jogador repetido" << endl;
+    cout << "\nERRO: jogador repetido" << endl;
     return;
   }
   else

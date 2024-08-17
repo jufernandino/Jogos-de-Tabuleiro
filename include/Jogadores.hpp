@@ -31,27 +31,27 @@ public:
     bool victory;
     bool empate;
 
-    int pesquisaJogador(string Apelido); // procura o jogador pelo seu apelido no arquivo
+    static int pesquisaJogador(string Apelido); // procura o jogador pelo seu apelido no arquivo
 
     Jogadores();
 
     Jogadores(string Apelido, string Nome);
 
-    bool logar(string Apelido, vector<Jogadores> &jogadoresVector);
+    Jogadores logIn(string Apelido, vector<Jogadores> &jogadoresVector);
 
-    void reescreveArquivo(vector<Jogadores> &jogadoresVector);
+    static void reescreveArquivo(vector<Jogadores> &jogadoresVector);
 
-    void removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
+    static void removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
 
     void atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
-    void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> jogadoresVector);
+    static void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
-    void mostrarEstatisticas(vector<Jogadores> jogadoresVector, const string &ordenacao);
+    static void mostrarEstatisticas(vector<Jogadores> &jogadoresVector, const string &ordenacao);
 
-    void carregarJogadores(vector<Jogadores> &jogadoresVector);
+    static void carregarJogadores(vector<Jogadores> &jogadoresVector);
 
-    void cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
+    static void cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 
     void ordenacaoApelido(vector<Jogadores> &jogadoresVector);
 
