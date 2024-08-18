@@ -128,6 +128,9 @@ int main() {
 
       try {
         getline(line, Apelido, ' ');
+        for (char &a : Apelido) {
+            a = tolower(a);
+        }
         if (Apelido.empty()) {
           throw badInputs(Apelido);
         }
@@ -151,6 +154,9 @@ int main() {
 
       try {
         getline(line, Apelido, ' ');
+        for (char &a : Apelido) {
+            a = tolower(a);
+        }
         if (Apelido.empty()) {
           throw badInputs(Apelido);
         }
