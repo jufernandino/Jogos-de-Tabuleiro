@@ -30,7 +30,7 @@ public:
    * Esta função sobrescreve o método "confereGanhador" da classe base "Tabuleiro"
    * e implementa a lógica para verificar se há um vencedor na partida de Tic-Tac-Toe.
    *
-   * @return Retorna 1 se houver um vencedor, 0 caso contrário.
+   * @retval int 
    */
   virtual int confereGanhador() override;
 };
