@@ -3,9 +3,10 @@
 #include <iostream>
 
 /**
- * @brief Construtor da classe Campo Minado.
+ * @brief Construtor:
  *
- * Inicializa o tabuleiro do jogo Campo Minado com 7 linhas e 7 colunas.
+ * Inicializa um objeto CampoMinado com as configurações padrões
+ * do tabuleiro, especificando seu tamanho com 7 linhas e 7 colunas.
  * Além disso, inicializa a quantidade de bombas do jogo como 10.
  */
 CampoMinado::CampoMinado()
@@ -16,7 +17,7 @@ CampoMinado::CampoMinado()
 }
 
 /**
- * @brief Incializa o tabuleiro do Campo Minado
+ * @brief Inicia o tabuleiro do Campo Minado:
  *
  * Esta função inicializa o tabuleiro, preenchendo todas casas com o simbolo "+".
  * Cria um vetor para guardar as coordenadas das minas, que são geradas de maneira aleatória.
@@ -42,17 +43,17 @@ void CampoMinado::iniciaTabuleiro()
 }
 
 /**
- * @brief Realiza o cálculo de quantas minas existem ao redor de uma determinada posição.
+ * @brief Realiza o cálculo de quantas minas existem ao redor de uma determinada posição:
  *
  * A partir de uma posição passada por parâmetro (linha, coluna) a função verifica em
  * todas as casas adjacentes (duas laterais, quatro diagonais, uma em cima e uma em baixo) se
  * as coordenadas de cada uma delas possui uma equivalência com a posição de uma mina.
  * Se forem equivalentes, o contador de bombas adjacentes recebe um acréscimo.
  *
- * @param linha Linha da coordenada.
- * @param coluna Coluna da coordenada.
+ * @param linha linha da coordenada.
+ * @param coluna coluna da coordenada.
  *
- * @return Retorna o número de bombas adjacentes à coordenada especificada.
+ * @return O número de bombas adjacentes à coordenada especificada.
  */
 int CampoMinado::minasAdj(int linha, int coluna)
 {
@@ -76,16 +77,16 @@ int CampoMinado::minasAdj(int linha, int coluna)
 }
 
 /**
- * @brief Esboça no tabuleiro as casas que não possuem bombas
+ * @brief Esboça no tabuleiro o conteúdo de uma célula (que não possui bomba):
  *
  * A partir de uma posição passada por parâmetro (linha, coluna),se for uma jogada válida,
- * a casa escolhida recebe com conteúdo o número correspondete às suas minas adjacentes.
- * Porém, no caso do número de bombas adjacentes ser equivalente a zero, a casa fica vazia e
+ * a casa escolhida recebe como conteúdo o número correspondete às suas minas adjacentes.
+ * Porém, no caso do número de bombas adjacentes ser equivalente a zero, a célula fica vazia e
  * a função "revelaCelula" é chamada para todas as casas ao seu redor,
  * até serem preenchidas com um número maior do que zero.
  *
- * @param linha Linha da coordenada.
- * @param coluna Coluna da coordenada.
+ * @param linha linha da coordenada.
+ * @param coluna coluna da coordenada.
  */
 void CampoMinado::revelaCelula(int linha, int coluna)
 {
@@ -101,7 +102,7 @@ void CampoMinado::revelaCelula(int linha, int coluna)
     matrix[linha][coluna] = '0' + minas_adj;
   }
   else
-  { /// se nao tem bomba adjacente, marca com espaco em branco e revela as celulas adjacentes
+  { // se não tem bomba adjacente, marca com espaco em branco e revela as células adjacentes
     matrix[linha][coluna] = ' ';
 
     for (int x = -1; x <= 1; ++x)
@@ -115,16 +116,17 @@ void CampoMinado::revelaCelula(int linha, int coluna)
 }
 
 /**
- * @brief Verifica se a jogada é valida de acordo com as regras do Campo Minado.
+ * @brief Verifica se a jogada é valida de acordo com as regras do Campo Minado:
  *
- * Verifica se a coordenada `(linha, coluna)`, passada por parâmetro,
- * se encontra dentro das dimensões do tabuleiro e contém o simbolo `+` .
+ * Esta função booleana agrupa todas as condições para determinar se uma jogada é válida ou não.
+ * Primeiro, verifica se a coordenada `(linha, coluna)`, passada por parâmetro,se encontra dentro
+ * das dimensões do tabuleiro. E segundo, verifica se ela não foi revelada ainda (contém o simbolo `+`) .
  *
- * @param linha Linha da coordenada.
- * @param coluna Coluna da coordenada.
+ * @param linha linha da coordenada.
+ * @param coluna coluna da coordenada.
  *
- * @return Retorna verdadeiro, caso atenda a todas as condições de ser uma jogada válida.
- * @return Retorna falso caso contrário.
+ * @return Verdadeiro, caso atenda a todas as condições de ser uma jogada válida.
+ * @return Falso, caso não atenda a pelo menos uma das condições.
  */
 bool CampoMinado::validaJogadaCampoMinado(int linha, int coluna)
 {
@@ -140,16 +142,16 @@ bool CampoMinado::validaJogadaCampoMinado(int linha, int coluna)
 }
 
 /**
- * @brief Verifica se a posição escolhida corresponde a de uma bomba.
+ * @brief Averigua se a posição escolhida corresponde a de uma bomba:
  *
- * Verifica se a coordenada `(linha, coluna)`, passada por parâmetro,
- * é equivalente a alguma das coordenadas das posições das minas.
+ * Esta função booleana verifica se a coordenada passada por parâmetro,
+ * `(linha, coluna)`, é equivalente a alguma das coordenadas das posições das minas.
  *
- * @param linha Linha da coordenada.
- * @param coluna Coluna da coordenada.
+ * @param linha linha da coordenada.
+ * @param coluna coluna da coordenada.
  *
- * @return Retorna verdadeiro, caso tenha uma bomba na posição.
- * @return Retorna falso, caso não tenha uma bomba na posição.
+ * @return Verdadeiro, caso tenha uma bomba na posição.
+ * @return Falso, caso não tenha uma bomba na posição.
  */
 bool CampoMinado::escolheuBomba(int linha, int coluna)
 {
@@ -162,15 +164,15 @@ bool CampoMinado::escolheuBomba(int linha, int coluna)
 }
 
 /**
- * @brief Verifica a condição de vitória em um jogo de Campo Minado.
+ * @brief Condição de vitória em um jogo de Campo Minado:
  *
- * Esta função confere se há ainda casas `+` no tabuleiro que não
- * foram escolhidas, mas que também não correspondem a uma bomba.
- * Em caso positivo, ainda existem jogadas possíveis.
- * Em caso negativo, o jogo acabou.
+ * Esta função confere se ainda existe alguma casa `+` no tabuleiro que não foi escolhidas pelo jogador e,
+ * além disso, averigua se ela não é correspondentes a uma bomba. Caso ainda exista, significa
+ * que tem jogadas pendentes a serem realizadas. Em caso negativo, o jogo acabou e nenhuma bomba foi encontrada.
+ * Ou seja, o jogador ganhou.
  *
- * @return Retorna 0 caso ainda tenha jogadas possiveis.
- * @return Retorna 1 caso o jogo tenha acabado
+ * @return 0, caso ainda exista jogadas possíveis.
+ * @return 1, caso o jogo tenha acabado.
  */
 int CampoMinado::confereGanhador()
 {
@@ -205,13 +207,13 @@ int CampoMinado::confereGanhador()
 /**
  * @brief Organiza o processo de jogabilidade de Campo Minado.
  *
- * Esta função é responsável por realizar cada passo do jogo, comecando com a
+ * Esta função é responsável por realizar cada passo do jogo: começando com a
  * criação do tabuleiro, depois pedindo as coordenadas com o jogador da vez,
  * validando a jogada realizada, verificando se o jogador ganhou ou perdeu,
  * e, caso o jogo não tenha terminado, revelando as casas que não são bombas.
  *
- * @return Retorna 0 caso o jogador perca/encontre uma bomba.
- * @return Retorna 1 caso o jogador ganhe.
+ * @return 0, caso o jogador perca/encontre uma bomba.
+ * @return 1, caso o jogador ganhe.
  */
 int CampoMinado::jogarCampoMinado()
 {
