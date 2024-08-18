@@ -52,9 +52,9 @@ public:
     bool ehJogadaValida(int x, int y, int x2, int y2, char jogadorDaVez);
 
     /**
-     * @brief Responsável por realizar apenas as jogadas consideradas validas
+     * @brief Responsável por realizar apenas as jogadas consideradas válidas
      *
-     * Esta função valida/executa a jogada viável
+     * Esta função valida/executa a jogada, caso ela seja viável
      *
      * @param x Linha da coordenada1.
      * @param y Coluna da coordenada1.
@@ -64,8 +64,34 @@ public:
      */
     void validaJogada(int x, int y, int x2, int y2, char jogadorDaVez);
 
+    /**
+     * @brief Verifica se duas coordenadas são um par.
+     *
+     * Esta função booleana avalia se as duas posições possuem símbolos iguais
+     *
+     * @param x Linha da coordenada1.
+     * @param y Coluna da coordenada1.
+     * @param x2 Linha da coordenada2.
+     * @param y2 Coluna da coordenada2.
+     * @param jogadorDaVez caracter que define qual é o jogador.
+     *
+     * @return Retorna verdadeiro, caso sejam um par
+     * @return Retorna falso caso contrário.
+     */
     bool formamPares(int x, int y, int x2, int y2, char jogadorDaVez);
 
+    /**
+     * @brief Realiza ações no tabuleiro dependendo se os pares forem encontrados ou não
+     *
+     * Esta função avalia se duas coordenadas formaram pares,a partir disso ou
+     * atribui pontuação ao jogadore da vez, ou limpa o tabuleiro.
+     *
+     * @param x Linha da coordenada1.
+     * @param y Coluna da coordenada1.
+     * @param x2 Linha da coordenada2.
+     * @param y2 Coluna da coordenada2.
+     * @param jogadorDaVez caracter que define qual é o jogador.
+     */
     void validaPares(int x, int y, int x2, int y2, char jogadorDaVez);
 
     /**
@@ -78,10 +104,28 @@ public:
     bool verificarFimDeJogo();
 
 private:
+    /**
+     * @brief Incializa uma matriz/tabuleiro auxiliar para armazenar os simbolos
+     *
+     * Esta função armazenaa 8 duplas de simbolos/letras em uma matriz auxiliar
+     * em posições aleatórias.
+     */
     void inicializaTabuleiroSimbolos();
+    /**
+     * @brief Variável para armazenar os pontos do jogador1
+     */
     int pontosJogador1;
+    /**
+     * @brief Variável para armazenar os pontos do jogador2
+     */
     int pontosJogador2;
+    /**
+     * @brief Variável para armazenar qual é jogador atual
+     */
     int jogadorAtual;
+    /**
+     * @brief Matriz para armazenar os simbolos em um tabuleiro auxiliar
+     */
     char aux[4][4];
 };
 

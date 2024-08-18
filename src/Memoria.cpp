@@ -18,25 +18,26 @@ Memoria::Memoria()
     inicializaTabuleiroSimbolos();
 }
 
+/**
+ * @brief Incializa uma matriz/tabuleiro auxiliar para armazenar os simbolos
+ *
+ * Esta função cria uma string com todos os possíveis símbolos duplicados (em pares):
+ * {A, A, B, B, C, C, D, D, E, E, F, F, G, G, H, H,}. Depois os caracteres na string são embaralhados
+ * de modo aleatório, de modo que a cada jogo os símbolos vão estar em posições diferentes.
+ * Em seguida os 8 pares de simbolos/letras são armazenados em uma matriz auxiliar.
+ * Por último, a pontuação inicial dos jogadores é zerada.
+ */
 void Memoria::inicializaTabuleiroSimbolos()
 {
-
-    // aux = new char *[rows]; // Criar um tabuleiro auxiliar
-    // for (int i = 0; i < rows; i++)
-    // {
-    //     aux[i] = new char[columns];
-    // }
-
-    // Array de string com todos os possiveis simbolos no tabuleiro duplicados (pares):
     string simbolos = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 
-    // vamos iniciar o gerador de números aleatórios
+    /// vamos iniciar o gerador de números aleatórios
     srand(time(NULL));
-    // vamos embaralhar as palavras da string
+    /// vamos embaralhar as palavras da string
     random_shuffle(simbolos.begin(), simbolos.end());
 
     int k = 0;
-    for (int i = 0; i < rows; ++i) // Preencher o tabuleiro com os símbolos
+    for (int i = 0; i < rows; ++i) /// Preencher o tabuleiro com os símbolos
     {
         for (int j = 0; j < columns; ++j)
         {
@@ -45,7 +46,6 @@ void Memoria::inicializaTabuleiroSimbolos()
         }
     }
 
-    // Iniciar a pontuação zerada
     pontosJogador1 = 0;
     pontosJogador2 = 0;
 }
@@ -56,13 +56,13 @@ void Memoria::inicializaTabuleiroSimbolos()
  * Verifica se as posições `(x, y)` e `(x2, y2)` estão vazias, dentro das
  * dimensões do tabuleiro e se são coordenadas diferentes entre si.
  * Caso as posições tenham todos os pré-requisitos, a jogada é considerada válida, retornando verdadeiro.
- * Caso contrário, a jogada é considerada inválida e retorna falso.
+ * Caso contrário, a jogada é considerada inválida, retornando falso.
  *
  * @param x Linha da coordenada1.
  * @param y Coluna da coordenada1.
  * @param x2 Linha da coordenada2.
  * @param y2 Coluna da coordenada2.
- * @param jogadorDaVez caracter que define qual é o jogador.
+ * @param jogadorDaVez Caracter que define qual é o jogador.
  *
  * @return Retorna verdadeiro, caso atenda a todas as condições de ser uma jogada válida.
  * @return Retorna falso caso contrário.
@@ -81,15 +81,16 @@ bool Memoria::ehJogadaValida(int x, int y, int x2, int y2, char jogadorDaVez)
 }
 
 /**
- * @brief Responsável por realizar apenas as jogadas consideradas válidas
+ * @brief Realiza apenas as jogadas consideradas válidas
  *
- * Esta função valida/executa a jogada viável
+ * Caso as posições `(x, y)` e `(x2, y2)` não sejam válidas, a função avisa o jogador e não executa a ação.
+ * Caso sejam, os sÍmbolos que estão na posição (x,y) e (x1,y1) do tabuleiro auxiliar são atribuidos ao tabuleiro real.
  *
  * @param x Linha da coordenada1.
  * @param y Coluna da coordenada1.
  * @param x2 Linha da coordenada2.
  * @param y2 Coluna da coordenada2.
- * @param jogadorDaVez caracter que define qual é o jogador.
+ * @param jogadorDaVez Caracter que define qual é o jogador.
  */
 void Memoria::validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)
 {
@@ -98,30 +99,56 @@ void Memoria::validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)
         cout << "ERRO: jogada inválida" << endl;
         return;
     }
-    // Atribui ao tabuleiro real os simbolos que estão na posição (x,y) e (x1,y1) do tabuleiro auxiliar
     matrix[x][y] = aux[x][y];
     matrix[x2][y2] = aux[x2][y2];
 }
 
+/**
+ * @brief Verifica se duas coordenadas formam um par.
+ *
+ * Esta função, avalia se as duas posições possuem símbolos iguais (são par um do outro)
+ * Caso sejam, a função retorna verdadeiro.
+ *
+ * @param x Linha da coordenada1.
+ * @param y Coluna da coordenada1.
+ * @param x2 Linha da coordenada2.
+ * @param y2 Coluna da coordenada2.
+ * @param jogadorDaVez Caracter que define qual é o jogador.
+ *
+ * @return Retorna verdadeiro, caso sejam um par.
+ * @return Retorna falso caso contrário.
+ */
 bool Memoria::formamPares(int x, int y, int x2, int y2, char jogadorDaVez)
 {
-    // Condicional para verificar se as duas posições possuem símbolos iguais (são par um do outro)
     if (matrix[x][y] == matrix[x2][y2])
         return true;
     else
         return false;
 }
 
+/**
+ * @brief Ações no tabuleiro de acordo com o resultado se os pares foram encontrados ou não
+ *
+ * Primeiramente, esta função avalia se duas coordenadas formaram pares.
+ * Em caso positivo, os sÍmbolos se mantêm no tabuleiro real e o jogador da vez pontua.
+ * Em caso negativo, se o jogador não encontrou os sÍmbolos iguais, limpa o tabuleiro e ninguem pontua.
+ *
+ * @param x Linha da coordenada1.
+ * @param y Coluna da coordenada1.
+ * @param x2 Linha da coordenada2.
+ * @param y2 Coluna da coordenada2.
+ * @param jogadorDaVez Caracter que define qual é o jogador.
+ */
 void Memoria::validaPares(int x, int y, int x2, int y2, char jogadorDaVez)
 {
     if (!formamPares(x, y, x2, y2, jogadorDaVez))
-    { // Se o jogador não encontrou os simbolos iguais, limpa o tabuleiro e ninguem pontua
+    {
         cout << "Par não encontrado!" << endl;
         matrix[x][y] = ' ';
         matrix[x2][y2] = ' ';
         return;
     }
-    // Se encontrou, os simbolos se mantêm no tabuleiro real e o jogador da vez pontua
+
     cout << "Par " << matrix[x][y] << "-" << matrix[x2][y2] << " encontrado!" << endl;
     if (jogadorDaVez == '1')
         pontosJogador1++;
@@ -171,7 +198,7 @@ int Memoria::confereGanhador()
  * Caso exista pelo menos uma coordenada vazias, o jogo ainda não acabou.
  * Caso contrário, é fim de jogo.
  *
- * @return retorna true, se o jogo tiver acabado, e false, caso contrário.
+ * @return Retorna true, se o jogo tiver acabado, e false, caso contrário.
  */
 bool Memoria::verificarFimDeJogo()
 {

@@ -1,5 +1,5 @@
-Leo, Leonardo, 0, 0, 1, 2, 1, 2, 0, 0, 2, 0
-Ju, Julieta, 0, 1, 2, 1, 2, 1, 0, 0, 0, 0
+Leo, Leonardo, 0, 0, 1, 2, 1, 2, 0, 0, 0, 0
+Ju, Julieta, 0, 1, 2, 1, 2, 1, 0, 0, 1, 0
 alanzoka, Alan Ferreira, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 Babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 Isa98, Isa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
