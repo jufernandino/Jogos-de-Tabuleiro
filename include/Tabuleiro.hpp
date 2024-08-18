@@ -74,7 +74,7 @@ public:
    *
    * @return Um inteiro que indica o resultado da conferência (1 para vitória, 0 para nenhum vencedor).
    */
-  virtual int confereGanhador() = 0; // confere se alguém venceu
+  virtual int confereGanhador() = 0; /// confere se alguém venceu
 
   /**
    * @brief Mostra as regras do jogo correspondente.

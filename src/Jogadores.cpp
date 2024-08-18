@@ -161,7 +161,7 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector)
 {
   ofstream out("Jogadores.txt",
                ios::out |
-                   ios::trunc); // Abre o arquivo apaga o conteúdo anterior
+                   ios::trunc); /// Abre o arquivo apaga o conteúdo anterior
 
   if (!out.is_open())
   {
@@ -169,7 +169,7 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector)
     return;
   }
 
-  // Reescreve o arquivo com o conteúdo atualizado do vetor
+  /// Reescreve o arquivo com o conteúdo atualizado do vetor
   for (const auto &jogador : jogadoresVector)
   {
     out << jogador.Apelido << ", " << jogador.Nome << ", "
@@ -396,23 +396,23 @@ void Jogadores::removeJogador(vector<Jogadores> &jogadoresVector,
   vector<Jogadores>::iterator it;
   bool jogadorEncontrado = false;
 
-  // Procura pelo jogador no vetor
+  /// Procura pelo jogador no vetor
   for (it = jogadoresVector.begin(); it != jogadoresVector.end(); ++it)
   {
     if (it->Apelido == Apelido)
     {
-      jogadoresVector.erase(it); // Remove o jogador do vetor
+      jogadoresVector.erase(it); /// Remove o jogador do vetor
       jogadorEncontrado = true;
       break;
     }
   }
 
-  // Se o jogador foi encontrado e removido do vetor, reescreva o arquivo
+  /// Se o jogador foi encontrado e removido do vetor, reescreva o arquivo
   if (jogadorEncontrado)
   {
     ofstream outFile(
         "Jogadores.txt",
-        ios::out | ios::trunc); // Abre o arquivo e exclui o conteúdo anterior
+        ios::out | ios::trunc); /// Abre o arquivo e exclui o conteúdo anterior
 
     if (!outFile.is_open())
     {
@@ -520,7 +520,6 @@ void Jogadores::atualizaEstatisticas(char jogoEscolhido,
  * @param jogoEscolhido Caracter que identifica o jogo.
  * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
  */
-// método para mostrar o raking de cada jogo, de acordo com o número de vitórias
 void Jogadores::mostrarRanking(const char &jogoEscolhido,
                                vector<Jogadores> &jogadoresVector)
 {
@@ -609,9 +608,9 @@ void Jogadores::mostrarEstatisticas(vector<Jogadores> &jogadoresVector,
 
   int tamanho = jogadoresVector.size();
 
-  // selection sort
+  /// selection sort
   if (ordenacao == "A" || ordenacao == "a")
-  { // ordenação por apelido
+  { /// ordenação por apelido
     for (int i = 0; i < tamanho - 1; ++i)
     {
       int menorElemento = i;
@@ -627,7 +626,7 @@ void Jogadores::mostrarEstatisticas(vector<Jogadores> &jogadoresVector,
     }
   }
   else if (ordenacao == "N" || ordenacao == "n")
-  { // ordenação por nome
+  { /// ordenação por nome
     for (int i = 0; i < tamanho - 1; ++i)
     {
       int menorElemento = i;
@@ -684,7 +683,7 @@ void Jogadores::cadastrarJogadores(string apelido, string nome,
   Jogadores aux;
 
   if (aux.pesquisaJogador(apelido))
-  { // se jogador já existir
+  { /// se jogador já existir
     cout << "\nERRO: jogador repetido" << endl;
     return;
   }
