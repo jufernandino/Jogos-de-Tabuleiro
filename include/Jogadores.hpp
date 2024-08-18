@@ -58,8 +58,7 @@ public:
     /**
      * @brief Construtor da classe Jogadores com parâmetros.
      *
-     * Inicializa um jogador com os valores fornecidos e salva suas informações em
-     * um arquivo.
+     * Inicializa um jogador com os valores dados e salva no arquivo.
      *
      * @param Apelido string 
      * @param Nome string
@@ -70,8 +69,7 @@ public:
     /**
      * @brief Login de um jogador
      *
-     * Realiza o login de um jogador, carregando suas informações do vetor de
-     * jogadores.
+     * Realiza o login de um jogador.
      *
      * @param Apelido string
      * @param jogadoresVector string
@@ -83,9 +81,7 @@ public:
     /**
      * @brief Resscrita de informações no arquivo
      *
-     * Reescreve o arquivo de jogadores com as informações atualizadas.
-     * Apaga o conteúdo anterior do arquivo e grava as informações presentes no
-     * vetor de jogadores.
+     * Reescreve o arquivo de jogadores com as informações atualizadas, apagando o conteúdo anterior.
      *
      * @param jogadoresVector vetor Jogadores
      * 
@@ -96,8 +92,7 @@ public:
     /**
      * @brief Remove um jogador.
      *
-     * Procura pelo jogador no vetor utilizando o apelido, remove-o e atualiza o
-     * arquivo de jogadores.
+     * Procura pelo jogador no vetor utilizando o apelido, e o remove.
      *
      * @param jogadoresVector vetor Jogadores
      * @param Apelido string
@@ -109,8 +104,7 @@ public:
     /**
      * @brief Atualiza as estatísticas de um jogador para um jogo específico.
      *
-     * Com base no jogo escolhido e no resultado (vitória ou derrota), atualiza as
-     * estatísticas do jogador.
+     * Com base no jogo escolhido e no resultado, atualiza as estatísticas.
      *
      * @param jogoEscolhido char
      * @param jogadoresVector vetor Jogadores
@@ -122,8 +116,7 @@ public:
     /**
      * @brief Exibir ranking de jogadores.
      *
-     * Mostra o ranking dos jogadores para um jogo específico, ordenado pelo
-     * número de vitórias.
+     * Mostra o ranking dos jogadores para um jogo específico.
      *
      * @param jogoEscolhido char
      * @param jogadoresVector vetor Jogadores
@@ -154,9 +147,8 @@ public:
      * @brief Cadastro de novo jogador.
      *
      * Cadastra um novo jogador no sistema e o adiciona ao vetor de jogadores.
-     * Verifica se o apelido já existe e, caso contrário, adiciona o novo jogador ao
-     * vetor e ao arquivo.
-     *
+     
+     
      * @param apelido string
      * @param nome string
      * @param Jogador Jogadores

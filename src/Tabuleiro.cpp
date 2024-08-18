@@ -13,14 +13,14 @@ using namespace std;
  */
 Tabuleiro::Tabuleiro()
 {
-  this->rows = 0;
-  this->columns = 0;
+  this->rows = 0; //Armazena o número de linhas
+  this->columns = 0; //Armazena o número de colunas
 }
 
 /**
  * @brief Cria o tabuleiro alocando memória dinamicamente.
  *
- * A função aloca uma matriz de caracteres com dimensões `rows` e `columns`
+ * A função aloca uma matriz de caracteres com dimensões "rows" e "columns"
  * e inicializa cada célula com um espaço em branco.
  */
 void Tabuleiro::criaTabuleiro()
@@ -92,7 +92,7 @@ void Tabuleiro::liberaMemoria()
  *
  * @param x Coordenada da linha da jogada.
  * @param y Coordenada da coluna da jogada.
- * @param z Caractere que representa o jogador (ex: 'X' ou 'O').
+ * @param z Caractere que representa o jogador, 'X' ou 'O'
  */
 void Tabuleiro::validaJogada(int x, int y, char z)
 {
