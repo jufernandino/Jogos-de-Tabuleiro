@@ -43,8 +43,8 @@ public:
     /**
      * @brief Procura por um jogador no arquivo utilizando seu apelido.
      *
-     * @param Apelido Apelido do jogador a ser procurado.
-     * @return Retorna 1 se o jogador for encontrado, caso contrário, retorna 0.
+     * @param Apelido int
+     * @retval int
      */
     static int pesquisaJogador(string Apelido);
 
@@ -61,8 +61,9 @@ public:
      * Inicializa um jogador com os valores fornecidos e salva suas informações em
      * um arquivo.
      *
-     * @param Apelido Apelido do jogador.
-     * @param Nome Nome do jogador.
+     * @param Apelido string 
+     * @param Nome string
+     * 
      */
     Jogadores(string Apelido, string Nome);
 
@@ -72,9 +73,10 @@ public:
      * Realiza o login de um jogador, carregando suas informações do vetor de
      * jogadores.
      *
-     * @param Apelido Apelido do jogador a ser logado.
-     * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
-     * @return Retorna o jogador logado com suas informações carregadas.
+     * @param Apelido string
+     * @param jogadoresVector string
+     * 
+     * @retval Jogadores
      */
     Jogadores logIn(string Apelido, vector<Jogadores> &jogadoresVector);
 
@@ -85,7 +87,9 @@ public:
      * Apaga o conteúdo anterior do arquivo e grava as informações presentes no
      * vetor de jogadores.
      *
-     * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+     * @param jogadoresVector vetor Jogadores
+     * 
+     * @retval none
      */
     static void reescreveArquivo(vector<Jogadores> &jogadoresVector);
 
@@ -95,19 +99,23 @@ public:
      * Procura pelo jogador no vetor utilizando o apelido, remove-o e atualiza o
      * arquivo de jogadores.
      *
-     * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
-     * @param Apelido Apelido do jogador a ser removido.
+     * @param jogadoresVector vetor Jogadores
+     * @param Apelido string
+     * 
+     * @retval none
      */
     static void removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
-
+    
     /**
      * @brief Atualiza as estatísticas de um jogador para um jogo específico.
      *
      * Com base no jogo escolhido e no resultado (vitória ou derrota), atualiza as
      * estatísticas do jogador.
      *
-     * @param jogoEscolhido Caracter que identifica o jogo.
-     * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+     * @param jogoEscolhido char
+     * @param jogadoresVector vetor Jogadores
+     * 
+     * @retval none
      */
     void atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
@@ -117,16 +125,18 @@ public:
      * Mostra o ranking dos jogadores para um jogo específico, ordenado pelo
      * número de vitórias.
      *
-     * @param jogoEscolhido Caracter que identifica o jogo.
-     * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+     * @param jogoEscolhido char
+     * @param jogadoresVector vetor Jogadores
+     * 
+     * @retval none
      */
     static void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
     /**
      * @brief Mostra as estatísticas dos jogadores, ordenadas por apelido ou nome.
      *
-     * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
-     * @param ordenacao Critério de ordenação: 'A' para apelido, 'N' para nome.
+     * @param jogadoresVector vetor Jogadores
+     * @param ordenacao string
      */
     static void mostrarEstatisticas(vector<Jogadores> &jogadoresVector, const string &ordenacao);
 
@@ -136,7 +146,7 @@ public:
      *
      * Lê o arquivo de jogadores e preenche o vetor de jogadores com as informações carregadas.
      *
-     * @param jogadoresVector Vetor que será preenchido com as informações dos jogadores.
+     * @param jogadoresVector vetor Jogadores
      */
     static void carregarJogadores(vector<Jogadores> &jogadoresVector);
 
@@ -147,15 +157,35 @@ public:
      * Verifica se o apelido já existe e, caso contrário, adiciona o novo jogador ao
      * vetor e ao arquivo.
      *
-     * @param apelido Apelido do novo jogador.
-     * @param nome Nome do novo jogador.
-     * @param Jogador Referência ao objeto Jogadores a ser cadastrado.
-     * @param jogadoresVector Vetor contendo todos os jogadores cadastrados.
+     * @param apelido string
+     * @param nome string
+     * @param Jogador Jogadores
+     * @param jogadoresVector vetor Jogadores
      */
     static void cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector);
 
+    /**
+     * @brief Ordenação alfabética pelos apelidos.
+     *
+     * Ordena o vetor pela ordem dos apelidos.
+     *
+     * @param apelido string
+     * @param nome string
+     * @param Jogador Jogadores
+     * @param jogadoresVector vetor Jogadores
+     */
     void ordenacaoApelido(vector<Jogadores> &jogadoresVector);
 
+    /**
+     * @brief Ordenação pela ordem alfabética pelos nomes.
+     *
+     * Ordena o vetor pela ordem dos nomes.
+     *
+     * @param apelido string
+     * @param nome string
+     * @param Jogador Jogadores
+     * @param jogadoresVector vetor Jogadores
+     */
     void ordenacaoNome(vector<Jogadores> &jogadoresVector);
 };
 
