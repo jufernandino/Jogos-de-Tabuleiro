@@ -1,0 +1,37 @@
+\doxysection{Reversi.\+hpp}
+\label{_reversi_8hpp_source}\index{include/Reversi.hpp@{include/Reversi.hpp}}
+\textbf{ Ir para a documentação desse arquivo.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Reversi\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Reversi\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Tabuleiro.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }Reversi\ :\ \textcolor{keyword}{public}\ Tabuleiro}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ Reversi();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ confereGanhador()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ validaJogada(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ z)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ inicializarJogo();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{bool}\ ehJogadaValida(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ jogadorDaVez);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{bool}\ existeMovimentoPossivel(\textcolor{keywordtype}{char}\ jogadorDaVez);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ mostrarLocaisJogada(\textcolor{keywordtype}{char}\ jogador);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{bool}\ verificarFimDeJogo();\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ inverterPecas(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ jogadorDaVez);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{char}\ jogadorAtual;}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

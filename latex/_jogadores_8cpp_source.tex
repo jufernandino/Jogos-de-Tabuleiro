@@ -1,0 +1,611 @@
+\doxysection{Jogadores.\+cpp}
+\label{_jogadores_8cpp_source}\index{src/Jogadores.cpp@{src/Jogadores.cpp}}
+\textbf{ Ir para a documentação desse arquivo.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Jogadores.hpp"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00014\ Jogadores::Jogadores()}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ this-\/>Apelido\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00017\ \ \ this-\/>Nome\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00018\ \ \ this-\/>reversiWins\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ this-\/>reversiDefeats\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ this-\/>lig4Wins\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ this-\/>lig4Defeats\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ this-\/>tictactoeWins\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ this-\/>tictactoeDefeats\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ this-\/>campoMinadoWins\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ this-\/>campoMinadoDefeats\ =\ 0;}
+\DoxyCodeLine{00026\ \ \ this-\/>memoriaWins\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ this-\/>memoriaDefeats\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ this-\/>victory\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00040\ Jogadores::Jogadores(\textcolor{keywordtype}{string}\ apelido,\ \textcolor{keywordtype}{string}\ nome)}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ this-\/>Apelido\ =\ apelido;}
+\DoxyCodeLine{00043\ \ \ this-\/>Nome\ =\ nome;}
+\DoxyCodeLine{00044\ \ \ this-\/>reversiWins\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ this-\/>reversiDefeats\ =\ 0;}
+\DoxyCodeLine{00046\ \ \ this-\/>lig4Wins\ =\ 0;}
+\DoxyCodeLine{00047\ \ \ this-\/>lig4Defeats\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ this-\/>tictactoeWins\ =\ 0;}
+\DoxyCodeLine{00049\ \ \ this-\/>tictactoeDefeats\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ this-\/>campoMinadoWins\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ this-\/>campoMinadoDefeats\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ this-\/>memoriaWins\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ this-\/>memoriaDefeats\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ this-\/>victory\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ ofstream\ out(\textcolor{stringliteral}{"{}Jogadores.txt"{}},\ fstream::app);}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordflow}{if}\ (out.is\_open())}
+\DoxyCodeLine{00058\ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ out\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ <<\ this-\/>Apelido\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ this-\/>Nome\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ this-\/>reversiWins}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ this-\/>reversiDefeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ this-\/>lig4Wins\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ <<\ this-\/>lig4Defeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ this-\/>tictactoeWins\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ <<\ this-\/>tictactoeDefeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ this-\/>campoMinadoWins\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ <<\ this-\/>campoMinadoDefeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ this-\/>memoriaWins\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ <<\ this-\/>memoriaDefeats;}
+\DoxyCodeLine{00066\ \ \ \ \ out.close();}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00069\ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ não\ foi\ possível\ abrir\ o\ arquivo\ Jogadores.txt"{}}\ <<\ endl;}
+\DoxyCodeLine{00071\ \ \ \}}
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{int}\ Jogadores::pesquisaJogador(\textcolor{keywordtype}{string}\ apelido)}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ ifstream\ in(\textcolor{stringliteral}{"{}Jogadores.txt"{}},\ fstream::in);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{if}\ (in.is\_open())}
+\DoxyCodeLine{00086\ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(in,\ line))}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux\ ==\ apelido)}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00109\ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ não\ foi\ possível\ abrir\ o\ arquivo\ Jogadores.txt"{}}\ <<\ endl;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00112\ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ in.close();}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00126\ Jogadores\ Jogadores::logIn(\textcolor{keywordtype}{string}\ Apelido,\ vector<Jogadores>\ \&jogadoresVector)}
+\DoxyCodeLine{00127\ \{}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ vector<Jogadores>::iterator\ it;}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordflow}{for}\ (it\ =\ jogadoresVector.begin();\ it\ !=\ jogadoresVector.end();\ it++)}
+\DoxyCodeLine{00131\ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*it).Apelido\ ==\ Apelido)}
+\DoxyCodeLine{00133\ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ this-\/>Apelido\ =\ (*it).Apelido;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ this-\/>Nome\ =\ (*it).Nome;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ this-\/>reversiWins\ =\ (*it).reversiWins;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ this-\/>reversiDefeats\ =\ (*it).reversiDefeats;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ this-\/>lig4Wins\ =\ (*it).lig4Wins;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ this-\/>lig4Defeats\ =\ (*it).lig4Defeats;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ this-\/>tictactoeWins\ =\ (*it).tictactoeWins;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ this-\/>tictactoeDefeats\ =\ (*it).tictactoeDefeats;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ this-\/>campoMinadoWins\ =\ (*it).campoMinadoWins;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ this-\/>campoMinadoDefeats\ =\ (*it).campoMinadoDefeats;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ this-\/>memoriaWins\ =\ (*it).memoriaWins;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ this-\/>memoriaDefeats\ =\ (*it).memoriaDefeats;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{void}\ Jogadores::reescreveArquivo(vector<Jogadores>\ \&jogadoresVector)}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ ofstream\ out(\textcolor{stringliteral}{"{}Jogadores.txt"{}},}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ios::out\ |}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ios::trunc);\ }
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordflow}{if}\ (!out.is\_open())}
+\DoxyCodeLine{00167\ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ não\ foi\ possível\ abrir\ o\ arquivo\ Jogadores.txt"{}}\ <<\ endl;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00170\ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&jogador\ :\ jogadoresVector)}
+\DoxyCodeLine{00174\ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ out\ <<\ jogador.Apelido\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.Nome\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ <<\ jogador.reversiWins\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.reversiDefeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ <<\ jogador.lig4Wins\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.lig4Defeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ <<\ jogador.tictactoeWins\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.tictactoeDefeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ <<\ jogador.campoMinadoWins\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.campoMinadoDefeats\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ <<\ jogador.memoriaWins\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.memoriaDefeats\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00181\ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ out.close();}
+\DoxyCodeLine{00184\ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00196\ \textcolor{keywordtype}{void}\ Jogadores::carregarJogadores(vector<Jogadores>\ \&jogadoresVector)}
+\DoxyCodeLine{00197\ \{}
+\DoxyCodeLine{00198\ \ \ ifstream\ in(\textcolor{stringliteral}{"{}Jogadores.txt"{}},\ fstream::in);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \textcolor{keywordflow}{if}\ (in.is\_open())}
+\DoxyCodeLine{00201\ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(in,\ line))}
+\DoxyCodeLine{00204\ \ \ \ \ \{}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ Jogadores\ jogador;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ jogador.Apelido\ =\ aux;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ jogador.Nome\ =\ aux;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ jogador.reversiWins\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ jogador.reversiDefeats\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ jogador.lig4Wins\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ jogador.lig4Defeats\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ jogador.tictactoeWins\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ jogador.tictactoeDefeats\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ jogador.memoriaWins\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{','})}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ jogador.memoriaDefeats\ =\ stoi(aux,\ \textcolor{keyword}{nullptr},\ 10);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ aux\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ i\ +=\ 2;}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ i\ <\ line.size();\ i++)}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line[i]\ !=\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux\ +\ line[i];}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ jogadoresVector.push\_back(jogador);}
+\DoxyCodeLine{00372\ \ \ \ \ \}}
+\DoxyCodeLine{00373\ \ \ \}}
+\DoxyCodeLine{00374\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00375\ \ \ \{}
+\DoxyCodeLine{00376\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ não\ foi\ possível\ abrir\ o\ arquivo\ Jogadores.txt"{}}\ <<\ endl;}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00378\ \ \ \}}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ in.close();}
+\DoxyCodeLine{00381\ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00392\ \textcolor{keywordtype}{void}\ Jogadores::removeJogador(vector<Jogadores>\ \&jogadoresVector,}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \&Apelido)}
+\DoxyCodeLine{00394\ \{}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ vector<Jogadores>::iterator\ it;}
+\DoxyCodeLine{00397\ \ \ \textcolor{keywordtype}{bool}\ jogadorEncontrado\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00400\ \ \ \textcolor{keywordflow}{for}\ (it\ =\ jogadoresVector.begin();\ it\ !=\ jogadoresVector.end();\ ++it)}
+\DoxyCodeLine{00401\ \ \ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordflow}{if}\ (it-\/>Apelido\ ==\ Apelido)}
+\DoxyCodeLine{00403\ \ \ \ \ \{}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ jogadoresVector.erase(it);\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ jogadorEncontrado\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00407\ \ \ \ \ \}}
+\DoxyCodeLine{00408\ \ \ \}}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00411\ \ \ \textcolor{keywordflow}{if}\ (jogadorEncontrado)}
+\DoxyCodeLine{00412\ \ \ \{}
+\DoxyCodeLine{00413\ \ \ \ \ ofstream\ outFile(}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Jogadores.txt"{}},}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ ios::out\ |\ ios::trunc);\ }
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outFile.is\_open())}
+\DoxyCodeLine{00418\ \ \ \ \ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ não\ foi\ possível\ abrir\ o\ arquivo\ Jogadores.txt"{}}\ <<\ endl;}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00421\ \ \ \ \ \}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ Jogadores::reescreveArquivo(jogadoresVector);}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \ \ \ \ outFile.close();}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Jogador\ "{}}\ <<\ Apelido\ <<\ \textcolor{stringliteral}{"{}\ removido\ com\ sucesso"{}}\ <<\ endl;}
+\DoxyCodeLine{00428\ \ \ \}}
+\DoxyCodeLine{00429\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00430\ \ \ \{}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ jogador\ inexistente"{}}\ <<\ endl;}
+\DoxyCodeLine{00433\ \ \ \}}
+\DoxyCodeLine{00434\ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00445\ \textcolor{keywordtype}{void}\ Jogadores::atualizaEstatisticas(\textcolor{keywordtype}{char}\ jogoEscolhido,}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector<Jogadores>\ \&jogadoresVector)}
+\DoxyCodeLine{00447\ \{}
+\DoxyCodeLine{00448\ \ \ vector<Jogadores>::iterator\ it;}
+\DoxyCodeLine{00449\ \ \ \textcolor{keywordflow}{for}\ (it\ =\ jogadoresVector.begin();\ it\ !=\ jogadoresVector.end();\ it++)}
+\DoxyCodeLine{00450\ \ \ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordflow}{if}\ ((*it).Apelido\ ==\ this-\/>Apelido)}
+\DoxyCodeLine{00452\ \ \ \ \ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jogoEscolhido\ ==\ \textcolor{charliteral}{'R'})}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>victory)}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ (*it).reversiWins++;}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!this-\/>victory)}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ (*it).reversiDefeats++;}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jogoEscolhido\ ==\ \textcolor{charliteral}{'L'})}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>victory)}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ (*it).lig4Wins++;}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!this-\/>victory)}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ (*it).lig4Defeats++;}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jogoEscolhido\ ==\ \textcolor{charliteral}{'T'})}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>victory)}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ (*it).tictactoeWins++;}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!this-\/>victory)}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ (*it).tictactoeDefeats++;}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jogoEscolhido\ ==\ \textcolor{charliteral}{'C'})}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>victory)}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ (*it).campoMinadoWins++;}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!this-\/>victory)}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ (*it).campoMinadoDefeats++;}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jogoEscolhido\ ==\ \textcolor{charliteral}{'M'})}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>victory)}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ (*it).memoriaWins++;}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!this-\/>victory)}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ (*it).memoriaDefeats++;}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00511\ \ \ \ \ \}}
+\DoxyCodeLine{00512\ \ \ \}}
+\DoxyCodeLine{00513\ \ \ Jogadores::reescreveArquivo(jogadoresVector);}
+\DoxyCodeLine{00514\ \}}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00523\ \textcolor{keywordtype}{void}\ Jogadores::mostrarRanking(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&jogoEscolhido,}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector<Jogadores>\ \&jogadoresVector)}
+\DoxyCodeLine{00525\ \{}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \ \ \textcolor{keyword}{auto}\ ordenacaoVitorias\ =\ [jogoEscolhido](\textcolor{keyword}{const}\ Jogadores\ \&x,}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Jogadores\ \&y)}
+\DoxyCodeLine{00529\ \ \ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordflow}{switch}\ (jogoEscolhido)}
+\DoxyCodeLine{00531\ \ \ \ \ \{}
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'R'}:}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x.reversiWins\ >\ y.reversiWins);}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'L'}:}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x.lig4Wins\ >\ y.lig4Wins);}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'T'}:}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x.tictactoeWins\ >\ y.tictactoeWins);}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'C'}:}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x.campoMinadoWins\ >\ y.campoMinadoWins);}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'M'}:}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x.memoriaWins\ >\ y.memoriaWins);}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00554\ \ \ \ \ \}}
+\DoxyCodeLine{00555\ \ \ \};}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \ \ sort(jogadoresVector.begin(),\ jogadoresVector.end(),\ ordenacaoVitorias);}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00559\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)nRANKING\ DO\ JOGO\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}}}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00562\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&jogador\ :\ jogadoresVector)}
+\DoxyCodeLine{00563\ \ \ \{}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keywordflow}{switch}\ (jogoEscolhido)}
+\DoxyCodeLine{00566\ \ \ \ \ \{}
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'R'}:}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ cout\ <<\ jogador.Apelido\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.Nome\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ <<\ jogador.reversiWins\ <<\ \textcolor{stringliteral}{"{}\ vitória(s)"{}}\ <<\ endl;}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'L'}:}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ cout\ <<\ jogador.Apelido\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.Nome\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \ \ \ <<\ jogador.lig4Wins\ <<\ \textcolor{stringliteral}{"{}\ vitória(s)"{}}\ <<\ endl;}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00576\ }
+\DoxyCodeLine{00577\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'T'}:}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ cout\ <<\ jogador.Apelido\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.Nome\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ <<\ jogador.tictactoeWins\ <<\ \textcolor{stringliteral}{"{}\ vitória(s)"{}}\ <<\ endl;}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'C'}:}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ cout\ <<\ jogador.Apelido\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.Nome\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ <<\ jogador.campoMinadoWins\ <<\ \textcolor{stringliteral}{"{}\ vitória(s)"{}}\ <<\ endl;}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'M'}:}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ cout\ <<\ jogador.Apelido\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ jogador.Nome\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ <<\ jogador.memoriaWins\ <<\ \textcolor{stringliteral}{"{}\ vitória(s)"{}}\ <<\ endl;}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ opção\ inválida"{}}\ <<\ endl;}
+\DoxyCodeLine{00593\ \ \ \ \ \}}
+\DoxyCodeLine{00594\ \ \ \}}
+\DoxyCodeLine{00595\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00597\ \}}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00605\ \textcolor{keywordtype}{void}\ Jogadores::mostrarEstatisticas(vector<Jogadores>\ \&jogadoresVector,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&ordenacao)}
+\DoxyCodeLine{00606\ \{}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \ \ \textcolor{keywordtype}{int}\ tamanho\ =\ jogadoresVector.size();}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00611\ \ \ \textcolor{keywordflow}{if}\ (ordenacao\ ==\ \textcolor{stringliteral}{"{}A"{}}\ ||\ ordenacao\ ==\ \textcolor{stringliteral}{"{}a"{}})}
+\DoxyCodeLine{00612\ \ \ \{\ }
+\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamanho\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00614\ \ \ \ \ \{}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ menorElemento\ =\ i;}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ tamanho;\ ++j)}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jogadoresVector[j].Apelido\ <}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ jogadoresVector[menorElemento].Apelido)}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ menorElemento\ =\ j;}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ swap(jogadoresVector[i],\ jogadoresVector[menorElemento]);}
+\DoxyCodeLine{00625\ \ \ \ \ \}}
+\DoxyCodeLine{00626\ \ \ \}}
+\DoxyCodeLine{00627\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ordenacao\ ==\ \textcolor{stringliteral}{"{}N"{}}\ ||\ ordenacao\ ==\ \textcolor{stringliteral}{"{}n"{}})}
+\DoxyCodeLine{00628\ \ \ \{\ }
+\DoxyCodeLine{00629\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamanho\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00630\ \ \ \ \ \{}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ menorElemento\ =\ i;}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ tamanho;\ ++j)}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jogadoresVector[j].Nome\ <\ jogadoresVector[menorElemento].Nome)}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ menorElemento\ =\ j;}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ swap(jogadoresVector[i],\ jogadoresVector[menorElemento]);}
+\DoxyCodeLine{00640\ \ \ \ \ \}}
+\DoxyCodeLine{00641\ \ \ \}}
+\DoxyCodeLine{00642\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00643\ \ \ \{}
+\DoxyCodeLine{00644\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ comando\ inválido;\ escolha\ ordenar\ por\ (A)pelido\ ou\ (N)ome!"{}}}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00646\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00647\ \ \ \}}
+\DoxyCodeLine{00648\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&jogador\ :\ jogadoresVector)}
+\DoxyCodeLine{00649\ \ \ \{}
+\DoxyCodeLine{00650\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00651\ \ \ \ \ cout\ <<\ jogador.Apelido\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ jogador.Nome\ <<\ endl;}
+\DoxyCodeLine{00652\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}REVERSI\ -\/\ V:\ "{}}\ <<\ jogador.reversiWins}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ D:\ "{}}\ <<\ jogador.reversiDefeats\ <<\ endl;}
+\DoxyCodeLine{00654\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}LIG\ 4\ -\/\ V:\ "{}}\ <<\ jogador.lig4Wins\ <<\ \textcolor{stringliteral}{"{}\ D:\ "{}}\ <<\ jogador.lig4Defeats}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00656\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}TIC\ TAC\ TOE\ -\/\ V:\ "{}}\ <<\ jogador.tictactoeWins}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ D:\ "{}}\ <<\ jogador.tictactoeDefeats\ <<\ endl;}
+\DoxyCodeLine{00658\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}CAMPO\ MINADO\ -\/\ V:\ "{}}\ <<\ jogador.campoMinadoWins}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ D:\ "{}}\ <<\ jogador.campoMinadoDefeats\ <<\ endl;}
+\DoxyCodeLine{00660\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}JOGO\ DA\ MEMORIA\ -\/\ V:\ "{}}\ <<\ jogador.memoriaWins}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ D:\ "{}}\ <<\ jogador.memoriaDefeats\ <<\ endl;}
+\DoxyCodeLine{00662\ \ \ \}}
+\DoxyCodeLine{00663\ \}}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00677\ \textcolor{keywordtype}{void}\ Jogadores::cadastrarJogadores(\textcolor{keywordtype}{string}\ apelido,\ \textcolor{keywordtype}{string}\ nome,\ Jogadores\ \&Jogador,\ vector<Jogadores>\ \&jogadoresVector)}
+\DoxyCodeLine{00678\ \{}
+\DoxyCodeLine{00679\ }
+\DoxyCodeLine{00680\ \ \ Jogadores\ aux;}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \ \ \textcolor{keywordflow}{if}\ (aux.pesquisaJogador(apelido))}
+\DoxyCodeLine{00683\ \ \ \{\ }
+\DoxyCodeLine{00684\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nERRO:\ jogador\ repetido"{}}\ <<\ endl;}
+\DoxyCodeLine{00685\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00686\ \ \ \}}
+\DoxyCodeLine{00687\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00688\ \ \ \{}
+\DoxyCodeLine{00689\ \ \ \ \ Jogadores\ novoJogador(apelido,\ nome);}
+\DoxyCodeLine{00690\ \ \ \ \ \textcolor{keywordflow}{if}\ (novoJogador.Apelido\ !=\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00691\ \ \ \ \ \{}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ jogadoresVector.push\_back(novoJogador);}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ Jogador\ =\ novoJogador;}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nJogador\ "{}}\ <<\ novoJogador.Apelido\ <<\ \textcolor{stringliteral}{"{}\ cadastrado\ com\ sucesso"{}}}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00696\ \ \ \ \ \}}
+\DoxyCodeLine{00697\ \ \ \}}
+\DoxyCodeLine{00698\ \}}
+
+\end{DoxyCode}

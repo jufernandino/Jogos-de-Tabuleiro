@@ -1,0 +1,810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jogos de Tabuleiro: Referência do Arquivo src/main.cpp</title>
+<link rel="icon" href="BoardGame2.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="BoardGame2.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Jogos de Tabuleiro<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">O projeto Jogos de Tabuleiro é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. O objetivo deste projeto é desenvolver um sistema usando o paradigma de orientação a objetos para implementar diferentes jogos de tabuleiro, proporcionando funcionalidades de cadastro de jogadores, exclusão de jogadores, estatística dos jogadores e a listagem dos jogadores. Os jogos disponibilizados são: Campo Minado, Reversi, Tic Tac Toe, Jogo da Memória e Lig4.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programa de gerenciamento de jogos e jogadores.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_campo_minado_8hpp_source.html">CampoMinado.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_jogadores_8hpp_source.html">Jogadores.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_memoria_8hpp_source.html">Memoria.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_reversi_8hpp_source.html">Reversi.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_tabuleiro_8hpp_source.html">Tabuleiro.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_tic_tac_toe_8hpp_source.html">TicTacToe.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lig4_8hpp_source.html">lig4.hpp</a>&quot;</code><br />
+<code>#include &lt;cctype&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div>
+<p><a href="main_8cpp_source.html">Ir para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbad_inputs.html">badInputs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe de exceção para entradas inválidas do usuário.  <a href="classbad_inputs.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a45670c3441070a10f04945cd08643ff5" id="r_a45670c3441070a10f04945cd08643ff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a> (int &amp;a)</td></tr>
+<tr class="memdesc:a45670c3441070a10f04945cd08643ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que verifica e corrige entradas inválidas do usuário.  <br /></td></tr>
+<tr class="separator:a45670c3441070a10f04945cd08643ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a158906443324001e9e2e5396cffd24c3" id="r_a158906443324001e9e2e5396cffd24c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a158906443324001e9e2e5396cffd24c3">menuFimDeJogo</a> (const char &amp;jogoEscolhido, vector&lt; <a class="el" href="class_jogadores.html">Jogadores</a> &gt; &amp;jogadoresVector)</td></tr>
+<tr class="memdesc:a158906443324001e9e2e5396cffd24c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exibe o menu final após o término de um jogo.  <br /></td></tr>
+<tr class="separator:a158906443324001e9e2e5396cffd24c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfb208a938b64a56ad6168ec55f7a809" id="r_acfb208a938b64a56ad6168ec55f7a809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfb208a938b64a56ad6168ec55f7a809">voltarMenuPrincipal</a> ()</td></tr>
+<tr class="memdesc:acfb208a938b64a56ad6168ec55f7a809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o programa.  <br /></td></tr>
+<tr class="separator:acfb208a938b64a56ad6168ec55f7a809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função principal do programa.  <br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Programa de gerenciamento de jogos e jogadores. </p>
+<p>Este programa permite cadastrar, listar e remover jogadores, além de executar partidas de diferentes jogos (<a class="el" href="class_reversi.html" title="Classe que representa o jogo Reversi.">Reversi</a>, Lig4, <a class="el" href="class_tic_tac_toe.html" title="Classe que representa o jogo Tic-Tac-Toe.">TicTacToe</a>, Campo Minado e Jogo da Memória). </p>
+
+<p class="definition">Definição no arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+</div><h2 class="groupheader">Funções</h2>
+<a id="a45670c3441070a10f04945cd08643ff5" name="a45670c3441070a10f04945cd08643ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45670c3441070a10f04945cd08643ff5">&#9670;&#160;</a></span>antiUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void antiUsuario </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que verifica e corrige entradas inválidas do usuário. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Referência para o inteiro a ser preenchido com a entrada válida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00478">478</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  478</span>                         {</div>
+<div class="line"><span class="lineno">  479</span>  <span class="keywordtype">string</span> aux = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">  480</span> </div>
+<div class="line"><span class="lineno">  481</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  482</span>    cin &gt;&gt; aux;</div>
+<div class="line"><span class="lineno">  483</span>    <span class="keywordflow">while</span> ((getchar()) != <span class="charliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">  484</span> </div>
+<div class="line"><span class="lineno">  485</span>      <span class="keywordflow">if</span> (aux.length() != 1) {</div>
+<div class="line"><span class="lineno">  486</span>        cout &lt;&lt; <span class="stringliteral">&quot;ERRO: formato incorreto&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  487</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  488</span>      }</div>
+<div class="line"><span class="lineno">  489</span> </div>
+<div class="line"><span class="lineno">  490</span>    <span class="keywordflow">if</span> (!isdigit(aux[0])) {</div>
+<div class="line"><span class="lineno">  491</span>      cout &lt;&lt; <span class="stringliteral">&quot;ERRO: formato incorreto&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  492</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  493</span>    }</div>
+<div class="line"><span class="lineno">  494</span> </div>
+<div class="line"><span class="lineno">  495</span>    <span class="keywordflow">if</span> (isdigit(aux[0])) {</div>
+<div class="line"><span class="lineno">  496</span>      a = stoi(aux, <span class="keyword">nullptr</span>, 10);</div>
+<div class="line"><span class="lineno">  497</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  498</span>    }</div>
+<div class="line"><span class="lineno">  499</span>  }</div>
+<div class="line"><span class="lineno">  500</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função principal do programa. </p>
+<p>Esta função exibe o menu principal e gerencia as opções de cadastro, remoção, listagem de jogadores e execução de partidas.</p>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna 0 se o programa for encerrado corretamente. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00080">80</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>           {</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>  vector&lt;Jogadores&gt; jogadoresVector;</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>  <a class="code hl_function" href="class_jogadores.html#a56d8fb759501e0b99309186776cd4613">Jogadores::carregarJogadores</a>(jogadoresVector);</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>  <a class="code hl_class" href="class_jogadores.html">Jogadores</a> Jogador1, Jogador2;</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>  <span class="keywordflow">while</span> (1) { </div>
+<div class="line"><span class="lineno">   89</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Digite o comando &quot;</span></div>
+<div class="line"><span class="lineno">   90</span>            <span class="stringliteral">&quot;desejado para iniciar o programa:\n\n&quot;</span></div>
+<div class="line"><span class="lineno">   91</span>         &lt;&lt; <span class="stringliteral">&quot;CJ - Cadastrar jogadores\n&quot;</span></div>
+<div class="line"><span class="lineno">   92</span>         &lt;&lt; <span class="stringliteral">&quot;RJ - Remover jogador\n&quot;</span></div>
+<div class="line"><span class="lineno">   93</span>         &lt;&lt; <span class="stringliteral">&quot;LJ - Listar jogadores por (A) apelido ou (N) nome\n&quot;</span></div>
+<div class="line"><span class="lineno">   94</span>         &lt;&lt; <span class="stringliteral">&quot;EP - Executar partida\n&quot;</span></div>
+<div class="line"><span class="lineno">   95</span>         &lt;&lt; <span class="stringliteral">&quot;FS - Finalizar sistema&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordtype">string</span> input;</div>
+<div class="line"><span class="lineno">   98</span>    getline(cin, input, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">   99</span>    stringstream line(input);</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>    <span class="keywordtype">string</span> Comando;</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordtype">string</span> Modo;</div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordtype">string</span> Apelido;</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordtype">string</span> Nome;</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordtype">char</span> jogoEscolhido;</div>
+<div class="line"><span class="lineno">  106</span>    <span class="keywordtype">string</span> apelidoJogador1, apelidoJogador2;</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  109</span>      getline(line, Comando, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><span class="lineno">  110</span>      <span class="keywordflow">if</span> (Comando.length() != 2) {</div>
+<div class="line"><span class="lineno">  111</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Comando);</div>
+<div class="line"><span class="lineno">  112</span>      }</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; Comando.length(); i++) {</div>
+<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">if</span> (isdigit(Comando[i]) || !isalpha(Comando[i]) ||</div>
+<div class="line"><span class="lineno">  116</span>            isblank(Comando[i])) {</div>
+<div class="line"><span class="lineno">  117</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Comando);</div>
+<div class="line"><span class="lineno">  118</span>        }</div>
+<div class="line"><span class="lineno">  119</span>      }</div>
+<div class="line"><span class="lineno">  120</span>    } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classbad_inputs.html">badInputs</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  121</span>      cout &lt;&lt; e.<a class="code hl_function" href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">what</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  122</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
+<div class="line"><span class="lineno">  124</span> </div>
+<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span> (Comando[0] == <span class="charliteral">&#39;C&#39;</span> &amp;&amp; Comando[1] == <span class="charliteral">&#39;J&#39;</span>) {</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>      <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  128</span>        getline(line, Apelido, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">for</span> (<span class="keywordtype">char</span> &amp;a : Apelido) {</div>
+<div class="line"><span class="lineno">  130</span>            a = tolower(a);</div>
+<div class="line"><span class="lineno">  131</span>        }</div>
+<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">if</span> (Apelido.empty()) {</div>
+<div class="line"><span class="lineno">  133</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Apelido);</div>
+<div class="line"><span class="lineno">  134</span>        }</div>
+<div class="line"><span class="lineno">  135</span>        getline(line, Nome, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">if</span> (Nome.empty()) {</div>
+<div class="line"><span class="lineno">  137</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Nome);</div>
+<div class="line"><span class="lineno">  138</span>        }</div>
+<div class="line"><span class="lineno">  139</span>      } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classbad_inputs.html">badInputs</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  140</span>        cout &lt;&lt; e.<a class="code hl_function" href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">what</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  142</span>      }</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>      <a class="code hl_class" href="class_jogadores.html">Jogadores</a> jogadorAuxiliar;</div>
+<div class="line"><span class="lineno">  145</span> </div>
+<div class="line"><span class="lineno">  146</span>      <a class="code hl_function" href="class_jogadores.html#ae2085de52af59584db9d265ac569cae0">Jogadores::cadastrarJogadores</a>(Apelido, Nome, jogadorAuxiliar, jogadoresVector);</div>
+<div class="line"><span class="lineno">  147</span>    }</div>
+<div class="line"><span class="lineno">  148</span> </div>
+<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">if</span> (Comando[0] == <span class="charliteral">&#39;R&#39;</span> &amp;&amp; Comando[1] == <span class="charliteral">&#39;J&#39;</span>) {</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>      <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  152</span>        getline(line, Apelido, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><span class="lineno">  153</span>        <span class="keywordflow">for</span> (<span class="keywordtype">char</span> &amp;a : Apelido) {</div>
+<div class="line"><span class="lineno">  154</span>            a = tolower(a);</div>
+<div class="line"><span class="lineno">  155</span>        }</div>
+<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">if</span> (Apelido.empty()) {</div>
+<div class="line"><span class="lineno">  157</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Apelido);</div>
+<div class="line"><span class="lineno">  158</span>        }</div>
+<div class="line"><span class="lineno">  159</span>      } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classbad_inputs.html">badInputs</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  160</span>        cout &lt;&lt; e.<a class="code hl_function" href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">what</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  162</span>      }</div>
+<div class="line"><span class="lineno">  163</span> </div>
+<div class="line"><span class="lineno">  164</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="class_jogadores.html#acf3c4563e58d9b11b8a406771e4a90c0">Jogadores::pesquisaJogador</a>(Apelido)) {</div>
+<div class="line"><span class="lineno">  165</span>        <a class="code hl_function" href="class_jogadores.html#a909b8c99998bde6fd4443b4284e07bd8">Jogadores::removeJogador</a>(jogadoresVector, Apelido);</div>
+<div class="line"><span class="lineno">  166</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  167</span>        cout &lt;&lt; <span class="stringliteral">&quot;ERRO: jogador não encontrado&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  168</span>      }</div>
+<div class="line"><span class="lineno">  169</span> </div>
+<div class="line"><span class="lineno">  170</span>      <a class="code hl_function" href="#acfb208a938b64a56ad6168ec55f7a809">voltarMenuPrincipal</a>();</div>
+<div class="line"><span class="lineno">  171</span>    }</div>
+<div class="line"><span class="lineno">  172</span> </div>
+<div class="line"><span class="lineno">  173</span>    <span class="keywordflow">if</span> (Comando[0] == <span class="charliteral">&#39;L&#39;</span> &amp;&amp; Comando[1] == <span class="charliteral">&#39;J&#39;</span>) {</div>
+<div class="line"><span class="lineno">  174</span> </div>
+<div class="line"><span class="lineno">  175</span>      <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  176</span>        getline(line, Modo, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="lineno">  177</span>        <span class="keywordflow">if</span> (Modo.empty()) {</div>
+<div class="line"><span class="lineno">  178</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Modo);</div>
+<div class="line"><span class="lineno">  179</span>        }</div>
+<div class="line"><span class="lineno">  180</span>      } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classbad_inputs.html">badInputs</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  181</span>        cout &lt;&lt; e.<a class="code hl_function" href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">what</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  182</span>        <a class="code hl_function" href="#acfb208a938b64a56ad6168ec55f7a809">voltarMenuPrincipal</a>();</div>
+<div class="line"><span class="lineno">  183</span>      }</div>
+<div class="line"><span class="lineno">  184</span> </div>
+<div class="line"><span class="lineno">  185</span>      <a class="code hl_function" href="class_jogadores.html#aec339a7d33055988ddc61f59a03e6fc9">Jogadores::mostrarEstatisticas</a>(jogadoresVector, Modo);</div>
+<div class="line"><span class="lineno">  186</span>      <a class="code hl_function" href="#acfb208a938b64a56ad6168ec55f7a809">voltarMenuPrincipal</a>();</div>
+<div class="line"><span class="lineno">  187</span>    }</div>
+<div class="line"><span class="lineno">  188</span> </div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (Comando[0] == <span class="charliteral">&#39;E&#39;</span> &amp;&amp; Comando[1] == <span class="charliteral">&#39;P&#39;</span>) {</div>
+<div class="line"><span class="lineno">  190</span>      <span class="keywordtype">string</span> aux;</div>
+<div class="line"><span class="lineno">  191</span>      <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  192</span>        getline(line, aux, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">if</span> (aux.empty()) {</div>
+<div class="line"><span class="lineno">  194</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Apelido);</div>
+<div class="line"><span class="lineno">  195</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (aux.length() != 1) {</div>
+<div class="line"><span class="lineno">  196</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Apelido);</div>
+<div class="line"><span class="lineno">  197</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (isdigit(aux[0]) || !isalpha(aux[0])) {</div>
+<div class="line"><span class="lineno">  198</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Apelido);</div>
+<div class="line"><span class="lineno">  199</span>        }</div>
+<div class="line"><span class="lineno">  200</span> </div>
+<div class="line"><span class="lineno">  201</span>        getline(line, apelidoJogador1, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><span class="lineno">  202</span>        <span class="keywordflow">if</span> (apelidoJogador1.empty()) {</div>
+<div class="line"><span class="lineno">  203</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Apelido);</div>
+<div class="line"><span class="lineno">  204</span>        }</div>
+<div class="line"><span class="lineno">  205</span> </div>
+<div class="line"><span class="lineno">  206</span>        getline(line, apelidoJogador2, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><span class="lineno">  207</span>        <span class="keywordflow">if</span> (apelidoJogador2.empty() &amp;&amp; aux[0] != <span class="charliteral">&#39;C&#39;</span>) {</div>
+<div class="line"><span class="lineno">  208</span>          cout &lt;&lt; <span class="stringliteral">&quot;São necessários dois jogadores para jogar este jogo.&quot;</span></div>
+<div class="line"><span class="lineno">  209</span>               &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  210</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(Apelido);</div>
+<div class="line"><span class="lineno">  211</span>        }</div>
+<div class="line"><span class="lineno">  212</span>      } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classbad_inputs.html">badInputs</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  213</span>        cout &lt;&lt; e.<a class="code hl_function" href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">what</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  214</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  215</span>      }</div>
+<div class="line"><span class="lineno">  216</span> </div>
+<div class="line"><span class="lineno">  217</span>      jogoEscolhido = toupper(aux[0]);</div>
+<div class="line"><span class="lineno">  218</span> </div>
+<div class="line"><span class="lineno">  219</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_jogadores.html#acf3c4563e58d9b11b8a406771e4a90c0">Jogadores::pesquisaJogador</a>(apelidoJogador1)) {</div>
+<div class="line"><span class="lineno">  220</span>        cout &lt;&lt; <span class="stringliteral">&quot;ERRO: primeiro jogador não encontrado&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  221</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  222</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  223</span>        Jogador1.<a class="code hl_function" href="class_jogadores.html#a493d5a06a6121c7a30955ece523e2aba">logIn</a>(apelidoJogador1, jogadoresVector);</div>
+<div class="line"><span class="lineno">  224</span>        cout &lt;&lt; Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; fez log in!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  225</span>      }</div>
+<div class="line"><span class="lineno">  226</span> </div>
+<div class="line"><span class="lineno">  227</span>      <span class="keywordflow">if</span> (jogoEscolhido != <span class="charliteral">&#39;C&#39;</span> &amp;&amp;</div>
+<div class="line"><span class="lineno">  228</span>          !<a class="code hl_function" href="class_jogadores.html#acf3c4563e58d9b11b8a406771e4a90c0">Jogadores::pesquisaJogador</a>(apelidoJogador2)) {</div>
+<div class="line"><span class="lineno">  229</span>        cout &lt;&lt; <span class="stringliteral">&quot;ERRO: segundo jogador não encontrado&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  231</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!apelidoJogador2.empty()) {</div>
+<div class="line"><span class="lineno">  232</span>        Jogador2.<a class="code hl_function" href="class_jogadores.html#a493d5a06a6121c7a30955ece523e2aba">logIn</a>(apelidoJogador2, jogadoresVector);</div>
+<div class="line"><span class="lineno">  233</span>        cout &lt;&lt; Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; fez log in!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  234</span>      }</div>
+<div class="line"><span class="lineno">  235</span> </div>
+<div class="line"><span class="lineno">  236</span>      <span class="keywordflow">if</span> (jogoEscolhido == <span class="charliteral">&#39;R&#39;</span>) {</div>
+<div class="line"><span class="lineno">  237</span>        cout &lt;&lt; <span class="stringliteral">&quot;\nReversi foi escolhido!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  238</span>        <a class="code hl_class" href="class_reversi.html">Reversi</a> r;</div>
+<div class="line"><span class="lineno">  239</span>        r.<a class="code hl_function" href="class_tabuleiro.html#a0202198435ca8905531001e8157ecc19">mostrarRegras</a>(jogoEscolhido);</div>
+<div class="line"><span class="lineno">  240</span>        r.<a class="code hl_function" href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">criaTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  241</span>        r.<a class="code hl_function" href="class_reversi.html#aaf9d358fe554fd053ae013fcca92de9c">inicializarJogo</a>();</div>
+<div class="line"><span class="lineno">  242</span>        r.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  243</span> </div>
+<div class="line"><span class="lineno">  244</span>        <span class="keywordtype">int</span> jogadorAtual = 0;</div>
+<div class="line"><span class="lineno">  245</span>        <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">  246</span>          <span class="keywordtype">char</span> z = (jogadorAtual % 2 == 0) ? <span class="charliteral">&#39;X&#39;</span> : <span class="stringliteral">&#39;O&#39;</span>;</div>
+<div class="line"><span class="lineno">  247</span>          cout &lt;&lt; <span class="stringliteral">&quot;\nTurno de jogador &quot;</span></div>
+<div class="line"><span class="lineno">  248</span>               &lt;&lt; (jogadorAtual % 2 == 0 ? Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> : Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a>)</div>
+<div class="line"><span class="lineno">  249</span>               &lt;&lt; <span class="stringliteral">&quot;:\n&quot;</span></div>
+<div class="line"><span class="lineno">  250</span>               &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  251</span>          <span class="keywordflow">if</span> (r.<a class="code hl_function" href="class_reversi.html#a8300d649da287234dad223a0f41f977c">existeMovimentoPossivel</a>(z) == <span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  252</span>            r.<a class="code hl_function" href="class_reversi.html#ad36ca856fb294ebc8361cfb2b4e69625">mostrarLocaisJogada</a>(z);</div>
+<div class="line"><span class="lineno">  253</span>            <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">  254</span>            <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(x);</div>
+<div class="line"><span class="lineno">  255</span>            <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(y);</div>
+<div class="line"><span class="lineno">  256</span> </div>
+<div class="line"><span class="lineno">  257</span>            <span class="keywordflow">if</span> (r.<a class="code hl_function" href="class_reversi.html#ade4ab6d7d062b4c997ac35db7401a339">ehJogadaValida</a>(x, y, z)) {</div>
+<div class="line"><span class="lineno">  258</span>              r.<a class="code hl_function" href="class_reversi.html#a199a3542df9a2a1328b903fd0d7694f0">validaJogada</a>(x, y, z);</div>
+<div class="line"><span class="lineno">  259</span>              r.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  260</span>              jogadorAtual++;</div>
+<div class="line"><span class="lineno">  261</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  262</span>              cout &lt;&lt; <span class="stringliteral">&quot;ERRO: jogada inválida&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  263</span>              <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  264</span>            }</div>
+<div class="line"><span class="lineno">  265</span>          } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (r.<a class="code hl_function" href="class_reversi.html#a8300d649da287234dad223a0f41f977c">existeMovimentoPossivel</a>(z) == <span class="keyword">false</span>) {</div>
+<div class="line"><span class="lineno">  266</span>            cout &lt;&lt; <span class="stringliteral">&quot;Não existem jogadas possíveis no momento&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  267</span>            cout &lt;&lt; <span class="stringliteral">&quot;Pulando turno para próximo jogador&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  268</span>            jogadorAtual++;</div>
+<div class="line"><span class="lineno">  269</span>          }</div>
+<div class="line"><span class="lineno">  270</span>        } <span class="keywordflow">while</span> (!r.<a class="code hl_function" href="class_reversi.html#a0437cccbe569d12b01b0db0ad80f4011">verificarFimDeJogo</a>());</div>
+<div class="line"><span class="lineno">  271</span> </div>
+<div class="line"><span class="lineno">  272</span>        <span class="keywordtype">int</span> ganhador = r.<a class="code hl_function" href="class_reversi.html#ae8199c096073548e50f1643f7cf9c3bf">confereGanhador</a>();</div>
+<div class="line"><span class="lineno">  273</span>        <span class="keywordflow">if</span> (ganhador == 1) {</div>
+<div class="line"><span class="lineno">  274</span>          cout &lt;&lt; Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  275</span>          Jogador1.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  276</span>          Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  277</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 2) {</div>
+<div class="line"><span class="lineno">  278</span>          cout &lt;&lt; Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  279</span>          Jogador2.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  280</span>          Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  281</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 3) {</div>
+<div class="line"><span class="lineno">  282</span>          cout &lt;&lt; <span class="stringliteral">&quot;Empate!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  283</span>          Jogador1.<a class="code hl_variable" href="class_jogadores.html#ac8db419d82933cff385daef6754e9523">empate</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  284</span>          Jogador2.<a class="code hl_variable" href="class_jogadores.html#ac8db419d82933cff385daef6754e9523">empate</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  285</span> </div>
+<div class="line"><span class="lineno">  286</span>          Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  287</span>          Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  288</span>        }</div>
+<div class="line"><span class="lineno">  289</span> </div>
+<div class="line"><span class="lineno">  290</span>        r.<a class="code hl_function" href="class_tabuleiro.html#abd5957f215e2e780177e131d20021c51">liberaMemoria</a>();</div>
+<div class="line"><span class="lineno">  291</span>        <a class="code hl_function" href="#a158906443324001e9e2e5396cffd24c3">menuFimDeJogo</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  292</span> </div>
+<div class="line"><span class="lineno">  293</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (jogoEscolhido == <span class="charliteral">&#39;L&#39;</span>) {</div>
+<div class="line"><span class="lineno">  294</span>        cout &lt;&lt; <span class="stringliteral">&quot;\nLig4 foi escolhido.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  295</span>        <a class="code hl_class" href="classlig4.html">lig4</a> l;</div>
+<div class="line"><span class="lineno">  296</span>        l.<a class="code hl_function" href="class_tabuleiro.html#a0202198435ca8905531001e8157ecc19">mostrarRegras</a>(jogoEscolhido);</div>
+<div class="line"><span class="lineno">  297</span>        l.<a class="code hl_function" href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">criaTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  298</span>        l.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  299</span> </div>
+<div class="line"><span class="lineno">  300</span>        <span class="keywordtype">int</span> jogadorAtual = 0;</div>
+<div class="line"><span class="lineno">  301</span>        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  302</span>          <span class="keywordtype">char</span> z = (jogadorAtual % 2 == 0) ? <span class="charliteral">&#39;X&#39;</span> : <span class="stringliteral">&#39;O&#39;</span>;</div>
+<div class="line"><span class="lineno">  303</span>          cout &lt;&lt; <span class="stringliteral">&quot;\nTurno de jogador &quot;</span></div>
+<div class="line"><span class="lineno">  304</span>               &lt;&lt; (jogadorAtual % 2 == 0 ? Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> : Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a>)</div>
+<div class="line"><span class="lineno">  305</span>               &lt;&lt; <span class="stringliteral">&quot;:\n&quot;</span></div>
+<div class="line"><span class="lineno">  306</span>               &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  307</span> </div>
+<div class="line"><span class="lineno">  308</span>          <span class="keywordtype">int</span> y;</div>
+<div class="line"><span class="lineno">  309</span>          <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(y);</div>
+<div class="line"><span class="lineno">  310</span> </div>
+<div class="line"><span class="lineno">  311</span>          l.<a class="code hl_function" href="classlig4.html#ae005c624f5efe0c20629863bcb744609">validaJogada</a>(0, y, z);</div>
+<div class="line"><span class="lineno">  312</span>          l.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  313</span> </div>
+<div class="line"><span class="lineno">  314</span>          <span class="keywordtype">int</span> ganhador = l.<a class="code hl_function" href="classlig4.html#a9d058c90c150c5eebdef63bff0000550">confereGanhador</a>();</div>
+<div class="line"><span class="lineno">  315</span>          <span class="keywordflow">if</span> (ganhador == 1) {</div>
+<div class="line"><span class="lineno">  316</span>            cout &lt;&lt; Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  317</span>            Jogador1.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  318</span>            Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  319</span>            Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  320</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  321</span>          } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 2) {</div>
+<div class="line"><span class="lineno">  322</span>            cout &lt;&lt; Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  323</span>            Jogador2.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  324</span>            Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  325</span>            Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  326</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  327</span>          } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 3) {</div>
+<div class="line"><span class="lineno">  328</span>            cout &lt;&lt; <span class="stringliteral">&quot;Empate!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  329</span> </div>
+<div class="line"><span class="lineno">  330</span>            Jogador1.<a class="code hl_variable" href="class_jogadores.html#ac8db419d82933cff385daef6754e9523">empate</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  331</span>            Jogador2.<a class="code hl_variable" href="class_jogadores.html#ac8db419d82933cff385daef6754e9523">empate</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  332</span> </div>
+<div class="line"><span class="lineno">  333</span>            Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  334</span>            Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  335</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  336</span>          }</div>
+<div class="line"><span class="lineno">  337</span>          jogadorAtual++;</div>
+<div class="line"><span class="lineno">  338</span>        }</div>
+<div class="line"><span class="lineno">  339</span> </div>
+<div class="line"><span class="lineno">  340</span>        l.<a class="code hl_function" href="class_tabuleiro.html#abd5957f215e2e780177e131d20021c51">liberaMemoria</a>();</div>
+<div class="line"><span class="lineno">  341</span>        <a class="code hl_function" href="#a158906443324001e9e2e5396cffd24c3">menuFimDeJogo</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  342</span> </div>
+<div class="line"><span class="lineno">  343</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (jogoEscolhido == <span class="charliteral">&#39;T&#39;</span>) {</div>
+<div class="line"><span class="lineno">  344</span>        cout &lt;&lt; <span class="stringliteral">&quot;\nTicTacToe foi escolhido!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  345</span>        <a class="code hl_class" href="class_tic_tac_toe.html">TicTacToe</a> t;</div>
+<div class="line"><span class="lineno">  346</span>        t.<a class="code hl_function" href="class_tabuleiro.html#a0202198435ca8905531001e8157ecc19">mostrarRegras</a>(jogoEscolhido);</div>
+<div class="line"><span class="lineno">  347</span>        t.<a class="code hl_function" href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">criaTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  348</span>        t.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  349</span> </div>
+<div class="line"><span class="lineno">  350</span>        <span class="keywordtype">int</span> jogadorAtual = 0;</div>
+<div class="line"><span class="lineno">  351</span>        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  352</span>          <span class="keywordtype">char</span> z = (jogadorAtual % 2 == 0) ? <span class="charliteral">&#39;X&#39;</span> : <span class="stringliteral">&#39;O&#39;</span>;</div>
+<div class="line"><span class="lineno">  353</span>          cout &lt;&lt; <span class="stringliteral">&quot;\nTurno de jogador &quot;</span></div>
+<div class="line"><span class="lineno">  354</span>               &lt;&lt; (jogadorAtual % 2 == 0 ? Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> : Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a>)</div>
+<div class="line"><span class="lineno">  355</span>               &lt;&lt; <span class="stringliteral">&quot;:\n&quot;</span></div>
+<div class="line"><span class="lineno">  356</span>               &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  357</span> </div>
+<div class="line"><span class="lineno">  358</span>          <span class="keywordtype">int</span> x, y;</div>
+<div class="line"><span class="lineno">  359</span>          <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(x);</div>
+<div class="line"><span class="lineno">  360</span>          <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(y);</div>
+<div class="line"><span class="lineno">  361</span> </div>
+<div class="line"><span class="lineno">  362</span>          t.<a class="code hl_function" href="class_tabuleiro.html#aababbe9d7ac722d0912d31a13a68c50b">validaJogada</a>(x, y, z);</div>
+<div class="line"><span class="lineno">  363</span>          t.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  364</span> </div>
+<div class="line"><span class="lineno">  365</span>          <span class="keywordtype">int</span> ganhador = t.<a class="code hl_function" href="class_tic_tac_toe.html#a87344d488a8ecadf3614dfd08a390d10">confereGanhador</a>();</div>
+<div class="line"><span class="lineno">  366</span>          <span class="keywordflow">if</span> (ganhador == 1) {</div>
+<div class="line"><span class="lineno">  367</span>            cout &lt;&lt; Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  368</span>            Jogador1.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  369</span>            Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  370</span>            Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  371</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  372</span>          } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 2) {</div>
+<div class="line"><span class="lineno">  373</span>            cout &lt;&lt; Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  374</span>            Jogador2.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  375</span>            Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  376</span>            Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  377</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  378</span>          } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 3) {</div>
+<div class="line"><span class="lineno">  379</span>            cout &lt;&lt; <span class="stringliteral">&quot;Não há vencedores! Deu velha!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  380</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  381</span>          }</div>
+<div class="line"><span class="lineno">  382</span>          jogadorAtual++;</div>
+<div class="line"><span class="lineno">  383</span>        }</div>
+<div class="line"><span class="lineno">  384</span> </div>
+<div class="line"><span class="lineno">  385</span>        t.<a class="code hl_function" href="class_tabuleiro.html#abd5957f215e2e780177e131d20021c51">liberaMemoria</a>();</div>
+<div class="line"><span class="lineno">  386</span>        <a class="code hl_function" href="#a158906443324001e9e2e5396cffd24c3">menuFimDeJogo</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  387</span> </div>
+<div class="line"><span class="lineno">  388</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (jogoEscolhido == <span class="charliteral">&#39;C&#39;</span>) {</div>
+<div class="line"><span class="lineno">  389</span>        cout &lt;&lt; <span class="stringliteral">&quot;\nCampo Minado foi escolhido!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  390</span>        <a class="code hl_class" href="class_campo_minado.html">CampoMinado</a> c;</div>
+<div class="line"><span class="lineno">  391</span> </div>
+<div class="line"><span class="lineno">  392</span>        <span class="keywordflow">if</span> (c.<a class="code hl_function" href="class_campo_minado.html#a31b0a2b1f7583842960a1645db6aeef4">jogarCampoMinado</a>() == 1) {</div>
+<div class="line"><span class="lineno">  393</span>          Jogador1.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  394</span>          Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  395</span>        }</div>
+<div class="line"><span class="lineno">  396</span> </div>
+<div class="line"><span class="lineno">  397</span>        c.<a class="code hl_function" href="class_tabuleiro.html#abd5957f215e2e780177e131d20021c51">liberaMemoria</a>();</div>
+<div class="line"><span class="lineno">  398</span>        <a class="code hl_function" href="#a158906443324001e9e2e5396cffd24c3">menuFimDeJogo</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  399</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (jogoEscolhido == <span class="charliteral">&#39;M&#39;</span>) {</div>
+<div class="line"><span class="lineno">  400</span>        cout &lt;&lt; <span class="stringliteral">&quot;\nJogo da Memória foi escolhido!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  401</span>        <a class="code hl_class" href="class_memoria.html">Memoria</a> m;</div>
+<div class="line"><span class="lineno">  402</span>        m.<a class="code hl_function" href="class_tabuleiro.html#a0202198435ca8905531001e8157ecc19">mostrarRegras</a>(jogoEscolhido);</div>
+<div class="line"><span class="lineno">  403</span>        m.<a class="code hl_function" href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">criaTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  404</span>        m.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  405</span> </div>
+<div class="line"><span class="lineno">  406</span>        <span class="keywordtype">int</span> jogadorAtual = 0;</div>
+<div class="line"><span class="lineno">  407</span>        <span class="keywordflow">do</span> {</div>
+<div class="line"><span class="lineno">  408</span>          <span class="keywordtype">char</span> z = (jogadorAtual % 2 == 0) ? <span class="charliteral">&#39;1&#39;</span> : <span class="stringliteral">&#39;2&#39;</span>;</div>
+<div class="line"><span class="lineno">  409</span>          cout &lt;&lt; <span class="stringliteral">&quot;\nTurno de jogador &quot;</span></div>
+<div class="line"><span class="lineno">  410</span>               &lt;&lt; (jogadorAtual % 2 == 0 ? Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> : Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a>)</div>
+<div class="line"><span class="lineno">  411</span>               &lt;&lt; <span class="stringliteral">&quot;:\n&quot;</span></div>
+<div class="line"><span class="lineno">  412</span>               &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  413</span>          cout &lt;&lt; <span class="stringliteral">&quot;Escolha as coordenadas para duas posições&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  414</span>          <span class="keywordtype">int</span> x, y, x2, y2;</div>
+<div class="line"><span class="lineno">  415</span>          <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(x);</div>
+<div class="line"><span class="lineno">  416</span>          <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(y);</div>
+<div class="line"><span class="lineno">  417</span>          <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(x2);</div>
+<div class="line"><span class="lineno">  418</span>          <a class="code hl_function" href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a>(y2);</div>
+<div class="line"><span class="lineno">  419</span> </div>
+<div class="line"><span class="lineno">  420</span>          <span class="keywordflow">if</span> (m.<a class="code hl_function" href="class_memoria.html#a374086dda0aedeb1d619c7ee190d158c">ehJogadaValida</a>(x, y, x2, y2, z)) {</div>
+<div class="line"><span class="lineno">  421</span>            m.<a class="code hl_function" href="class_memoria.html#a3c6352d30673ede7d058dd06491e2940">validaJogada</a>(x, y, x2, y2, z);</div>
+<div class="line"><span class="lineno">  422</span>            m.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  423</span>            <span class="keywordflow">if</span> (m.<a class="code hl_function" href="class_memoria.html#a0a52cb88ba8e775cba5cdec4fe6fb52e">formamPares</a>(x, y, x2, y2, z) == <span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">  424</span>              m.<a class="code hl_function" href="class_memoria.html#adb3ecf79aac46026f5c907899a9aec22">validaPares</a>(x, y, x2, y2, z);</div>
+<div class="line"><span class="lineno">  425</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (m.<a class="code hl_function" href="class_memoria.html#a0a52cb88ba8e775cba5cdec4fe6fb52e">formamPares</a>(x, y, x2, y2, z) == <span class="keyword">false</span>) {</div>
+<div class="line"><span class="lineno">  426</span>              m.<a class="code hl_function" href="class_memoria.html#adb3ecf79aac46026f5c907899a9aec22">validaPares</a>(x, y, x2, y2, z);</div>
+<div class="line"><span class="lineno">  427</span>              m.<a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  428</span>              jogadorAtual++;</div>
+<div class="line"><span class="lineno">  429</span>            }</div>
+<div class="line"><span class="lineno">  430</span>          } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  431</span>            cout &lt;&lt; <span class="stringliteral">&quot;ERRO: jogada inválida&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  432</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  433</span>          }</div>
+<div class="line"><span class="lineno">  434</span> </div>
+<div class="line"><span class="lineno">  435</span>        } <span class="keywordflow">while</span> (!m.<a class="code hl_function" href="class_memoria.html#ac9b2027c99c584240c7ad720b127f61f">verificarFimDeJogo</a>());</div>
+<div class="line"><span class="lineno">  436</span> </div>
+<div class="line"><span class="lineno">  437</span>        <span class="keywordtype">int</span> ganhador = m.<a class="code hl_function" href="class_memoria.html#afd4e8d6b97040e5263e67dd8afadefd1">confereGanhador</a>();</div>
+<div class="line"><span class="lineno">  438</span>        <span class="keywordflow">if</span> (ganhador == 1) {</div>
+<div class="line"><span class="lineno">  439</span>          cout &lt;&lt; Jogador1.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  440</span>          Jogador1.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  441</span>          Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  442</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 2) {</div>
+<div class="line"><span class="lineno">  443</span>          cout &lt;&lt; Jogador2.<a class="code hl_variable" href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Apelido</a> &lt;&lt; <span class="stringliteral">&quot; ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  444</span>          Jogador2.<a class="code hl_variable" href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">victory</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  445</span>          Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  446</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ganhador == 3) {</div>
+<div class="line"><span class="lineno">  447</span>          cout &lt;&lt; <span class="stringliteral">&quot;Empate!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  448</span>          Jogador1.<a class="code hl_variable" href="class_jogadores.html#ac8db419d82933cff385daef6754e9523">empate</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  449</span>          Jogador2.<a class="code hl_variable" href="class_jogadores.html#ac8db419d82933cff385daef6754e9523">empate</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  450</span> </div>
+<div class="line"><span class="lineno">  451</span>          Jogador1.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  452</span>          Jogador2.<a class="code hl_function" href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">atualizaEstatisticas</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  453</span>        }</div>
+<div class="line"><span class="lineno">  454</span> </div>
+<div class="line"><span class="lineno">  455</span>        m.<a class="code hl_function" href="class_tabuleiro.html#abd5957f215e2e780177e131d20021c51">liberaMemoria</a>();</div>
+<div class="line"><span class="lineno">  456</span>        <a class="code hl_function" href="#a158906443324001e9e2e5396cffd24c3">menuFimDeJogo</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  457</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  458</span>        cout &lt;&lt; <span class="stringliteral">&quot;ERRO: jogo não encontrado&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  459</span>      }</div>
+<div class="line"><span class="lineno">  460</span> </div>
+<div class="line"><span class="lineno">  461</span>      <span class="keywordflow">if</span> (Comando[0] == <span class="charliteral">&#39;F&#39;</span> &amp;&amp; Comando[1] == <span class="charliteral">&#39;S&#39;</span>) {</div>
+<div class="line"><span class="lineno">  462</span>        cout &lt;&lt; <span class="stringliteral">&quot;Sistema finalizado&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  463</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  464</span>      }</div>
+<div class="line"><span class="lineno">  465</span> </div>
+<div class="line"><span class="lineno">  466</span>      <span class="keywordflow">if</span> (Comando != <span class="stringliteral">&quot;CJ&quot;</span> &amp;&amp; Comando != <span class="stringliteral">&quot;LI&quot;</span> &amp;&amp; Comando != <span class="stringliteral">&quot;RJ&quot;</span> &amp;&amp;</div>
+<div class="line"><span class="lineno">  467</span>          Comando != <span class="stringliteral">&quot;LJ&quot;</span> &amp;&amp; Comando != <span class="stringliteral">&quot;EP&quot;</span> &amp;&amp; Comando != <span class="stringliteral">&quot;FS&quot;</span>) {</div>
+<div class="line"><span class="lineno">  468</span>        cout &lt;&lt; <span class="stringliteral">&quot;O comando digitado não corresponde a nenhuma opção válida. &quot;</span></div>
+<div class="line"><span class="lineno">  469</span>                <span class="stringliteral">&quot;Tente novamente.&quot;</span></div>
+<div class="line"><span class="lineno">  470</span>             &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  471</span>      }</div>
+<div class="line"><span class="lineno">  472</span>    }</div>
+<div class="line"><span class="lineno">  473</span>  } </div>
+<div class="line"><span class="lineno">  474</span> </div>
+<div class="line"><span class="lineno">  475</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  476</span>} </div>
+<div class="ttc" id="aclass_campo_minado_html"><div class="ttname"><a href="class_campo_minado.html">CampoMinado</a></div><div class="ttdoc">Classe que representa o jogo Campo Minado.</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8hpp_source.html#l00015">CampoMinado.hpp:16</a></div></div>
+<div class="ttc" id="aclass_campo_minado_html_a31b0a2b1f7583842960a1645db6aeef4"><div class="ttname"><a href="class_campo_minado.html#a31b0a2b1f7583842960a1645db6aeef4">CampoMinado::jogarCampoMinado</a></div><div class="ttdeci">int jogarCampoMinado()</div><div class="ttdoc">Organização da jogabilidade passo-a-passo.</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8cpp_source.html#l00218">CampoMinado.cpp:218</a></div></div>
+<div class="ttc" id="aclass_jogadores_html"><div class="ttname"><a href="class_jogadores.html">Jogadores</a></div><div class="ttdoc">Classe para representar os jogadores.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8hpp_source.html#l00021">Jogadores.hpp:22</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_a1a613c84236c9e3070164b406db0d44f"><div class="ttname"><a href="class_jogadores.html#a1a613c84236c9e3070164b406db0d44f">Jogadores::Apelido</a></div><div class="ttdeci">string Apelido</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8hpp_source.html#l00024">Jogadores.hpp:24</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_a493d5a06a6121c7a30955ece523e2aba"><div class="ttname"><a href="class_jogadores.html#a493d5a06a6121c7a30955ece523e2aba">Jogadores::logIn</a></div><div class="ttdeci">Jogadores logIn(string Apelido, vector&lt; Jogadores &gt; &amp;jogadoresVector)</div><div class="ttdoc">Login de um jogador.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00126">Jogadores.cpp:126</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_a56d8fb759501e0b99309186776cd4613"><div class="ttname"><a href="class_jogadores.html#a56d8fb759501e0b99309186776cd4613">Jogadores::carregarJogadores</a></div><div class="ttdeci">static void carregarJogadores(vector&lt; Jogadores &gt; &amp;jogadoresVector)</div><div class="ttdoc">Carrega as informações dos jogadores a partir de um arquivo para o vetor de jogadores.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00196">Jogadores.cpp:196</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_a909b8c99998bde6fd4443b4284e07bd8"><div class="ttname"><a href="class_jogadores.html#a909b8c99998bde6fd4443b4284e07bd8">Jogadores::removeJogador</a></div><div class="ttdeci">static void removeJogador(vector&lt; Jogadores &gt; &amp;jogadoresVector, string &amp;Apelido)</div><div class="ttdoc">Remove um jogador.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00392">Jogadores.cpp:392</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_aa2c5f3742932f8b358bc0ec791bd6a76"><div class="ttname"><a href="class_jogadores.html#aa2c5f3742932f8b358bc0ec791bd6a76">Jogadores::atualizaEstatisticas</a></div><div class="ttdeci">void atualizaEstatisticas(char jogoEscolhido, vector&lt; Jogadores &gt; &amp;jogadoresVector)</div><div class="ttdoc">Atualiza as estatísticas de um jogador para um jogo específico.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00445">Jogadores.cpp:445</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_ac8db419d82933cff385daef6754e9523"><div class="ttname"><a href="class_jogadores.html#ac8db419d82933cff385daef6754e9523">Jogadores::empate</a></div><div class="ttdeci">bool empate</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8hpp_source.html#l00041">Jogadores.hpp:41</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_acf3c4563e58d9b11b8a406771e4a90c0"><div class="ttname"><a href="class_jogadores.html#acf3c4563e58d9b11b8a406771e4a90c0">Jogadores::pesquisaJogador</a></div><div class="ttdeci">static int pesquisaJogador(string Apelido)</div><div class="ttdoc">Procura por um jogador no arquivo utilizando seu apelido.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00080">Jogadores.cpp:80</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_ad46fcee4fe300140a29d653b2aa1973b"><div class="ttname"><a href="class_jogadores.html#ad46fcee4fe300140a29d653b2aa1973b">Jogadores::victory</a></div><div class="ttdeci">bool victory</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8hpp_source.html#l00040">Jogadores.hpp:40</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_ae2085de52af59584db9d265ac569cae0"><div class="ttname"><a href="class_jogadores.html#ae2085de52af59584db9d265ac569cae0">Jogadores::cadastrarJogadores</a></div><div class="ttdeci">static void cadastrarJogadores(string apelido, string nome, Jogadores &amp;Jogador, vector&lt; Jogadores &gt; &amp;jogadoresVector)</div><div class="ttdoc">Cadastro de novo jogador.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00677">Jogadores.cpp:677</a></div></div>
+<div class="ttc" id="aclass_jogadores_html_aec339a7d33055988ddc61f59a03e6fc9"><div class="ttname"><a href="class_jogadores.html#aec339a7d33055988ddc61f59a03e6fc9">Jogadores::mostrarEstatisticas</a></div><div class="ttdeci">static void mostrarEstatisticas(vector&lt; Jogadores &gt; &amp;jogadoresVector, const string &amp;ordenacao)</div><div class="ttdoc">Mostra as estatísticas dos jogadores, ordenadas por apelido ou nome.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00605">Jogadores.cpp:605</a></div></div>
+<div class="ttc" id="aclass_memoria_html"><div class="ttname"><a href="class_memoria.html">Memoria</a></div><div class="ttdoc">Classe que representa o jogo da Memória.</div><div class="ttdef"><b>Definição</b> <a href="_memoria_8hpp_source.html#l00017">Memoria.hpp:18</a></div></div>
+<div class="ttc" id="aclass_memoria_html_a0a52cb88ba8e775cba5cdec4fe6fb52e"><div class="ttname"><a href="class_memoria.html#a0a52cb88ba8e775cba5cdec4fe6fb52e">Memoria::formamPares</a></div><div class="ttdeci">bool formamPares(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Análise se duas posições formam um par.</div><div class="ttdef"><b>Definição</b> <a href="_memoria_8cpp_source.html#l00123">Memoria.cpp:123</a></div></div>
+<div class="ttc" id="aclass_memoria_html_a374086dda0aedeb1d619c7ee190d158c"><div class="ttname"><a href="class_memoria.html#a374086dda0aedeb1d619c7ee190d158c">Memoria::ehJogadaValida</a></div><div class="ttdeci">bool ehJogadaValida(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Validação da jogada.</div><div class="ttdef"><b>Definição</b> <a href="_memoria_8cpp_source.html#l00072">Memoria.cpp:72</a></div></div>
+<div class="ttc" id="aclass_memoria_html_a3c6352d30673ede7d058dd06491e2940"><div class="ttname"><a href="class_memoria.html#a3c6352d30673ede7d058dd06491e2940">Memoria::validaJogada</a></div><div class="ttdeci">void validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Execução de uma jogada.</div><div class="ttdef"><b>Definição</b> <a href="_memoria_8cpp_source.html#l00097">Memoria.cpp:97</a></div></div>
+<div class="ttc" id="aclass_memoria_html_ac9b2027c99c584240c7ad720b127f61f"><div class="ttname"><a href="class_memoria.html#ac9b2027c99c584240c7ad720b127f61f">Memoria::verificarFimDeJogo</a></div><div class="ttdeci">bool verificarFimDeJogo()</div><div class="ttdoc">Verificador de fim da partida.</div><div class="ttdef"><b>Definição</b> <a href="_memoria_8cpp_source.html#l00204">Memoria.cpp:204</a></div></div>
+<div class="ttc" id="aclass_memoria_html_adb3ecf79aac46026f5c907899a9aec22"><div class="ttname"><a href="class_memoria.html#adb3ecf79aac46026f5c907899a9aec22">Memoria::validaPares</a></div><div class="ttdeci">void validaPares(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Execução de ações no tabuleiro, dependendo se tem pares.</div><div class="ttdef"><b>Definição</b> <a href="_memoria_8cpp_source.html#l00144">Memoria.cpp:144</a></div></div>
+<div class="ttc" id="aclass_memoria_html_afd4e8d6b97040e5263e67dd8afadefd1"><div class="ttname"><a href="class_memoria.html#afd4e8d6b97040e5263e67dd8afadefd1">Memoria::confereGanhador</a></div><div class="ttdeci">virtual int confereGanhador() override</div><div class="ttdoc">Esta função sobrescreve o método &quot;confereGanhador&quot; da classe base &quot;Tabuleiro&quot; e implementa a lógica p...</div><div class="ttdef"><b>Definição</b> <a href="_memoria_8cpp_source.html#l00175">Memoria.cpp:175</a></div></div>
+<div class="ttc" id="aclass_reversi_html"><div class="ttname"><a href="class_reversi.html">Reversi</a></div><div class="ttdoc">Classe que representa o jogo Reversi.</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8hpp_source.html#l00018">Reversi.hpp:19</a></div></div>
+<div class="ttc" id="aclass_reversi_html_a0437cccbe569d12b01b0db0ad80f4011"><div class="ttname"><a href="class_reversi.html#a0437cccbe569d12b01b0db0ad80f4011">Reversi::verificarFimDeJogo</a></div><div class="ttdeci">bool verificarFimDeJogo()</div><div class="ttdoc">Verificador de fim da partida.</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8cpp_source.html#l00291">Reversi.cpp:291</a></div></div>
+<div class="ttc" id="aclass_reversi_html_a199a3542df9a2a1328b903fd0d7694f0"><div class="ttname"><a href="class_reversi.html#a199a3542df9a2a1328b903fd0d7694f0">Reversi::validaJogada</a></div><div class="ttdeci">virtual void validaJogada(int x, int y, char z) override</div><div class="ttdoc">Esta função sobrescreve o método &quot;validaJogada&quot; da classe base &quot;Tabuleiro&quot; e implementa a lógica para...</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8cpp_source.html#l00215">Reversi.cpp:215</a></div></div>
+<div class="ttc" id="aclass_reversi_html_a8300d649da287234dad223a0f41f977c"><div class="ttname"><a href="class_reversi.html#a8300d649da287234dad223a0f41f977c">Reversi::existeMovimentoPossivel</a></div><div class="ttdeci">bool existeMovimentoPossivel(char jogadorDaVez)</div><div class="ttdoc">Validação da existência de movimentos possívei no turno.</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8cpp_source.html#l00156">Reversi.cpp:156</a></div></div>
+<div class="ttc" id="aclass_reversi_html_aaf9d358fe554fd053ae013fcca92de9c"><div class="ttname"><a href="class_reversi.html#aaf9d358fe554fd053ae013fcca92de9c">Reversi::inicializarJogo</a></div><div class="ttdeci">void inicializarJogo()</div><div class="ttdoc">Inicialização específica do Reversi.</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8cpp_source.html#l00077">Reversi.cpp:77</a></div></div>
+<div class="ttc" id="aclass_reversi_html_ad36ca856fb294ebc8361cfb2b4e69625"><div class="ttname"><a href="class_reversi.html#ad36ca856fb294ebc8361cfb2b4e69625">Reversi::mostrarLocaisJogada</a></div><div class="ttdeci">void mostrarLocaisJogada(char jogador)</div><div class="ttdoc">Informação sobre possíveis jogadas no turno.</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8cpp_source.html#l00185">Reversi.cpp:185</a></div></div>
+<div class="ttc" id="aclass_reversi_html_ade4ab6d7d062b4c997ac35db7401a339"><div class="ttname"><a href="class_reversi.html#ade4ab6d7d062b4c997ac35db7401a339">Reversi::ehJogadaValida</a></div><div class="ttdeci">bool ehJogadaValida(int x, int y, char jogadorDaVez)</div><div class="ttdoc">Validação da jogada.</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8cpp_source.html#l00105">Reversi.cpp:105</a></div></div>
+<div class="ttc" id="aclass_reversi_html_ae8199c096073548e50f1643f7cf9c3bf"><div class="ttname"><a href="class_reversi.html#ae8199c096073548e50f1643f7cf9c3bf">Reversi::confereGanhador</a></div><div class="ttdeci">virtual int confereGanhador() override</div><div class="ttdoc">Esta função sobrescreve o método &quot;confereGanhador&quot; da classe base &quot;Tabuleiro&quot; e implementa a lógica p...</div><div class="ttdef"><b>Definição</b> <a href="_reversi_8cpp_source.html#l00033">Reversi.cpp:33</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a0202198435ca8905531001e8157ecc19"><div class="ttname"><a href="class_tabuleiro.html#a0202198435ca8905531001e8157ecc19">Tabuleiro::mostrarRegras</a></div><div class="ttdeci">void mostrarRegras(const char &amp;jogoEscolhido)</div><div class="ttdoc">confere se alguém venceu</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8cpp_source.html#l00119">Tabuleiro.cpp:119</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a56ad972c43f8d404016ac1adeb33432d"><div class="ttname"><a href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">Tabuleiro::criaTabuleiro</a></div><div class="ttdeci">void criaTabuleiro()</div><div class="ttdoc">Cria o tabuleiro alocando memória dinamicamente para a matriz.</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8cpp_source.html#l00026">Tabuleiro.cpp:26</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_aababbe9d7ac722d0912d31a13a68c50b"><div class="ttname"><a href="class_tabuleiro.html#aababbe9d7ac722d0912d31a13a68c50b">Tabuleiro::validaJogada</a></div><div class="ttdeci">virtual void validaJogada(int x, int y, char z)</div><div class="ttdoc">Valida uma jogada no tabuleiro.</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8cpp_source.html#l00097">Tabuleiro.cpp:97</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_abd5957f215e2e780177e131d20021c51"><div class="ttname"><a href="class_tabuleiro.html#abd5957f215e2e780177e131d20021c51">Tabuleiro::liberaMemoria</a></div><div class="ttdeci">void liberaMemoria()</div><div class="ttdoc">Libera a memória alocada para o tabuleiro.</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8cpp_source.html#l00077">Tabuleiro.cpp:77</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_ae2e256e1bc632250b7fb59340e8ef81d"><div class="ttname"><a href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">Tabuleiro::imprimirTabuleiro</a></div><div class="ttdeci">virtual void imprimirTabuleiro()</div><div class="ttdoc">Imprime o tabuleiro na tela.</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8cpp_source.html#l00045">Tabuleiro.cpp:45</a></div></div>
+<div class="ttc" id="aclass_tic_tac_toe_html"><div class="ttname"><a href="class_tic_tac_toe.html">TicTacToe</a></div><div class="ttdoc">Classe que representa o jogo Tic-Tac-Toe.</div><div class="ttdef"><b>Definição</b> <a href="_tic_tac_toe_8hpp_source.html#l00017">TicTacToe.hpp:18</a></div></div>
+<div class="ttc" id="aclass_tic_tac_toe_html_a87344d488a8ecadf3614dfd08a390d10"><div class="ttname"><a href="class_tic_tac_toe.html#a87344d488a8ecadf3614dfd08a390d10">TicTacToe::confereGanhador</a></div><div class="ttdeci">virtual int confereGanhador() override</div><div class="ttdoc">Confere se há um ganhador no jogo Tic-Tac-Toe.</div><div class="ttdef"><b>Definição</b> <a href="_tic_tac_toe_8cpp_source.html#l00028">TicTacToe.cpp:28</a></div></div>
+<div class="ttc" id="aclassbad_inputs_html"><div class="ttname"><a href="classbad_inputs.html">badInputs</a></div><div class="ttdoc">Classe de exceção para entradas inválidas do usuário.</div><div class="ttdef"><b>Definição</b> <a href="main_8cpp_source.html#l00052">main.cpp:52</a></div></div>
+<div class="ttc" id="aclassbad_inputs_html_a22667ee8bd89b4b9b635b8dcf64af8f5"><div class="ttname"><a href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">badInputs::what</a></div><div class="ttdeci">virtual const char * what() const</div><div class="ttdoc">Retorna uma mensagem de erro.</div><div class="ttdef"><b>Definição</b> <a href="main_8cpp_source.html#l00069">main.cpp:69</a></div></div>
+<div class="ttc" id="aclasslig4_html"><div class="ttname"><a href="classlig4.html">lig4</a></div><div class="ttdoc">Classe que representa o jogo Lig4.</div><div class="ttdef"><b>Definição</b> <a href="lig4_8hpp_source.html#l00016">lig4.hpp:17</a></div></div>
+<div class="ttc" id="aclasslig4_html_a9d058c90c150c5eebdef63bff0000550"><div class="ttname"><a href="classlig4.html#a9d058c90c150c5eebdef63bff0000550">lig4::confereGanhador</a></div><div class="ttdeci">virtual int confereGanhador() override</div><div class="ttdoc">Esta função sobrescreve o método &quot;confereGanhador&quot; da classe base &quot;Tabuleiro&quot; e implementa a lógica p...</div><div class="ttdef"><b>Definição</b> <a href="lig4_8cpp_source.html#l00075">lig4.cpp:75</a></div></div>
+<div class="ttc" id="aclasslig4_html_ae005c624f5efe0c20629863bcb744609"><div class="ttname"><a href="classlig4.html#ae005c624f5efe0c20629863bcb744609">lig4::validaJogada</a></div><div class="ttdeci">virtual void validaJogada(int x, int y, char z) override</div><div class="ttdoc">Esta função sobrescreve o método &quot;validaJogada&quot; da classe base &quot;Tabuleiro&quot;e implementa a lógica para ...</div><div class="ttdef"><b>Definição</b> <a href="lig4_8cpp_source.html#l00031">lig4.cpp:31</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a158906443324001e9e2e5396cffd24c3"><div class="ttname"><a href="#a158906443324001e9e2e5396cffd24c3">menuFimDeJogo</a></div><div class="ttdeci">void menuFimDeJogo(const char &amp;jogoEscolhido, vector&lt; Jogadores &gt; &amp;jogadoresVector)</div><div class="ttdoc">Exibe o menu final após o término de um jogo.</div><div class="ttdef"><b>Definição</b> <a href="main_8cpp_source.html#l00502">main.cpp:502</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a45670c3441070a10f04945cd08643ff5"><div class="ttname"><a href="#a45670c3441070a10f04945cd08643ff5">antiUsuario</a></div><div class="ttdeci">void antiUsuario(int &amp;a)</div><div class="ttdoc">Função que verifica e corrige entradas inválidas do usuário.</div><div class="ttdef"><b>Definição</b> <a href="main_8cpp_source.html#l00478">main.cpp:478</a></div></div>
+<div class="ttc" id="amain_8cpp_html_acfb208a938b64a56ad6168ec55f7a809"><div class="ttname"><a href="#acfb208a938b64a56ad6168ec55f7a809">voltarMenuPrincipal</a></div><div class="ttdeci">void voltarMenuPrincipal()</div><div class="ttdoc">Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o programa.</div><div class="ttdef"><b>Definição</b> <a href="main_8cpp_source.html#l00546">main.cpp:546</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a158906443324001e9e2e5396cffd24c3" name="a158906443324001e9e2e5396cffd24c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a158906443324001e9e2e5396cffd24c3">&#9670;&#160;</a></span>menuFimDeJogo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void menuFimDeJogo </td>
+          <td>(</td>
+          <td class="paramtype">const char &amp;</td>          <td class="paramname"><span class="paramname"><em>jogoEscolhido</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_jogadores.html">Jogadores</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>jogadoresVector</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exibe o menu final após o término de um jogo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jogoEscolhido</td><td>Caracter que identifica o jogo escolhido. </td></tr>
+    <tr><td class="paramname">jogadoresVector</td><td>Vetor contendo os jogadores cadastrados. </td></tr>
+    <tr><td class="paramname">pJogador1</td><td>Ponteiro para o primeiro jogador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00502">502</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  502</span>                                                                                  {</div>
+<div class="line"><span class="lineno">  503</span> </div>
+<div class="line"><span class="lineno">  504</span>  cout &lt;&lt; <span class="stringliteral">&quot;\nFIM DE JOGO! \n\nVR - Visualizar ranking\nJN - Jogar novamente&quot;</span></div>
+<div class="line"><span class="lineno">  505</span>       &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  506</span> </div>
+<div class="line"><span class="lineno">  507</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  508</span> </div>
+<div class="line"><span class="lineno">  509</span>    <span class="keywordtype">string</span> aux;</div>
+<div class="line"><span class="lineno">  510</span>    <span class="keywordtype">string</span> resposta;</div>
+<div class="line"><span class="lineno">  511</span> </div>
+<div class="line"><span class="lineno">  512</span>    <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  513</span>      <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  514</span>        cin &gt;&gt; aux;</div>
+<div class="line"><span class="lineno">  515</span>        <span class="keywordflow">if</span> (aux.length() != 2) {</div>
+<div class="line"><span class="lineno">  516</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(aux);</div>
+<div class="line"><span class="lineno">  517</span>        }</div>
+<div class="line"><span class="lineno">  518</span> </div>
+<div class="line"><span class="lineno">  519</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; aux.length(); i++) {</div>
+<div class="line"><span class="lineno">  520</span>          <span class="keywordflow">if</span> (isdigit(aux[i]) || !isalpha(aux[i]) || isblank(aux[i])) {</div>
+<div class="line"><span class="lineno">  521</span>            <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(aux);</div>
+<div class="line"><span class="lineno">  522</span>          }</div>
+<div class="line"><span class="lineno">  523</span>        }</div>
+<div class="line"><span class="lineno">  524</span>      } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classbad_inputs.html">badInputs</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  525</span>        cout &lt;&lt; e.<a class="code hl_function" href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">what</a>() &lt;&lt; <span class="stringliteral">&quot;; &quot;</span></div>
+<div class="line"><span class="lineno">  526</span>             &lt;&lt; <span class="stringliteral">&quot;escolha (J)ogar (N)ovamente ou (V)er (R)anking!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  527</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  528</span>      } <span class="keywordflow">catch</span> (exception &amp;e) {</div>
+<div class="line"><span class="lineno">  529</span>        cout &lt;&lt; e.what() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  530</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  531</span>      }</div>
+<div class="line"><span class="lineno">  532</span> </div>
+<div class="line"><span class="lineno">  533</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; aux.length(); i++) {</div>
+<div class="line"><span class="lineno">  534</span>        resposta[i] = toupper(aux[i]);</div>
+<div class="line"><span class="lineno">  535</span>      }</div>
+<div class="line"><span class="lineno">  536</span> </div>
+<div class="line"><span class="lineno">  537</span>      <span class="keywordflow">if</span> (resposta[0] == <span class="charliteral">&#39;J&#39;</span> &amp;&amp; resposta[1] == <span class="charliteral">&#39;N&#39;</span>) {</div>
+<div class="line"><span class="lineno">  538</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  539</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (resposta[0] == <span class="charliteral">&#39;V&#39;</span> &amp;&amp; resposta[1] == <span class="charliteral">&#39;R&#39;</span>) {</div>
+<div class="line"><span class="lineno">  540</span>        <a class="code hl_function" href="class_jogadores.html#a22e95f708db5298c9790f9e013b46a91">Jogadores::mostrarRanking</a>(jogoEscolhido, jogadoresVector);</div>
+<div class="line"><span class="lineno">  541</span>      }</div>
+<div class="line"><span class="lineno">  542</span>    }</div>
+<div class="line"><span class="lineno">  543</span>  }</div>
+<div class="line"><span class="lineno">  544</span>}</div>
+<div class="ttc" id="aclass_jogadores_html_a22e95f708db5298c9790f9e013b46a91"><div class="ttname"><a href="class_jogadores.html#a22e95f708db5298c9790f9e013b46a91">Jogadores::mostrarRanking</a></div><div class="ttdeci">static void mostrarRanking(const char &amp;jogoEscolhido, vector&lt; Jogadores &gt; &amp;jogadoresVector)</div><div class="ttdoc">Exibir ranking de jogadores.</div><div class="ttdef"><b>Definição</b> <a href="_jogadores_8cpp_source.html#l00523">Jogadores.cpp:523</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="acfb208a938b64a56ad6168ec55f7a809" name="acfb208a938b64a56ad6168ec55f7a809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfb208a938b64a56ad6168ec55f7a809">&#9670;&#160;</a></span>voltarMenuPrincipal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void voltarMenuPrincipal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o programa. </p>
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00546">546</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  546</span>                           {</div>
+<div class="line"><span class="lineno">  547</span>  cout &lt;&lt; <span class="stringliteral">&quot;\nDeseja voltar ao menu principal?\nS- Sim\nN- Não, encerrar &quot;</span></div>
+<div class="line"><span class="lineno">  548</span>          <span class="stringliteral">&quot;programa&quot;</span></div>
+<div class="line"><span class="lineno">  549</span>       &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  550</span> </div>
+<div class="line"><span class="lineno">  551</span>  <span class="keywordtype">string</span> aux;</div>
+<div class="line"><span class="lineno">  552</span>  <span class="keywordtype">char</span> resposta;</div>
+<div class="line"><span class="lineno">  553</span> </div>
+<div class="line"><span class="lineno">  554</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  555</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">  556</span>      cin &gt;&gt; aux;</div>
+<div class="line"><span class="lineno">  557</span> </div>
+<div class="line"><span class="lineno">  558</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; aux.length(); i++) {</div>
+<div class="line"><span class="lineno">  559</span>        <span class="keywordflow">if</span> (isdigit(aux[i]) || isblank(aux[i]) || !isalpha(aux[i])) {</div>
+<div class="line"><span class="lineno">  560</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(aux);</div>
+<div class="line"><span class="lineno">  561</span>        }</div>
+<div class="line"><span class="lineno">  562</span>      }</div>
+<div class="line"><span class="lineno">  563</span> </div>
+<div class="line"><span class="lineno">  564</span>      <span class="keywordflow">if</span> (aux.empty()) {</div>
+<div class="line"><span class="lineno">  565</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(aux);</div>
+<div class="line"><span class="lineno">  566</span>      }</div>
+<div class="line"><span class="lineno">  567</span> </div>
+<div class="line"><span class="lineno">  568</span>      <span class="keywordflow">if</span> (aux.length() != 1) {</div>
+<div class="line"><span class="lineno">  569</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classbad_inputs.html">badInputs</a>(aux);</div>
+<div class="line"><span class="lineno">  570</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  571</span>        resposta = toupper(aux[0]);</div>
+<div class="line"><span class="lineno">  572</span>        <span class="keywordflow">if</span> (resposta == <span class="charliteral">&#39;S&#39;</span>) {</div>
+<div class="line"><span class="lineno">  573</span>          cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(),</div>
+<div class="line"><span class="lineno">  574</span>                     <span class="charliteral">&#39;\n&#39;</span>); </div>
+<div class="line"><span class="lineno">  575</span>          <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  576</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (resposta == <span class="charliteral">&#39;N&#39;</span>) {</div>
+<div class="line"><span class="lineno">  577</span>          exit(0);</div>
+<div class="line"><span class="lineno">  578</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  579</span>          cout &lt;&lt; <span class="stringliteral">&quot;Escolha (S)im ou (N)ão!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  580</span>          <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  581</span>        }</div>
+<div class="line"><span class="lineno">  582</span>      }</div>
+<div class="line"><span class="lineno">  583</span>    } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classbad_inputs.html">badInputs</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  584</span>      cout &lt;&lt; e.<a class="code hl_function" href="classbad_inputs.html#a22667ee8bd89b4b9b635b8dcf64af8f5">what</a>() &lt;&lt; <span class="stringliteral">&quot;; &quot;</span></div>
+<div class="line"><span class="lineno">  585</span>           &lt;&lt; <span class="stringliteral">&quot;escolha (S)im ou (N)ão!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  586</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  587</span>    } <span class="keywordflow">catch</span> (exception &amp;e) {</div>
+<div class="line"><span class="lineno">  588</span>      cout &lt;&lt; e.what() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  589</span>    }</div>
+<div class="line"><span class="lineno">  590</span>  }</div>
+<div class="line"><span class="lineno">  591</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

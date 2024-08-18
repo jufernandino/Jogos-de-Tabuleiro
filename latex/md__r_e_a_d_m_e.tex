@@ -1,0 +1,172 @@
+\chapter{Jogos de Tabuleiro}
+\label{md__r_e_a_d_m_e}\index{Jogos de Tabuleiro@{Jogos de Tabuleiro}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\doxysection{Descrição do projeto}\label{md__r_e_a_d_m_e_autotoc_md1}
+O projeto Jogos de \doxyref{Tabuleiro}{p.}{class_tabuleiro} é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. Este projeto implementa um sistema para jogar diferentes jogos, proporcionando funcionalidades cadastro de jogadores, exclusão de jogadores, estatísica dos jogadores e a listagem dos jogadores. Os jogos disponibilizados para serem jogados são\+:
+\begin{DoxyItemize}
+\item Campo Minado
+\item \doxyref{Reversi}{p.}{class_reversi}
+\item Tic Tac Toe
+\item Jogo da Memória
+\item Lig4
+\end{DoxyItemize}\doxysection{Equipe}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Bárbara Diniz
+\item Isadora Horta
+\item Júlia Vasconcelos
+\item Marcele Louise
+\item Sarah Menks
+\end{DoxyItemize}\doxysection{Tecnologias Utilizadas}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\ttfamily Linguagem\+:} C++
+\item {\ttfamily Compilação\+:} Makefile ~\newline
+
+\item {\ttfamily Documentação\+:} Doxygen ~\newline
+
+\item {\ttfamily Testes\+:} Biblioteca doctest ~\newline
+
+\item {\ttfamily Controle de Versão\+:} Git e Git\+Hub
+\end{DoxyItemize}\doxysection{Estrutura do Projeto}\label{md__r_e_a_d_m_e_autotoc_md4}
+O projeto foi organizado em diferentes classes, cada uma com suas responsabilidades\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{\doxyref{Jogadores}{p.}{class_jogadores}\+:}}
+\begin{DoxyItemize}
+\item Implementa métodos relacionados aos jogadores (cadastrar, remover, listar) com persistência de dados em arquivo
+\item Além disso, mostra as estatísticas (vitórias e derrotas) e ordena jogadores pelo nome ou apelido.
+\item Métodos implementados\+:
+\begin{DoxyItemize}
+\item pesquisa\+Jogador ( {\ttfamily $<$Apelido$>$})
+\item logar ( {\ttfamily $<$Apelido$>$}, {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector} )
+\item reescreve\+Arquivo ( {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector} )
+\item remove\+Jogador ( {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector}, {\ttfamily string \&Apelido} )
+\item atualiza\+Estatisticas ( {\ttfamily $<$jogo\+Escolhido$>$}, {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector} )
+\item mostrar\+Ranking ( {\ttfamily char \&jogo\+Escolhido}, {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ jogadores\+Vector} )
+\item mostrar\+Estatisticas ( {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ jogadores\+Vector}, {\ttfamily const string \&ordenacao} )
+\item carregar\+Jogadores ( {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector} )
+\item cadastrar\+Jogadores ( {\ttfamily $<$apelido$>$}, {\ttfamily $<$nome$>$}, {\ttfamily \doxyref{Jogadores}{p.}{class_jogadores} \&Jogador}, {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector} )
+\item ordenacao\+Apelido ( {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector} )
+\item ordenacao\+Nome ( {\ttfamily vector$<$\doxyref{Jogadores}{p.}{class_jogadores}$>$ \&jogadores\+Vector} )
+\end{DoxyItemize}
+\item Erros\+: {\ttfamily ERRO\+: não foi possível abrir o arquivo Jogadores.\+txt}
+\end{DoxyItemize}
+\item {\bfseries{\doxyref{Tabuleiro}{p.}{class_tabuleiro}\+:}}
+\begin{DoxyItemize}
+\item Contém os métodos e funcionalidades básicas para todos os jogos (classe pai).
+\item Essa classe gerencia o tabuleiro, além de mostrar as regras, validar jogadas e fazer a conferência do ganhador.
+\item Métodos implementados\+:
+\begin{DoxyItemize}
+\item cria\+Tabuleiro ( )
+\item void imprimir\+Tabuleiro ( )
+\item valida\+Jogada (int x, int y, char z)
+\item libera\+Memoria ( )
+\item confere\+Ganhador ( ) = 0;
+\item mostrar\+Regras (const char \&jogo\+Escolhido)
+\end{DoxyItemize}
+\item Erros\+: {\ttfamily ERRO\+: não foi possível abrir o arquivo Regras.\+txt}
+\end{DoxyItemize}
+\item {\bfseries{Classes Herdeiras de \doxyref{Tabuleiro}{p.}{class_tabuleiro}\+:}}
+\begin{DoxyItemize}
+\item {\itshape As classes herdeiras são\+: \doxyref{Campo\+Minado}{p.}{class_campo_minado}, Lig4, \doxyref{Reversi}{p.}{class_reversi}, \doxyref{Tic\+Tac\+Toe}{p.}{class_tic_tac_toe} e Memória. Elas impelementam a lógica de cada jogo, respectivamente.}
+\end{DoxyItemize}
+\item {\bfseries{Execução de Partidas\+:}}
+\begin{DoxyItemize}
+\item Na {\ttfamily main} existem as mecânicas para executar partidas entre jogadores, escolher o jogo, verificação de jogadas e atualização de estatísticas, valendo-\/se dos métodos das classes.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\doxysection{Inputs}\label{md__r_e_a_d_m_e_autotoc_md5}
+Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais mensagens de erro\+:\doxysubsection{Cadastro de Jogadores}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\bfseries{Cadastrar Jogador}}\+: {\ttfamily CJ $<$Apelido$>$ $<$Nome$>$}
+\begin{DoxyItemize}
+\item (obs. Considere que {\ttfamily $<$Apelido$>$} é composto por uma única palavra)
+\item Sucesso\+: {\ttfamily Jogador $<$Apelido$>$ cadastrado com sucesso}
+\item Erros\+: {\ttfamily ERRO\+: dados incorretos}, {\ttfamily ERRO\+: jogador repetido} ~\newline
+
+\end{DoxyItemize}
+\item {\bfseries{Remover Jogador}}\+: {\ttfamily RJ $<$Apelido$>$}
+\begin{DoxyItemize}
+\item Sucesso\+: {\ttfamily Jogador $<$Apelido$>$ removido com sucesso}
+\item Erro\+: {\ttfamily ERRO\+: jogador inexistente}
+\end{DoxyItemize}
+\item {\bfseries{Listar \doxyref{Jogadores}{p.}{class_jogadores}}}\+: {\ttfamily LJ A$\vert$N} {\ttfamily $<$Apelido$>$ $<$Nome$>$}
+\begin{DoxyItemize}
+\item Sucesso\+: lista de todos os jogadores ordenados por Apelido ou Nome, seguido pelo número de vitórias e derrotas em cada jogo
+\item {\itshape Exemplo\+:}
+\begin{DoxyItemize}
+\item {\ttfamily $<$Apelido$>$} {\ttfamily $<$Nome$>$}
+\item REVERSI -\/ V\+: $<$\#vitorias$>$ D\+: $<$\#derrotas$>$
+\item LIG4 -\/ V\+: $<$\#vitorias$>$ D\+: $<$\#derrotas$>$
+\item TIC TAC TOE -\/ V\+: $<$\#vitorias$>$ D\+: $<$\#derrotas$>$
+\item CAMPO MINADO -\/ V\+: $<$\#vitorias$>$ D\+: $<$\#derrotas$>$
+\item MEMORIA -\/ V\+: $<$\#vitorias$>$ D\+: $<$\#derrotas$>$ ~\newline
+
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\doxysubsection{Execução de Partidas}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{Executar Partida}}\+: {\ttfamily EP $<$Jogo\+: (R$\vert$\+L$\vert$\+T$\vert$\+C$\vert$M)$>$ $<$Apelido Jogador 1$>$ $<$Apelido Jogador 2$>$}
+\begin{DoxyItemize}
+\item {\itshape Exemplo\+:} {\ttfamily EP R Ju Babi} (executa o jogo \doxyref{Reversi}{p.}{class_reversi} com jogadora Ju e jogadora Babi)
+\item Erros\+: {\ttfamily ERRO\+: comando inválido}, {\ttfamily ERRO\+: dados incorretos} , {\ttfamily ERRO\+: jogador inexistente}
+\item Sucesso\+: {\ttfamily J -\/ JOGAR} {\ttfamily L -\/ Ler regras do jogo}
+\begin{DoxyItemize}
+\item {\bfseries{Jogar\+:}} {\ttfamily $<$J$>$}
+\item {\bfseries{Regras\+:}} {\ttfamily $<$L$>$}
+\item {\bfseries{Erros\+:}} {\ttfamily ERRO\+: Regras não encontradas para o jogo selecionado.}
+\end{DoxyItemize}
+\item OBS\+: {\itshape ( R= \doxyref{Reversi}{p.}{class_reversi} $\vert$ L=Lig4 $\vert$ T=\doxyref{Tic\+Tac\+Toe}{p.}{class_tic_tac_toe} $\vert$ C=\doxyref{Campo\+Minado}{p.}{class_campo_minado} $\vert$ M=Memória )}
+\end{DoxyItemize}
+\item {\bfseries{Finalizar Sistema}}\+: {\ttfamily FS}
+\end{DoxyItemize}\doxysection{Inputs durante os Jogos}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Jogada no \doxyref{Reversi}{p.}{class_reversi}}}\+: {\ttfamily $<$Linha$>$} {\ttfamily $<$Coluna$>$}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily $<$0$>$} {\ttfamily $<$2$>$}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily ERRO\+: jogada inválida}
+\end{DoxyItemize}
+\item {\bfseries{Jogada no Lig 4}}\+: {\ttfamily $<$Coluna$>$}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily $<$1$>$}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily Essa jogada é inválida! Passa a vez!}
+\end{DoxyItemize}
+\item {\bfseries{Jogada no \doxyref{Tic\+Tac\+Toe}{p.}{class_tic_tac_toe}}}\+: {\ttfamily $<$Linha$>$} {\ttfamily $<$Coluna$>$}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily $<$0$>$} {\ttfamily $<$2$>$}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily Essa jogada é inválida! Passa a vez!}
+\item 
+\end{DoxyItemize}
+\item {\bfseries{Jogada no Campo Minado}}\+: {\ttfamily $<$Linha$>$} {\ttfamily $<$Coluna$>$}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily $<$0$>$} {\ttfamily $<$2$>$}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily ERRO\+: jogada inválida!}
+\end{DoxyItemize}
+\item {\bfseries{Jogada no Jogo da Memória}}\+: {\ttfamily $<$Linha1$>$} {\ttfamily $<$Coluna1$>$} {\ttfamily $<$Linha2$>$} {\ttfamily $<$Coluna2$>$}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily $<$0$>$} {\ttfamily $<$1$>$} {\ttfamily $<$0$>$} {\ttfamily $<$2$>$}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily ERRO\+: jogada inválida}
+\end{DoxyItemize}
+\end{DoxyItemize}\doxysection{Aprendizados com o projeto}\label{md__r_e_a_d_m_e_autotoc_md9}
+Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem\+:
+
+
+\begin{DoxyItemize}
+\item Programação orientada a objetos em C++.
+\item Colaboração efetiva em um projeto conjunto.
+\item Comunicação.
+\item Uso avançado de Git e Git\+Hub para controle de versão.
+\item Práticas de programação defensiva e tratamento de exceções.
+\item Criação e manutenção de Makefile.
+\item Geração de documentação utilizando Doxygen.
+\item Criação de testes.
+\end{DoxyItemize}\doxysection{Github dos contribuintes}\label{md__r_e_a_d_m_e_autotoc_md10}
+{\texttt{ Github Bárbara}} ~\newline
+ {\texttt{ Github Isadora}} ~\newline
+ {\texttt{ Github Júlia}} ~\newline
+ {\texttt{ Github Marcele}} ~\newline
+ {\texttt{ Github Sarah}} 

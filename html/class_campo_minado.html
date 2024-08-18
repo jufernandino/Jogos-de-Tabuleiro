@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jogos de Tabuleiro: Referência da Classe CampoMinado</title>
+<link rel="icon" href="BoardGame2.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="BoardGame2.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Jogos de Tabuleiro<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">O projeto Jogos de Tabuleiro é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. O objetivo deste projeto é desenvolver um sistema usando o paradigma de orientação a objetos para implementar diferentes jogos de tabuleiro, proporcionando funcionalidades de cadastro de jogadores, exclusão de jogadores, estatística dos jogadores e a listagem dos jogadores. Os jogos disponibilizados são: Campo Minado, Reversi, Tic Tac Toe, Jogo da Memória e Lig4.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="class_campo_minado-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe CampoMinado</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Classe que representa o jogo Campo Minado.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_campo_minado_8hpp_source.html">CampoMinado.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe CampoMinado:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_campo_minado.png" usemap="#CampoMinado_map" alt=""/>
+  <map id="CampoMinado_map" name="CampoMinado_map">
+<area href="class_tabuleiro.html" title="Classe base para representar um tabuleiro de jogo." alt="Tabuleiro" shape="rect" coords="0,0,93,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:abd208ffab2c455412ba83526ac4a1cf5" id="r_abd208ffab2c455412ba83526ac4a1cf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd208ffab2c455412ba83526ac4a1cf5">CampoMinado</a> ()</td></tr>
+<tr class="memdesc:abd208ffab2c455412ba83526ac4a1cf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe.  <br /></td></tr>
+<tr class="separator:abd208ffab2c455412ba83526ac4a1cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9251883502e14e0df104b9d17957968c" id="r_a9251883502e14e0df104b9d17957968c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9251883502e14e0df104b9d17957968c">iniciaTabuleiro</a> ()</td></tr>
+<tr class="memdesc:a9251883502e14e0df104b9d17957968c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicialização do tabuleiro.  <br /></td></tr>
+<tr class="separator:a9251883502e14e0df104b9d17957968c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580ebbb67bed4f7892caf0072e60428d" id="r_a580ebbb67bed4f7892caf0072e60428d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a580ebbb67bed4f7892caf0072e60428d">minasAdj</a> (int linha, int coluna)</td></tr>
+<tr class="memdesc:a580ebbb67bed4f7892caf0072e60428d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cálculo das minas adjacentes a uma posição.  <br /></td></tr>
+<tr class="separator:a580ebbb67bed4f7892caf0072e60428d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeab813f451013ed202793f43c520348d" id="r_aeab813f451013ed202793f43c520348d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeab813f451013ed202793f43c520348d">revelaCelula</a> (int linha, int coluna)</td></tr>
+<tr class="memdesc:aeab813f451013ed202793f43c520348d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposição do conteúdo de uma casa do tabuleiro.  <br /></td></tr>
+<tr class="separator:aeab813f451013ed202793f43c520348d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a414b0ce9fe9de168985280d52c5d6457" id="r_a414b0ce9fe9de168985280d52c5d6457"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a414b0ce9fe9de168985280d52c5d6457">validaJogadaCampoMinado</a> (int linha, int coluna)</td></tr>
+<tr class="memdesc:a414b0ce9fe9de168985280d52c5d6457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validação da jogada.  <br /></td></tr>
+<tr class="separator:a414b0ce9fe9de168985280d52c5d6457"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afba17a88c95c61ede8f7c150cf3b1707" id="r_afba17a88c95c61ede8f7c150cf3b1707"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afba17a88c95c61ede8f7c150cf3b1707">escolheuBomba</a> (int linha, int coluna)</td></tr>
+<tr class="memdesc:afba17a88c95c61ede8f7c150cf3b1707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verificação se existe bomba em uma posição.  <br /></td></tr>
+<tr class="separator:afba17a88c95c61ede8f7c150cf3b1707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeeb2e68fd01c55959703eaf910477c7" id="r_adeeb2e68fd01c55959703eaf910477c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adeeb2e68fd01c55959703eaf910477c7">confereGanhador</a> () override</td></tr>
+<tr class="memdesc:adeeb2e68fd01c55959703eaf910477c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta função sobrescreve o método "confereGanhador" da classe base "Tabuleiro" e implementa a lógica para verificar se o jogador venceu na partida de Campo Minado.  <br /></td></tr>
+<tr class="separator:adeeb2e68fd01c55959703eaf910477c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b0a2b1f7583842960a1645db6aeef4" id="r_a31b0a2b1f7583842960a1645db6aeef4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31b0a2b1f7583842960a1645db6aeef4">jogarCampoMinado</a> ()</td></tr>
+<tr class="memdesc:a31b0a2b1f7583842960a1645db6aeef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Organização da jogabilidade passo-a-passo.  <br /></td></tr>
+<tr class="separator:a31b0a2b1f7583842960a1645db6aeef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_tabuleiro"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_tabuleiro')"><img src="closed.png" alt="-"/>&#160;Membros Públicos herdados de <a class="el" href="class_tabuleiro.html">Tabuleiro</a></td></tr>
+<tr class="memitem:a9b76bfdd7176fd0b4fdee7296a6841e5 inherit pub_methods_class_tabuleiro" id="r_a9b76bfdd7176fd0b4fdee7296a6841e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#a9b76bfdd7176fd0b4fdee7296a6841e5">Tabuleiro</a> ()</td></tr>
+<tr class="memdesc:a9b76bfdd7176fd0b4fdee7296a6841e5 inherit pub_methods_class_tabuleiro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da classe <a class="el" href="class_tabuleiro.html" title="Classe base para representar um tabuleiro de jogo.">Tabuleiro</a>.  <br /></td></tr>
+<tr class="separator:a9b76bfdd7176fd0b4fdee7296a6841e5 inherit pub_methods_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ad972c43f8d404016ac1adeb33432d inherit pub_methods_class_tabuleiro" id="r_a56ad972c43f8d404016ac1adeb33432d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">criaTabuleiro</a> ()</td></tr>
+<tr class="memdesc:a56ad972c43f8d404016ac1adeb33432d inherit pub_methods_class_tabuleiro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria o tabuleiro alocando memória dinamicamente para a matriz.  <br /></td></tr>
+<tr class="separator:a56ad972c43f8d404016ac1adeb33432d inherit pub_methods_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e256e1bc632250b7fb59340e8ef81d inherit pub_methods_class_tabuleiro" id="r_ae2e256e1bc632250b7fb59340e8ef81d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a> ()</td></tr>
+<tr class="memdesc:ae2e256e1bc632250b7fb59340e8ef81d inherit pub_methods_class_tabuleiro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime o tabuleiro na tela.  <br /></td></tr>
+<tr class="separator:ae2e256e1bc632250b7fb59340e8ef81d inherit pub_methods_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aababbe9d7ac722d0912d31a13a68c50b inherit pub_methods_class_tabuleiro" id="r_aababbe9d7ac722d0912d31a13a68c50b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#aababbe9d7ac722d0912d31a13a68c50b">validaJogada</a> (int x, int y, char z)</td></tr>
+<tr class="memdesc:aababbe9d7ac722d0912d31a13a68c50b inherit pub_methods_class_tabuleiro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valida uma jogada no tabuleiro.  <br /></td></tr>
+<tr class="separator:aababbe9d7ac722d0912d31a13a68c50b inherit pub_methods_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5957f215e2e780177e131d20021c51 inherit pub_methods_class_tabuleiro" id="r_abd5957f215e2e780177e131d20021c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#abd5957f215e2e780177e131d20021c51">liberaMemoria</a> ()</td></tr>
+<tr class="memdesc:abd5957f215e2e780177e131d20021c51 inherit pub_methods_class_tabuleiro"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libera a memória alocada para o tabuleiro.  <br /></td></tr>
+<tr class="separator:abd5957f215e2e780177e131d20021c51 inherit pub_methods_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0202198435ca8905531001e8157ecc19 inherit pub_methods_class_tabuleiro" id="r_a0202198435ca8905531001e8157ecc19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#a0202198435ca8905531001e8157ecc19">mostrarRegras</a> (const char &amp;jogoEscolhido)</td></tr>
+<tr class="memdesc:a0202198435ca8905531001e8157ecc19 inherit pub_methods_class_tabuleiro"><td class="mdescLeft">&#160;</td><td class="mdescRight">confere se alguém venceu  <br /></td></tr>
+<tr class="separator:a0202198435ca8905531001e8157ecc19 inherit pub_methods_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Outros membros herdados</h2></td></tr>
+<tr class="inherit_header pub_attribs_class_tabuleiro"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_tabuleiro')"><img src="closed.png" alt="-"/>&#160;Atributos Públicos herdados de <a class="el" href="class_tabuleiro.html">Tabuleiro</a></td></tr>
+<tr class="memitem:a1e53391966e83063bba15409c63844bd inherit pub_attribs_class_tabuleiro" id="r_a1e53391966e83063bba15409c63844bd"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a></td></tr>
+<tr class="separator:a1e53391966e83063bba15409c63844bd inherit pub_attribs_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addfdc518d735de62c98d6b44cc2ed0fa inherit pub_attribs_class_tabuleiro" id="r_addfdc518d735de62c98d6b44cc2ed0fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a></td></tr>
+<tr class="separator:addfdc518d735de62c98d6b44cc2ed0fa inherit pub_attribs_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60d9753b61c6c1a2ce4af866e2f4e2a5 inherit pub_attribs_class_tabuleiro" id="r_a60d9753b61c6c1a2ce4af866e2f4e2a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a></td></tr>
+<tr class="separator:a60d9753b61c6c1a2ce4af866e2f4e2a5 inherit pub_attribs_class_tabuleiro"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Classe que representa o jogo Campo Minado. </p>
+<p>A classe "Campo Minado" é uma classe herdeira de classe base "Tabuleiro" e implementa a lógica específica do jogo de Campo Minado, incluindo a verificação de condição de vitória (função que sobrescreve a da classe base). Além disso inclui métodos próprios como: inicialização do tabuleiro, revelar o conteúdo de cada casa, validação de jogadas, conferir se uma bomba foi escolhida, e a jogabilidade em si. </p>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8hpp_source.html#l00015">15</a> do arquivo <a class="el" href="_campo_minado_8hpp_source.html">CampoMinado.hpp</a>.</p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="abd208ffab2c455412ba83526ac4a1cf5" name="abd208ffab2c455412ba83526ac4a1cf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd208ffab2c455412ba83526ac4a1cf5">&#9670;&#160;</a></span>CampoMinado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CampoMinado::CampoMinado </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe. </p>
+<p>Construtor:</p>
+<p>Inicializa um objeto <a class="el" href="class_campo_minado.html" title="Classe que representa o jogo Campo Minado.">CampoMinado</a> com as configurações padrões do tabuleiro, especificando seu tamanho com 7 linhas e 7 colunas. Além disso, inicializa a quantidade de bombas do jogo como 10. </p>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00012">12</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
+<div class="line"><span class="lineno">   14</span>  this-&gt;<a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a> = 7;</div>
+<div class="line"><span class="lineno">   15</span>  this-&gt;<a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a> = 7;</div>
+<div class="line"><span class="lineno">   16</span>  this-&gt;bombas = 10;</div>
+<div class="line"><span class="lineno">   17</span>}</div>
+<div class="ttc" id="aclass_tabuleiro_html_a60d9753b61c6c1a2ce4af866e2f4e2a5"><div class="ttname"><a href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">Tabuleiro::columns</a></div><div class="ttdeci">int columns</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8hpp_source.html#l00021">Tabuleiro.hpp:21</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_addfdc518d735de62c98d6b44cc2ed0fa"><div class="ttname"><a href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">Tabuleiro::rows</a></div><div class="ttdeci">int rows</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8hpp_source.html#l00020">Tabuleiro.hpp:20</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="adeeb2e68fd01c55959703eaf910477c7" name="adeeb2e68fd01c55959703eaf910477c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeeb2e68fd01c55959703eaf910477c7">&#9670;&#160;</a></span>confereGanhador()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CampoMinado::confereGanhador </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Esta função sobrescreve o método "confereGanhador" da classe base "Tabuleiro" e implementa a lógica para verificar se o jogador venceu na partida de Campo Minado. </p>
+<p>Condição de vitória em um jogo de Campo Minado:</p>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>0 </td></tr>
+    <tr><td class="paramname">int</td><td>1</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta função confere se ainda existe alguma casa <code>+</code> no tabuleiro que não foi escolhidas pelo jogador e, além disso, averigua se ela não é correspondentes a uma bomba. Caso ainda exista, significa que tem jogadas pendentes a serem realizadas. Em caso negativo, o jogo acabou e nenhuma bomba foi encontrada. Ou seja, o jogador ganhou.</p>
+<dl class="section return"><dt>Retorna</dt><dd>0, caso ainda exista jogadas possíveis. </dd>
+<dd>
+1, caso o jogo tenha acabado. </dd></dl>
+
+<p>Implementa <a class="el" href="class_tabuleiro.html#a271e4f79f6c7203dfa9283348e946836">Tabuleiro</a>.</p>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00177">177</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  178</span>{</div>
+<div class="line"><span class="lineno">  179</span>  <span class="keywordtype">int</span> faltou = 0;</div>
+<div class="line"><span class="lineno">  180</span> </div>
+<div class="line"><span class="lineno">  181</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> coordX = 0; coordX &lt; <a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a>; ++coordX)</div>
+<div class="line"><span class="lineno">  182</span>  {</div>
+<div class="line"><span class="lineno">  183</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> coordY = 0; coordY &lt; <a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a>; ++coordY)</div>
+<div class="line"><span class="lineno">  184</span>    {</div>
+<div class="line"><span class="lineno">  185</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iterador = 0; iterador &lt; 10; ++iterador)</div>
+<div class="line"><span class="lineno">  186</span>      {</div>
+<div class="line"><span class="lineno">  187</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[coordX][coordY] == <span class="charliteral">&#39;+&#39;</span> &amp;&amp;</div>
+<div class="line"><span class="lineno">  188</span>            !(posicao_minas[0][iterador] == coordX &amp;&amp;</div>
+<div class="line"><span class="lineno">  189</span>              posicao_minas[1][iterador] == coordY))</div>
+<div class="line"><span class="lineno">  190</span>        {</div>
+<div class="line"><span class="lineno">  191</span>          faltou++;</div>
+<div class="line"><span class="lineno">  192</span>        }</div>
+<div class="line"><span class="lineno">  193</span>      }</div>
+<div class="line"><span class="lineno">  194</span>    }</div>
+<div class="line"><span class="lineno">  195</span>  }</div>
+<div class="line"><span class="lineno">  196</span> </div>
+<div class="line"><span class="lineno">  197</span>  <span class="keywordflow">if</span> (faltou != 0)</div>
+<div class="line"><span class="lineno">  198</span>  {</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  200</span>  }</div>
+<div class="line"><span class="lineno">  201</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (faltou == 0)</div>
+<div class="line"><span class="lineno">  202</span>  {</div>
+<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  204</span>  }</div>
+<div class="line"><span class="lineno">  205</span>}</div>
+<div class="ttc" id="aclass_tabuleiro_html_a1e53391966e83063bba15409c63844bd"><div class="ttname"><a href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">Tabuleiro::matrix</a></div><div class="ttdeci">char ** matrix</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8hpp_source.html#l00019">Tabuleiro.hpp:19</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afba17a88c95c61ede8f7c150cf3b1707" name="afba17a88c95c61ede8f7c150cf3b1707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba17a88c95c61ede8f7c150cf3b1707">&#9670;&#160;</a></span>escolheuBomba()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CampoMinado::escolheuBomba </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>linha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coluna</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verificação se existe bomba em uma posição. </p>
+<p>Averigua se a posição escolhida corresponde a de uma bomba:</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>int </td></tr>
+    <tr><td class="paramname">coluna</td><td>int</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td></td></tr>
+    <tr><td class="paramname">false</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta função booleana verifica se a coordenada passada por parâmetro, <code>(linha, coluna)</code>, é equivalente a alguma das coordenadas das posições das minas.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>linha da coordenada. </td></tr>
+    <tr><td class="paramname">coluna</td><td>coluna da coordenada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro, caso tenha uma bomba na posição. </dd>
+<dd>
+Falso, caso não tenha uma bomba na posição. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00156">156</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  157</span>{</div>
+<div class="line"><span class="lineno">  158</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;bombas; ++i)</div>
+<div class="line"><span class="lineno">  159</span>  {</div>
+<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">if</span> (linha == posicao_minas[0][i] &amp;&amp; coluna == posicao_minas[1][i])</div>
+<div class="line"><span class="lineno">  161</span>      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  162</span>  }</div>
+<div class="line"><span class="lineno">  163</span>  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  164</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9251883502e14e0df104b9d17957968c" name="a9251883502e14e0df104b9d17957968c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9251883502e14e0df104b9d17957968c">&#9670;&#160;</a></span>iniciaTabuleiro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CampoMinado::iniciaTabuleiro </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicialização do tabuleiro. </p>
+<p>Inicia o tabuleiro do Campo Minado:</p>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta função inicializa o tabuleiro, preenchendo todas casas com o simbolo "+". Cria um vetor para guardar as coordenadas das minas, que são geradas de maneira aleatória. </p>
+<p>inicia todo o tabuleiro com +</p>
+<p>cria um vetor que guarda as coordenadas das minas</p>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00025">25</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{</div>
+<div class="line"><span class="lineno">   28</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a>; ++i)</div>
+<div class="line"><span class="lineno">   29</span>  {</div>
+<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a>; ++j)</div>
+<div class="line"><span class="lineno">   31</span>    {</div>
+<div class="line"><span class="lineno">   32</span>      <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[i][j] = <span class="charliteral">&#39;+&#39;</span>;</div>
+<div class="line"><span class="lineno">   33</span>    }</div>
+<div class="line"><span class="lineno">   34</span>  }</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   37</span>  srand(time(0));</div>
+<div class="line"><span class="lineno">   38</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 10; ++i)</div>
+<div class="line"><span class="lineno">   39</span>  {</div>
+<div class="line"><span class="lineno">   40</span>    this-&gt;posicao_minas[0][i] = rand() % this-&gt;<a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a>;</div>
+<div class="line"><span class="lineno">   41</span>    this-&gt;posicao_minas[1][i] = rand() % this-&gt;<a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a>;</div>
+<div class="line"><span class="lineno">   42</span>  }</div>
+<div class="line"><span class="lineno">   43</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a31b0a2b1f7583842960a1645db6aeef4" name="a31b0a2b1f7583842960a1645db6aeef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b0a2b1f7583842960a1645db6aeef4">&#9670;&#160;</a></span>jogarCampoMinado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CampoMinado::jogarCampoMinado </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Organização da jogabilidade passo-a-passo. </p>
+<p>Organiza o processo de jogabilidade de Campo Minado.</p>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>0 </td></tr>
+    <tr><td class="paramname">int</td><td>1</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta função é responsável por realizar cada passo do jogo: começando com a criação do tabuleiro, depois pedindo as coordenadas com o jogador da vez, validando a jogada realizada, verificando se o jogador ganhou ou perdeu, e, caso o jogo não tenha terminado, revelando as casas que não são bombas.</p>
+<dl class="section return"><dt>Retorna</dt><dd>0, caso o jogador perca/encontre uma bomba. </dd>
+<dd>
+1, caso o jogador ganhe. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00218">218</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  219</span>{</div>
+<div class="line"><span class="lineno">  220</span>  <a class="code hl_function" href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">criaTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  221</span>  <a class="code hl_function" href="#a9251883502e14e0df104b9d17957968c">iniciaTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  222</span>  <a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  223</span> </div>
+<div class="line"><span class="lineno">  224</span>  <span class="keywordflow">while</span> (1)</div>
+<div class="line"><span class="lineno">  225</span>  {</div>
+<div class="line"><span class="lineno">  226</span>    cout &lt;&lt; <span class="stringliteral">&quot;Escreva as coordenadas no formato: linha coluna&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  227</span> </div>
+<div class="line"><span class="lineno">  228</span>    <span class="keywordtype">int</span> chute_linha, chute_coluna;</div>
+<div class="line"><span class="lineno">  229</span>    cin &gt;&gt; chute_linha &gt;&gt; chute_coluna;</div>
+<div class="line"><span class="lineno">  230</span> </div>
+<div class="line"><span class="lineno">  231</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a414b0ce9fe9de168985280d52c5d6457">validaJogadaCampoMinado</a>(chute_linha, chute_coluna))</div>
+<div class="line"><span class="lineno">  232</span>    {</div>
+<div class="line"><span class="lineno">  233</span>      cout &lt;&lt; <span class="stringliteral">&quot;ERRO: jogada inválida&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  234</span>    }</div>
+<div class="line"><span class="lineno">  235</span> </div>
+<div class="line"><span class="lineno">  236</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#afba17a88c95c61ede8f7c150cf3b1707">escolheuBomba</a>(chute_linha, chute_coluna))</div>
+<div class="line"><span class="lineno">  237</span>    {</div>
+<div class="line"><span class="lineno">  238</span>      cout &lt;&lt; <span class="stringliteral">&quot;BOOM! Você perdeu!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  239</span>      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  240</span>    }</div>
+<div class="line"><span class="lineno">  241</span> </div>
+<div class="line"><span class="lineno">  242</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#adeeb2e68fd01c55959703eaf910477c7">confereGanhador</a>())</div>
+<div class="line"><span class="lineno">  243</span>    {</div>
+<div class="line"><span class="lineno">  244</span>      cout &lt;&lt; <span class="stringliteral">&quot;Parabéns! Você ganhou!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  245</span>      <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  246</span>    }</div>
+<div class="line"><span class="lineno">  247</span> </div>
+<div class="line"><span class="lineno">  248</span>    <a class="code hl_function" href="#a580ebbb67bed4f7892caf0072e60428d">minasAdj</a>(chute_linha, chute_coluna);</div>
+<div class="line"><span class="lineno">  249</span>    <a class="code hl_function" href="#aeab813f451013ed202793f43c520348d">revelaCelula</a>(chute_linha, chute_coluna);</div>
+<div class="line"><span class="lineno">  250</span>    <a class="code hl_function" href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">imprimirTabuleiro</a>();</div>
+<div class="line"><span class="lineno">  251</span>  }</div>
+<div class="line"><span class="lineno">  252</span>}</div>
+<div class="ttc" id="aclass_campo_minado_html_a414b0ce9fe9de168985280d52c5d6457"><div class="ttname"><a href="#a414b0ce9fe9de168985280d52c5d6457">CampoMinado::validaJogadaCampoMinado</a></div><div class="ttdeci">bool validaJogadaCampoMinado(int linha, int coluna)</div><div class="ttdoc">Validação da jogada.</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8cpp_source.html#l00131">CampoMinado.cpp:131</a></div></div>
+<div class="ttc" id="aclass_campo_minado_html_a580ebbb67bed4f7892caf0072e60428d"><div class="ttname"><a href="#a580ebbb67bed4f7892caf0072e60428d">CampoMinado::minasAdj</a></div><div class="ttdeci">int minasAdj(int linha, int coluna)</div><div class="ttdoc">Cálculo das minas adjacentes a uma posição.</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8cpp_source.html#l00058">CampoMinado.cpp:58</a></div></div>
+<div class="ttc" id="aclass_campo_minado_html_a9251883502e14e0df104b9d17957968c"><div class="ttname"><a href="#a9251883502e14e0df104b9d17957968c">CampoMinado::iniciaTabuleiro</a></div><div class="ttdeci">void iniciaTabuleiro()</div><div class="ttdoc">Inicialização do tabuleiro.</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8cpp_source.html#l00025">CampoMinado.cpp:25</a></div></div>
+<div class="ttc" id="aclass_campo_minado_html_adeeb2e68fd01c55959703eaf910477c7"><div class="ttname"><a href="#adeeb2e68fd01c55959703eaf910477c7">CampoMinado::confereGanhador</a></div><div class="ttdeci">int confereGanhador() override</div><div class="ttdoc">Esta função sobrescreve o método &quot;confereGanhador&quot; da classe base &quot;Tabuleiro&quot; e implementa a lógica p...</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8cpp_source.html#l00177">CampoMinado.cpp:177</a></div></div>
+<div class="ttc" id="aclass_campo_minado_html_aeab813f451013ed202793f43c520348d"><div class="ttname"><a href="#aeab813f451013ed202793f43c520348d">CampoMinado::revelaCelula</a></div><div class="ttdeci">void revelaCelula(int linha, int coluna)</div><div class="ttdoc">Exposição do conteúdo de uma casa do tabuleiro.</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8cpp_source.html#l00091">CampoMinado.cpp:91</a></div></div>
+<div class="ttc" id="aclass_campo_minado_html_afba17a88c95c61ede8f7c150cf3b1707"><div class="ttname"><a href="#afba17a88c95c61ede8f7c150cf3b1707">CampoMinado::escolheuBomba</a></div><div class="ttdeci">bool escolheuBomba(int linha, int coluna)</div><div class="ttdoc">Verificação se existe bomba em uma posição.</div><div class="ttdef"><b>Definição</b> <a href="_campo_minado_8cpp_source.html#l00156">CampoMinado.cpp:156</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a56ad972c43f8d404016ac1adeb33432d"><div class="ttname"><a href="class_tabuleiro.html#a56ad972c43f8d404016ac1adeb33432d">Tabuleiro::criaTabuleiro</a></div><div class="ttdeci">void criaTabuleiro()</div><div class="ttdoc">Cria o tabuleiro alocando memória dinamicamente para a matriz.</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8cpp_source.html#l00026">Tabuleiro.cpp:26</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_ae2e256e1bc632250b7fb59340e8ef81d"><div class="ttname"><a href="class_tabuleiro.html#ae2e256e1bc632250b7fb59340e8ef81d">Tabuleiro::imprimirTabuleiro</a></div><div class="ttdeci">virtual void imprimirTabuleiro()</div><div class="ttdoc">Imprime o tabuleiro na tela.</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8cpp_source.html#l00045">Tabuleiro.cpp:45</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a580ebbb67bed4f7892caf0072e60428d" name="a580ebbb67bed4f7892caf0072e60428d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a580ebbb67bed4f7892caf0072e60428d">&#9670;&#160;</a></span>minasAdj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CampoMinado::minasAdj </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>linha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coluna</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cálculo das minas adjacentes a uma posição. </p>
+<p>Realiza o cálculo de quantas minas existem ao redor de uma determinada posição:</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>int </td></tr>
+    <tr><td class="paramname">coluna</td><td>int</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>n</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>A partir de uma posição passada por parâmetro (linha, coluna) a função verifica em todas as casas adjacentes (duas laterais, quatro diagonais, uma em cima e uma em baixo) se as coordenadas de cada uma delas possui uma equivalência com a posição de uma mina. Se forem equivalentes, o contador de bombas adjacentes recebe um acréscimo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>linha da coordenada. </td></tr>
+    <tr><td class="paramname">coluna</td><td>coluna da coordenada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O número de bombas adjacentes à coordenada especificada. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00058">58</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{</div>
+<div class="line"><span class="lineno">   60</span>  <span class="keywordtype">int</span> bombas_adj = 0;</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = -1; x &lt;= 1; ++x)</div>
+<div class="line"><span class="lineno">   63</span>  {</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = -1; y &lt;= 1; ++y)</div>
+<div class="line"><span class="lineno">   65</span>    {</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iterador = 0; iterador &lt; this-&gt;bombas; ++iterador)</div>
+<div class="line"><span class="lineno">   68</span>      {</div>
+<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">if</span> (linha + x == posicao_minas[0][iterador] &amp;&amp;</div>
+<div class="line"><span class="lineno">   70</span>            coluna + y == posicao_minas[1][iterador])</div>
+<div class="line"><span class="lineno">   71</span>          bombas_adj++;</div>
+<div class="line"><span class="lineno">   72</span>      }</div>
+<div class="line"><span class="lineno">   73</span>    }</div>
+<div class="line"><span class="lineno">   74</span>  }</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>  <span class="keywordflow">return</span> bombas_adj;</div>
+<div class="line"><span class="lineno">   77</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aeab813f451013ed202793f43c520348d" name="aeab813f451013ed202793f43c520348d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeab813f451013ed202793f43c520348d">&#9670;&#160;</a></span>revelaCelula()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CampoMinado::revelaCelula </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>linha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coluna</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exposição do conteúdo de uma casa do tabuleiro. </p>
+<p>Esboça no tabuleiro o conteúdo de uma célula (que não possui bomba):</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>int </td></tr>
+    <tr><td class="paramname">coluna</td><td>int</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>A partir de uma posição passada por parâmetro (linha, coluna),se for uma jogada válida, a casa escolhida recebe como conteúdo o número correspondete às suas minas adjacentes. Porém, no caso do número de bombas adjacentes ser equivalente a zero, a célula fica vazia e a função "revelaCelula" é chamada para todas as casas ao seu redor, até serem preenchidas com um número maior do que zero.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>linha da coordenada. </td></tr>
+    <tr><td class="paramname">coluna</td><td>coluna da coordenada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00091">91</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   92</span>{</div>
+<div class="line"><span class="lineno">   93</span>  <span class="keywordtype">int</span> minas_adj = <a class="code hl_function" href="#a580ebbb67bed4f7892caf0072e60428d">minasAdj</a>(linha, coluna);</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>  <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a414b0ce9fe9de168985280d52c5d6457">validaJogadaCampoMinado</a>(linha, coluna))</div>
+<div class="line"><span class="lineno">   96</span>  {</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   98</span>  }</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>  <span class="keywordflow">if</span> (minas_adj &gt; 0)</div>
+<div class="line"><span class="lineno">  101</span>  {</div>
+<div class="line"><span class="lineno">  102</span>    <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[linha][coluna] = <span class="charliteral">&#39;0&#39;</span> + minas_adj;</div>
+<div class="line"><span class="lineno">  103</span>  }</div>
+<div class="line"><span class="lineno">  104</span>  <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  105</span>  { <span class="comment">// se não tem bomba adjacente, marca com espaco em branco e revela as células adjacentes</span></div>
+<div class="line"><span class="lineno">  106</span>    <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[linha][coluna] = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = -1; x &lt;= 1; ++x)</div>
+<div class="line"><span class="lineno">  109</span>    {</div>
+<div class="line"><span class="lineno">  110</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = -1; y &lt;= 1; ++y)</div>
+<div class="line"><span class="lineno">  111</span>      {</div>
+<div class="line"><span class="lineno">  112</span>        <a class="code hl_function" href="#aeab813f451013ed202793f43c520348d">revelaCelula</a>(linha + x, coluna + y);</div>
+<div class="line"><span class="lineno">  113</span>      }</div>
+<div class="line"><span class="lineno">  114</span>    }</div>
+<div class="line"><span class="lineno">  115</span>  }</div>
+<div class="line"><span class="lineno">  116</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a414b0ce9fe9de168985280d52c5d6457" name="a414b0ce9fe9de168985280d52c5d6457"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a414b0ce9fe9de168985280d52c5d6457">&#9670;&#160;</a></span>validaJogadaCampoMinado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CampoMinado::validaJogadaCampoMinado </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>linha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>coluna</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Validação da jogada. </p>
+<p>Verifica se a jogada é valida de acordo com as regras do Campo Minado:</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>int </td></tr>
+    <tr><td class="paramname">coluna</td><td>int</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td></td></tr>
+    <tr><td class="paramname">false</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta função booleana agrupa todas as condições para determinar se uma jogada é válida ou não. Primeiro, verifica se a coordenada <code>(linha, coluna)</code>, passada por parâmetro,se encontra dentro das dimensões do tabuleiro. E segundo, verifica se ela não foi revelada ainda (contém o simbolo <code>+</code>) .</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>linha da coordenada. </td></tr>
+    <tr><td class="paramname">coluna</td><td>coluna da coordenada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Verdadeiro, caso atenda a todas as condições de ser uma jogada válida. </dd>
+<dd>
+Falso, caso não atenda a pelo menos uma das condições. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="_campo_minado_8cpp_source.html#l00131">131</a> do arquivo <a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  132</span>{</div>
+<div class="line"><span class="lineno">  133</span>  <span class="keywordflow">if</span> (linha &lt; 0 || linha &gt;= <a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a> || coluna &lt; 0 || coluna &gt;= <a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a> ||</div>
+<div class="line"><span class="lineno">  134</span>      <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[linha][coluna] != <span class="charliteral">&#39;+&#39;</span>)</div>
+<div class="line"><span class="lineno">  135</span>  {</div>
+<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  137</span>  }</div>
+<div class="line"><span class="lineno">  138</span>  <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  139</span>  {</div>
+<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  141</span>  }</div>
+<div class="line"><span class="lineno">  142</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/<a class="el" href="_campo_minado_8hpp_source.html">CampoMinado.hpp</a></li>
+<li>src/<a class="el" href="_campo_minado_8cpp_source.html">CampoMinado.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

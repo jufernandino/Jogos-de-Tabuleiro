@@ -1,0 +1,534 @@
+\doxysection{Referência da Classe Memoria}
+\label{class_memoria}\index{Memoria@{Memoria}}
+
+
+Classe que representa o jogo da Memória.  
+
+
+
+
+{\ttfamily \#include $<$Memoria.\+hpp$>$}
+
+Diagrama de hierarquia da classe Memoria\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_memoria}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Memoria} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe. \end{DoxyCompactList}\item 
+virtual int \textbf{ confere\+Ganhador} () override
+\begin{DoxyCompactList}\small\item\em Esta função sobrescreve o método "{}confere\+Ganhador"{} da classe base "{}\+Tabuleiro"{} e implementa a lógica para verificar se há um vencedor na partida de jogo da \doxyref{Memoria}{p.}{class_memoria}. \end{DoxyCompactList}\item 
+bool \textbf{ eh\+Jogada\+Valida} (int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\begin{DoxyCompactList}\small\item\em Validação da jogada. \end{DoxyCompactList}\item 
+void \textbf{ valida\+Jogada} (int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\begin{DoxyCompactList}\small\item\em Execução de uma jogada. \end{DoxyCompactList}\item 
+bool \textbf{ formam\+Pares} (int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\begin{DoxyCompactList}\small\item\em Análise se duas posições formam um par. \end{DoxyCompactList}\item 
+void \textbf{ valida\+Pares} (int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\begin{DoxyCompactList}\small\item\em Execução de ações no tabuleiro, dependendo se tem pares. \end{DoxyCompactList}\item 
+bool \textbf{ verificar\+Fim\+De\+Jogo} ()
+\begin{DoxyCompactList}\small\item\em Verificador de fim da partida. \end{DoxyCompactList}\item 
+void \textbf{ inicializa\+Tabuleiro\+Simbolos} ()
+\begin{DoxyCompactList}\small\item\em Inicialização da matriz/tabuleiro auxiliar para os símbolos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membros Públicos herdados de \textbf{ Tabuleiro}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Tabuleiro} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxyref{Tabuleiro}{p.}{class_tabuleiro}. \end{DoxyCompactList}\item 
+void \textbf{ cria\+Tabuleiro} ()
+\begin{DoxyCompactList}\small\item\em Cria o tabuleiro alocando memória dinamicamente para a matriz. \end{DoxyCompactList}\item 
+virtual void \textbf{ imprimir\+Tabuleiro} ()
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro na tela. \end{DoxyCompactList}\item 
+virtual void \textbf{ valida\+Jogada} (int x, int y, char z)
+\begin{DoxyCompactList}\small\item\em Valida uma jogada no tabuleiro. \end{DoxyCompactList}\item 
+void \textbf{ libera\+Memoria} ()
+\begin{DoxyCompactList}\small\item\em Libera a memória alocada para o tabuleiro. \end{DoxyCompactList}\item 
+void \textbf{ mostrar\+Regras} (const char \&jogo\+Escolhido)
+\begin{DoxyCompactList}\small\item\em confere se alguém venceu \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Outros membros herdados}
+\doxysubsection*{Atributos Públicos herdados de \textbf{ Tabuleiro}}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \textbf{ matrix}
+\item 
+int \textbf{ rows}
+\item 
+int \textbf{ columns}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Classe que representa o jogo da Memória. 
+
+A classe "{}\+Memoria"{} é uma classe herdeira de classe base "{}\+Tabuleiro"{} e implementa a lógica específica do jogo da Memória, incluindo a verificação de condição de vitória (função que sobrescreve a da classe base). Além disso inclui métodos próprios como\+: inicialização do tabuleiro com os símbolos/letras, verificação se a jogada é valida de acordo com as regras do jogo da Memória, validação/execução da jogada, verificação se duas coordenadas possuem o mesmo símbolo (se são pares), validação das casas que formam pares, verificação se há movimentos possíveis. 
+
+Definição na linha \textbf{ 17} do arquivo \textbf{ Memoria.\+hpp}.
+
+
+
+\doxysubsection{Construtores e Destrutores}
+\index{Memoria@{Memoria}!Memoria@{Memoria}}
+\index{Memoria@{Memoria}!Memoria@{Memoria}}
+\doxysubsubsection{Memoria()}
+{\footnotesize\ttfamily \label{class_memoria_af4266851a9c7b0650b3342e7e918e028} 
+Memoria\+::\+Memoria (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe. 
+
+Construtor\+:
+
+Inicializa um objeto \doxyref{Memoria}{p.}{class_memoria} com as configurações padrões do tabuleiro, especificando o tamanho como 4 linhas e 4 colunas. Além disso, inicializa uma matriz auxiliar para os caracteres/símbolos da partida. 
+
+Definição na linha \textbf{ 15} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ this-\/>rows\ =\ 4;}
+\DoxyCodeLine{00018\ \ \ \ \ this-\/>columns\ =\ 4;}
+\DoxyCodeLine{00019\ \ \ \ \ inicializaTabuleiroSimbolos();}
+\DoxyCodeLine{00020\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentação das funções}
+\index{Memoria@{Memoria}!confereGanhador@{confereGanhador}}
+\index{confereGanhador@{confereGanhador}!Memoria@{Memoria}}
+\doxysubsubsection{confereGanhador()}
+{\footnotesize\ttfamily \label{class_memoria_afd4e8d6b97040e5263e67dd8afadefd1} 
+int Memoria\+::confere\+Ganhador (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Esta função sobrescreve o método "{}confere\+Ganhador"{} da classe base "{}\+Tabuleiro"{} e implementa a lógica para verificar se há um vencedor na partida de jogo da \doxyref{Memoria}{p.}{class_memoria}. 
+
+Condição de vitória em um jogo da Memória\+:
+
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em int} & 0 \\
+\hline
+{\em int} & 1 \\
+\hline
+{\em int} & 2 \\
+\hline
+{\em int} & 3\\
+\hline
+\end{DoxyRetVals}
+Compara o número de pontos que cada jogador fez ao longo da partida. Caso o jogador 1 tenha mais pontos, a função retorna 1 (vitória do Jogador 1). Caso o jogador 2 tenha mais pontos, a função retorna 2 (vitória do Jogador 2). Caso ambos tenham o mesmo número de pontos, a função retorna 3 (empate). Se o jogo ainda não terminou, retorna 0.
+
+\begin{DoxyReturn}{Retorna}
+0, caso ainda não tenha acabado o jogo. 
+
+1, caso o Jogador 1 vença. 
+
+2, caso o Jogador 2 vença. 
+
+3, caso ocorra um empate. 
+\end{DoxyReturn}
+jogador 1 ganhou
+
+jogador 2 ganhou
+
+empate
+
+Implementa \textbf{ Tabuleiro} \doxyref{}{p.}{class_tabuleiro_a271e4f79f6c7203dfa9283348e946836}.
+
+
+
+Definição na linha \textbf{ 175} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176\ \{}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{if}\ (pontosJogador1\ >\ pontosJogador2)}
+\DoxyCodeLine{00179\ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;\ }
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pontosJogador2\ >\ pontosJogador1)}
+\DoxyCodeLine{00183\ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 2;\ }
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pontosJogador1\ ==\ pontosJogador2)}
+\DoxyCodeLine{00187\ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 3;\ }
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00192\ \}}
+
+\end{DoxyCode}
+\index{Memoria@{Memoria}!ehJogadaValida@{ehJogadaValida}}
+\index{ehJogadaValida@{ehJogadaValida}!Memoria@{Memoria}}
+\doxysubsubsection{ehJogadaValida()}
+{\footnotesize\ttfamily \label{class_memoria_a374086dda0aedeb1d619c7ee190d158c} 
+bool Memoria\+::eh\+Jogada\+Valida (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{x2}{, }\item[{int}]{y2}{, }\item[{char}]{jogador\+Da\+Vez}{}\end{DoxyParamCaption})}
+
+
+
+Validação da jogada. 
+
+Verifica se a jogada é valida de acordo com as regras do jogo da Memória\+:
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & int \\
+\hline
+{\em y} & int \\
+\hline
+{\em x2} & int \\
+\hline
+{\em y2} & int \\
+\hline
+{\em jogador\+Da\+Vez} & char\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em true} & \\
+\hline
+{\em false} & \\
+\hline
+\end{DoxyRetVals}
+Esta função booleana agrupa todas as condições para determinar se uma jogada é válida ou não. Primeiro, verifica se as posições {\ttfamily (x, y)} e {\ttfamily (x2, y2)}, passadas por parâmetro, estão vazias, dentro das dimensões do tabuleiro e se são coordenadas diferentes entre si. Caso as posições tenham todos os pré-\/requisitos, a jogada é considerada válida, retornando verdadeiro. Caso contrário, a jogada é considerada inválida, retornando falso.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & linha da coordenada 1. \\
+\hline
+{\em y} & coluna da coordenada 1. \\
+\hline
+{\em x2} & linha da coordenada 2. \\
+\hline
+{\em y2} & coluna da coordenada 2. \\
+\hline
+{\em jogador\+Da\+Vez} & caracter que define qual é o jogador.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Verdadeiro, caso atenda a todas as condições de ser uma jogada válida. 
+
+Falso, caso não atenda a pelo menos uma das condições. 
+\end{DoxyReturn}
+
+
+Definição na linha \textbf{ 72} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ 0\ ||\ x\ >=\ rows\ ||\ y\ <\ 0\ ||\ y\ >=\ columns\ ||}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ x2\ <\ 0\ ||\ x2\ >=\ rows\ ||\ y2\ <\ 0\ ||\ y2\ >=\ columns\ ||}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ (matrix[x][y]\ !=\ \textcolor{charliteral}{'\ '})\ ||\ (matrix[x2][y2]\ !=\ \textcolor{charliteral}{'\ '})\ ||}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ (x\ ==\ x2\ \&\&\ y\ ==\ y2))}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00083\ \}}
+
+\end{DoxyCode}
+\index{Memoria@{Memoria}!formamPares@{formamPares}}
+\index{formamPares@{formamPares}!Memoria@{Memoria}}
+\doxysubsubsection{formamPares()}
+{\footnotesize\ttfamily \label{class_memoria_a0a52cb88ba8e775cba5cdec4fe6fb52e} 
+bool Memoria\+::formam\+Pares (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{x2}{, }\item[{int}]{y2}{, }\item[{char}]{jogador\+Da\+Vez}{}\end{DoxyParamCaption})}
+
+
+
+Análise se duas posições formam um par. 
+
+Verifica se duas coordenadas passadas por parâmetro formam um par\+:
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & int \\
+\hline
+{\em y} & int \\
+\hline
+{\em x2} & int \\
+\hline
+{\em y2} & int \\
+\hline
+{\em jogador\+Da\+Vez} & char\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em true} & \\
+\hline
+{\em false} & \\
+\hline
+\end{DoxyRetVals}
+Esta função booleanda avalia se as duas posições possuem símbolos iguais (são par um do outro) Caso sejam, a função retorna verdadeiro. Caso contrário, retorna falso.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & linha da coordenada 1. \\
+\hline
+{\em y} & coluna da coordenada 1. \\
+\hline
+{\em x2} & linha da coordenada 2. \\
+\hline
+{\em y2} & coluna da coordenada 2. \\
+\hline
+{\em jogador\+Da\+Vez} & caracter que define qual é o jogador.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Verdadeiro, se formarem um par. 
+
+Falso, se não formarem um par. 
+\end{DoxyReturn}
+
+
+Definição na linha \textbf{ 123} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (matrix[x][y]\ ==\ matrix[x2][y2])}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \}}
+
+\end{DoxyCode}
+\index{Memoria@{Memoria}!inicializaTabuleiroSimbolos@{inicializaTabuleiroSimbolos}}
+\index{inicializaTabuleiroSimbolos@{inicializaTabuleiroSimbolos}!Memoria@{Memoria}}
+\doxysubsubsection{inicializaTabuleiroSimbolos()}
+{\footnotesize\ttfamily \label{class_memoria_abb18e44374522fea88cd1ca44af047dd} 
+void Memoria\+::inicializa\+Tabuleiro\+Simbolos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Inicialização da matriz/tabuleiro auxiliar para os símbolos. 
+
+Incializa uma matriz auxiliar para armazenar os símbolos/letras\+:
+
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+Esta função cria uma string com todos os possíveis símbolos duplicados (em pares)\+: \{A, A, B, B, C, C, D, D, E, E, F, F, G, G, H, H,\}. Depois os caracteres na string são embaralhados de modo aleatório, de tal forma que, a cada jogo, os símbolos vão estar em posições diferentes. Em seguida os 8 pares de simbolos/letras são armazenados em uma matriz auxiliar. Por último, a pontuação inicial dos jogadores é iniciada de modo zerado. 
+
+Definição na linha \textbf{ 31} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{string}\ simbolos\ =\ \{\textcolor{charliteral}{'A'},\ \textcolor{charliteral}{'B'},\ \textcolor{charliteral}{'C'},\ \textcolor{charliteral}{'D'},\ \textcolor{charliteral}{'E'},\ \textcolor{charliteral}{'F'},\ \textcolor{charliteral}{'G'},\ \textcolor{charliteral}{'H'},\ \textcolor{charliteral}{'A'},\ \textcolor{charliteral}{'B'},\ \textcolor{charliteral}{'C'},\ \textcolor{charliteral}{'D'},\ \textcolor{charliteral}{'E'},\ \textcolor{charliteral}{'F'},\ \textcolor{charliteral}{'G'},\ \textcolor{charliteral}{'H'}\};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ iniciar\ o\ gerador\ de\ números\ aleatórios}}
+\DoxyCodeLine{00036\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ embaralhar\ as\ palavras\ da\ string}}
+\DoxyCodeLine{00038\ \ \ \ \ random\_shuffle(simbolos.begin(),\ simbolos.end());}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ k\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ ++i)\ \textcolor{comment}{//\ Preencher\ o\ tabuleiro\ com\ os\ símbolos}}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ columns;\ ++j)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ aux[i][j]\ =\ simbolos[k];}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ pontosJogador1\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ pontosJogador2\ =\ 0;}
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}
+\index{Memoria@{Memoria}!validaJogada@{validaJogada}}
+\index{validaJogada@{validaJogada}!Memoria@{Memoria}}
+\doxysubsubsection{validaJogada()}
+{\footnotesize\ttfamily \label{class_memoria_a3c6352d30673ede7d058dd06491e2940} 
+void Memoria\+::valida\+Jogada (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{x2}{, }\item[{int}]{y2}{, }\item[{char}]{jogador\+Da\+Vez}{}\end{DoxyParamCaption})}
+
+
+
+Execução de uma jogada. 
+
+Realiza/executa apenas as jogadas consideradas válidas\+:
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & int \\
+\hline
+{\em y} & int \\
+\hline
+{\em x2} & int \\
+\hline
+{\em y2} & int \\
+\hline
+{\em jogador\+Da\+Vez} & char\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+Caso as posições {\ttfamily (x, y)} e {\ttfamily (x2, y2)}, passadas por parâmetro, não sejam válidas, a função avisa o jogador e não executa a ação. Caso sejam válidas, os símbolos que estão na posição (x,y) e (x2,y2) do tabuleiro auxiliar são atribuidos ao tabuleiro real.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & linha da coordenada 1. \\
+\hline
+{\em y} & coluna da coordenada 1. \\
+\hline
+{\em x2} & linha da coordenada 2. \\
+\hline
+{\em y2} & coluna da coordenada 2. \\
+\hline
+{\em jogador\+Da\+Vez} & caracter que define qual é o jogador. \\
+\hline
+\end{DoxyParams}
+
+
+Definição na linha \textbf{ 97} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ehJogadaValida(x,\ y,\ x2,\ y2,\ jogadorDaVez))}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ jogada\ inválida"{}}\ <<\ endl;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ matrix[x][y]\ =\ aux[x][y];}
+\DoxyCodeLine{00105\ \ \ \ \ matrix[x2][y2]\ =\ aux[x2][y2];}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\index{Memoria@{Memoria}!validaPares@{validaPares}}
+\index{validaPares@{validaPares}!Memoria@{Memoria}}
+\doxysubsubsection{validaPares()}
+{\footnotesize\ttfamily \label{class_memoria_adb3ecf79aac46026f5c907899a9aec22} 
+void Memoria\+::valida\+Pares (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{x2}{, }\item[{int}]{y2}{, }\item[{char}]{jogador\+Da\+Vez}{}\end{DoxyParamCaption})}
+
+
+
+Execução de ações no tabuleiro, dependendo se tem pares. 
+
+Ações no tabuleiro são realizadas, de acordo com o resultado se os pares foram encontrados ou não\+:
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & int \\
+\hline
+{\em y} & int \\
+\hline
+{\em x2} & int \\
+\hline
+{\em y2} & int \\
+\hline
+{\em jogador\+Da\+Vez} & char\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+Primeiramente, esta função avalia se duas coordenadas formaram pares. Em caso positivo, os símbolos se mantêm no tabuleiro real e o jogador da vez pontua. Em caso negativo, se o jogador não encontrou símbolos iguais, limpa o tabuleiro e ninguem pontua.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & linha da coordenada 1. \\
+\hline
+{\em y} & coluna da coordenada 1. \\
+\hline
+{\em x2} & linha da coordenada 2. \\
+\hline
+{\em y2} & coluna da coordenada 2. \\
+\hline
+{\em jogador\+Da\+Vez} & caracter que define qual é o jogador. \\
+\hline
+\end{DoxyParams}
+
+
+Definição na linha \textbf{ 144} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00145\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (!formamPares(x,\ y,\ x2,\ y2,\ jogadorDaVez))}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Par\ não\ encontrado!"{}}\ <<\ endl;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ matrix[x][y]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ matrix[x2][y2]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Par\ "{}}\ <<\ matrix[x][y]\ <<\ \textcolor{stringliteral}{"{}-\/"{}}\ <<\ matrix[x2][y2]\ <<\ \textcolor{stringliteral}{"{}\ encontrado!"{}}\ <<\ endl;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{if}\ (jogadorDaVez\ ==\ \textcolor{charliteral}{'1'})}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ pontosJogador1++;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jogadorDaVez\ ==\ \textcolor{charliteral}{'2'})}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ pontosJogador2++;}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
+\index{Memoria@{Memoria}!verificarFimDeJogo@{verificarFimDeJogo}}
+\index{verificarFimDeJogo@{verificarFimDeJogo}!Memoria@{Memoria}}
+\doxysubsubsection{verificarFimDeJogo()}
+{\footnotesize\ttfamily \label{class_memoria_ac9b2027c99c584240c7ad720b127f61f} 
+bool Memoria\+::verificar\+Fim\+De\+Jogo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verificador de fim da partida. 
+
+Verifica as condições do jogo da Memória para decretar o fim do jogo\+:
+
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em true} & \\
+\hline
+{\em false} & \\
+\hline
+\end{DoxyRetVals}
+Esta função booleana percorre todas as coordenadas do tabuleiro, avaliando se todas as posições já foram escolhidas (ou seja, se não têm nenhuma vazia). Caso exista pelo menos uma coordenada vazia, o jogo ainda não acabou. Caso contrário, o jogo chegou ao fim.
+
+\begin{DoxyReturn}{Retorna}
+Verdadeiro, se o jogo tiver acabado 
+
+Falso, se o jogo não tiver acabado. 
+\end{DoxyReturn}
+
+
+Definição na linha \textbf{ 204} do arquivo \textbf{ Memoria.\+cpp}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00205\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ ++i)}
+\DoxyCodeLine{00207\ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ columns;\ ++j)}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matrix[i][j]\ ==\ \textcolor{charliteral}{'\ '})}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00217\ \}}
+
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/\textbf{ Memoria.\+hpp}\item 
+src/\textbf{ Memoria.\+cpp}\end{DoxyCompactItemize}

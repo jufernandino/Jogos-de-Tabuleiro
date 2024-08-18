@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Jogos de Tabuleiro: Código-Fonte de src/Memoria.cpp</title>
+<link rel="icon" href="BoardGame2.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="BoardGame2.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Jogos de Tabuleiro<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">O projeto Jogos de Tabuleiro é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. O objetivo deste projeto é desenvolver um sistema usando o paradigma de orientação a objetos para implementar diferentes jogos de tabuleiro, proporcionando funcionalidades de cadastro de jogadores, exclusão de jogadores, estatística dos jogadores e a listagem dos jogadores. Os jogos disponibilizados são: Campo Minado, Reversi, Tic Tac Toe, Jogo da Memória e Lig4.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Memoria.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_memoria_8cpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_memoria_8hpp.html">Memoria.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using namespace </span>std;</div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_memoria.html#af4266851a9c7b0650b3342e7e918e028">   15</a></span><a class="code hl_function" href="class_memoria.html#af4266851a9c7b0650b3342e7e918e028">Memoria::Memoria</a>()</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    this-&gt;<a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a> = 4;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    this-&gt;<a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a> = 4;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_memoria.html#abb18e44374522fea88cd1ca44af047dd">inicializaTabuleiroSimbolos</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_memoria.html#abb18e44374522fea88cd1ca44af047dd">   31</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_memoria.html#abb18e44374522fea88cd1ca44af047dd">Memoria::inicializaTabuleiroSimbolos</a>()</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">string</span> simbolos = {<span class="charliteral">&#39;A&#39;</span>, <span class="charliteral">&#39;B&#39;</span>, <span class="charliteral">&#39;C&#39;</span>, <span class="charliteral">&#39;D&#39;</span>, <span class="charliteral">&#39;E&#39;</span>, <span class="charliteral">&#39;F&#39;</span>, <span class="charliteral">&#39;G&#39;</span>, <span class="charliteral">&#39;H&#39;</span>, <span class="charliteral">&#39;A&#39;</span>, <span class="charliteral">&#39;B&#39;</span>, <span class="charliteral">&#39;C&#39;</span>, <span class="charliteral">&#39;D&#39;</span>, <span class="charliteral">&#39;E&#39;</span>, <span class="charliteral">&#39;F&#39;</span>, <span class="charliteral">&#39;G&#39;</span>, <span class="charliteral">&#39;H&#39;</span>};</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// iniciar o gerador de números aleatórios</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    srand(time(NULL));</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// embaralhar as palavras da string</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    random_shuffle(simbolos.begin(), simbolos.end());</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> k = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a>; ++i) <span class="comment">// Preencher o tabuleiro com os símbolos</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a>; ++j)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            aux[i][j] = simbolos[k];</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            k++;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    pontosJogador1 = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    pontosJogador2 = 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_memoria.html#a374086dda0aedeb1d619c7ee190d158c">   72</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_memoria.html#a374086dda0aedeb1d619c7ee190d158c">Memoria::ehJogadaValida</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <span class="keywordtype">char</span> jogadorDaVez)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">if</span> (x &lt; 0 || x &gt;= <a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a> || y &lt; 0 || y &gt;= <a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a> ||</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        x2 &lt; 0 || x2 &gt;= <a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a> || y2 &lt; 0 || y2 &gt;= <a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a> ||</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        (<a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x][y] != <span class="charliteral">&#39; &#39;</span>) || (<a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x2][y2] != <span class="charliteral">&#39; &#39;</span>) ||</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        (x == x2 &amp;&amp; y == y2))</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_memoria.html#a3c6352d30673ede7d058dd06491e2940">   97</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_memoria.html#a3c6352d30673ede7d058dd06491e2940">Memoria::validaJogada</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <span class="keywordtype">char</span> jogadorDaVez)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_memoria.html#a374086dda0aedeb1d619c7ee190d158c">ehJogadaValida</a>(x, y, x2, y2, jogadorDaVez))</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        cout &lt;&lt; <span class="stringliteral">&quot;ERRO: jogada inválida&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x][y] = aux[x][y];</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x2][y2] = aux[x2][y2];</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="class_memoria.html#a0a52cb88ba8e775cba5cdec4fe6fb52e">  123</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_memoria.html#a0a52cb88ba8e775cba5cdec4fe6fb52e">Memoria::formamPares</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <span class="keywordtype">char</span> jogadorDaVez)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>{</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x][y] == <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x2][y2])</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}</div>
+</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="class_memoria.html#adb3ecf79aac46026f5c907899a9aec22">  144</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_memoria.html#adb3ecf79aac46026f5c907899a9aec22">Memoria::validaPares</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> x2, <span class="keywordtype">int</span> y2, <span class="keywordtype">char</span> jogadorDaVez)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>{</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_memoria.html#a0a52cb88ba8e775cba5cdec4fe6fb52e">formamPares</a>(x, y, x2, y2, jogadorDaVez))</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        cout &lt;&lt; <span class="stringliteral">&quot;Par não encontrado!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x][y] = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x2][y2] = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    cout &lt;&lt; <span class="stringliteral">&quot;Par &quot;</span> &lt;&lt; <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x][y] &lt;&lt; <span class="stringliteral">&quot;-&quot;</span> &lt;&lt; <a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[x2][y2] &lt;&lt; <span class="stringliteral">&quot; encontrado!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">if</span> (jogadorDaVez == <span class="charliteral">&#39;1&#39;</span>)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        pontosJogador1++;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (jogadorDaVez == <span class="charliteral">&#39;2&#39;</span>)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        pontosJogador2++;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>}</div>
+</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="foldopen" id="foldopen00175" data-start="{" data-end="}">
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="class_memoria.html#afd4e8d6b97040e5263e67dd8afadefd1">  175</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_memoria.html#afd4e8d6b97040e5263e67dd8afadefd1">Memoria::confereGanhador</a>()</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>{</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">if</span> (pontosJogador1 &gt; pontosJogador2)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">return</span> 1; </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pontosJogador2 &gt; pontosJogador1)</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span> 2; </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pontosJogador1 == pontosJogador2)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">return</span> 3; </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    }</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}</div>
+</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="class_memoria.html#ac9b2027c99c584240c7ad720b127f61f">  204</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_memoria.html#ac9b2027c99c584240c7ad720b127f61f">Memoria::verificarFimDeJogo</a>()</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>{</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">rows</a>; ++i)</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    {</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code hl_variable" href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">columns</a>; ++j)</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">matrix</a>[i][j] == <span class="charliteral">&#39; &#39;</span>)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        }</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>}</div>
+</div>
+<div class="ttc" id="a_memoria_8hpp_html"><div class="ttname"><a href="_memoria_8hpp.html">Memoria.hpp</a></div></div>
+<div class="ttc" id="aclass_memoria_html_a0a52cb88ba8e775cba5cdec4fe6fb52e"><div class="ttname"><a href="class_memoria.html#a0a52cb88ba8e775cba5cdec4fe6fb52e">Memoria::formamPares</a></div><div class="ttdeci">bool formamPares(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Análise se duas posições formam um par.</div><div class="ttdef"><b>Definição</b> <a href="#l00123">Memoria.cpp:123</a></div></div>
+<div class="ttc" id="aclass_memoria_html_a374086dda0aedeb1d619c7ee190d158c"><div class="ttname"><a href="class_memoria.html#a374086dda0aedeb1d619c7ee190d158c">Memoria::ehJogadaValida</a></div><div class="ttdeci">bool ehJogadaValida(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Validação da jogada.</div><div class="ttdef"><b>Definição</b> <a href="#l00072">Memoria.cpp:72</a></div></div>
+<div class="ttc" id="aclass_memoria_html_a3c6352d30673ede7d058dd06491e2940"><div class="ttname"><a href="class_memoria.html#a3c6352d30673ede7d058dd06491e2940">Memoria::validaJogada</a></div><div class="ttdeci">void validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Execução de uma jogada.</div><div class="ttdef"><b>Definição</b> <a href="#l00097">Memoria.cpp:97</a></div></div>
+<div class="ttc" id="aclass_memoria_html_abb18e44374522fea88cd1ca44af047dd"><div class="ttname"><a href="class_memoria.html#abb18e44374522fea88cd1ca44af047dd">Memoria::inicializaTabuleiroSimbolos</a></div><div class="ttdeci">void inicializaTabuleiroSimbolos()</div><div class="ttdoc">Inicialização da matriz/tabuleiro auxiliar para os símbolos.</div><div class="ttdef"><b>Definição</b> <a href="#l00031">Memoria.cpp:31</a></div></div>
+<div class="ttc" id="aclass_memoria_html_ac9b2027c99c584240c7ad720b127f61f"><div class="ttname"><a href="class_memoria.html#ac9b2027c99c584240c7ad720b127f61f">Memoria::verificarFimDeJogo</a></div><div class="ttdeci">bool verificarFimDeJogo()</div><div class="ttdoc">Verificador de fim da partida.</div><div class="ttdef"><b>Definição</b> <a href="#l00204">Memoria.cpp:204</a></div></div>
+<div class="ttc" id="aclass_memoria_html_adb3ecf79aac46026f5c907899a9aec22"><div class="ttname"><a href="class_memoria.html#adb3ecf79aac46026f5c907899a9aec22">Memoria::validaPares</a></div><div class="ttdeci">void validaPares(int x, int y, int x2, int y2, char jogadorDaVez)</div><div class="ttdoc">Execução de ações no tabuleiro, dependendo se tem pares.</div><div class="ttdef"><b>Definição</b> <a href="#l00144">Memoria.cpp:144</a></div></div>
+<div class="ttc" id="aclass_memoria_html_af4266851a9c7b0650b3342e7e918e028"><div class="ttname"><a href="class_memoria.html#af4266851a9c7b0650b3342e7e918e028">Memoria::Memoria</a></div><div class="ttdeci">Memoria()</div><div class="ttdoc">Construtor da classe.</div><div class="ttdef"><b>Definição</b> <a href="#l00015">Memoria.cpp:15</a></div></div>
+<div class="ttc" id="aclass_memoria_html_afd4e8d6b97040e5263e67dd8afadefd1"><div class="ttname"><a href="class_memoria.html#afd4e8d6b97040e5263e67dd8afadefd1">Memoria::confereGanhador</a></div><div class="ttdeci">virtual int confereGanhador() override</div><div class="ttdoc">Esta função sobrescreve o método &quot;confereGanhador&quot; da classe base &quot;Tabuleiro&quot; e implementa a lógica p...</div><div class="ttdef"><b>Definição</b> <a href="#l00175">Memoria.cpp:175</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a1e53391966e83063bba15409c63844bd"><div class="ttname"><a href="class_tabuleiro.html#a1e53391966e83063bba15409c63844bd">Tabuleiro::matrix</a></div><div class="ttdeci">char ** matrix</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8hpp_source.html#l00019">Tabuleiro.hpp:19</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a60d9753b61c6c1a2ce4af866e2f4e2a5"><div class="ttname"><a href="class_tabuleiro.html#a60d9753b61c6c1a2ce4af866e2f4e2a5">Tabuleiro::columns</a></div><div class="ttdeci">int columns</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8hpp_source.html#l00021">Tabuleiro.hpp:21</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_addfdc518d735de62c98d6b44cc2ed0fa"><div class="ttname"><a href="class_tabuleiro.html#addfdc518d735de62c98d6b44cc2ed0fa">Tabuleiro::rows</a></div><div class="ttdeci">int rows</div><div class="ttdef"><b>Definição</b> <a href="_tabuleiro_8hpp_source.html#l00020">Tabuleiro.hpp:20</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

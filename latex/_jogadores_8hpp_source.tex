@@ -1,0 +1,66 @@
+\doxysection{Jogadores.\+hpp}
+\label{_jogadores_8hpp_source}\index{include/Jogadores.hpp@{include/Jogadores.hpp}}
+\textbf{ Ir para a documentação desse arquivo.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Jogadores\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Jogadores\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }Jogadores}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{string}\ Apelido;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{string}\ Nome;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ reversiWins;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ reversiDefeats;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ reversiEmpates;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ lig4Wins;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ lig4Defeats;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ lig4Empates;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ tictactoeWins;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ tictactoeDefeats;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ tictactoeEmpates;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ campoMinadoWins;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ campoMinadoDefeats;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ memoriaWins;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ memoriaDefeats;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ memoriaEmpates;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ victory;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ empate;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ pesquisaJogador(\textcolor{keywordtype}{string}\ Apelido);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ Jogadores();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00067\ \ \ \ \ Jogadores(\textcolor{keywordtype}{string}\ Apelido,\ \textcolor{keywordtype}{string}\ Nome);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00079\ \ \ \ \ Jogadores\ logIn(\textcolor{keywordtype}{string}\ Apelido,\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ reescreveArquivo(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ removeJogador(vector<Jogadores>\ \&jogadoresVector,\ \textcolor{keywordtype}{string}\ \&Apelido);}
+\DoxyCodeLine{00103\ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ atualizaEstatisticas(\textcolor{keywordtype}{char}\ jogoEscolhido,\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ mostrarRanking(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&jogoEscolhido,\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ mostrarEstatisticas(vector<Jogadores>\ \&jogadoresVector,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&ordenacao);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ carregarJogadores(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ cadastrarJogadores(\textcolor{keywordtype}{string}\ apelido,\ \textcolor{keywordtype}{string}\ nome,\ Jogadores\ \&Jogador,\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ ordenacaoApelido(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{void}\ ordenacaoNome(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00182\ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
