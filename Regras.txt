@@ -25,9 +25,12 @@
 4 - Caso o tabuleiro seja completamente preenchido e nenhum jogador consiga alinhar suas peças, a partida termina em empate.
 
 <C>
-1 - Regra do Campo Minado
-2 - Regra do Campo Minado
-3 - Regra do Campo Minado
+1 - O objetivo do jogo é revelar todas as casas do tabulerio que nao possuem bombas
+2 - O jogo só possui um unico jogador, que deve inserir as coordenadas de uma casa que não possui bomba
+3 - Se a casa escolhida não tiver nenhuma bomba, ela será revelada mostrando a quantidade de bombas adjacentes à ela
+4 - Se não houverem bombas adjacentes, a casa ficará em branco e as casas ao lado serão reveladas
+5 - O jogador vence se ele alcançar o objetivo do jogo
+6 - O jogador perde se ele escolher uma casa que contenha uma bomba
 
 <M>
 1 - O objetivo do jogo é conseguir encontrar o maior números de pares de simbolos/letras idênticas. 
