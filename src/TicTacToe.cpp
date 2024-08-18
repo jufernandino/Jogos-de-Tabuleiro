@@ -4,7 +4,7 @@
 #include <string>
 
 /**
- * @brief Construtor da classe TicTacToe.
+ * @brief Construtor.
  *
  * Inicializa o tabuleiro do jogo Tic-Tac-Toe com 3 linhas e 3 colunas.
  */
