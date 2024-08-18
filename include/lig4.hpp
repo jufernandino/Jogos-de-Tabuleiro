@@ -17,31 +17,31 @@ class lig4 : public Tabuleiro
 {
 public:
   /**
-   * @brief Construtor da classe lig4.
+   * @brief Construtor da classe.
    *
-   * Inicializa um objeto lig4 com as configurações padrões do tabuleiro.
    */
   lig4();
 
   /**
-   * @brief Valida uma jogada no tabuleiro.
+   * @brief Esta função sobrescreve o método "validaJogada" da classe base
+   * "Tabuleiro"e implementa a lógica para validar a jogada na partida de Lig4.
    *
-   * Esta função sobrescreve o método "validaJogada" da classe base "Tabuleiro"
-   * e implementa a lógica para validar a jogada na partida de Lig4
+   * @param x int
+   * @param y int
+   * @param z char
    *
-   * @param x Coordenada da linha.
-   * @param y Coordenada da coluna.
-   * @param z Peça do jogador (X ou O).
+   * @retval none
    */
   virtual void validaJogada(int x, int y, char z) override;
 
   /**
-   * @brief Confere se há um ganhador no jogo.
-   *
-   * Esta função sobrescreve o método "confereGanhador" da classe base "Tabuleiro"
+   * @brief Esta função sobrescreve o método "confereGanhador" da classe base "Tabuleiro"
    * e implementa a lógica para verificar se há um vencedor na partida de Lig4.
    *
-   * @return Retorna 1 se houver um vencedor, 0 caso contrário.
+   * @retval int 0
+   * @retval int 1
+   * @retval int 2
+   * @retval int 3
    */
   virtual int confereGanhador() override;
 };
