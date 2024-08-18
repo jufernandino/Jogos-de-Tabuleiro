@@ -37,8 +37,7 @@ void antiUsuario(int &a);
  * @param jogadoresVector Vetor contendo os jogadores cadastrados.
  * @param pJogador1 Ponteiro para o primeiro jogador.
  */
-void menuFimDeJogo(const char &jogoEscolhido,
-                   vector<Jogadores> &jogadoresVector);
+void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector);
 
 /**
  * @brief Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o
@@ -86,7 +85,7 @@ int main() {
 
   Jogadores Jogador1, Jogador2;
 
-  while (1) { /// while do menu
+  while (1) { 
     cout << "\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Digite o comando "
             "desejado para iniciar o programa:\n\n"
          << "CJ - Cadastrar jogadores\n"
@@ -124,7 +123,6 @@ int main() {
     }
 
     if (Comando[0] == 'C' && Comando[1] == 'J') {
-      // cout << "Entrei no primeiro if" << endl;
 
       try {
         getline(line, Apelido, ' ');
@@ -145,12 +143,10 @@ int main() {
 
       Jogadores jogadorAuxiliar;
 
-      Jogadores::cadastrarJogadores(Apelido, Nome, jogadorAuxiliar,
-                                    jogadoresVector);
+      Jogadores::cadastrarJogadores(Apelido, Nome, jogadorAuxiliar, jogadoresVector);
     }
 
     if (Comando[0] == 'R' && Comando[1] == 'J') {
-      // cout << "Entrei no terceiro if" << endl;
 
       try {
         getline(line, Apelido, ' ');
@@ -175,11 +171,9 @@ int main() {
     }
 
     if (Comando[0] == 'L' && Comando[1] == 'J') {
-      // cout << "Entrei no quarto if" << endl;
 
       try {
         getline(line, Modo, '\n');
-        // cout << "Modo: " << Modo << endl;
         if (Modo.empty()) {
           throw badInputs(Modo);
         }
@@ -193,7 +187,6 @@ int main() {
     }
 
     if (Comando[0] == 'E' && Comando[1] == 'P') {
-      // cout << "Entrei no quinto if" << endl;
       string aux;
       try {
         getline(line, aux, ' ');
@@ -425,16 +418,11 @@ int main() {
           antiUsuario(y2);
 
           if (m.ehJogadaValida(x, y, x2, y2, z)) {
-            /// 1º) mostra os simbolos das duas posições escolhidas
             m.validaJogada(x, y, x2, y2, z);
             m.imprimirTabuleiro();
-            /// 2º) se o jogador encontrar os pares, são validados e
-            /// ele joga novamente
             if (m.formamPares(x, y, x2, y2, z) == true) {
               m.validaPares(x, y, x2, y2, z);
-            } /// 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é
-            /// a vez do próximo jogador
-            else if (m.formamPares(x, y, x2, y2, z) == false) {
+            } else if (m.formamPares(x, y, x2, y2, z) == false) {
               m.validaPares(x, y, x2, y2, z);
               m.imprimirTabuleiro();
               jogadorAtual++;
@@ -471,7 +459,6 @@ int main() {
       }
 
       if (Comando[0] == 'F' && Comando[1] == 'S') {
-        // cout << "Entrei no sexto if" << endl;
         cout << "Sistema finalizado" << endl;
         return 0;
       }
@@ -483,10 +470,10 @@ int main() {
              << endl;
       }
     }
-  } /// fim do while
+  } 
 
   return 0;
-} /// fim da main
+} 
 
 void antiUsuario(int &a) {
   string aux = "";
@@ -512,8 +499,7 @@ void antiUsuario(int &a) {
   }
 }
 
-void menuFimDeJogo(const char &jogoEscolhido,
-                   vector<Jogadores> &jogadoresVector) {
+void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector) {
 
   cout << "\nFIM DE JOGO! \n\nVR - Visualizar ranking\nJN - Jogar novamente"
        << endl;
@@ -585,7 +571,7 @@ void voltarMenuPrincipal() {
         resposta = toupper(aux[0]);
         if (resposta == 'S') {
           cin.ignore(std::numeric_limits<std::streamsize>::max(),
-                     '\n'); // coloquei isso para limpar o buffer
+                     '\n'); 
           return;
         } else if (resposta == 'N') {
           exit(0);
