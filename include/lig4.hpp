@@ -10,7 +10,7 @@ using namespace std;
  * @brief Classe que representa o jogo Lig4
  *
  * A classe "Lig4" é uma classe herdeira de classe base "Tabuleiro" e implementa
- * a lógica específica do jogo Lig4, incluindo a verificação de condição de vitoria
+ * a lógica específica do jogo Lig4, incluindo a verificação de condição de vitória
  * e a verificação de jogada válida.
  */
 class lig4 : public Tabuleiro

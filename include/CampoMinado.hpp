@@ -8,7 +8,7 @@ using namespace std;
  * @brief Classe que representa o jogo Campo Minado
  *
  * A classe "Campo Minado" é uma classe herdeira de classe base "Tabuleiro" e implementa a lógica específica do
- * jogo de Campo Minado, incluindo a verificação de condição de vitoria (função que sobrescreve a da classe base).
+ * jogo de Campo Minado, incluindo a verificação de condição de vitória (função que sobrescreve a da classe base).
  * Além disso inclui métodos próprios como: inicialização do tabuleiro, revelar o conteúdo de cada casa, validação
  * de jogadas, conferir se uma bomba foi escolhida, e a jogabilidade em si.
  */
@@ -56,7 +56,6 @@ public:
    *
    * @retval true
    * @retval false
-   *
    */
   bool validaJogadaCampoMinado(int linha, int coluna);
 
