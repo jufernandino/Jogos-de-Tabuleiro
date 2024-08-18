@@ -13,8 +13,8 @@ using namespace std;
  */
 Tabuleiro::Tabuleiro()
 {
-  this->rows = 0; ///Armazena o número de linhas
-  this->columns = 0; ///Armazena o número de colunas
+  this->rows = 0; //Armazena o número de linhas
+  this->columns = 0; //Armazena o número de colunas
 }
 
 /**
