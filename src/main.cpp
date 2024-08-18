@@ -89,7 +89,7 @@ int main()
   Jogadores Jogador1, Jogador2;
 
   while (1)
-  { // while do menu
+  { /// while do menu
     cout << "\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Digite o comando "
             "desejado para iniciar o programa:\n\n"
          << "CJ - Cadastrar jogadores\n"
@@ -501,16 +501,16 @@ int main()
 
           if (m.ehJogadaValida(x, y, x2, y2, z))
           {
-            // 1º) mostra os simbolos das duas posições escolhidas
+            /// 1º) mostra os simbolos das duas posições escolhidas
             m.validaJogada(x, y, x2, y2, z);
             m.imprimirTabuleiro();
-            // 2º) se o jogador encontrar os pares, os pares são validados ele
-            // joga novamente
+            /// 2º) se o jogador encontrar os pares, são validados e
+            /// ele joga novamente
             if (m.formamPares(x, y, x2, y2, z) == true)
             {
               m.validaPares(x, y, x2, y2, z);
-            } // 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é
-              // a vez do próximo jogador
+            } /// 3º) se o jogador não encontrar os pares, limpa o tabuleiro e é
+              /// a vez do próximo jogador
             else if (m.formamPares(x, y, x2, y2, z) == false)
             {
               m.validaPares(x, y, x2, y2, z);
@@ -568,11 +568,11 @@ int main()
               "Tente novamente."
            << endl;
     }
-  } // fim do while
+  } /// fim do while
 
   // cout << "saí do while" << endl;
   return 0;
-} // fim da main
+} /// fim da main
 
 void antiUsuario(int &a)
 {
