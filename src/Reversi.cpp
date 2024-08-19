@@ -14,6 +14,9 @@ Reversi::Reversi()
 {
   this->rows = 8;
   this->columns = 8;
+
+  criaTabuleiro();
+  inicializarJogo();
 }
 
 /**

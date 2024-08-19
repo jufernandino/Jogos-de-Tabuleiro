@@ -13,6 +13,7 @@ lig4::lig4()
 {
   this->rows = 6;
   this->columns = 7;
+  criaTabuleiro();
 }
 
 /**
@@ -31,7 +32,7 @@ lig4::lig4()
 void lig4::validaJogada(int x, int y, char z)
 {
   bool existeCasaVazia = false;
-  if (y < this->columns)
+  if (y < this->columns && y >=0)
   {
     for (int i = 5; i >= 0; i--)
     {

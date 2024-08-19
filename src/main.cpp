@@ -208,6 +208,9 @@ int main() {
           cout << "São necessários dois jogadores para jogar este jogo."
                << endl;
           throw badInputs(Apelido);
+        } else if(!(apelidoJogador2.empty()) && aux[0] == 'C'){
+          cout << "Este jogo só possui um jogador" << endl;
+          throw badInputs(Apelido);
         }
       } catch (badInputs &e) {
         cout << e.what() << endl;
@@ -237,8 +240,6 @@ int main() {
         cout << "\nReversi foi escolhido!" << endl;
         Reversi r;
         r.mostrarRegras(jogoEscolhido);
-        r.criaTabuleiro();
-        r.inicializarJogo();
         r.imprimirTabuleiro();
 
         int jogadorAtual = 0;
@@ -294,7 +295,6 @@ int main() {
         cout << "\nLig4 foi escolhido." << endl;
         lig4 l;
         l.mostrarRegras(jogoEscolhido);
-        l.criaTabuleiro();
         l.imprimirTabuleiro();
 
         int jogadorAtual = 0;
@@ -344,7 +344,6 @@ int main() {
         cout << "\nTicTacToe foi escolhido!" << endl;
         TicTacToe t;
         t.mostrarRegras(jogoEscolhido);
-        t.criaTabuleiro();
         t.imprimirTabuleiro();
 
         int jogadorAtual = 0;
@@ -400,7 +399,6 @@ int main() {
         cout << "\nJogo da Memória foi escolhido!" << endl;
         Memoria m;
         m.mostrarRegras(jogoEscolhido);
-        m.criaTabuleiro();
         m.imprimirTabuleiro();
 
         int jogadorAtual = 0;

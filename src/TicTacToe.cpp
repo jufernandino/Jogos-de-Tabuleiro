@@ -12,6 +12,7 @@ TicTacToe::TicTacToe()
 {
   this->rows = 3;
   this->columns = 3;
+  criaTabuleiro();
 }
 
 /**

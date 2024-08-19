@@ -14,6 +14,9 @@ CampoMinado::CampoMinado()
   this->rows = 7;
   this->columns = 7;
   this->bombas = 10;
+
+  criaTabuleiro();
+  iniciaTabuleiro();
 }
 
 /**
@@ -207,8 +210,7 @@ int CampoMinado::confereGanhador()
 /**
  * @brief Organiza o processo de jogabilidade de Campo Minado.
  *
- * Esta função é responsável por realizar cada passo do jogo: começando com a
- * criação do tabuleiro, depois pedindo as coordenadas com o jogador da vez,
+ * Esta função é responsável por realizar cada passo do jogo: pedindo as coordenadas com o jogador da vez,
  * validando a jogada realizada, verificando se o jogador ganhou ou perdeu,
  * e, caso o jogo não tenha terminado, revelando as casas que não são bombas.
  *
@@ -217,8 +219,6 @@ int CampoMinado::confereGanhador()
  */
 int CampoMinado::jogarCampoMinado()
 {
-  criaTabuleiro();
-  iniciaTabuleiro();
   imprimirTabuleiro();
 
   while (1)

@@ -16,6 +16,7 @@ Memoria::Memoria()
 {
     this->rows = 4;
     this->columns = 4;
+    criaTabuleiro();
     inicializaTabuleiroSimbolos();
 }
 
