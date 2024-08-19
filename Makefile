@@ -4,6 +4,7 @@ SRC_DIR=src
 INCLUDE_DIR=include
 OBJ_DIR=obj
 EXECUTABLE=projeto
+CFLAGS=-std=c++11 -Wall -fPIC
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 

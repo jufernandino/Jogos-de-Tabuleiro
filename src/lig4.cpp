@@ -32,7 +32,7 @@ lig4::lig4()
 void lig4::validaJogada(int x, int y, char z)
 {
   bool existeCasaVazia = false;
-  if (y < this->columns && y >=0)
+  if (y < this->columns && y >= 0)
   {
     for (int i = 5; i >= 0; i--)
     {

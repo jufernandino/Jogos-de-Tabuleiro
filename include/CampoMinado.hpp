@@ -79,25 +79,17 @@ public:
    */
   int confereGanhador() override;
 
-  /**
-   * @brief Organização da jogabilidade passo-a-passo.
-   *
-   * @retval int 0
-   * @retval int 1
-   */
-  int jogarCampoMinado();
-
 private:
-  /**
-   * @brief Variável para armazenar o número de bombas.
-   * @var
-   */
-  int bombas;
   /**
    * @brief Matriz para armazenar as posições das minas.
    * @var
    */
   int posicao_minas[2][10];
+  /**
+   * @brief Variável para armazenar o número de bombas.
+   * @var
+   */
+  int bombas;
 };
 
 #endif

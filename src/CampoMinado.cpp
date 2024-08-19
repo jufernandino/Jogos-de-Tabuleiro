@@ -205,48 +205,5 @@ int CampoMinado::confereGanhador()
   {
     return 1;
   }
-}
-
-/**
- * @brief Organiza o processo de jogabilidade de Campo Minado.
- *
- * Esta função é responsável por realizar cada passo do jogo: pedindo as coordenadas com o jogador da vez,
- * validando a jogada realizada, verificando se o jogador ganhou ou perdeu,
- * e, caso o jogo não tenha terminado, revelando as casas que não são bombas.
- *
- * @return 0, caso o jogador perca/encontre uma bomba.
- * @return 1, caso o jogador ganhe.
- */
-int CampoMinado::jogarCampoMinado()
-{
-  imprimirTabuleiro();
-
-  while (1)
-  {
-    cout << "Escreva as coordenadas no formato: linha coluna" << endl;
-
-    int chute_linha, chute_coluna;
-    cin >> chute_linha >> chute_coluna;
-
-    if (!validaJogadaCampoMinado(chute_linha, chute_coluna))
-    {
-      cout << "ERRO: jogada inválida" << endl;
-    }
-
-    if (escolheuBomba(chute_linha, chute_coluna))
-    {
-      cout << "BOOM! Você perdeu!" << endl;
-      return 0;
-    }
-
-    if (confereGanhador())
-    {
-      cout << "Parabéns! Você ganhou!" << endl;
-      return 1;
-    }
-
-    minasAdj(chute_linha, chute_coluna);
-    revelaCelula(chute_linha, chute_coluna);
-    imprimirTabuleiro();
-  }
+  return 2;
 }

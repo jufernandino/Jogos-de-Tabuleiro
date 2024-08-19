@@ -105,6 +105,11 @@ public:
 
 private:
     /**
+     * @brief Matriz para armazenar os símbolos em um tabuleiro auxiliar.
+     * @var
+     */
+    char aux[4][4];
+    /**
      * @brief Variável para armazenar os pontos do jogador 1.
      * @var
      */
@@ -119,11 +124,6 @@ private:
      * @var
      */
     int jogadorAtual;
-    /**
-     * @brief Matriz para armazenar os símbolos em um tabuleiro auxiliar.
-     * @var
-     */
-    char aux[4][4];
 };
 
 #endif
