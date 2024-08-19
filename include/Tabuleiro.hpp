@@ -31,7 +31,7 @@ public:
    * @brief Cria o tabuleiro alocando memória dinamicamente para a matriz.
    *
    * Aloca a matriz que será utilizada como tabuleiro.
-   * 
+   *
    * @retval none
    */
   void criaTabuleiro(); // aloca uma matriz dinamicamente que servirá como tabuleiro
@@ -40,7 +40,7 @@ public:
    * @brief Imprime o tabuleiro na tela.
    *
    * Esta função imprime o tabuleiro.
-   * 
+   *
    * @retval none
    */
   virtual void imprimirTabuleiro(); // imrpime o tabuleiro com -s e |s
@@ -50,10 +50,10 @@ public:
    *
    * Verifica se os valores inseridos para a jogada estão dentro das dimensões do tabuleiro.
    *
-   * @param x int 
+   * @param x int
    * @param y int
    * @param z int
-   * 
+   *
    * @retval none
    */
   virtual void validaJogada(int x, int y, char z); // confere se os valores inseridos são menores que as dimensôes do tabuleiro e efetua a jogada
@@ -62,7 +62,7 @@ public:
    * @brief Libera a memória alocada para o tabuleiro.
    *
    * Esta função libera a memória previamente alocada.
-   * 
+   *
    * @retval none
    */
   void liberaMemoria(); // libera a memória alocada anteriomente em criaTabuleiro()
@@ -83,7 +83,7 @@ public:
    * Esta função exibe as regras jogo escolhido pelo jogador.
    *
    * @param jogoEscolhido char
-   * 
+   *
    * @retval none
    */
   void mostrarRegras(const char &jogoEscolhido);

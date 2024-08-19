@@ -81,15 +81,15 @@ public:
 
 private:
   /**
-   * @brief Variável para armazenar o número de bombas.
-   * @var
-   */
-  int bombas;
-  /**
    * @brief Matriz para armazenar as posições das minas.
    * @var
    */
   int posicao_minas[2][10];
+  /**
+   * @brief Variável para armazenar o número de bombas.
+   * @var
+   */
+  int bombas;
 };
 
 #endif

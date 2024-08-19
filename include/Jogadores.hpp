@@ -60,9 +60,9 @@ public:
      *
      * Inicializa um jogador com os valores dados e salva no arquivo.
      *
-     * @param Apelido string 
+     * @param Apelido string
      * @param Nome string
-     * 
+     *
      */
     Jogadores(string Apelido, string Nome);
 
@@ -73,7 +73,7 @@ public:
      *
      * @param Apelido string
      * @param jogadoresVector string
-     * 
+     *
      * @retval Jogadores
      */
     Jogadores logIn(string Apelido, vector<Jogadores> &jogadoresVector);
@@ -84,7 +84,7 @@ public:
      * Reescreve o arquivo de jogadores com as informações atualizadas, apagando o conteúdo anterior.
      *
      * @param jogadoresVector vetor Jogadores
-     * 
+     *
      * @retval none
      */
     static void reescreveArquivo(vector<Jogadores> &jogadoresVector);
@@ -96,11 +96,11 @@ public:
      *
      * @param jogadoresVector vetor Jogadores
      * @param Apelido string
-     * 
+     *
      * @retval none
      */
     static void removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido);
-    
+
     /**
      * @brief Atualiza as estatísticas de um jogador para um jogo específico.
      *
@@ -108,7 +108,7 @@ public:
      *
      * @param jogoEscolhido char
      * @param jogadoresVector vetor Jogadores
-     * 
+     *
      * @retval none
      */
     void atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector);
@@ -120,7 +120,7 @@ public:
      *
      * @param jogoEscolhido char
      * @param jogadoresVector vetor Jogadores
-     * 
+     *
      * @retval none
      */
     static void mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector);
@@ -147,8 +147,8 @@ public:
      * @brief Cadastro de novo jogador.
      *
      * Cadastra um novo jogador no sistema e o adiciona ao vetor de jogadores.
-     
-     
+
+
      * @param apelido string
      * @param nome string
      * @param Jogador Jogadores

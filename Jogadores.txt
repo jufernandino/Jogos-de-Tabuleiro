@@ -1,11 +1,14 @@
-Babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
-Duda, Maria Eduarda, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-Isa98, Isa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-Ju, Julieta, 0, 1, 2, 1, 2, 1, 0, 0, 0, 0
-Juh, Julia, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0
-Leo, Leonardo, 0, 0, 1, 2, 1, 2, 0, 0, 0, 0
-Teste2, teste, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 alanzoka, Alan Ferreira, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0
+ana, Ana Paula, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+caio, Caio, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+duda, Maria Eduarda, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+isa98, Isa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+ju, Julieta, 0, 1, 2, 1, 2, 1, 0, 0, 0, 0
+juh, Julia, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0
+leo, Leonardo, 0, 0, 1, 2, 1, 2, 0, 0, 0, 0
 sally, Marcele Louise Silva Araponga, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0
 teste1, teste, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+teste2, teste, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 zebra, Zebra, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+mari, Mariana, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
