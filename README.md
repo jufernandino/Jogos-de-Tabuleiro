@@ -22,6 +22,13 @@ Trabalho feito colaborativamente pelos membros:
 - `Documentação:` Doxygen e README  
 - `Testes:` Biblioteca doctest  
 - `Controle de Versão:` Git e GitHub
+  
+## Funcionalidades extras implementadas
+- Tic Tac Toe 
+- Jogo da Memória 
+- Campo Minado 
+- Exibir as regras dos jogos 
+- Exibir o ranking específico para cada jogo
 
 ## Estrutura do Projeto
 O projeto foi organizado em diferentes classes, cada uma com suas responsabilidades:
@@ -158,7 +165,7 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
    - Sucesso: `<Apelido Jogador 1> fez log in!`, `<Apelido Jogador 2> fez log in!` `<Jogo> foi escolhido!`
    - Sucesso: `J - JOGAR ` `L - Ler regras do jogo`
       - **Jogar:** `<J>`
-      - **Regras:** `<L>`
+      - **Regras:** `<L>` (funcionalidade extra)
       - **Erros:** `ERRO: Regras não encontradas para o jogo selecionado.`
    - OBS: *( R= Reversi | L=Lig4 | T=TicTacToe | C=CampoMinado | M=Memória )* 
 
@@ -186,7 +193,7 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
   - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida`
 
 (Ao final de cada partida o jogador tem a opção de ver o ranking do jogo ou voltar ao menu)
-- **Visualizar ranking**: `VR`
+- **Visualizar ranking**: `VR` (funcionalidade extra)
 - **Jogar novamente**: `JN`
   - Erros: `ERRO: entrada inválida; escolha (J)ogar (N)ovamente ou (V)er (R)anking!`
     
