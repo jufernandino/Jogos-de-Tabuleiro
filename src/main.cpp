@@ -107,6 +107,10 @@ int main() {
 
     try {
       getline(line, Comando, ' ');
+      for(char &c : Comando) {
+        c = toupper(c);          
+      }
+ 
       if (Comando.length() != 2) {
         throw badInputs(Comando);
       }
@@ -461,18 +465,17 @@ int main() {
       } else {
         cout << "ERRO: jogo não encontrado" << endl;
       }
-
-      if (Comando[0] == 'F' && Comando[1] == 'S') {
-        cout << "Sistema finalizado" << endl;
-        return 0;
-      }
-
-      if (Comando != "CJ" && Comando != "LI" && Comando != "RJ" &&
-          Comando != "LJ" && Comando != "EP" && Comando != "FS") {
-        cout << "O comando digitado não corresponde a nenhuma opção válida. "
-                "Tente novamente."
-             << endl;
-      }
+    }
+    if (Comando[0] == 'F' && Comando[1] == 'S') {
+      cout << "Sistema finalizado." << endl;
+      return 0;
+    }
+  
+    if (Comando != "CJ" && Comando != "LI" && Comando != "RJ" &&
+        Comando != "LJ" && Comando != "EP" && Comando != "FS") {
+      cout << "O comando digitado não corresponde a nenhuma opção válida. "
+              "Tente novamente."
+           << endl;
     }
   } 
 
