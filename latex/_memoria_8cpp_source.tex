@@ -1,0 +1,125 @@
+\doxysection{Memoria.\+cpp}
+\label{_memoria_8cpp_source}\index{src/Memoria.cpp@{src/Memoria.cpp}}
+\textbf{ Ir para a documentação desse arquivo.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Memoria.hpp"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00015\ Memoria::Memoria()}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ this-\/>rows\ =\ 4;}
+\DoxyCodeLine{00018\ \ \ \ \ this-\/>columns\ =\ 4;}
+\DoxyCodeLine{00019\ \ \ \ \ inicializaTabuleiroSimbolos();}
+\DoxyCodeLine{00020\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ Memoria::inicializaTabuleiroSimbolos()}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{string}\ simbolos\ =\ \{\textcolor{charliteral}{'A'},\ \textcolor{charliteral}{'B'},\ \textcolor{charliteral}{'C'},\ \textcolor{charliteral}{'D'},\ \textcolor{charliteral}{'E'},\ \textcolor{charliteral}{'F'},\ \textcolor{charliteral}{'G'},\ \textcolor{charliteral}{'H'},\ \textcolor{charliteral}{'A'},\ \textcolor{charliteral}{'B'},\ \textcolor{charliteral}{'C'},\ \textcolor{charliteral}{'D'},\ \textcolor{charliteral}{'E'},\ \textcolor{charliteral}{'F'},\ \textcolor{charliteral}{'G'},\ \textcolor{charliteral}{'H'}\};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ iniciar\ o\ gerador\ de\ números\ aleatórios}}
+\DoxyCodeLine{00036\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ embaralhar\ as\ palavras\ da\ string}}
+\DoxyCodeLine{00038\ \ \ \ \ random\_shuffle(simbolos.begin(),\ simbolos.end());}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ k\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ ++i)\ \textcolor{comment}{//\ Preencher\ o\ tabuleiro\ com\ os\ símbolos}}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ columns;\ ++j)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ aux[i][j]\ =\ simbolos[k];}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ pontosJogador1\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ pontosJogador2\ =\ 0;}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{bool}\ Memoria::ehJogadaValida(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \textcolor{keywordtype}{char}\ jogadorDaVez)}
+\DoxyCodeLine{00073\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ 0\ ||\ x\ >=\ rows\ ||\ y\ <\ 0\ ||\ y\ >=\ columns\ ||}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ x2\ <\ 0\ ||\ x2\ >=\ rows\ ||\ y2\ <\ 0\ ||\ y2\ >=\ columns\ ||}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ (matrix[x][y]\ !=\ \textcolor{charliteral}{'\ '})\ ||\ (matrix[x2][y2]\ !=\ \textcolor{charliteral}{'\ '})\ ||}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ (x\ ==\ x2\ \&\&\ y\ ==\ y2))}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ Memoria::validaJogada(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \textcolor{keywordtype}{char}\ jogadorDaVez)}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ehJogadaValida(x,\ y,\ x2,\ y2,\ jogadorDaVez))}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ jogada\ inválida"{}}\ <<\ endl;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ matrix[x][y]\ =\ aux[x][y];}
+\DoxyCodeLine{00105\ \ \ \ \ matrix[x2][y2]\ =\ aux[x2][y2];}
+\DoxyCodeLine{00106\ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{bool}\ Memoria::formamPares(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \textcolor{keywordtype}{char}\ jogadorDaVez)}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (matrix[x][y]\ ==\ matrix[x2][y2])}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ Memoria::validaPares(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \textcolor{keywordtype}{char}\ jogadorDaVez)}
+\DoxyCodeLine{00145\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (!formamPares(x,\ y,\ x2,\ y2,\ jogadorDaVez))}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Par\ não\ encontrado!"{}}\ <<\ endl;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ matrix[x][y]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ matrix[x2][y2]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Par\ "{}}\ <<\ matrix[x][y]\ <<\ \textcolor{stringliteral}{"{}-\/"{}}\ <<\ matrix[x2][y2]\ <<\ \textcolor{stringliteral}{"{}\ encontrado!"{}}\ <<\ endl;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{if}\ (jogadorDaVez\ ==\ \textcolor{charliteral}{'1'})}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ pontosJogador1++;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jogadorDaVez\ ==\ \textcolor{charliteral}{'2'})}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ pontosJogador2++;}
+\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00175\ \textcolor{keywordtype}{int}\ Memoria::confereGanhador()}
+\DoxyCodeLine{00176\ \{}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{if}\ (pontosJogador1\ >\ pontosJogador2)}
+\DoxyCodeLine{00179\ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;\ }
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pontosJogador2\ >\ pontosJogador1)}
+\DoxyCodeLine{00183\ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 2;\ }
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pontosJogador1\ ==\ pontosJogador2)}
+\DoxyCodeLine{00187\ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 3;\ }
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{bool}\ Memoria::verificarFimDeJogo()}
+\DoxyCodeLine{00205\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ ++i)}
+\DoxyCodeLine{00207\ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ columns;\ ++j)}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (matrix[i][j]\ ==\ \textcolor{charliteral}{'\ '})}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00217\ \}}
+
+\end{DoxyCode}

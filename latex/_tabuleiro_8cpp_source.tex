@@ -1,0 +1,157 @@
+\doxysection{Tabuleiro.\+cpp}
+\label{_tabuleiro_8cpp_source}\index{src/Tabuleiro.cpp@{src/Tabuleiro.cpp}}
+\textbf{ Ir para a documentação desse arquivo.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Tabuleiro.hpp"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ Tabuleiro::Tabuleiro()}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ this-\/>rows\ =\ 0;\ \textcolor{comment}{//Armazena\ o\ número\ de\ linhas}}
+\DoxyCodeLine{00017\ \ \ this-\/>columns\ =\ 0;\ \textcolor{comment}{//Armazena\ o\ número\ de\ colunas}}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ Tabuleiro::criaTabuleiro()}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ matrix\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}\ *[rows];}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ i++)}
+\DoxyCodeLine{00030\ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ matrix[i]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[columns];}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ columns;\ j++)}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ matrix[i][j]\ =\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ Tabuleiro::imprimirTabuleiro()}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{string}\ aux\ =\ \textcolor{stringliteral}{"{}-\/"{}};}
+\DoxyCodeLine{00049\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ this-\/>columns;\ k++)}
+\DoxyCodeLine{00051\ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ cout\ <<\ k\ <<\ \textcolor{stringliteral}{"{}\ \ \ "{}};}
+\DoxyCodeLine{00053\ \ \ \ \ aux\ +=\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/"{}};}
+\DoxyCodeLine{00054\ \ \ \}}
+\DoxyCodeLine{00055\ \ \ cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00056\ \ \ cout\ <<\ aux;}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ i++)}
+\DoxyCodeLine{00058\ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ columns;\ j++)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ cout\ <<\ \textcolor{charliteral}{'|'}\ <<\ \textcolor{charliteral}{'\ '}\ <<\ matrix[i][j]\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ cout\ <<\ \textcolor{charliteral}{'|'}\ <<\ \textcolor{charliteral}{'\ '}\ <<\ i;}
+\DoxyCodeLine{00065\ \ \ \ \ cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00066\ \ \ \ \ cout\ <<\ aux;}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ \ \ cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ Tabuleiro::liberaMemoria()}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ i++)}
+\DoxyCodeLine{00080\ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{delete}[]\ matrix[i];}
+\DoxyCodeLine{00082\ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{delete}[]\ matrix;}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ Tabuleiro::validaJogada(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ z)}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordflow}{if}\ (x\ >=\ 0\ \&\&\ x\ <\ this-\/>rows\ \&\&\ y\ >=\ 0\ \&\&\ y\ <\ this-\/>columns\ \&\&\ matrix[x][y]\ ==\ \textcolor{charliteral}{'\ '})}
+\DoxyCodeLine{00100\ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ matrix[x][y]\ =\ z;}
+\DoxyCodeLine{00102\ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00104\ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nEssa\ jogada\ é\ invalida!\ Passa\ a\ vez!\(\backslash\)n"{}}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ Tabuleiro::mostrarRegras(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&jogoEscolhido)}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nJ\ -\/\ JOGAR\(\backslash\)n"{}}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}L\ -\/\ Ler\ regras\ do\ jogo\(\backslash\)n"{}}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{string}\ lerRegras;}
+\DoxyCodeLine{00126\ \ \ cin\ >>\ lerRegras;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordflow}{if}\ (lerRegras\ ==\ \textcolor{stringliteral}{"{}J"{}}\ ||\ lerRegras\ ==\ \textcolor{stringliteral}{"{}j"{}})}
+\DoxyCodeLine{00129\ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)nJOGAR\ PARTIDA\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00133\ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lerRegras\ ==\ \textcolor{stringliteral}{"{}L"{}}\ ||\ lerRegras\ ==\ \textcolor{stringliteral}{"{}l"{}})}
+\DoxyCodeLine{00135\ \ \ \{}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ ifstream\ arquivo(\textcolor{stringliteral}{"{}Regras.txt"{}});}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{if}\ (!arquivo.is\_open())}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ não\ foi\ possível\ abrir\ o\ arquivo\ Regras.txt"{}}\ <<\ endl;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{string}\ linha;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{string}\ regras;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{bool}\ continuar\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{string}\ escolha(1,\ jogoEscolhido);\ \textcolor{comment}{//\ conversão\ string\ para\ char}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{string}\ aux\ =\ \textcolor{stringliteral}{"{}<"{}}\ +\ escolha\ +\ \textcolor{stringliteral}{"{}>"{}};}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ "{}Procurando\ por\ regras\ com\ tag:\ "{}\ <<\ inicioRegras\ <<\ endl;}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(arquivo,\ linha))}
+\DoxyCodeLine{00155\ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \textcolor{comment}{//\ Remover\ espaços\ em\ branco\ antes\ e\ depois\ da\ linha}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ linha.erase(0,\ linha.find\_first\_not\_of(\textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n"{}}));\ \textcolor{comment}{//\ Remove\ espaços\ no\ início}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ linha.erase(linha.find\_last\_not\_of(\textcolor{stringliteral}{"{}\ \(\backslash\)t\(\backslash\)r\(\backslash\)n"{}})\ +\ 1);\ \textcolor{comment}{//\ Remove\ espaços\ no\ final}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linha\ ==\ aux)}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ continuar\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (linha.find(\textcolor{charliteral}{'<'})\ !=\ string::npos\ \&\&\ linha.find(\textcolor{charliteral}{'>'})\ !=\ string::npos)}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (continuar)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (continuar)}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ regras\ +=\ linha\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ arquivo.close();}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{if}\ (!regras.empty())}
+\DoxyCodeLine{00182\ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \(\backslash\)nREGRAS\ DO\ JOGO\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ <<\ regras\ <<\ endl;}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Vamos\ começar?\ Tecle\ ENTER\ para\ iniciar\ o\ jogo"{}}\ <<\ endl;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ cin.ignore();}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ cin.get();}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)nJOGAR\ PARTIDA\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ endl;}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \}}
+\DoxyCodeLine{00194\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,37 @@
+\doxysection{Tabuleiro.\+hpp}
+\label{_tabuleiro_8hpp_source}\index{include/Tabuleiro.hpp@{include/Tabuleiro.hpp}}
+\textbf{ Ir para a documentação desse arquivo.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Tabuleiro\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Tabuleiro\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }Tabuleiro}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{char}\ **matrix;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ rows;}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{int}\ columns;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00028\ \ \ Tabuleiro();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ criaTabuleiro();\ \textcolor{comment}{//\ aloca\ uma\ matriz\ dinamicamente\ que\ servirá\ como\ tabuleiro}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ imprimirTabuleiro();\ \textcolor{comment}{//\ imrpime\ o\ tabuleiro\ com\ -\/s\ e\ |s}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ validaJogada(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ z);\ \textcolor{comment}{//\ confere\ se\ os\ valores\ inseridos\ são\ menores\ que\ as\ dimensôes\ do\ tabuleiro\ e\ efetua\ a\ jogada}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{void}\ liberaMemoria();\ \textcolor{comment}{//\ libera\ a\ memória\ alocada\ anteriomente\ em\ criaTabuleiro()}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ confereGanhador()\ =\ 0;\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{void}\ mostrarRegras(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&jogoEscolhido);}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
