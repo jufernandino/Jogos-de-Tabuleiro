@@ -194,6 +194,9 @@ int main() {
       string aux;
       try {
         getline(line, aux, ' ');
+        for(char &c : aux){
+          c = toupper(c);
+        }
         if (aux.empty()) {
           throw badInputs(Apelido);
         } else if (aux.length() != 1) {
