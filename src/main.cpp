@@ -214,7 +214,7 @@ int main()
       catch (badInputs &e)
       {
         cout << e.what() << endl;
-        voltarMenuPrincipal();
+        continue;
       }
 
       Jogadores::mostrarEstatisticas(jogadoresVector, Modo);
