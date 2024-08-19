@@ -490,12 +490,13 @@ void antiUsuario(int &a) {
 
   while (1) {
     cin >> aux;
-    while ((getchar()) != '\n')
-
-      if (aux.length() != 1) {
+    char c;
+    if (cin.peek() != '\n') {
         cout << "ERRO: formato incorreto" << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         continue;
-      }
+    }
 
     if (!isdigit(aux[0])) {
       cout << "ERRO: formato incorreto" << endl;
