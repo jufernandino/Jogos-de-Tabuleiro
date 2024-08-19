@@ -199,11 +199,17 @@ int main() {
         }
 
         getline(line, apelidoJogador1, ' ');
+        for (char &a : apelidoJogador1) {
+            a = tolower(a);
+        }
         if (apelidoJogador1.empty()) {
           throw badInputs(Apelido);
         }
 
         getline(line, apelidoJogador2, ' ');
+        for (char &a : apelidoJogador2) {
+            a = tolower(a);
+        }
         if (apelidoJogador2.empty() && aux[0] != 'C') {
           cout << "São necessários dois jogadores para jogar este jogo."
                << endl;
