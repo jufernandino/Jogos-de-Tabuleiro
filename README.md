@@ -2,11 +2,11 @@
 
 ## Descrição do projeto
 O projeto Jogos de Tabuleiro é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. Este projeto implementa um sistema para jogar diferentes jogos, proporcionando funcionalidades cadastro de jogadores, exclusão de jogadores, estatísica dos jogadores e a listagem dos jogadores. Os jogos disponibilizados para serem jogados são:
-- Campo Minado
-- Reversi
-- Tic Tac Toe
-- Jogo da Memória
 - Lig4
+- Reversi
+- Tic Tac Toe (jogo extra)
+- Jogo da Memória (jogo extra)
+- Campo Minado (jogo extra)
 
 ## Equipe
 - Bárbara Diniz
@@ -18,7 +18,7 @@ O projeto Jogos de Tabuleiro é uma aplicação desenvolvida como trabalho final
 ## Tecnologias Utilizadas
 - `Linguagem:` C++
 - `Compilação:` Makefile  
-- `Documentação:` Doxygen  
+- `Documentação:` Doxygen e README  
 - `Testes:` Biblioteca doctest  
 - `Controle de Versão:` Git e GitHub
 
@@ -29,17 +29,17 @@ O projeto foi organizado em diferentes classes, cada uma com suas responsabilida
    -  Implementa métodos relacionados aos jogadores (cadastrar, remover, listar) com persistência de dados em arquivo
    - Além disso, mostra as estatísticas (vitórias e derrotas) e ordena jogadores pelo nome ou apelido.
    - Métodos implementados:
-     - pesquisaJogador ( `<Apelido>`)
-     - logar ( `<Apelido>`, `vector<Jogadores> &jogadoresVector` )
-     - reescreveArquivo ( `vector<Jogadores> &jogadoresVector` )
-     - removeJogador ( `vector<Jogadores> &jogadoresVector`, `string &Apelido` )
-     - atualizaEstatisticas ( `<jogoEscolhido>`, `vector<Jogadores> &jogadoresVector` )
-     - mostrarRanking ( `char &jogoEscolhido`, `vector<Jogadores> jogadoresVector` )
-     - mostrarEstatisticas ( `vector<Jogadores> jogadoresVector`, `const string &ordenacao` )
-     - carregarJogadores ( `vector<Jogadores> &jogadoresVector` )
-     - cadastrarJogadores ( `<apelido>`, `<nome>`, `Jogadores &Jogador`, `vector<Jogadores> &jogadoresVector` )
-     - ordenacaoApelido ( `vector<Jogadores> &jogadoresVector` )
-     - ordenacaoNome ( `vector<Jogadores> &jogadoresVector` )
+     - pesquisaJogador(string Apelido)
+     - logIn(string Apelido, vector<Jogadores> &jogadoresVector)
+     - reescreveArquivo(vector<Jogadores> &jogadoresVector)
+     - removeJogador(vector<Jogadores> &jogadoresVector, string &Apelido)
+     - atualizaEstatisticas(char jogoEscolhido, vector<Jogadores> &jogadoresVector)
+     - mostrarRanking(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector)
+     - mostrarEstatisticas(vector<Jogadores> &jogadoresVector, const string &ordenacao)
+     - carregarJogadores(vector<Jogadores> &jogadoresVector)
+     - cadastrarJogadores(string apelido, string nome, Jogadores &Jogador, vector<Jogadores> &jogadoresVector)
+     - ordenacaoApelido(vector<Jogadores> &jogadoresVector)
+     - ordenacaoNome(vector<Jogadores> &jogadoresVector)
    - Erros: `ERRO: não foi possível abrir o arquivo Jogadores.txt`
      
      
@@ -57,7 +57,70 @@ O projeto foi organizado em diferentes classes, cada uma com suas responsabilida
 
      
 3. **Classes Herdeiras de Tabuleiro:**
-   - *As classes herdeiras são: CampoMinado, Lig4, Reversi, TicTacToe e Memória. Elas impelementam a lógica de cada jogo, respectivamente.*
+   - *As classes herdeiras são: Lig4, Reversi, TicTacToe, CampoMinado e Memória. Elas impelementam a lógica de cada jogo, respectivamente.*
+
+     
+   3.1 **Lig4:**
+      - Classe herdeira de classe base "Tabuleiro" que implementa a lógica específica do jogo Lig4.
+      - Métodos que sobrescrevem os da classe "Tabuleiro":
+        - validaJogada(int x, int y, char z)
+        - confereGanhador ()
+
+          
+   3.2 **Reversi:**
+      - Classe herdeira de classe base "Tabuleiro" que implementa a lógica específica do jogo Reversi.
+      - Métodos que sobrescrevem os da classe "Tabuleiro":
+        - validaJogada(int x, int y, char z)
+        - confereGanhador ()
+      - Métodos implementados:
+        - inicializarJogo()
+        - ehJogadaValida(int x, int y, char jogadorDaVez)
+        - existeMovimentoPossivel(char jogadorDaVez)
+        - mostrarLocaisJogada(char jogador)
+        - verificarFimDeJogo()
+        - inverterPecas(int x, int y, char jogadorDaVez)
+      - Atributo privado:
+        - char jogadorAtual
+
+          
+   3.3 **Tic Tac Toe:**
+      - Classe herdeira de classe base "Tabuleiro" que implementa a lógica específica do jogo Tic Tac Toe (funcionalidade extra).
+      - Método que sobrescreve o da classe "Tabuleiro":
+        - confereGanhador ()
+
+          
+   3.4 **Campo Minado:**
+      - Classe herdeira de classe base "Tabuleiro" que implementa a lógica específica do jogo Campo Minado (funcionalidade extra).
+      - Método que sobrescreve o da classe "Tabuleiro":
+        - confereGanhador ()
+      - Métodos implementados:
+        - iniciaTabuleiro()
+        - minasAdj(int linha, int coluna)
+        - revelaCelula(int linha, int coluna)
+        - validaJogadaCampoMinado(int linha, int coluna)
+        - escolheuBomba(int linha, int coluna)
+        - jogarCampoMinado()
+      - Atributos privados:
+        - int bombas
+        - int posicao_minas`[2][10]`
+
+          
+   3.5 **Memoria:**
+      - Classe herdeira de classe base "Tabuleiro" que implementa a lógica específica do jogo da Memória (funcionalidade extra).
+      - Método que sobrescreve o da classe "Tabuleiro":
+        - confereGanhador ()
+      - Métodos implementados:
+        - ehJogadaValida(int x, int y, int x2, int y2, char jogadorDaVez)
+        - validaJogada(int x, int y, int x2, int y2, char jogadorDaVez)
+        - formamPares(int x, int y, int x2, int y2, char jogadorDaVez)
+        - validaPares(int x, int y, int x2, int y2, char jogadorDaVez)
+        - verificarFimDeJogo()
+        - inicializaTabuleiroSimbolos()
+      - Atributos privados:
+        - int pontosJogador1
+        - int pontosJogador2
+        - int jogadorAtual
+        - char aux`[4][4]`
 
     
 4. **Execução de Partidas:**
@@ -70,11 +133,11 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
 - **Cadastrar Jogador**: `CJ <Apelido> <Nome>`
   - (obs. Considere que `<Apelido>` é composto por uma única palavra)
   - Sucesso: `Jogador <Apelido> cadastrado com sucesso`
-  - Erros: `ERRO: dados incorretos`, `ERRO: jogador repetido`  
+  - Erros: `ERRO: entrada inválida`, `ERRO: jogador repetido`  
 
 - **Remover Jogador**: `RJ <Apelido>`
   - Sucesso: `Jogador <Apelido> removido com sucesso`
-  - Erro: `ERRO: jogador inexistente` 
+  - Erro: `ERRO: entrada inválida`, `ERRO: jogador não encontrado` 
 
 - **Listar Jogadores**:  `LJ A|N` `<Apelido> <Nome>`
   - Sucesso: lista de todos os jogadores ordenados por Apelido ou Nome, seguido pelo número de vitórias e derrotas em cada jogo
@@ -84,12 +147,14 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
     - LIG4 - V: <#vitorias> D: <#derrotas>
     - TIC TAC TOE - V: <#vitorias> D: <#derrotas>
     - CAMPO MINADO - V: <#vitorias> D: <#derrotas>
-    - MEMORIA - V: <#vitorias> D: <#derrotas>  
+    - MEMORIA - V: <#vitorias> D: <#derrotas>
+  - Erro: `ERRO: entrada inválida`, `ERRO: comando inválido; escolha ordenar por (A)pelido ou (N)ome!`
 
 ### Execução de Partidas
 - **Executar Partida**: `EP <Jogo: (R|L|T|C|M)> <Apelido Jogador 1> <Apelido Jogador 2>`
    - *Exemplo:* `EP R Ju Babi` (executa o jogo Reversi com jogadora Ju e jogadora Babi)
-   - Erros: `ERRO: comando inválido`, `ERRO: dados incorretos` , `ERRO: jogador inexistente`
+   - Erros:  `ERRO: entrada inválida`, `ERRO: jogo não encontrado`, `ERRO: São necessários dois jogadores para jogar este jogo`, `ERRO: primeiro jogador não encontrado` , `ERRO: segundo jogador não encontrado`, `Este jogo só possui um jogador`
+   - Sucesso: `<Apelido Jogador 1> fez log in!`, `<Apelido Jogador 2> fez log in!` `<Jogo> foi escolhido!`
    - Sucesso: `J - JOGAR ` `L - Ler regras do jogo`
       - **Jogar:** `<J>`
       - **Regras:** `<L>`
@@ -99,13 +164,13 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
 - **Finalizar Sistema**: `FS`
 
 ## Inputs durante os Jogos
+- **Jogada no Lig 4**: `<Coluna>`
+  - Exemplo: `<1>` 
+  - Erros: `ERRO: formato incorreto`, `Essa jogada é inválida! Passa a vez!`, `Não existem mais posições disponiveis nessa coluna! Perde a vez!`
+    
 - **Jogada no Reversi**: `<Linha>` `<Coluna>`
   - Exemplo: `<0>` `<2>` 
   - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida`
-
-- **Jogada no Lig 4**: `<Coluna>`
-  - Exemplo: `<1>` 
-  - Erros: `ERRO: formato incorreto`, `Essa jogada é inválida! Passa a vez!`
 
 - **Jogada no TicTacToe**: `<Linha>` `<Coluna>`
   - Exemplo: `<0>` `<2>` 
@@ -113,11 +178,19 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
   - 
 - **Jogada no Campo Minado**: `<Linha>` `<Coluna>`
   - Exemplo: `<0>` `<2>` 
-  - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida!`
+  - Erros: `ERRO: jogada inválida!`,  `ERRO: formato incorreto`
     
 - **Jogada no Jogo da Memória**: `<Linha1>` `<Coluna1>` `<Linha2>` `<Coluna2>`
   - Exemplo: `<0>` `<1>` `<0>` `<2>` 
   - Erros: `ERRO: formato incorreto`, `ERRO: jogada inválida`
+
+(Ao final de cada partida o jogador tem a opção de ver o ranking do jogo ou voltar ao menu)
+- **Visualizar ranking**: `VR`
+- **Jogar novamente**: `JN`
+  - Erros: `ERRO: entrada inválida; escolha (J)ogar (N)ovamente ou (V)er (R)anking!`
+    
+## Documentação
+O projeto conta com diversas formas de documentação: esse READ-ME e os arquivos gerados pelo Doxygen (html e PDF). Para acessar o html basta ir na pasta `html` dentro do repositório, clicar no arquivo `index.html` com o `<Botão Direito do Mouse>` e selecionar a opção `Open With Live Server`
 
 ## Aprendizados com o projeto
 Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem:
