@@ -115,7 +115,7 @@ int main() {
         throw badInputs(Comando);
       }
 
-      for (int i = 0; i < Comando.length(); i++) {
+      for (long unsigned int i = 0; i < Comando.length(); i++) {
         if (isdigit(Comando[i]) || !isalpha(Comando[i]) ||
             isblank(Comando[i])) {
           throw badInputs(Comando);
@@ -401,13 +401,48 @@ int main() {
         cout << "\nCampo Minado foi escolhido!" << endl;
         CampoMinado c;
 
-        if (c.jogarCampoMinado() == 1) {
-          Jogador1.victory = true;
-          Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-        }
+        c.imprimirTabuleiro();
+        bool ganhou_campo_minado = false;
+        
+        while (1)
+        {
+          cout << "Escreva as coordenadas no formato: linha coluna" << endl;
 
+          int chute_linha, chute_coluna;
+          antiUsuario(chute_linha);
+          antiUsuario(chute_coluna);
+
+          if (!c.validaJogadaCampoMinado(chute_linha, chute_coluna))
+          {
+            cout << "ERRO: jogada inválida" << endl;
+          }
+
+          if (c.escolheuBomba(chute_linha, chute_coluna))
+          {
+            cout << "BOOM! Você perdeu!" << endl;
+            break;
+          }
+
+          if (c.confereGanhador())
+          {
+            cout << "Parabéns! Você ganhou!" << endl;
+            ganhou_campo_minado = true;
+            break;
+          }
+
+          c.minasAdj(chute_linha, chute_coluna);
+          c.revelaCelula(chute_linha, chute_coluna);
+          c.imprimirTabuleiro();
+        }
+        
+        if (ganhou_campo_minado) {
+          Jogador1.victory = true;
+        }
+        
+        Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
         c.liberaMemoria();
         menuFimDeJogo(jogoEscolhido, jogadoresVector);
+        
       } else if (jogoEscolhido == 'M') {
         cout << "\nJogo da Memória foi escolhido!" << endl;
         Memoria m;
@@ -490,7 +525,6 @@ void antiUsuario(int &a) {
 
   while (1) {
     cin >> aux;
-    char c;
     if (cin.peek() != '\n') {
         cout << "ERRO: formato incorreto" << endl;
         cin.clear();
@@ -527,7 +561,7 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
           throw badInputs(aux);
         }
 
-        for (int i = 0; i < aux.length(); i++) {
+        for (long unsigned int i = 0; i < aux.length(); i++) {
           if (isdigit(aux[i]) || !isalpha(aux[i]) || isblank(aux[i])) {
             throw badInputs(aux);
           }
@@ -541,7 +575,7 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
         continue;
       }
 
-      for (int i = 0; i < aux.length(); i++) {
+      for (long unsigned int i = 0; i < aux.length(); i++) {
         resposta[i] = toupper(aux[i]);
       }
 
@@ -566,7 +600,7 @@ void voltarMenuPrincipal() {
     try {
       cin >> aux;
 
-      for (int i = 0; i < aux.length(); i++) {
+      for (long unsigned int i = 0; i < aux.length(); i++) {
         if (isdigit(aux[i]) || isblank(aux[i]) || !isalpha(aux[i])) {
           throw badInputs(aux);
         }
