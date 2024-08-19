@@ -9,6 +9,7 @@ O projeto Jogos de Tabuleiro é uma aplicação desenvolvida como trabalho final
 - Campo Minado (jogo extra)
 
 ## Equipe
+Trabalho feito colaborativamente pelos membros:
 - Bárbara Diniz
 - Isadora Horta
 - Júlia Vasconcelos
@@ -191,6 +192,23 @@ Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais 
     
 ## Documentação
 O projeto conta com diversas formas de documentação: esse READ-ME e os arquivos gerados pelo Doxygen (html e PDF). Para acessar o html basta ir na pasta `html` dentro do repositório, clicar no arquivo `index.html` com o `<Botão Direito do Mouse>` e selecionar a opção `Open With Live Server`
+
+## Dificuldades encontradas 
+Durante o desenvolvimento deste projeto, a equipe enfrentou alguns desafios:
+
+- Uso do Git e Github:
+  A utilização dessas ferramentas apresentou-se como um desafio para a equipe. No decorrer do projeto, tivemos dificuldades ao lidar com conflitos de merge, em entender o fluxo de trabalho nas branches e na utilização das funcionalidades para manter o código organizado.
+
+- Uso de Makefile:
+  O processo de compilação dos arquivos com o Makefile apresentou-se com um desafio na reta final. Algumas das dificuldades enfrentadas foram: erro com o arquivo executável, conjutamente com um erro relacionado ao tipo binário gerado na compilação (Exemplo: Relocation against symbol _zvcampominado can not be used when making a PIE object). Para lidar com o problema utilizamos o comando `make clean` e depois realizamos o processo de compilação novamente com `make`. Além disso acrescentamos no arquivo Makefile a linha: `CFLAGS=-std=c++11 -Wall -fPIC`, caso o problema estivesse relacionado a um trecho que envolva código compartilhado ou parte de uma biblioteca.
+
+- Realização dos Testes:
+  Compreender e executar os testes também se mostrou um processo desafiador. Houve dificuldades em entender a estrutura e como conseguir integrá-los no nosso processo de desenvolvimento.
+
+- Salvar informações no arquivo Jogadores.txt:
+  No processo de manipulação do arquivo, o grupo apresentou dificuldades para tratar um erro específico ao cadastrar usuário, que gerava uma linha em branco no arquivo. A presença desta linha acarretava o não funcionamento do executável, exibindo o seguinte errro: `terminate called after throwing an instance of 'std::invalid_argument' what(): stoi Aborted`   
+
+Essas dificuldades, embora desafiadoras, contribuíram para um maior aprendizado por parte de toda a equipe. 
 
 ## Aprendizados com o projeto
 Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem:
