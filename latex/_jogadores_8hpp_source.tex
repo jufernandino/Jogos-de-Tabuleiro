@@ -1,0 +1,61 @@
+\doxysection{Jogadores.\+hpp}
+\hypertarget{_jogadores_8hpp_source}{}\label{_jogadores_8hpp_source}\index{include/Jogadores.hpp@{include/Jogadores.hpp}}
+\mbox{\hyperlink{_jogadores_8hpp}{Ir para a documentação desse arquivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Jogadores\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Jogadores\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_jogadores}{Jogadores}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_jogadores_a1ba1b98d70849c735244b166898d750e}{Nome}};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a88452377766c961e9e61078fe5725265}{reversiWins}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a2b5c8ac9a176d3675080def5ff60f862}{reversiDefeats}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_af3dc0f6a8eb9ae35fa54b2e7550dd229}{lig4Wins}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a1e8757b53815ee36f2334e4b5c17078c}{lig4Defeats}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_af34ed2bd14a83e4e9ed01686d9dec21a}{tictactoeWins}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a98a9b7708bd405d0e8443a0f38167eba}{tictactoeDefeats}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a75b6b88c7154da9de36d8a74877d7cb3}{campoMinadoWins}};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a575460282c6b88d55fa7048303ad2752}{campoMinadoDefeats}};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a348a87d2c81ad6455bb187384fff790a}{memoriaWins}};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_a80f27e57808b2df6a60b49cdc04fbc63}{memoriaDefeats}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_jogadores_ad46fcee4fe300140a29d653b2aa1973b}{victory}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_jogadores_acf3c4563e58d9b11b8a406771e4a90c0}{pesquisaJogador}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_jogadores_a7ce59dd91823c2d9b4c45232ce14e007}{Jogadores}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_jogadores_a7ce59dd91823c2d9b4c45232ce14e007}{Jogadores}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_jogadores_a1ba1b98d70849c735244b166898d750e}{Nome}});}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_jogadores}{Jogadores}}\ \mbox{\hyperlink{class_jogadores_a493d5a06a6121c7a30955ece523e2aba}{logIn}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}},\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_ab56e0ab1dfa7ad145d55a4f1119b7db2}{reescreveArquivo}}(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_a909b8c99998bde6fd4443b4284e07bd8}{removeJogador}}(vector<Jogadores>\ \&jogadoresVector,\ \textcolor{keywordtype}{string}\ \&\mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}});}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_aa2c5f3742932f8b358bc0ec791bd6a76}{atualizaEstatisticas}}(\textcolor{keywordtype}{char}\ jogoEscolhido,\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_a22e95f708db5298c9790f9e013b46a91}{mostrarRanking}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&jogoEscolhido,\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_aec339a7d33055988ddc61f59a03e6fc9}{mostrarEstatisticas}}(vector<Jogadores>\ \&jogadoresVector,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&ordenacao);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_a56d8fb759501e0b99309186776cd4613}{carregarJogadores}}(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_ae2085de52af59584db9d265ac569cae0}{cadastrarJogadores}}(\textcolor{keywordtype}{string}\ apelido,\ \textcolor{keywordtype}{string}\ nome,\ \mbox{\hyperlink{class_jogadores}{Jogadores}}\ \&Jogador,\ vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_a5e6bdcf21b3af5b020fb0442d1b3d281}{ordenacaoApelido}}(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jogadores_ac6ebf6f966eab558f542fb82a1aa957a}{ordenacaoNome}}(vector<Jogadores>\ \&jogadoresVector);}
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

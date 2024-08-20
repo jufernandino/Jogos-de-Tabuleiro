@@ -1,0 +1,308 @@
+\chapter{Jogos de Tabuleiro}
+\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e}{}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e}\index{Jogos de Tabuleiro@{Jogos de Tabuleiro}}
+\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md0}%
+\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Descrição do projeto}{Descrição do projeto}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md1}
+O projeto Jogos de \doxylink{class_tabuleiro}{Tabuleiro} é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. Este projeto implementa um sistema para jogar diferentes jogos, proporcionando funcionalidades cadastro de jogadores, exclusão de jogadores, estatísica dos jogadores e a listagem dos jogadores. Os jogos disponibilizados para serem jogados são\+:
+\begin{DoxyItemize}
+\item Lig4
+\item \doxylink{class_reversi}{Reversi}
+\item Tic Tac Toe (jogo extra)
+\item Jogo da Memória (jogo extra)
+\item Campo Minado (jogo extra)
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Equipe}{Equipe}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md2}
+Trabalho feito colaborativamente pelos membros\+:
+\begin{DoxyItemize}
+\item Bárbara Diniz
+\item Isadora Horta
+\item Júlia Vasconcelos
+\item Marcele Louise
+\item Sarah Menks
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Tecnologias Utilizadas}{Tecnologias Utilizadas}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\ttfamily Linguagem\+:} C++
+\item {\ttfamily Compilação\+:} Makefile ~\newline
+
+\item {\ttfamily Documentação\+:} Doxygen e README ~\newline
+
+\item {\ttfamily Testes\+:} Biblioteca doctest ~\newline
+
+\item {\ttfamily Controle de Versão\+:} Git e Git\+Hub
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Funcionalidades extras implementadas}{Funcionalidades extras implementadas}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Tic Tac Toe
+\item Jogo da Memória
+\item Campo Minado
+\item Exibir as regras dos jogos
+\item Exibir o ranking específico para cada jogo
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Estrutura do Projeto}{Estrutura do Projeto}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md5}
+O projeto foi organizado em diferentes classes, cada uma com suas responsabilidades\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{\doxylink{class_jogadores}{Jogadores}\+:}}
+\begin{DoxyItemize}
+\item Implementa métodos relacionados aos jogadores (cadastrar, remover, listar) com persistência de dados em arquivo
+\item Além disso, mostra as estatísticas (vitórias e derrotas) e ordena jogadores pelo nome ou apelido.
+\item Métodos implementados\+:
+\begin{DoxyItemize}
+\item pesquisa\+Jogador(string Apelido)
+\item log\+In(string Apelido, vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\item reescreve\+Arquivo(vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\item remove\+Jogador(vector$<$\+Jogadores$>$ \&jogadores\+Vector, string \&\+Apelido)
+\item atualiza\+Estatisticas(char jogo\+Escolhido, vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\item mostrar\+Ranking(const char \&jogo\+Escolhido, vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\item mostrar\+Estatisticas(vector$<$\+Jogadores$>$ \&jogadores\+Vector, const string \&ordenacao)
+\item carregar\+Jogadores(vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\item cadastrar\+Jogadores(string apelido, string nome, Jogadores \&\+Jogador, vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\item ordenacao\+Apelido(vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\item ordenacao\+Nome(vector$<$\+Jogadores$>$ \&jogadores\+Vector)
+\end{DoxyItemize}
+\item Erros\+: {\ttfamily ERRO\+: não foi possível abrir o arquivo Jogadores.\+txt}
+\end{DoxyItemize}
+\item {\bfseries{\doxylink{class_tabuleiro}{Tabuleiro}\+:}}
+\begin{DoxyItemize}
+\item Contém os métodos e funcionalidades básicas para todos os jogos (classe pai).
+\item Essa classe gerencia o tabuleiro, além de mostrar as regras, validar jogadas e fazer a conferência do ganhador.
+\item Métodos implementados\+:
+\begin{DoxyItemize}
+\item cria\+Tabuleiro ( )
+\item void imprimir\+Tabuleiro ( )
+\item valida\+Jogada (int x, int y, char z)
+\item libera\+Memoria ( )
+\item confere\+Ganhador ( ) = 0;
+\item mostrar\+Regras (const char \&jogo\+Escolhido)
+\end{DoxyItemize}
+\item Erros\+: {\ttfamily ERRO\+: não foi possível abrir o arquivo Regras.\+txt}
+\end{DoxyItemize}
+\item {\bfseries{Classes Herdeiras de \doxylink{class_tabuleiro}{Tabuleiro}\+:}}
+\begin{DoxyItemize}
+\item {\itshape As classes herdeiras são\+: Lig4, \doxylink{class_reversi}{Reversi}, \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe}, \doxylink{class_campo_minado}{Campo\+Minado} e Memória. Elas impelementam a lógica de cada jogo, respectivamente.}
+\end{DoxyItemize}
+
+3.\+1 {\bfseries{Lig4\+:}}
+\begin{DoxyItemize}
+\item Classe herdeira de classe base "{}\+Tabuleiro"{} que implementa a lógica específica do jogo Lig4.
+\item Métodos que sobrescrevem os da classe "{}\+Tabuleiro"{}\+:
+\begin{DoxyItemize}
+\item valida\+Jogada(int x, int y, char z)
+\item confere\+Ganhador ()
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+3.\+2 {\bfseries{\doxylink{class_reversi}{Reversi}\+:}}
+\begin{DoxyItemize}
+\item Classe herdeira de classe base "{}\+Tabuleiro"{} que implementa a lógica específica do jogo \doxylink{class_reversi}{Reversi}.
+\item Métodos que sobrescrevem os da classe "{}\+Tabuleiro"{}\+:
+\begin{DoxyItemize}
+\item valida\+Jogada(int x, int y, char z)
+\item confere\+Ganhador ()
+\end{DoxyItemize}
+\item Métodos implementados\+:
+\begin{DoxyItemize}
+\item inicializar\+Jogo()
+\item eh\+Jogada\+Valida(int x, int y, char jogador\+Da\+Vez)
+\item existe\+Movimento\+Possivel(char jogador\+Da\+Vez)
+\item mostrar\+Locais\+Jogada(char jogador)
+\item verificar\+Fim\+De\+Jogo()
+\item inverter\+Pecas(int x, int y, char jogador\+Da\+Vez)
+\end{DoxyItemize}
+\item Atributo privado\+:
+\begin{DoxyItemize}
+\item char jogador\+Atual
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+3.\+3 {\bfseries{Tic Tac Toe\+:}}
+\begin{DoxyItemize}
+\item Classe herdeira de classe base "{}\+Tabuleiro"{} que implementa a lógica específica do jogo Tic Tac Toe (funcionalidade extra).
+\item Método que sobrescreve o da classe "{}\+Tabuleiro"{}\+:
+\begin{DoxyItemize}
+\item confere\+Ganhador ()
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+3.\+4 {\bfseries{Campo Minado\+:}}
+\begin{DoxyItemize}
+\item Classe herdeira de classe base "{}\+Tabuleiro"{} que implementa a lógica específica do jogo Campo Minado (funcionalidade extra).
+\item Método que sobrescreve o da classe "{}\+Tabuleiro"{}\+:
+\begin{DoxyItemize}
+\item confere\+Ganhador ()
+\end{DoxyItemize}
+\item Métodos implementados\+:
+\begin{DoxyItemize}
+\item inicia\+Tabuleiro()
+\item minas\+Adj(int linha, int coluna)
+\item revela\+Celula(int linha, int coluna)
+\item valida\+Jogada\+Campo\+Minado(int linha, int coluna)
+\item escolheu\+Bomba(int linha, int coluna)
+\item jogar\+Campo\+Minado()
+\end{DoxyItemize}
+\item Atributos privados\+:
+\begin{DoxyItemize}
+\item int bombas
+\item int posicao\+\_\+minas{\ttfamily \mbox{[}2\mbox{]}\mbox{[}10\mbox{]}}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+3.\+5 {\bfseries{\doxylink{class_memoria}{Memoria}\+:}}
+\begin{DoxyItemize}
+\item Classe herdeira de classe base "{}\+Tabuleiro"{} que implementa a lógica específica do jogo da Memória (funcionalidade extra).
+\item Método que sobrescreve o da classe "{}\+Tabuleiro"{}\+:
+\begin{DoxyItemize}
+\item confere\+Ganhador ()
+\end{DoxyItemize}
+\item Métodos implementados\+:
+\begin{DoxyItemize}
+\item eh\+Jogada\+Valida(int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\item valida\+Jogada(int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\item formam\+Pares(int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\item valida\+Pares(int x, int y, int x2, int y2, char jogador\+Da\+Vez)
+\item verificar\+Fim\+De\+Jogo()
+\item inicializa\+Tabuleiro\+Simbolos()
+\end{DoxyItemize}
+\item Atributos privados\+:
+\begin{DoxyItemize}
+\item int pontos\+Jogador1
+\item int pontos\+Jogador2
+\item int jogador\+Atual
+\item char aux{\ttfamily \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item {\bfseries{Execução de Partidas\+:}}
+\begin{DoxyItemize}
+\item Na {\ttfamily main} existem as mecânicas para exibir o menu principal executar partidas entre jogadores, escolher o jogo, verificação de jogadas e atualização de estatísticas, valendo-\/se dos métodos das classes. Além disso gerencia as opções de cadastro, remoção e listagem de jogadores.
+\item Funções criadas\+:
+\begin{DoxyItemize}
+\item \doxylink{main_8cpp_a45670c3441070a10f04945cd08643ff5}{anti\+Usuario(int \&a)}
+\item \doxylink{main_8cpp_a158906443324001e9e2e5396cffd24c3}{menu\+Fim\+De\+Jogo(const char \&jogo\+Escolhido, vector$<$\+Jogadores$>$ \&jogadores\+Vector)}
+\item \doxylink{main_8cpp_acfb208a938b64a56ad6168ec55f7a809}{voltar\+Menu\+Principal()}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+4.\+1 {\bfseries{\doxylink{classbad_inputs}{bad\+Inputs}\+:}}
+\begin{DoxyItemize}
+\item Classe de exceção para entradas inválidas do usuário.
+\item Métodos implementados
+\begin{DoxyItemize}
+\item virtual const char \texorpdfstring{$\ast$}{*}what() const throw() \{ return "{}\+ERRO\+: entrada inválida"{}; \}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Inputs}{Inputs}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md6}
+Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais mensagens de erro\+:\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{Cadastro de Jogadores}{Cadastro de Jogadores}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{Cadastrar Jogador}}\+: {\ttfamily CJ \texorpdfstring{$<$}{<}Apelido\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}Nome\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item (obs. Considere que {\ttfamily \texorpdfstring{$<$}{<}Apelido\texorpdfstring{$>$}{>}} é composto por uma única palavra)
+\item Sucesso\+: {\ttfamily Jogador \texorpdfstring{$<$}{<}Apelido\texorpdfstring{$>$}{>} cadastrado com sucesso}
+\item Erros\+: {\ttfamily ERRO\+: entrada inválida}, {\ttfamily ERRO\+: jogador repetido} ~\newline
+
+\end{DoxyItemize}
+\item {\bfseries{Remover Jogador}}\+: {\ttfamily RJ \texorpdfstring{$<$}{<}Apelido\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item Sucesso\+: {\ttfamily Jogador \texorpdfstring{$<$}{<}Apelido\texorpdfstring{$>$}{>} removido com sucesso}
+\item Erro\+: {\ttfamily ERRO\+: entrada inválida}, {\ttfamily ERRO\+: jogador não encontrado}
+\end{DoxyItemize}
+\item {\bfseries{Listar \doxylink{class_jogadores}{Jogadores}}}\+: {\ttfamily LJ A\texorpdfstring{$\vert$}{|}N} {\ttfamily \texorpdfstring{$<$}{<}Apelido\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}Nome\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item Sucesso\+: lista de todos os jogadores ordenados por Apelido ou Nome, seguido pelo número de vitórias e derrotas em cada jogo
+\item {\itshape Exemplo\+:}
+\begin{DoxyItemize}
+\item {\ttfamily \texorpdfstring{$<$}{<}Apelido\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}Nome\texorpdfstring{$>$}{>}}
+\item REVERSI -\/ V\+: \texorpdfstring{$<$}{<}\#vitorias\texorpdfstring{$>$}{>} D\+: \texorpdfstring{$<$}{<}\#derrotas\texorpdfstring{$>$}{>}
+\item LIG4 -\/ V\+: \texorpdfstring{$<$}{<}\#vitorias\texorpdfstring{$>$}{>} D\+: \texorpdfstring{$<$}{<}\#derrotas\texorpdfstring{$>$}{>}
+\item TIC TAC TOE -\/ V\+: \texorpdfstring{$<$}{<}\#vitorias\texorpdfstring{$>$}{>} D\+: \texorpdfstring{$<$}{<}\#derrotas\texorpdfstring{$>$}{>}
+\item CAMPO MINADO -\/ V\+: \texorpdfstring{$<$}{<}\#vitorias\texorpdfstring{$>$}{>} D\+: \texorpdfstring{$<$}{<}\#derrotas\texorpdfstring{$>$}{>}
+\item MEMORIA -\/ V\+: \texorpdfstring{$<$}{<}\#vitorias\texorpdfstring{$>$}{>} D\+: \texorpdfstring{$<$}{<}\#derrotas\texorpdfstring{$>$}{>}
+\end{DoxyItemize}
+\item Erro\+: {\ttfamily ERRO\+: entrada inválida}, {\ttfamily ERRO\+: comando inválido; escolha ordenar por (A)pelido ou (N)ome!}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{Execução de Partidas}{Execução de Partidas}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Executar Partida}}\+: {\ttfamily EP \texorpdfstring{$<$}{<}Jogo\+: (R\texorpdfstring{$\vert$}{|}\+L\texorpdfstring{$\vert$}{|}\+T\texorpdfstring{$\vert$}{|}\+C\texorpdfstring{$\vert$}{|}M)\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}Apelido Jogador 1\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}Apelido Jogador 2\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item {\itshape Exemplo\+:} {\ttfamily EP R Ju Babi} (executa o jogo \doxylink{class_reversi}{Reversi} com jogadora Ju e jogadora Babi)
+\item Erros\+: {\ttfamily ERRO\+: entrada inválida}, {\ttfamily ERRO\+: jogo não encontrado}, {\ttfamily ERRO\+: São necessários dois jogadores para jogar este jogo}, {\ttfamily ERRO\+: primeiro jogador não encontrado} , {\ttfamily ERRO\+: segundo jogador não encontrado}, {\ttfamily Este jogo só possui um jogador}
+\item Sucesso\+: {\ttfamily \texorpdfstring{$<$}{<}Apelido Jogador 1\texorpdfstring{$>$}{>} fez log in!}, {\ttfamily \texorpdfstring{$<$}{<}Apelido Jogador 2\texorpdfstring{$>$}{>} fez log in!} {\ttfamily \texorpdfstring{$<$}{<}Jogo\texorpdfstring{$>$}{>} foi escolhido!}
+\item Sucesso\+: {\ttfamily J -\/ JOGAR} {\ttfamily L -\/ Ler regras do jogo}
+\begin{DoxyItemize}
+\item {\bfseries{Jogar\+:}} {\ttfamily \texorpdfstring{$<$}{<}J\texorpdfstring{$>$}{>}}
+\item {\bfseries{Regras\+:}} {\ttfamily \texorpdfstring{$<$}{<}L\texorpdfstring{$>$}{>}} (funcionalidade extra)
+\item {\bfseries{Erros\+:}} {\ttfamily ERRO\+: Regras não encontradas para o jogo selecionado.}
+\end{DoxyItemize}
+\item OBS\+: {\itshape ( R= \doxylink{class_reversi}{Reversi} \texorpdfstring{$\vert$}{|} L=Lig4 \texorpdfstring{$\vert$}{|} T=\doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe} \texorpdfstring{$\vert$}{|} C=\doxylink{class_campo_minado}{Campo\+Minado} \texorpdfstring{$\vert$}{|} M=Memória )}
+\end{DoxyItemize}
+\item {\bfseries{Finalizar Sistema}}\+: {\ttfamily FS}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{Inputs durante os Jogos}{Inputs durante os Jogos}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyItemize}
+\item {\bfseries{Jogada no Lig 4}}\+: {\ttfamily \texorpdfstring{$<$}{<}Coluna\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>}}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily Essa jogada é inválida! Passa a vez!}, {\ttfamily Não existem mais posições disponiveis nessa coluna! Perde a vez!}
+\end{DoxyItemize}
+\item {\bfseries{Jogada no \doxylink{class_reversi}{Reversi}}}\+: {\ttfamily \texorpdfstring{$<$}{<}Linha\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}Coluna\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily \texorpdfstring{$<$}{<}0\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>}}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily ERRO\+: jogada inválida}
+\end{DoxyItemize}
+\item {\bfseries{Jogada no \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe}}}\+: {\ttfamily \texorpdfstring{$<$}{<}Linha\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}Coluna\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily \texorpdfstring{$<$}{<}0\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>}}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily Essa jogada é inválida! Passa a vez!}
+\item 
+\end{DoxyItemize}
+\item {\bfseries{Jogada no Campo Minado}}\+: {\ttfamily \texorpdfstring{$<$}{<}Linha\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}Coluna\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily \texorpdfstring{$<$}{<}0\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>}}
+\item Erros\+: {\ttfamily ERRO\+: jogada inválida!}, {\ttfamily ERRO\+: formato incorreto}
+\end{DoxyItemize}
+\item {\bfseries{Jogada no Jogo da Memória}}\+: {\ttfamily \texorpdfstring{$<$}{<}Linha1\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}Coluna1\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}Linha2\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}Coluna2\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item Exemplo\+: {\ttfamily \texorpdfstring{$<$}{<}0\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}1\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}0\texorpdfstring{$>$}{>}} {\ttfamily \texorpdfstring{$<$}{<}2\texorpdfstring{$>$}{>}}
+\item Erros\+: {\ttfamily ERRO\+: formato incorreto}, {\ttfamily ERRO\+: jogada inválida}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+(Ao final de cada partida o jogador tem a opção de ver o ranking do jogo ou voltar ao menu)
+\begin{DoxyItemize}
+\item {\bfseries{Visualizar ranking}}\+: {\ttfamily VR} (funcionalidade extra)
+\item {\bfseries{Jogar novamente}}\+: {\ttfamily JN}
+\begin{DoxyItemize}
+\item Erros\+: {\ttfamily ERRO\+: entrada inválida; escolha (J)ogar (N)ovamente ou (V)er (R)anking!}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md10}{}\doxysection{\texorpdfstring{Documentação}{Documentação}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md10}
+O projeto conta com diversas formas de documentação\+: esse READ-\/\+ME e os arquivos gerados pelo Doxygen (html e PDF). Para acessar o html basta ir na pasta {\ttfamily html} dentro do repositório, clicar no arquivo {\ttfamily index.\+html} com o {\ttfamily \texorpdfstring{$<$}{<}Botão Direito do Mouse\texorpdfstring{$>$}{>}} e selecionar a opção {\ttfamily Open With Live Server}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Dificuldades encontradas}{Dificuldades encontradas}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md11}
+Durante o desenvolvimento deste projeto, a equipe enfrentou alguns desafios\+:
+
+
+\begin{DoxyItemize}
+\item Uso do Git e Github\+: A utilização dessas ferramentas apresentou-\/se como um desafio para a equipe. No decorrer do projeto, tivemos dificuldades ao lidar com conflitos de merge, em entender o fluxo de trabalho nas branches e na utilização das funcionalidades para manter o código organizado.
+\item Uso de Makefile\+: O processo de compilação dos arquivos com o Makefile apresentou-\/se com um desafio na reta final. Algumas das dificuldades enfrentadas foram\+: erro com o arquivo executável, conjutamente com um erro relacionado ao tipo binário gerado na compilação (Exemplo\+: Relocation against symbol \+\_\+zvcampominado can not be used when making a PIE object). Para lidar com o problema utilizamos o comando {\ttfamily make clean} e depois realizamos o processo de compilação novamente com {\ttfamily make}. Além disso acrescentamos no arquivo Makefile a linha\+: {\ttfamily CFLAGS=-\/std=c++11 -\/Wall -\/f\+PIC}, caso o problema estivesse relacionado a um trecho que envolva código compartilhado ou parte de uma biblioteca.
+\item Realização dos Testes\+: Compreender e executar os testes também se mostrou um processo desafiador. Houve dificuldades em entender a estrutura e como conseguir integrá-\/los no nosso processo de desenvolvimento.
+\item Salvar informações no arquivo Jogadores.\+txt\+: No processo de manipulação do arquivo, o grupo apresentou dificuldades para tratar um erro específico ao excluir um jogagor, o que gerava uma linha em branco no final do arquivo,. A presença desta linha acarretava o não funcionamento do executável, exibindo o seguinte errro\+: `terminate called after throwing an instance of \textquotesingle{}std\+::invalid\+\_\+argument' what()\+: stoi Aborted.\`{} Para o bom funcionamento do código, é necessário retirar as linhas vazias do arquivo. O grupo buscou tratar essa dificuldade por meio de uma função que posiciona o cursor no início do arquivo, para assim evitar que ele chegue ao final.
+\end{DoxyItemize}
+
+Essas dificuldades, embora desafiadoras, contribuíram para um maior aprendizado por parte de toda a equipe.\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{Aprendizados com o projeto}{Aprendizados com o projeto}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md12}
+Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem\+:
+
+
+\begin{DoxyItemize}
+\item Programação orientada a objetos em C++.
+\item Colaboração efetiva em um projeto conjunto.
+\item Comunicação.
+\item Uso avançado de Git e Git\+Hub para controle de versão.
+\item Práticas de programação defensiva e tratamento de exceções.
+\item Criação e manutenção de Makefile.
+\item Geração de documentação utilizando Doxygen.
+\item Criação de testes.
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{Github dos contribuintes}{Github dos contribuintes}}\label{md__c_1_2_users_2_usuario_2_desktop_2_projeto_final_2_jogos-de-_tabuleiro_2_r_e_a_d_m_e_autotoc_md13}
+\href{https://github.com/barbaradinizabreu}{\texttt{ Github Bárbara}} ~\newline
+ \href{https://github.com/isadorahorta}{\texttt{ Github Isadora}} ~\newline
+ \href{https://github.com/jufernandino}{\texttt{ Github Júlia}} ~\newline
+ \href{https://github.com/MarceleLouiseSAra}{\texttt{ Github Marcele}} ~\newline
+ \href{https://github.com/SarahMenks}{\texttt{ Github Sarah}} 

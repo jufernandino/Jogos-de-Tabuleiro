@@ -1,0 +1,37 @@
+\doxysection{Reversi.\+hpp}
+\hypertarget{_reversi_8hpp_source}{}\label{_reversi_8hpp_source}\index{include/Reversi.hpp@{include/Reversi.hpp}}
+\mbox{\hyperlink{_reversi_8hpp}{Ir para a documentação desse arquivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Reversi\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Reversi\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_tabuleiro_8hpp}{Tabuleiro.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_reversi}{Reversi}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_tabuleiro}{Tabuleiro}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_reversi_a73e3ca5c21b634f9c490b404d62f0e01}{Reversi}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_reversi_ae8199c096073548e50f1643f7cf9c3bf}{confereGanhador}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a199a3542df9a2a1328b903fd0d7694f0}{validaJogada}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ z)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_aaf9d358fe554fd053ae013fcca92de9c}{inicializarJogo}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_ade4ab6d7d062b4c997ac35db7401a339}{ehJogadaValida}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ jogadorDaVez);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a8300d649da287234dad223a0f41f977c}{existeMovimentoPossivel}}(\textcolor{keywordtype}{char}\ jogadorDaVez);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_ad36ca856fb294ebc8361cfb2b4e69625}{mostrarLocaisJogada}}(\textcolor{keywordtype}{char}\ jogador);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a0437cccbe569d12b01b0db0ad80f4011}{verificarFimDeJogo}}();\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a87971079263f43e78ba4c0561800c2ec}{inverterPecas}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{char}\ jogadorDaVez);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{char}\ jogadorAtual;}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

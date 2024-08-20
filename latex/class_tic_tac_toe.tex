@@ -1,0 +1,106 @@
+\doxysection{Referência da Classe Tic\+Tac\+Toe}
+\hypertarget{class_tic_tac_toe}{}\label{class_tic_tac_toe}\index{TicTacToe@{TicTacToe}}
+
+
+Classe que representa o jogo Tic-\/\+Tac-\/\+Toe.  
+
+
+
+
+{\ttfamily \#include $<$Tic\+Tac\+Toe.\+hpp$>$}
+
+Diagrama de hierarquia da classe Tic\+Tac\+Toe\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tic_tac_toe}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tic_tac_toe_a103fe9a5ae41b5ef756e20594a70cb7a}{Tic\+Tac\+Toe}} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe}. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_tic_tac_toe_a87344d488a8ecadf3614dfd08a390d10}{confere\+Ganhador}} () override
+\begin{DoxyCompactList}\small\item\em Confere se há um ganhador no jogo Tic-\/\+Tac-\/\+Toe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membros Públicos herdados de \mbox{\hyperlink{class_tabuleiro}{Tabuleiro}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tabuleiro_a9b76bfdd7176fd0b4fdee7296a6841e5}{Tabuleiro}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{class_tabuleiro}{Tabuleiro}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tabuleiro_a56ad972c43f8d404016ac1adeb33432d}{cria\+Tabuleiro}} ()
+\begin{DoxyCompactList}\small\item\em Cria o tabuleiro alocando memória dinamicamente para a matriz. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_tabuleiro_ae2e256e1bc632250b7fb59340e8ef81d}{imprimir\+Tabuleiro}} ()
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro na tela. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_tabuleiro_aababbe9d7ac722d0912d31a13a68c50b}{valida\+Jogada}} (int x, int y, char z)
+\begin{DoxyCompactList}\small\item\em Valida uma jogada no tabuleiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tabuleiro_abd5957f215e2e780177e131d20021c51}{libera\+Memoria}} ()
+\begin{DoxyCompactList}\small\item\em Libera a memória alocada para o tabuleiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tabuleiro_a0202198435ca8905531001e8157ecc19}{mostrar\+Regras}} (const char \&jogo\+Escolhido)
+\begin{DoxyCompactList}\small\item\em confere se alguém venceu \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Outros membros herdados}
+\doxysubsection*{Atributos Públicos herdados de \mbox{\hyperlink{class_tabuleiro}{Tabuleiro}}}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tabuleiro_a1e53391966e83063bba15409c63844bd}{matrix}}
+\item 
+int \mbox{\hyperlink{class_tabuleiro_addfdc518d735de62c98d6b44cc2ed0fa}{rows}}
+\item 
+int \mbox{\hyperlink{class_tabuleiro_a60d9753b61c6c1a2ce4af866e2f4e2a5}{columns}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Classe que representa o jogo Tic-\/\+Tac-\/\+Toe. 
+
+A classe "{}\+Tic\+Tac\+Toe"{} herda da classe base "{}\+Tabuleiro"{} e implementa a lógica específica do jogo Tic-\/\+Tac-\/\+Toe, incluindo a verificação de condições de vitória. 
+
+\doxysubsection{Construtores e Destrutores}
+\Hypertarget{class_tic_tac_toe_a103fe9a5ae41b5ef756e20594a70cb7a}\index{TicTacToe@{TicTacToe}!TicTacToe@{TicTacToe}}
+\index{TicTacToe@{TicTacToe}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{TicTacToe()}{TicTacToe()}}
+{\footnotesize\ttfamily \label{class_tic_tac_toe_a103fe9a5ae41b5ef756e20594a70cb7a} 
+Tic\+Tac\+Toe\+::\+Tic\+Tac\+Toe (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe}. 
+
+Construtor.
+
+Inicializa um objeto \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe} com as configurações padrão do tabuleiro.
+
+Inicializa o tabuleiro do jogo Tic-\/\+Tac-\/\+Toe com 3 linhas e 3 colunas. 
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{class_tic_tac_toe_a87344d488a8ecadf3614dfd08a390d10}\index{TicTacToe@{TicTacToe}!confereGanhador@{confereGanhador}}
+\index{confereGanhador@{confereGanhador}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{confereGanhador()}{confereGanhador()}}
+{\footnotesize\ttfamily \label{class_tic_tac_toe_a87344d488a8ecadf3614dfd08a390d10} 
+int Tic\+Tac\+Toe\+::confere\+Ganhador (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Confere se há um ganhador no jogo Tic-\/\+Tac-\/\+Toe. 
+
+Esta função sobrescreve o método "{}confere\+Ganhador"{} da classe base "{}\+Tabuleiro"{} e implementa a lógica para verificar se há um vencedor na partida de Tic-\/\+Tac-\/\+Toe.
+
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+Esta função verifica todas as condições de vitória possíveis em um jogo de Tic-\/\+Tac-\/\+Toe, incluindo linhas horizontais, verticais e diagonais. Se um jogador tiver três símbolos iguais alinhados, a função retorna 1 (vitória do Jogador 1) ou 2 (vitória do Jogador 2). Se não houver espaços vazios e ninguém venceu, retorna 3 indicando um empate. Se o jogo ainda não terminou, retorna 0.
+
+\begin{DoxyReturn}{Retorna}
+int Retorna 1 se o Jogador 1 vencer, 2 se o Jogador 2 vencer, 3 para empate e 0 se não houver vencedor. 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{class_tabuleiro_a271e4f79f6c7203dfa9283348e946836}{Tabuleiro}}.
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_tic_tac_toe_8hpp}{Tic\+Tac\+Toe.\+hpp}}\item 
+src/\mbox{\hyperlink{_tic_tac_toe_8cpp}{Tic\+Tac\+Toe.\+cpp}}\end{DoxyCompactItemize}

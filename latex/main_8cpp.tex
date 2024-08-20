@@ -1,0 +1,103 @@
+\doxysection{Referência do Arquivo src/main.cpp}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Programa de gerenciamento de jogos e jogadores.  
+
+
+{\ttfamily \#include "{}Campo\+Minado.\+hpp"{}}\newline
+{\ttfamily \#include "{}Jogadores.\+hpp"{}}\newline
+{\ttfamily \#include "{}Memoria.\+hpp"{}}\newline
+{\ttfamily \#include "{}Reversi.\+hpp"{}}\newline
+{\ttfamily \#include "{}Tabuleiro.\+hpp"{}}\newline
+{\ttfamily \#include "{}Tic\+Tac\+Toe.\+hpp"{}}\newline
+{\ttfamily \#include "{}lig4.\+hpp"{}}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbad_inputs}{bad\+Inputs}}
+\begin{DoxyCompactList}\small\item\em Classe de exceção para entradas inválidas do usuário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a45670c3441070a10f04945cd08643ff5}{anti\+Usuario}} (int \&a)
+\begin{DoxyCompactList}\small\item\em Função que verifica e corrige entradas inválidas do usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a158906443324001e9e2e5396cffd24c3}{menu\+Fim\+De\+Jogo}} (const char \&jogo\+Escolhido, vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Exibe o menu final após o término de um jogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_acfb208a938b64a56ad6168ec55f7a809}{voltar\+Menu\+Principal}} ()
+\begin{DoxyCompactList}\small\item\em Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o programa. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Função principal do programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Programa de gerenciamento de jogos e jogadores. 
+
+Este programa permite cadastrar, listar e remover jogadores, além de executar partidas de diferentes jogos (\doxylink{class_reversi}{Reversi}, Lig4, \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe}, Campo Minado e Jogo da Memória). 
+
+\doxysubsection{Funções}
+\Hypertarget{main_8cpp_a45670c3441070a10f04945cd08643ff5}\index{main.cpp@{main.cpp}!antiUsuario@{antiUsuario}}
+\index{antiUsuario@{antiUsuario}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{antiUsuario()}{antiUsuario()}}
+{\footnotesize\ttfamily \label{main_8cpp_a45670c3441070a10f04945cd08643ff5} 
+void anti\+Usuario (\begin{DoxyParamCaption}\item[{int \&}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Função que verifica e corrige entradas inválidas do usuário. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em a} & Referência para o inteiro a ser preenchido com a entrada válida. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Função principal do programa. 
+
+Esta função exibe o menu principal e gerencia as opções de cadastro, remoção, listagem de jogadores e execução de partidas.
+
+\begin{DoxyReturn}{Retorna}
+Retorna 0 se o programa for encerrado corretamente. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a158906443324001e9e2e5396cffd24c3}\index{main.cpp@{main.cpp}!menuFimDeJogo@{menuFimDeJogo}}
+\index{menuFimDeJogo@{menuFimDeJogo}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{menuFimDeJogo()}{menuFimDeJogo()}}
+{\footnotesize\ttfamily \label{main_8cpp_a158906443324001e9e2e5396cffd24c3} 
+void menu\+Fim\+De\+Jogo (\begin{DoxyParamCaption}\item[{const char \&}]{jogo\+Escolhido}{, }\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})}
+
+
+
+Exibe o menu final após o término de um jogo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogo\+Escolhido} & Caracter que identifica o jogo escolhido. \\
+\hline
+{\em jogadores\+Vector} & Vetor contendo os jogadores cadastrados. \\
+\hline
+{\em p\+Jogador1} & Ponteiro para o primeiro jogador. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_acfb208a938b64a56ad6168ec55f7a809}\index{main.cpp@{main.cpp}!voltarMenuPrincipal@{voltarMenuPrincipal}}
+\index{voltarMenuPrincipal@{voltarMenuPrincipal}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{voltarMenuPrincipal()}{voltarMenuPrincipal()}}
+{\footnotesize\ttfamily \label{main_8cpp_acfb208a938b64a56ad6168ec55f7a809} 
+void voltar\+Menu\+Principal (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pergunta ao usuário se deseja voltar ao menu principal ou encerrar o programa. 
+

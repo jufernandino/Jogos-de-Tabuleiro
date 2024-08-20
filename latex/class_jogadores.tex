@@ -1,0 +1,545 @@
+\doxysection{Referência da Classe Jogadores}
+\hypertarget{class_jogadores}{}\label{class_jogadores}\index{Jogadores@{Jogadores}}
+
+
+Classe para representar os jogadores.  
+
+
+
+
+{\ttfamily \#include $<$Jogadores.\+hpp$>$}
+
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_jogadores_a7ce59dd91823c2d9b4c45232ce14e007}{Jogadores}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{class_jogadores}{Jogadores}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_jogadores_aa256a9f6ad3ee99bdbaab84d38200ca0}{Jogadores}} (string \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}}, string \mbox{\hyperlink{class_jogadores_a1ba1b98d70849c735244b166898d750e}{Nome}})
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_jogadores}{Jogadores} com parâmetros. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_jogadores}{Jogadores}} \mbox{\hyperlink{class_jogadores_a493d5a06a6121c7a30955ece523e2aba}{log\+In}} (string \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}}, vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Login de um jogador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jogadores_aa2c5f3742932f8b358bc0ec791bd6a76}{atualiza\+Estatisticas}} (char jogo\+Escolhido, vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Atualiza as estatísticas de um jogador para um jogo específico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jogadores_a5e6bdcf21b3af5b020fb0442d1b3d281}{ordenacao\+Apelido}} (vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Ordenação alfabética pelos apelidos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jogadores_ac6ebf6f966eab558f542fb82a1aa957a}{ordenacao\+Nome}} (vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Ordenação pela ordem alfabética pelos nomes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_jogadores_acf3c4563e58d9b11b8a406771e4a90c0}{pesquisa\+Jogador}} (string \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}})
+\begin{DoxyCompactList}\small\item\em Procura por um jogador no arquivo utilizando seu apelido. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_jogadores_ab56e0ab1dfa7ad145d55a4f1119b7db2}{reescreve\+Arquivo}} (vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Resscrita de informações no arquivo. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_jogadores_a909b8c99998bde6fd4443b4284e07bd8}{remove\+Jogador}} (vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector, string \&\mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}})
+\begin{DoxyCompactList}\small\item\em Remove um jogador. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_jogadores_a22e95f708db5298c9790f9e013b46a91}{mostrar\+Ranking}} (const char \&jogo\+Escolhido, vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Exibir ranking de jogadores. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_jogadores_aec339a7d33055988ddc61f59a03e6fc9}{mostrar\+Estatisticas}} (vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector, const string \&ordenacao)
+\begin{DoxyCompactList}\small\item\em Mostra as estatísticas dos jogadores, ordenadas por apelido ou nome. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_jogadores_a56d8fb759501e0b99309186776cd4613}{carregar\+Jogadores}} (vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Carrega as informações dos jogadores a partir de um arquivo para o vetor de jogadores. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_jogadores_ae2085de52af59584db9d265ac569cae0}{cadastrar\+Jogadores}} (string apelido, string nome, \mbox{\hyperlink{class_jogadores}{Jogadores}} \&Jogador, vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&jogadores\+Vector)
+\begin{DoxyCompactList}\small\item\em Cadastro de novo jogador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_jogadores_a1a613c84236c9e3070164b406db0d44f}{Apelido}}
+\item 
+string \mbox{\hyperlink{class_jogadores_a1ba1b98d70849c735244b166898d750e}{Nome}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a88452377766c961e9e61078fe5725265}{reversi\+Wins}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a2b5c8ac9a176d3675080def5ff60f862}{reversi\+Defeats}}
+\item 
+int \mbox{\hyperlink{class_jogadores_af3dc0f6a8eb9ae35fa54b2e7550dd229}{lig4\+Wins}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a1e8757b53815ee36f2334e4b5c17078c}{lig4\+Defeats}}
+\item 
+int \mbox{\hyperlink{class_jogadores_af34ed2bd14a83e4e9ed01686d9dec21a}{tictactoe\+Wins}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a98a9b7708bd405d0e8443a0f38167eba}{tictactoe\+Defeats}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a75b6b88c7154da9de36d8a74877d7cb3}{campo\+Minado\+Wins}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a575460282c6b88d55fa7048303ad2752}{campo\+Minado\+Defeats}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a348a87d2c81ad6455bb187384fff790a}{memoria\+Wins}}
+\item 
+int \mbox{\hyperlink{class_jogadores_a80f27e57808b2df6a60b49cdc04fbc63}{memoria\+Defeats}}
+\item 
+bool \mbox{\hyperlink{class_jogadores_ad46fcee4fe300140a29d653b2aa1973b}{victory}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Classe para representar os jogadores. 
+
+A classe "{}\+Jogadores"{} fornece uma interface básica para cadastrar jogadores, pesquisar por jogador, fazer login, remover jogador, salvar dados de vitória e derrota de cada jogador em estatisticas, visualizar as estaticas, mostrar o ranking de cada jogo, carregar jogadores e ordenar os jogadores por apelido ou por nome. Tudo isso é realizado com persistência de dados em arquivo. 
+
+\doxysubsection{Construtores e Destrutores}
+\Hypertarget{class_jogadores_a7ce59dd91823c2d9b4c45232ce14e007}\index{Jogadores@{Jogadores}!Jogadores@{Jogadores}}
+\index{Jogadores@{Jogadores}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{Jogadores()}{Jogadores()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_jogadores_a7ce59dd91823c2d9b4c45232ce14e007} 
+Jogadores\+::\+Jogadores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor padrão da classe \doxylink{class_jogadores}{Jogadores}. 
+
+Inicializa os atributos de um jogador com valores padrão. \Hypertarget{class_jogadores_aa256a9f6ad3ee99bdbaab84d38200ca0}\index{Jogadores@{Jogadores}!Jogadores@{Jogadores}}
+\index{Jogadores@{Jogadores}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{Jogadores()}{Jogadores()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_jogadores_aa256a9f6ad3ee99bdbaab84d38200ca0} 
+Jogadores\+::\+Jogadores (\begin{DoxyParamCaption}\item[{string}]{apelido}{, }\item[{string}]{nome}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_jogadores}{Jogadores} com parâmetros. 
+
+Inicializa um jogador com os valores dados e salva no arquivo.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Apelido} & string \\
+\hline
+{\em Nome} & string\\
+\hline
+\end{DoxyParams}
+Inicializa um jogador com os valores fornecidos e salva suas informações em um arquivo.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em apelido} & Apelido do jogador. \\
+\hline
+{\em nome} & Nome do jogador. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{class_jogadores_aa2c5f3742932f8b358bc0ec791bd6a76}\index{Jogadores@{Jogadores}!atualizaEstatisticas@{atualizaEstatisticas}}
+\index{atualizaEstatisticas@{atualizaEstatisticas}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{atualizaEstatisticas()}{atualizaEstatisticas()}}
+{\footnotesize\ttfamily \label{class_jogadores_aa2c5f3742932f8b358bc0ec791bd6a76} 
+void Jogadores\+::atualiza\+Estatisticas (\begin{DoxyParamCaption}\item[{char}]{jogo\+Escolhido}{, }\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})}
+
+
+
+Atualiza as estatísticas de um jogador para um jogo específico. 
+
+Com base no jogo escolhido e no resultado, atualiza as estatísticas.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogo\+Escolhido} & char \\
+\hline
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+Com base no jogo escolhido e no resultado (vitória ou derrota), atualiza as estatísticas do jogador.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogo\+Escolhido} & Caracter que identifica o jogo. \\
+\hline
+{\em jogadores\+Vector} & Vetor contendo todos os jogadores cadastrados. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_jogadores_ae2085de52af59584db9d265ac569cae0}\index{Jogadores@{Jogadores}!cadastrarJogadores@{cadastrarJogadores}}
+\index{cadastrarJogadores@{cadastrarJogadores}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{cadastrarJogadores()}{cadastrarJogadores()}}
+{\footnotesize\ttfamily \label{class_jogadores_ae2085de52af59584db9d265ac569cae0} 
+void Jogadores\+::cadastrar\+Jogadores (\begin{DoxyParamCaption}\item[{string}]{apelido}{, }\item[{string}]{nome}{, }\item[{\mbox{\hyperlink{class_jogadores}{Jogadores}} \&}]{Jogador}{, }\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Cadastro de novo jogador. 
+
+Cadastra um novo jogador no sistema e o adiciona ao vetor de jogadores.
+
+Cadastra um novo jogador no sistema e o adiciona ao vetor de jogadores.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em apelido} & string \\
+\hline
+{\em nome} & string \\
+\hline
+{\em Jogador} & \doxylink{class_jogadores}{Jogadores} \\
+\hline
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores}\\
+\hline
+\end{DoxyParams}
+Verifica se o apelido já existe e, caso contrário, adiciona o novo jogador ao vetor e ao arquivo.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em apelido} & Apelido do novo jogador. \\
+\hline
+{\em nome} & Nome do novo jogador. \\
+\hline
+{\em Jogador} & Referência ao objeto \doxylink{class_jogadores}{Jogadores} a ser cadastrado. \\
+\hline
+{\em jogadores\+Vector} & Vetor contendo todos os jogadores cadastrados. \\
+\hline
+\end{DoxyParams}
+se jogador já existir\Hypertarget{class_jogadores_a56d8fb759501e0b99309186776cd4613}\index{Jogadores@{Jogadores}!carregarJogadores@{carregarJogadores}}
+\index{carregarJogadores@{carregarJogadores}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{carregarJogadores()}{carregarJogadores()}}
+{\footnotesize\ttfamily \label{class_jogadores_a56d8fb759501e0b99309186776cd4613} 
+void Jogadores\+::carregar\+Jogadores (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Carrega as informações dos jogadores a partir de um arquivo para o vetor de jogadores. 
+
+Lê o arquivo de jogadores e preenche o vetor de jogadores com as informações carregadas.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores}\\
+\hline
+\end{DoxyParams}
+Lê o arquivo de jogadores e preenche o vetor de jogadores com as informações carregadas.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogadores\+Vector} & Vetor que será preenchido com as informações dos jogadores. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_jogadores_a493d5a06a6121c7a30955ece523e2aba}\index{Jogadores@{Jogadores}!logIn@{logIn}}
+\index{logIn@{logIn}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{logIn()}{logIn()}}
+{\footnotesize\ttfamily \label{class_jogadores_a493d5a06a6121c7a30955ece523e2aba} 
+\mbox{\hyperlink{class_jogadores}{Jogadores}} Jogadores\+::log\+In (\begin{DoxyParamCaption}\item[{string}]{Apelido}{, }\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})}
+
+
+
+Login de um jogador. 
+
+Realiza o login de um jogador, carregando suas informações do vetor de jogadores.
+
+Realiza o login de um jogador.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Apelido} & string \\
+\hline
+{\em jogadores\+Vector} & string\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em \doxylink{class_jogadores}{Jogadores}} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parâmetros}
+{\em Apelido} & Apelido do jogador a ser logado. \\
+\hline
+{\em jogadores\+Vector} & Vetor contendo todos os jogadores cadastrados. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna o jogador logado com suas informações carregadas. 
+\end{DoxyReturn}
+\Hypertarget{class_jogadores_aec339a7d33055988ddc61f59a03e6fc9}\index{Jogadores@{Jogadores}!mostrarEstatisticas@{mostrarEstatisticas}}
+\index{mostrarEstatisticas@{mostrarEstatisticas}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{mostrarEstatisticas()}{mostrarEstatisticas()}}
+{\footnotesize\ttfamily \label{class_jogadores_aec339a7d33055988ddc61f59a03e6fc9} 
+void Jogadores\+::mostrar\+Estatisticas (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{, }\item[{const string \&}]{ordenacao}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Mostra as estatísticas dos jogadores, ordenadas por apelido ou nome. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores} \\
+\hline
+{\em ordenacao} & string\\
+\hline
+{\em jogadores\+Vector} & Vetor contendo todos os jogadores cadastrados. \\
+\hline
+{\em ordenacao} & Critério de ordenação\+: \textquotesingle{}A\textquotesingle{} para apelido, \textquotesingle{}N\textquotesingle{} para nome. \\
+\hline
+\end{DoxyParams}
+selection sort
+
+ordenação por apelido
+
+ordenação por nome\Hypertarget{class_jogadores_a22e95f708db5298c9790f9e013b46a91}\index{Jogadores@{Jogadores}!mostrarRanking@{mostrarRanking}}
+\index{mostrarRanking@{mostrarRanking}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{mostrarRanking()}{mostrarRanking()}}
+{\footnotesize\ttfamily \label{class_jogadores_a22e95f708db5298c9790f9e013b46a91} 
+void Jogadores\+::mostrar\+Ranking (\begin{DoxyParamCaption}\item[{const char \&}]{jogo\+Escolhido}{, }\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Exibir ranking de jogadores. 
+
+Mostra o ranking dos jogadores para um jogo específico, ordenado pelo número de vitórias.
+
+Mostra o ranking dos jogadores para um jogo específico.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogo\+Escolhido} & char \\
+\hline
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogo\+Escolhido} & Caracter que identifica o jogo. \\
+\hline
+{\em jogadores\+Vector} & Vetor contendo todos os jogadores cadastrados. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_jogadores_a5e6bdcf21b3af5b020fb0442d1b3d281}\index{Jogadores@{Jogadores}!ordenacaoApelido@{ordenacaoApelido}}
+\index{ordenacaoApelido@{ordenacaoApelido}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{ordenacaoApelido()}{ordenacaoApelido()}}
+{\footnotesize\ttfamily \label{class_jogadores_a5e6bdcf21b3af5b020fb0442d1b3d281} 
+void Jogadores\+::ordenacao\+Apelido (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})}
+
+
+
+Ordenação alfabética pelos apelidos. 
+
+Ordena o vetor pela ordem dos apelidos.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em apelido} & string \\
+\hline
+{\em nome} & string \\
+\hline
+{\em Jogador} & \doxylink{class_jogadores}{Jogadores} \\
+\hline
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_jogadores_ac6ebf6f966eab558f542fb82a1aa957a}\index{Jogadores@{Jogadores}!ordenacaoNome@{ordenacaoNome}}
+\index{ordenacaoNome@{ordenacaoNome}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{ordenacaoNome()}{ordenacaoNome()}}
+{\footnotesize\ttfamily \label{class_jogadores_ac6ebf6f966eab558f542fb82a1aa957a} 
+void Jogadores\+::ordenacao\+Nome (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})}
+
+
+
+Ordenação pela ordem alfabética pelos nomes. 
+
+Ordena o vetor pela ordem dos nomes.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em apelido} & string \\
+\hline
+{\em nome} & string \\
+\hline
+{\em Jogador} & \doxylink{class_jogadores}{Jogadores} \\
+\hline
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_jogadores_acf3c4563e58d9b11b8a406771e4a90c0}\index{Jogadores@{Jogadores}!pesquisaJogador@{pesquisaJogador}}
+\index{pesquisaJogador@{pesquisaJogador}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{pesquisaJogador()}{pesquisaJogador()}}
+{\footnotesize\ttfamily \label{class_jogadores_acf3c4563e58d9b11b8a406771e4a90c0} 
+int Jogadores\+::pesquisa\+Jogador (\begin{DoxyParamCaption}\item[{string}]{apelido}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Procura por um jogador no arquivo utilizando seu apelido. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em Apelido} & int \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parâmetros}
+{\em apelido} & Apelido do jogador a ser procurado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Retorna 1 se o jogador for encontrado, caso contrário, retorna 0. 
+\end{DoxyReturn}
+\Hypertarget{class_jogadores_ab56e0ab1dfa7ad145d55a4f1119b7db2}\index{Jogadores@{Jogadores}!reescreveArquivo@{reescreveArquivo}}
+\index{reescreveArquivo@{reescreveArquivo}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{reescreveArquivo()}{reescreveArquivo()}}
+{\footnotesize\ttfamily \label{class_jogadores_ab56e0ab1dfa7ad145d55a4f1119b7db2} 
+void Jogadores\+::reescreve\+Arquivo (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Resscrita de informações no arquivo. 
+
+Reescreve o arquivo de jogadores com as informações atualizadas.
+
+Reescreve o arquivo de jogadores com as informações atualizadas, apagando o conteúdo anterior.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+Apaga o conteúdo anterior do arquivo e grava as informações presentes no vetor de jogadores.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogadores\+Vector} & Vetor contendo todos os jogadores cadastrados. \\
+\hline
+\end{DoxyParams}
+Abre o arquivo apaga o conteúdo anterior
+
+Reescreve o arquivo com o conteúdo atualizado do vetor\Hypertarget{class_jogadores_a909b8c99998bde6fd4443b4284e07bd8}\index{Jogadores@{Jogadores}!removeJogador@{removeJogador}}
+\index{removeJogador@{removeJogador}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{removeJogador()}{removeJogador()}}
+{\footnotesize\ttfamily \label{class_jogadores_a909b8c99998bde6fd4443b4284e07bd8} 
+void Jogadores\+::remove\+Jogador (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_jogadores}{Jogadores}} $>$ \&}]{jogadores\+Vector}{, }\item[{string \&}]{Apelido}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Remove um jogador. 
+
+Remove um jogador do vetor de jogadores e atualiza o arquivo.
+
+Procura pelo jogador no vetor utilizando o apelido, e o remove.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogadores\+Vector} & vetor \doxylink{class_jogadores}{Jogadores} \\
+\hline
+{\em Apelido} & string\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Valores Retornados}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+Procura pelo jogador no vetor utilizando o apelido, remove-\/o e atualiza o arquivo de jogadores.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em jogadores\+Vector} & Vetor contendo todos os jogadores cadastrados. \\
+\hline
+{\em Apelido} & Apelido do jogador a ser removido. \\
+\hline
+\end{DoxyParams}
+Procura pelo jogador no vetor
+
+Remove o jogador do vetor
+
+Se o jogador foi encontrado e removido do vetor, reescreva o arquivo
+
+Abre o arquivo e exclui o conteúdo anterior
+
+\doxysubsection{Atributos}
+\Hypertarget{class_jogadores_a1a613c84236c9e3070164b406db0d44f}\index{Jogadores@{Jogadores}!Apelido@{Apelido}}
+\index{Apelido@{Apelido}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{Apelido}{Apelido}}
+{\footnotesize\ttfamily \label{class_jogadores_a1a613c84236c9e3070164b406db0d44f} 
+string Jogadores\+::\+Apelido}
+
+\Hypertarget{class_jogadores_a575460282c6b88d55fa7048303ad2752}\index{Jogadores@{Jogadores}!campoMinadoDefeats@{campoMinadoDefeats}}
+\index{campoMinadoDefeats@{campoMinadoDefeats}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{campoMinadoDefeats}{campoMinadoDefeats}}
+{\footnotesize\ttfamily \label{class_jogadores_a575460282c6b88d55fa7048303ad2752} 
+int Jogadores\+::campo\+Minado\+Defeats}
+
+\Hypertarget{class_jogadores_a75b6b88c7154da9de36d8a74877d7cb3}\index{Jogadores@{Jogadores}!campoMinadoWins@{campoMinadoWins}}
+\index{campoMinadoWins@{campoMinadoWins}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{campoMinadoWins}{campoMinadoWins}}
+{\footnotesize\ttfamily \label{class_jogadores_a75b6b88c7154da9de36d8a74877d7cb3} 
+int Jogadores\+::campo\+Minado\+Wins}
+
+\Hypertarget{class_jogadores_a1e8757b53815ee36f2334e4b5c17078c}\index{Jogadores@{Jogadores}!lig4Defeats@{lig4Defeats}}
+\index{lig4Defeats@{lig4Defeats}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{lig4Defeats}{lig4Defeats}}
+{\footnotesize\ttfamily \label{class_jogadores_a1e8757b53815ee36f2334e4b5c17078c} 
+int Jogadores\+::lig4\+Defeats}
+
+\Hypertarget{class_jogadores_af3dc0f6a8eb9ae35fa54b2e7550dd229}\index{Jogadores@{Jogadores}!lig4Wins@{lig4Wins}}
+\index{lig4Wins@{lig4Wins}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{lig4Wins}{lig4Wins}}
+{\footnotesize\ttfamily \label{class_jogadores_af3dc0f6a8eb9ae35fa54b2e7550dd229} 
+int Jogadores\+::lig4\+Wins}
+
+\Hypertarget{class_jogadores_a80f27e57808b2df6a60b49cdc04fbc63}\index{Jogadores@{Jogadores}!memoriaDefeats@{memoriaDefeats}}
+\index{memoriaDefeats@{memoriaDefeats}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{memoriaDefeats}{memoriaDefeats}}
+{\footnotesize\ttfamily \label{class_jogadores_a80f27e57808b2df6a60b49cdc04fbc63} 
+int Jogadores\+::memoria\+Defeats}
+
+\Hypertarget{class_jogadores_a348a87d2c81ad6455bb187384fff790a}\index{Jogadores@{Jogadores}!memoriaWins@{memoriaWins}}
+\index{memoriaWins@{memoriaWins}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{memoriaWins}{memoriaWins}}
+{\footnotesize\ttfamily \label{class_jogadores_a348a87d2c81ad6455bb187384fff790a} 
+int Jogadores\+::memoria\+Wins}
+
+\Hypertarget{class_jogadores_a1ba1b98d70849c735244b166898d750e}\index{Jogadores@{Jogadores}!Nome@{Nome}}
+\index{Nome@{Nome}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{Nome}{Nome}}
+{\footnotesize\ttfamily \label{class_jogadores_a1ba1b98d70849c735244b166898d750e} 
+string Jogadores\+::\+Nome}
+
+\Hypertarget{class_jogadores_a2b5c8ac9a176d3675080def5ff60f862}\index{Jogadores@{Jogadores}!reversiDefeats@{reversiDefeats}}
+\index{reversiDefeats@{reversiDefeats}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{reversiDefeats}{reversiDefeats}}
+{\footnotesize\ttfamily \label{class_jogadores_a2b5c8ac9a176d3675080def5ff60f862} 
+int Jogadores\+::reversi\+Defeats}
+
+\Hypertarget{class_jogadores_a88452377766c961e9e61078fe5725265}\index{Jogadores@{Jogadores}!reversiWins@{reversiWins}}
+\index{reversiWins@{reversiWins}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{reversiWins}{reversiWins}}
+{\footnotesize\ttfamily \label{class_jogadores_a88452377766c961e9e61078fe5725265} 
+int Jogadores\+::reversi\+Wins}
+
+\Hypertarget{class_jogadores_a98a9b7708bd405d0e8443a0f38167eba}\index{Jogadores@{Jogadores}!tictactoeDefeats@{tictactoeDefeats}}
+\index{tictactoeDefeats@{tictactoeDefeats}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{tictactoeDefeats}{tictactoeDefeats}}
+{\footnotesize\ttfamily \label{class_jogadores_a98a9b7708bd405d0e8443a0f38167eba} 
+int Jogadores\+::tictactoe\+Defeats}
+
+\Hypertarget{class_jogadores_af34ed2bd14a83e4e9ed01686d9dec21a}\index{Jogadores@{Jogadores}!tictactoeWins@{tictactoeWins}}
+\index{tictactoeWins@{tictactoeWins}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{tictactoeWins}{tictactoeWins}}
+{\footnotesize\ttfamily \label{class_jogadores_af34ed2bd14a83e4e9ed01686d9dec21a} 
+int Jogadores\+::tictactoe\+Wins}
+
+\Hypertarget{class_jogadores_ad46fcee4fe300140a29d653b2aa1973b}\index{Jogadores@{Jogadores}!victory@{victory}}
+\index{victory@{victory}!Jogadores@{Jogadores}}
+\doxysubsubsection{\texorpdfstring{victory}{victory}}
+{\footnotesize\ttfamily \label{class_jogadores_ad46fcee4fe300140a29d653b2aa1973b} 
+bool Jogadores\+::victory}
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_jogadores_8hpp}{Jogadores.\+hpp}}\item 
+src/\mbox{\hyperlink{_jogadores_8cpp}{Jogadores.\+cpp}}\end{DoxyCompactItemize}
