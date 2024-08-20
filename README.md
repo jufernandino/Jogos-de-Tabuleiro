@@ -132,7 +132,16 @@ O projeto foi organizado em diferentes classes, cada uma com suas responsabilida
 
     
 4. **Execução de Partidas:**
-   -  Na `main` existem as mecânicas para executar partidas entre jogadores, escolher o jogo, verificação de jogadas e atualização de estatísticas, valendo-se dos métodos das classes.
+   -  Na `main` existem as mecânicas para exibir o menu principal executar partidas entre jogadores, escolher o jogo, verificação de jogadas e atualização de estatísticas, valendo-se dos métodos das classes. Além disso gerencia as opções de cadastro, remoção e listagem de jogadores.
+   -  Funções criadas:
+      - antiUsuario(int &a)
+      - menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector)
+      - voltarMenuPrincipal()
+     
+   4.1 **badInputs:**
+      - Classe de exceção para entradas inválidas do usuário.
+      - Métodos implementados
+        - virtual const char *what() const throw() { return "ERRO: entrada inválida"; }
 
 ## Inputs
 Os inputs foram os estabelecidos pelo enunciado, com as entradas e as eventuais mensagens de erro:
@@ -213,7 +222,7 @@ Durante o desenvolvimento deste projeto, a equipe enfrentou alguns desafios:
   Compreender e executar os testes também se mostrou um processo desafiador. Houve dificuldades em entender a estrutura e como conseguir integrá-los no nosso processo de desenvolvimento.
 
 - Salvar informações no arquivo Jogadores.txt:
-  No processo de manipulação do arquivo, o grupo apresentou dificuldades para tratar um erro específico ao cadastrar usuário, que gerava uma linha em branco no arquivo. A presença desta linha acarretava o não funcionamento do executável, exibindo o seguinte errro: `terminate called after throwing an instance of 'std::invalid_argument' what(): stoi Aborted`   
+  No processo de manipulação do arquivo, o grupo apresentou dificuldades para tratar um erro específico ao excluir um jogagor, o que gerava uma linha em branco no final do arquivo,. A presença desta linha acarretava o não funcionamento do executável, exibindo o seguinte errro: `terminate called after throwing an instance of 'std::invalid_argument' what(): stoi Aborted.` Para o bom funcionamento do código, é necessário retirar as linhas vazias do arquivo. O grupo buscou tratar essa dificuldade por meio de uma função que posiciona o cursor no início do arquivo, para assim evitar que ele chegue ao final. 
 
 Essas dificuldades, embora desafiadoras, contribuíram para um maior aprendizado por parte de toda a equipe. 
 
