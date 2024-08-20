@@ -1,6 +1,6 @@
 alanzoka, Alan Ferreira, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0
 ana, Ana Paula, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+babi, Barbara, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
 caio, Caio, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 duda, Maria Eduarda, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 isa98, Isa, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0

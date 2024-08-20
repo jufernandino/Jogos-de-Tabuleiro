@@ -592,8 +592,7 @@ void Jogadores::mostrarRanking(const char &jogoEscolhido,
       cout << "ERRO: opção inválida" << endl;
     }
   }
-  cout << "\nPara voltar ao Menu Inicial, digite JN\n"
-       << endl;
+  exit(0);
 }
 
 /**

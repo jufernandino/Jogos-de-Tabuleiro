@@ -87,11 +87,13 @@ int main()
 
   Jogadores Jogador1, Jogador2;
 
-  while (1)
+  
+  while (1) {
   {
+    }
     cout << "\n--------\nMENU PRINCIPAL\n--------\n\nOlá! Digite o comando "
             "desejado para iniciar o programa:\n\n"
-         << "CJ - Cadastrar jogadores com apelido Nome (*apelido em minúscula)\n"
+         << "CJ - Cadastrar jogadores no formato <apelido> <Nome> (apelido em minúscula)\n"
          << "RJ - Remover jogador\n"
          << "LJ - Listar jogadores por (A) apelido ou (N) nome\n"
          << "EP - Executar partida\n"
@@ -214,7 +216,7 @@ int main()
       catch (badInputs &e)
       {
         cout << e.what() << endl;
-        voltarMenuPrincipal();
+        continue;
       }
 
       Jogadores::mostrarEstatisticas(jogadoresVector, Modo);
@@ -360,11 +362,6 @@ int main()
         else if (ganhador == 3)
         {
           cout << "Empate!" << endl;
-          Jogador1.empate = true;
-          Jogador2.empate = true;
-
-          Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-          Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
         }
 
         r.liberaMemoria();
@@ -412,12 +409,6 @@ int main()
           else if (ganhador == 3)
           {
             cout << "Empate!" << endl;
-
-            Jogador1.empate = true;
-            Jogador2.empate = true;
-
-            Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-            Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
             break;
           }
           jogadorAtual++;
@@ -487,7 +478,7 @@ int main()
 
         while (1)
         {
-          cout << "Escreva as coordenadas no formato: linha coluna" << endl;
+          cout << "Escreva as coordenadas no formato:\nlinha\ncoluna\n" << endl;
 
           int chute_linha, chute_coluna;
           antiUsuario(chute_linha);
@@ -586,11 +577,6 @@ int main()
         else if (ganhador == 3)
         {
           cout << "Empate!" << endl;
-          Jogador1.empate = true;
-          Jogador2.empate = true;
-
-          Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
-          Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
         }
 
         m.liberaMemoria();
@@ -651,7 +637,7 @@ void antiUsuario(int &a)
 void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector)
 {
 
-  cout << "\nFIM DE JOGO! \n\nVR - Visualizar ranking\nJN - Jogar novamente"
+  cout << "\nFIM DE JOGO! \n\nVR - Visualizar ranking"
        << endl;
 
   while (1)
@@ -681,7 +667,7 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
       catch (badInputs &e)
       {
         cout << e.what() << "; "
-             << "escolha (J)ogar (N)ovamente ou (V)er (R)anking!" << endl;
+             << " " << endl;
         continue;
       }
       catch (exception &e)
@@ -695,11 +681,7 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
         resposta[i] = toupper(aux[i]);
       }
 
-      if (resposta[0] == 'J' && resposta[1] == 'N')
-      {
-        return;
-      }
-      else if (resposta[0] == 'V' && resposta[1] == 'R')
+      if (resposta[0] == 'V' && resposta[1] == 'R')
       {
         Jogadores::mostrarRanking(jogoEscolhido, jogadoresVector);
       }
@@ -754,7 +736,7 @@ void voltarMenuPrincipal()
         }
         else
         {
-          cout << "Escolha (S)im ou (N)ão!" << endl;
+          cout << "Escolha (S) sim ou (N) não!" << endl;
           continue;
         }
       }
@@ -762,7 +744,7 @@ void voltarMenuPrincipal()
     catch (badInputs &e)
     {
       cout << e.what() << "; "
-           << "escolha (S)im ou (N)ão!" << endl;
+           << "Escolha (S) sim ou (N) não!" << endl;
       continue;
     }
     catch (exception &e)
