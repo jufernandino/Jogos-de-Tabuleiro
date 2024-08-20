@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 
@@ -168,8 +169,9 @@ void Jogadores::reescreveArquivo(vector<Jogadores> &jogadoresVector)
     cout << "ERRO: não foi possível abrir o arquivo Jogadores.txt" << endl;
     return;
   }
-
+  
   /// Reescreve o arquivo com o conteúdo atualizado do vetor
+  
   for (const auto &jogador : jogadoresVector)
   {
     out << jogador.Apelido << ", " << jogador.Nome << ", "
@@ -592,8 +594,8 @@ void Jogadores::mostrarRanking(const char &jogoEscolhido,
       cout << "ERRO: opção inválida" << endl;
     }
   }
-  cout << "\nPara voltar ao Menu Inicial, digite JN\n"
-       << endl;
+  cout << "\nPara voltar ao menu inicial, digite JN\n"
+    << endl;
 }
 
 /**
