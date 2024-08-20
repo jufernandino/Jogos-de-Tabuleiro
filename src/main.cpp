@@ -360,6 +360,11 @@ int main()
         else if (ganhador == 3)
         {
           cout << "Empate!" << endl;
+          Jogador1.empate = true;
+          Jogador2.empate = true;
+
+          Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+          Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
         }
 
         r.liberaMemoria();
@@ -407,6 +412,12 @@ int main()
           else if (ganhador == 3)
           {
             cout << "Empate!" << endl;
+
+            Jogador1.empate = true;
+            Jogador2.empate = true;
+
+            Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+            Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
             break;
           }
           jogadorAtual++;
@@ -575,6 +586,11 @@ int main()
         else if (ganhador == 3)
         {
           cout << "Empate!" << endl;
+          Jogador1.empate = true;
+          Jogador2.empate = true;
+
+          Jogador1.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
+          Jogador2.atualizaEstatisticas(jogoEscolhido, jogadoresVector);
         }
 
         m.liberaMemoria();
@@ -665,7 +681,7 @@ void menuFimDeJogo(const char &jogoEscolhido, vector<Jogadores> &jogadoresVector
       catch (badInputs &e)
       {
         cout << e.what() << "; "
-             << "Escolha (JN) jogar novamente ou (VR) ver ranking" << endl;
+             << "escolha (J)ogar (N)ovamente ou (V)er (R)anking!" << endl;
         continue;
       }
       catch (exception &e)
@@ -738,7 +754,7 @@ void voltarMenuPrincipal()
         }
         else
         {
-          cout << "Escolha (S) sim ou (N) não" << endl;
+          cout << "Escolha (S)im ou (N)ão!" << endl;
           continue;
         }
       }
@@ -746,7 +762,7 @@ void voltarMenuPrincipal()
     catch (badInputs &e)
     {
       cout << e.what() << "; "
-           << "Escolha (S) sim ou (N) não" << endl;
+           << "escolha (S)im ou (N)ão!" << endl;
       continue;
     }
     catch (exception &e)

@@ -25,15 +25,20 @@ public:
     string Nome;
     int reversiWins;
     int reversiDefeats;
+    int reversiEmpates;
     int lig4Wins;
     int lig4Defeats;
+    int lig4Empates;
     int tictactoeWins;
     int tictactoeDefeats;
+    int tictactoeEmpates;
     int campoMinadoWins;
     int campoMinadoDefeats;
     int memoriaWins;
     int memoriaDefeats;
+    int memoriaEmpates;
     bool victory;
+    bool empate;
 
     /**
      * @brief Procura por um jogador no arquivo utilizando seu apelido.
